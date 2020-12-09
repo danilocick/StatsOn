@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loadFragment">
+
+    <fragment
+        android:id="@+id/loadFragment"
+        android:name="com.example.mp07_statson.LoadFragment"
+        android:label="fragment_load"
+        tools:layout="@layout/fragment_load" >
+        <action
+            android:id="@+id/action_loadFragment_to_load2Fragment"
+            app:destination="@id/load2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.mp07_statson.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_menuResultFragment"
+            app:destination="@id/menuResultFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuPNuevoFragment2"
+            app:destination="@id/menuPNuevoFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuOptionsFragment"
+            app:destination="@id/menuOptionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/load2Fragment"
+        android:name="com.example.mp07_statson.Load2Fragment"
+        android:label="fragment_load2"
+        tools:layout="@layout/fragment_load2" >
+        <action
+            android:id="@+id/action_load2Fragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuPNuevoFragment"
+        android:name="com.example.mp07_statson.MenuPNuevoFragment"
+        android:label="fragment_menu_p_nuevo"
+        tools:layout="@layout/fragment_menu_p_nuevo" >
+        <action
+            android:id="@+id/action_menuPNuevoFragment_to_rivalFragment"
+            app:destination="@id/rivalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuResultFragment"
+        android:name="com.example.mp07_statson.MenuResultFragment"
+        android:label="fragment_menu_result"
+        tools:layout="@layout/fragment_menu_result" >
+        <action
+            android:id="@+id/action_menuResultFragment_to_resultadoMenuFragment"
+            app:destination="@id/resultadoMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuOptionsFragment"
+        android:name="com.example.mp07_statson.MenuOptionsFragment"
+        android:label="fragment_menu_options"
+        tools:layout="@layout/fragment_menu_options" >
+        <action
+            android:id="@+id/action_menuOptionsFragment_to_optionsFragment"
+            app:destination="@id/optionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/optionsFragment"
+        android:name="com.example.mp07_statson.OptionsFragment"
+        android:label="fragment_options"
+        tools:layout="@layout/fragment_options" />
+    <fragment
+        android:id="@+id/outputFragment"
+        android:name="com.example.mp07_statson.OutputFragment"
+        android:label="fragment_output"
+        tools:layout="@layout/fragment_output" />
+    <fragment
+        android:id="@+id/rivalFragment"
+        android:name="com.example.mp07_statson.RivalFragment"
+        android:label="fragment_rival"
+        tools:layout="@layout/fragment_rival" >
+        <action
+            android:id="@+id/action_rivalFragment_to_equipoAFragment"
+            app:destination="@id/equipoAFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/equipoAFragment"
+        android:name="com.example.mp07_statson.EquipoAFragment"
+        android:label="fragment_equipo_a"
+        tools:layout="@layout/fragment_equipo_a" >
+        <action
+            android:id="@+id/action_equipoAFragment_to_equipoBFragment"
+            app:destination="@id/equipoBFragment" />
+        <action
+            android:id="@+id/action_equipoAFragment_to_addJugadorFragment"
+            app:destination="@id/addJugadorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/equipoBFragment"
+        android:name="com.example.mp07_statson.EquipoBFragment"
+        android:label="fragment_equipo_b"
+        tools:layout="@layout/fragment_equipo_b" >
+        <action
+            android:id="@+id/action_equipoBFragment_to_addJugadorFragment"
+            app:destination="@id/addJugadorFragment" />
+        <action
+            android:id="@+id/action_equipoBFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addJugadorFragment"
+        android:name="com.example.mp07_statson.AddJugadorFragment"
+        android:label="fragment_add_jugador"
+        tools:layout="@layout/fragment_add_jugador" />
+    <fragment
+        android:id="@+id/jugadorFragment"
+        android:name="com.example.mp07_statson.JugadorFragment"
+        android:label="fragment_jugador"
+        tools:layout="@layout/fragment_jugador" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.mp07_statson.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_outputFragment"
+            app:destination="@id/outputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultadoMenuFragment"
+        android:name="com.example.mp07_statson.ResultadoMenuFragment"
+        android:label="fragment_resultado_menu"
+        tools:layout="@layout/fragment_resultado_menu" >
+        <action
+            android:id="@+id/action_resultadoMenuFragment_to_listaJugadoresFragment"
+            app:destination="@id/listaJugadoresFragment" />
+        <action
+            android:id="@+id/action_resultadoMenuFragment_to_listaResultadosFragment"
+            app:destination="@id/listaResultadosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaJugadoresFragment"
+        android:name="com.example.mp07_statson.ListaJugadoresFragment"
+        android:label="fragment_lista_jugadores"
+        tools:layout="@layout/fragment_lista_jugadores" >
+        <action
+            android:id="@+id/action_listaJugadoresFragment_to_jugadorFragment"
+            app:destination="@id/jugadorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaResultadosFragment"
+        android:name="com.example.mp07_statson.ListaResultadosFragment"
+        android:label="fragment_lista_resultados"
+        tools:layout="@layout/fragment_lista_resultados" >
+        <action
+            android:id="@+id/action_listaResultadosFragment_to_outputFragment"
+            app:destination="@id/outputFragment" />
+    </fragment>
+</navigation>

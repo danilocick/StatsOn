@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MP07-StatsOn</string>
+    <string name="goCBSC">goCBSC</string>
+    <string name="partido_nuevo">Partido Nuevo</string>
+    <string name="resultados">Resultados</string>
+    <string name="opciones">Opciones</string>
+    <string name="done">Done</string>
+    <string name="e_rival">Equipo Rival</string>
+    <string name="jugadores">Jugadores</string>
+    <string name="santaColoma">Santa  Coloma</string>
+    <string name="minutos">Minutos</string>
+    <string name="periodos">Periodos</string>
+    <string name="minpe">Min. PE</string>
+    <string name="teamB">TeamB</string>
+    <string name="periodo">Periodo</string>
+    <string name="fRecibida">F. Recibida</string>
+    <string name="cambio">Cambio</string>
+    <string name="tiempoM">Tiempo M.</string>
+    <string name="tapon">Tapón</string>
+    <string name="t3mas">T3 +</string>
+    <string name="t2mas">T2 +</string>
+    <string name="tlmas">TL +</string>
+    <string name="perdida">Pérdida</string>
+    <string name="t3menos">T3 -</string>
+    <string name="t2menos">T2 -</string>
+    <string name="tlmenos">TL -</string>
+    <string name="deshacer">Deshacer</string>
+    <string name="acabarPartido">Acabar Partido</string>
+    <string name="vistaPrevia">Vista Previa</string>
+    <string name="asistencia">Asistencia</string>
+    <string name="robo">Robo</string>
+    <string name="faltaRecibida">Falta Recibida</string>
+    <string name="rebote">Rebote</string>
+    <string name="taponRecibido">Tapón Recibido</string>
+</resources>

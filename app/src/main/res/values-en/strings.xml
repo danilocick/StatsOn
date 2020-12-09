@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MP07-StatsOn</string>
+    <string name="partido_nuevo">New Game</string>
+    <string name="resultados">Results</string>
+    <string name="opciones">Options</string>
+    <string name="done">Done</string>
+    <string name="e_rival">Opponent rival</string>
+    <string name="jugadores">Players</string>
+    <string name="santaColoma">Santa Coloma</string>
+    <string name="minutos">Minuts</string>
+    <string name="periodos">Quarters</string>
+    <string name="minpe">Min. Overtime</string>
+    <string name="teamB">TeamB</string>
+    <string name="periodo">Quarter</string>
+    <string name="fRecibida">F. Recived</string>
+    <string name="cambio">Change</string>
+    <string name="tiempoM">Time Out</string>
+    <string name="tapon">Block</string>
+    <string name="t3mas">T3 +</string>
+    <string name="t2mas">T2 +</string>
+    <string name="tlmas">TL +</string>
+    <string name="perdida">Turnover</string>
+    <string name="t3menos">T3 -</string>
+    <string name="t2menos">T2 -</string>
+    <string name="tlmenos">TL -</string>
+    <string name="deshacer">Undo</string>
+    <string name="acabarPartido">End Game</string>
+    <string name="vistaPrevia">Preview</string>
+    <string name="asistencia">Assist</string>
+    <string name="robo">Steal</string>
+    <string name="faltaRecibida">F. Recived</string>
+    <string name="rebote">Rebound</string>
+    <string name="taponRecibido">Block Recived</string>
+    <string name="goCBSC">goCBSC</string>
+</resources>
