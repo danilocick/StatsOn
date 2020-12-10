@@ -6,8 +6,10 @@
     <string name="partido_nuevo">Partido Nuevo</string>
     <string name="resultados">Resultados</string>
     <string name="opciones">Opciones</string>
+
     <!--barraSuperior-->
     <string name="done">Done</string>
+
     <!--equipo_rival-->
     <string name="e_rival">Equipo Rival</string>
     <string name="nombrerival">Inserta el nombre del rival</string>
@@ -20,6 +22,11 @@
     <!--listaJugadores-->
     <string name="jugadores">Jugadores</string>
     <string name="santaColoma">Santa Coloma</string>
+    <string name="anyadirjugador">Añadir Jugador</string>
+
+    <!--listaJugadores-->
+    <string name="rivales">Rivales</string>
+
     <!--opciones-->
     <string name="minutos">Minutos</string>
     <string name="periodos">Periodos</string>
@@ -53,5 +60,6 @@
     <string name="rebote">Rebote</string>
     <string name="taponRecibido">Tapón Recibido</string>
     <string name="goCBSC" translatable="false">goCBSC</string>
+    <string name="hello_blank_fragment">Helloworld</string>
 
 </resources>

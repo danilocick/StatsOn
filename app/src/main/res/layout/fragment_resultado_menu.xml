@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OptionsFragment"
+    tools:context=".ResultadoMenuFragment"
     android:background="@color/background"
-    android:padding="32dp">
+    android:padding="16dp"
+    android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tituloResultados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rivales"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"/>
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaPartidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:background="@drawable/recyclerv_round" />
+
+</LinearLayout>

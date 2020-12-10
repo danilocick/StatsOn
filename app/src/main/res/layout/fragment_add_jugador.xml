@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".AddJugadorFragment"
     android:background="@color/background"
-    android:padding="32dp"
+    android:padding="16dp"
     android:orientation="vertical">
 
     <TextView
@@ -15,7 +15,7 @@
         android:text="@string/jugador"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:paddingBottom="120dp"
+        android:paddingBottom="100dp"
         android:textColor="@color/white"/>
     <!--TODO: font family
     android:fontFamily="" -->
@@ -25,26 +25,35 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="110dp"
-            android:layout_marginEnd="110dp"
-            android:background="@drawable/fotoAddJugador"
+            android:layout_marginStart="120dp"
+            android:layout_marginEnd="120dp"
+            android:background="@drawable/add_jugador"
             android:textAlignment="center" />
 
     </RelativeLayout>
     <!--TODO: aligment button-->
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"/>
+
     <EditText
         android:id="@+id/nombreJugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/reddark"
         android:hint="@string/jugadorNombre"
         android:background="@drawable/textedit_round"/>
     <!--TODO: padding between both edittext-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"/>
 
     <EditText
         android:id="@+id/dorsalJugador"

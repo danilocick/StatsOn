@@ -29,4 +29,6 @@
     <string name="jugador">Jugador</string>
     <string name="jugadorNombre">Nombre</string>
     <string name="jugadorDorsal">Dorsal</string>
+    <string name="rivales">Rivales</string>
+    <string name="anyadirjugador">Añadir Jugador</string>
 </resources>

@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OptionsFragment"
     android:background="@color/background"
-    android:padding="32dp">
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <!--TODO: rigth button expansion-->
+    <TextView
+        android:id="@+id/tituloOpciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/opciones"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"/>
 
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/minutos"
+            android:text="@string/minutos"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/periodos"
+            android:text="@string/minutos"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/minutospe"
+            android:text="@string/minpe"/>
+
+    </LinearLayout>
+
+</LinearLayout>
