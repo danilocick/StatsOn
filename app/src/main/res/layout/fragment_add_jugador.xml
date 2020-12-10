@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".AddJugadorFragment"
     android:background="@color/background"
-    android:padding="16dp"
+    android:padding="40dp"
     android:orientation="vertical">
 
     <TextView
@@ -15,32 +15,25 @@
         android:text="@string/jugador"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:paddingBottom="100dp"
+        android:layout_marginBottom="80dp"
         android:textColor="@color/white"/>
     <!--TODO: font family
     android:fontFamily="" -->
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="80dp"
+        android:layout_height="80dp">
 
-        <Button
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="120dp"
-            android:layout_marginEnd="120dp"
-            android:background="@drawable/add_jugador"
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:src="@drawable/add_jugador"
+            android:scaleType="fitStart"
             android:textAlignment="center" />
 
     </RelativeLayout>
     <!--TODO: aligment button-->
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"/>
 
     <EditText
         android:id="@+id/nombreJugador"
@@ -48,12 +41,11 @@
         android:layout_height="wrap_content"
         android:textColor="@color/reddark"
         android:hint="@string/jugadorNombre"
-        android:background="@drawable/textedit_round"/>
+        android:background="@drawable/textedit_round"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"/>
     <!--TODO: padding between both edittext-->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"/>
+
 
     <EditText
         android:id="@+id/dorsalJugador"
