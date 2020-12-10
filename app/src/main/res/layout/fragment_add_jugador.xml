@@ -13,16 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/jugador"
+        android:fontFamily="@font/postnobillsjaffna_extrabold"
+        android:textSize="80dp"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/white"/>
     <!--TODO: font family
     android:fontFamily="" -->
 
     <RelativeLayout
-        android:layout_width="80dp"
-        android:layout_height="80dp">
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="120dp"
+        android:background="@drawable/recyclerv_round">
 
         <ImageButton
             android:layout_width="match_parent"
