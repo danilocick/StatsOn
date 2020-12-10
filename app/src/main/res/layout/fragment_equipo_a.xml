@@ -8,24 +8,42 @@
     android:padding="16dp"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tituloResultados"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/rivales"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/white"/>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tituloResultados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:text="@string/jugadores"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="70sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:text="@string/santaColoma"
+            android:textSize="33sp"
+            android:gravity="end|bottom"
+            android:paddingTop="72dp"/>
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaPartidos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:layout_height="380dp"
+        android:background="@drawable/recyclerv_round"
         android:padding="10dp"
-        android:background="@drawable/recyclerv_round" />
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center" />
 
     <Button
+        android:id="@+id/anyadirjugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/anyadirjugador"/>

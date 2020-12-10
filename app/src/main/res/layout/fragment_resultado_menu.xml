@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/rivales"
+        android:fontFamily="@font/postnobillsjaffna_extrabold"
+        android:textSize="75sp"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"/>

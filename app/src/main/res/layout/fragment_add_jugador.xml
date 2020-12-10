@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".AddJugadorFragment"
     android:background="@color/background"
-    android:padding="40dp"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    android:paddingTop="16dp"
     android:orientation="vertical">
 
     <TextView
@@ -14,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="@string/jugador"
         android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="80dp"
+        android:textSize="75dp"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:layout_marginBottom="10dp"

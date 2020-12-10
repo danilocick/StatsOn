@@ -14,51 +14,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/opciones"
+        android:fontFamily="@font/postnobillsjaffna_extrabold"
+        android:textSize="75sp"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/minutos"
             android:text="@string/minutos"/>
-
-
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="15dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/periodos"
             android:text="@string/minutos"/>
-
-
-
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="15dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/minutospe"
             android:text="@string/minpe"/>
-
     </LinearLayout>
 
 </LinearLayout>
