@@ -18,7 +18,7 @@
         android:id="@+id/goCBSC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/goCBSC"
+        android:text="@string/goCBSCcarga"
         android:layout_gravity="bottom"
         android:paddingBottom="120dp"
         android:textAlignment="center"

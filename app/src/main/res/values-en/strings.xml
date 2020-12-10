@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MP07-StatsOn</string>
     <string name="partido_nuevo">New Game</string>
     <string name="resultados">Results</string>
     <string name="opciones">Options</string>
@@ -17,13 +16,7 @@
     <string name="cambio">Change</string>
     <string name="tiempoM">Time Out</string>
     <string name="tapon">Block</string>
-    <string name="t3mas">T3 +</string>
-    <string name="t2mas">T2 +</string>
-    <string name="tlmas">TL +</string>
     <string name="perdida">Turnover</string>
-    <string name="t3menos">T3 -</string>
-    <string name="t2menos">T2 -</string>
-    <string name="tlmenos">TL -</string>
     <string name="deshacer">Undo</string>
     <string name="acabarPartido">End Game</string>
     <string name="vistaPrevia">Preview</string>
@@ -32,5 +25,8 @@
     <string name="faltaRecibida">F. Recived</string>
     <string name="rebote">Rebound</string>
     <string name="taponRecibido">Block Recived</string>
-    <string name="goCBSC">goCBSC</string>
+    <string name="nombrerival">Insert rival name</string>
+    <string name="jugador">Player</string>
+    <string name="jugadorNombre">Name</string>
+    <string name="jugadorDorsal">Dorsal</string>
 </resources>

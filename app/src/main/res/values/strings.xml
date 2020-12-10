@@ -1,7 +1,7 @@
 <resources>
     <!--intro-->
-    <string name="app_name">MP07-StatsOn</string>
-    <string name="">#goCBSC</string>
+    <string name="app_name" translatable="false">MP07-StatsOn</string>
+    <string name="goCBSCcarga" translatable="false">#goCBSC</string>
     <!--menu-->
     <string name="partido_nuevo">Partido Nuevo</string>
     <string name="resultados">Resultados</string>
@@ -10,6 +10,13 @@
     <string name="done">Done</string>
     <!--equipo_rival-->
     <string name="e_rival">Equipo Rival</string>
+    <string name="nombrerival">Inserta el nombre del rival</string>
+
+    <!--añadirJugador-->
+    <string name="jugador">jugador</string>
+    <string name="jugadorNombre">Nombre</string>
+    <string name="jugadorDorsal">Dorsal</string>
+
     <!--listaJugadores-->
     <string name="jugadores">Jugadores</string>
     <string name="santaColoma">Santa Coloma</string>
@@ -26,14 +33,14 @@
     <string name="tiempoM">Tiempo M.</string>
     <string name="tapon">Tapón</string>
 
-    <string name="t3mas">T3 +</string>
-    <string name="t2mas">T2 +</string>
-    <string name="tlmas">TL +</string>
+    <string name="t3mas" translatable="false">T3 +</string>
+    <string name="t2mas" translatable="false">T2 +</string>
+    <string name="tlmas" translatable="false">TL +</string>
     <string name="perdida">Pérdida</string>
 
-    <string name="t3menos">T3 -</string>
-    <string name="t2menos">T2 -</string>
-    <string name="tlmenos">TL -</string>
+    <string name="t3menos" translatable="false">T3 -</string>
+    <string name="t2menos" translatable="false">T2 -</string>
+    <string name="tlmenos" translatable="false">TL -</string>
     <string name="deshacer">Deshacer</string>
 
     <string name="acabarPartido">Acabar Partido</string>
@@ -45,6 +52,6 @@
     <string name="faltaRecibida">Falta Recibida</string>
     <string name="rebote">Rebote</string>
     <string name="taponRecibido">Tapón Recibido</string>
-    <string name="goCBSC">goCBSC</string>
+    <string name="goCBSC" translatable="false">goCBSC</string>
 
 </resources>

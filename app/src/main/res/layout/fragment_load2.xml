@@ -3,23 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Load2Fragment"
+    tools:context=".LoadFragment"
     android:background="@color/background">
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scaleType="center"
+        android:layout_gravity="center"
+        android:outlineAmbientShadowColor="@color/white"
         android:src="@drawable/logito"
         android:visibility="gone"/>
 
     <TextView
         android:id="@+id/goCBSC"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/"
+        android:layout_height="wrap_content"
+        android:text="@string/goCBSCcarga"
+        android:layout_gravity="bottom"
+        android:paddingBottom="120dp"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:visibility="gone"/>
 
 </FrameLayout>

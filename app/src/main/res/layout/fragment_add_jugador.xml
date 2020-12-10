@@ -1,11 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddJugadorFragment"
     android:background="@color/background"
-    android:padding="32dp">
+    android:padding="32dp"
+    android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tituloJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/jugador"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:paddingBottom="120dp"
+        android:textColor="@color/white"/>
+    <!--TODO: font family
+    android:fontFamily="" -->
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="110dp"
+            android:layout_marginEnd="110dp"
+            android:background="@drawable/fotoAddJugador"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
+    <!--TODO: aligment button-->
+
+    <EditText
+        android:id="@+id/nombreJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:hint="@string/jugadorNombre"
+        android:background="@drawable/textedit_round"/>
+    <!--TODO: padding between both edittext-->
+
+    <EditText
+        android:id="@+id/dorsalJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:hint="@string/jugadorDorsal"
+        android:background="@drawable/textedit_round"/>
+
+</LinearLayout>
