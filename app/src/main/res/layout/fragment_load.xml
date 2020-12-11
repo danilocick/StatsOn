@@ -11,7 +11,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:outlineAmbientShadowColor="@color/white"
         android:src="@drawable/logito" />
 
     <TextView
@@ -19,8 +18,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/goCBSCcarga"
+        android:fontFamily="@font/postnobillsjaffna_extrabold"
+        android:textSize="75sp"
         android:layout_gravity="bottom"
-        android:paddingBottom="120dp"
+        android:layout_marginBottom="45dp"
         android:textAlignment="center"
         android:textColor="@color/white" />
 

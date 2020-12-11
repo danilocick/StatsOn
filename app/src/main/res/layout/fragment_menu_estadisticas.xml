@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MenuFragment">
+    tools:context=".MenuEstadisticasFragment">
 
     <ImageView
         android:layout_width="fill_parent"
@@ -24,7 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:padding="10dp"
             android:text="@string/partido_nuevo"
             android:textColor="@color/red"
             app:layout_constraintTop_toTopOf="parent"
@@ -42,21 +40,20 @@
             app:layout_constraintTop_toBottomOf="@id/botonPartidoNuevo"
             app:layout_constraintBottom_toTopOf="@id/botonEstadisticas"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/botonEstadisticas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/red"
+            android:backgroundTint="@color/button"
+            android:textColor="@color/white"
+            android:alpha="0.65"
             android:text="@string/estadisticas"
             app:layout_constraintTop_toBottomOf="@id/botonResultados"
             app:layout_constraintBottom_toTopOf="@id/botonOpciones"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/botonOpciones"
@@ -68,8 +65,7 @@
             app:layout_constraintTop_toBottomOf="@id/botonEstadisticas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
 
+</FrameLayout>

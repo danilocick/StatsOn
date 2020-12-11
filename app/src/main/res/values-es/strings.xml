@@ -31,4 +31,6 @@
     <string name="jugadorDorsal">Dorsal</string>
     <string name="rivales">Rivales</string>
     <string name="anyadirjugador">Añadir Jugador</string>
+    <string name="estadisticas">Estadísticas Individuales</string>
+    <string name="partidos">Partidos</string>
 </resources>

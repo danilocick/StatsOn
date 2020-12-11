@@ -13,12 +13,10 @@
         android:scaleType="centerCrop"
         android:src="@drawable/fondo" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:padding="120dp"
+        android:layout_margin="80dp"
         tools:context=".MenuFragment">
 
         <Button
@@ -26,27 +24,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:textColor="@color/red"
             android:text="@string/partido_nuevo"
+            android:textColor="@color/red"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/botonResultados"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent"/>
 
         <Button
             android:id="@+id/botonResultados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/button"
-            android:alpha="0.65"
             android:textColor="@color/white"
+            android:alpha="0.65"
             android:text="@string/resultados"
             app:layout_constraintTop_toBottomOf="@id/botonPartidoNuevo"
+            app:layout_constraintBottom_toTopOf="@id/botonEstadisticas"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/botonEstadisticas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:backgroundTint="@color/white"
+            android:text="@string/estadisticas"
+            app:layout_constraintTop_toBottomOf="@id/botonResultados"
             app:layout_constraintBottom_toTopOf="@id/botonOpciones"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/botonOpciones"
@@ -55,10 +63,9 @@
             android:backgroundTint="@color/white"
             android:textColor="@color/red"
             android:text="@string/opciones"
-            app:layout_constraintTop_toBottomOf="@id/botonResultados"
+            app:layout_constraintTop_toBottomOf="@id/botonEstadisticas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

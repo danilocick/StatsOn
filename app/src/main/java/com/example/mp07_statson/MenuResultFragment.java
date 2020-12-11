@@ -55,7 +55,7 @@ public class MenuResultFragment extends Fragment {
             public void run() {
                 try {
                     // simular la carga de recursos
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                     finishedLoading.postValue(true);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

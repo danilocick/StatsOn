@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_menuFragment_to_menuOptionsFragment"
             app:destination="@id/menuOptionsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuEstadisticasFragment"
+            app:destination="@id/menuEstadisticasFragment" />
     </fragment>
     <fragment
         android:id="@+id/load2Fragment"
@@ -133,9 +136,6 @@
         android:label="fragment_resultado_menu"
         tools:layout="@layout/fragment_resultado_menu" >
         <action
-            android:id="@+id/action_resultadoMenuFragment_to_listaJugadoresFragment"
-            app:destination="@id/listaJugadoresFragment" />
-        <action
             android:id="@+id/action_resultadoMenuFragment_to_listaResultadosFragment"
             app:destination="@id/listaResultadosFragment" />
     </fragment>
@@ -156,5 +156,14 @@
         <action
             android:id="@+id/action_listaResultadosFragment_to_outputFragment"
             app:destination="@id/outputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuEstadisticasFragment"
+        android:name="com.example.mp07_statson.MenuEstadisticasFragment"
+        android:label="fragment_menu_estadisticas"
+        tools:layout="@layout/fragment_menu_estadisticas" >
+        <action
+            android:id="@+id/action_menuEstadisticasFragment_to_listaJugadoresFragment"
+            app:destination="@id/listaJugadoresFragment" />
     </fragment>
 </navigation>
