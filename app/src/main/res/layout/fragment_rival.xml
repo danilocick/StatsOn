@@ -14,13 +14,11 @@
         android:layout_height="wrap_content"
         android:text="@string/e_rival"
         android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="75sp"
+        android:textSize="75dp"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:layout_marginBottom="180dp"
         android:textColor="@color/white"/>
-    <!--TODO: font family
-    android:fontFamily="" -->
 
     <EditText
         android:id="@+id/nombreRival"
