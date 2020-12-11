@@ -21,8 +21,6 @@
         android:textAllCaps="true"
         android:layout_marginBottom="10dp"
         android:textColor="@color/white"/>
-    <!--TODO: font family
-    android:fontFamily="" -->
 
     <RelativeLayout
         android:layout_width="100dp"
@@ -37,7 +35,6 @@
             android:src="@drawable/add_jugador"
             android:scaleType="fitStart"
             android:textAlignment="center" />
-
     </RelativeLayout>
     <!--TODO: aligment button-->
 
@@ -50,8 +47,6 @@
         android:background="@drawable/textedit_round"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"/>
-    <!--TODO: padding between both edittext-->
-
 
     <EditText
         android:id="@+id/dorsalJugador"

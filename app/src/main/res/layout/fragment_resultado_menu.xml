@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ResultadoMenuFragment"
-    android:background="@color/background"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tituloResultados"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/partidos"
-        android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="75sp"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/white"/>
+        android:layout_height="match_parent"
+        tools:context=".ResultadoMenuFragment"
+        android:background="@color/background"
+        android:padding="16dp"
+        android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaPartidos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:padding="10dp"
-        android:background="@drawable/recyclerv_round" />
+        <TextView
+            android:id="@+id/tituloResultados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/partidos"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:textSize="75sp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white" />
 
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaPartidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:background="@drawable/recyclerv_round" />
+
+    </LinearLayout>
+</RelativeLayout>
