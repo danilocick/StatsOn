@@ -5,22 +5,20 @@ tools:context=".EquipoBFragment"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
-<include android:id="@+id/toolbarDone"
-    layout="@layout/toolbar_done"/>
 
-<LinearLayout
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:layout_marginTop="40dp"
+    android:layout_marginTop="35dp"
     android:padding="16dp"
     android:orientation="vertical">
 
-    <RelativeLayout
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+            <TextView
             android:id="@+id/tituloResultados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +29,7 @@ android:layout_height="match_parent">
             android:textColor="@color/white"
             android:textSize="70sp" />
 
-        <TextView
+            <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/postnobillsjaffna_extrabold"
@@ -41,7 +39,7 @@ android:layout_height="match_parent">
             android:paddingTop="72dp"/>
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaJugadores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,10 +47,13 @@ android:layout_height="match_parent">
         android:layout_marginBottom="20dp"
         android:background="@drawable/recyclerv_round" />
 
-    <Button
+        <Button
         android:id="@+id/anyadirjugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/anyadirjugador"/>
-</LinearLayout>
+    </LinearLayout>
+
+    <include android:id="@+id/toolbarSiguiente"
+        layout="@layout/toolbar_siguiente"/>
 </RelativeLayout>

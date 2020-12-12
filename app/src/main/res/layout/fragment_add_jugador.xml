@@ -1,59 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".AddJugadorFragment"
-    android:background="@color/background"
-    android:paddingStart="30dp"
-    android:paddingEnd="30dp"
-    android:paddingTop="16dp"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tituloJugador"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/jugador"
-        android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="75dp"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/white"/>
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:layout_marginTop="35dp"
+        android:padding="16dp"
+        android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="120dp"
-        android:background="@drawable/recyclerv_round">
-
-        <ImageButton
+        <TextView
+            android:id="@+id/tituloJugador"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jugador"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:textSize="75dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"/>
 
-            android:src="@drawable/add_jugador"
-            android:scaleType="fitStart"
-            android:textAlignment="center" />
-    </RelativeLayout>
-    <!--TODO: aligment button-->
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="120dp"
+            android:background="@drawable/recyclerv_round">
 
-    <EditText
-        android:id="@+id/nombreJugador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/reddark"
-        android:hint="@string/jugadorNombre"
-        android:background="@drawable/textedit_round"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"/>
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-    <EditText
-        android:id="@+id/dorsalJugador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:hint="@string/jugadorDorsal"
-        android:background="@drawable/textedit_round"/>
+                android:src="@drawable/add_jugador"
+                android:scaleType="fitStart"
+                android:textAlignment="center" />
+        </RelativeLayout>
+        <!--TODO: aligment button-->
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/nombreJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/reddark"
+            android:hint="@string/jugadorNombre"
+            android:background="@drawable/textedit_round"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/dorsalJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:hint="@string/jugadorDorsal"
+            android:background="@drawable/textedit_round"/>
+
+        <Button
+            android:id="@+id/botonCrear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:text="@string/crear"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <include android:id="@+id/toolbarSiguiente"
+        layout="@layout/toolbar_siguiente"/>
+</RelativeLayout>

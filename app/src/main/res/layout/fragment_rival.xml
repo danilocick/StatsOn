@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".RivalFragment"
-    android:background="@color/background"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tituloRival"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/e_rival"
-        android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="75dp"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:layout_marginBottom="180dp"
-        android:textColor="@color/white"/>
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:layout_marginTop="35dp"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tituloRival"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/e_rival"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:textSize="75dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/nombreRival"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="16dp"
         android:hint="@string/nombrerival"
         android:background="@drawable/textedit_round"/>
 
-</LinearLayout>
+    <include android:id="@+id/toolbarSiguiente"
+        layout="@layout/toolbar_siguiente"/>
+
+</RelativeLayout>

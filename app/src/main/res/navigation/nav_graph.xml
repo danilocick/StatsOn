@@ -20,9 +20,6 @@
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/action_menuFragment_to_menuResultFragment"
-            app:destination="@id/menuResultFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_menuPNuevoFragment2"
             app:destination="@id/menuPNuevoFragment" />
         <action
@@ -31,6 +28,9 @@
         <action
             android:id="@+id/action_menuFragment_to_menuEstadisticasFragment"
             app:destination="@id/menuEstadisticasFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuResultFragment"
+            app:destination="@id/menuResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/load2Fragment"
@@ -56,8 +56,8 @@
         android:label="fragment_menu_result"
         tools:layout="@layout/fragment_menu_result" >
         <action
-            android:id="@+id/action_menuResultFragment_to_resultadoMenuFragment"
-            app:destination="@id/resultadoMenuFragment" />
+            android:id="@+id/action_menuResultFragment_to_listaJugadoresFragment"
+            app:destination="@id/listaJugadoresFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuOptionsFragment"
@@ -163,8 +163,8 @@
         android:label="fragment_menu_estadisticas"
         tools:layout="@layout/fragment_menu_estadisticas" >
         <action
-            android:id="@+id/action_menuEstadisticasFragment_to_listaJugadoresFragment"
-            app:destination="@id/listaJugadoresFragment" />
+            android:id="@+id/action_menuEstadisticasFragment_to_resultadoMenuFragment"
+            app:destination="@id/resultadoMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/addJugadorMTFragment"

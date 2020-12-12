@@ -5,33 +5,32 @@ tools:context=".EquipoAFragment"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
-<include android:id="@+id/toolbarDone"
-    layout="@layout/toolbar_done"/>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    android:layout_marginTop="40dp"
-    android:padding="16dp"
-    android:orientation="vertical">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:text="@string/santaColoma"
-        android:textColor="@color/black"
-        android:textSize="70sp"
-        android:gravity="center"/>
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:layout_marginTop="35dp"
+        android:padding="16dp"
+        android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaJugadores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/recyclerv_round" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:text="@string/santaColoma"
+            android:textColor="@color/black"
+            android:textSize="70sp"
+            android:gravity="center"/>
 
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaJugadores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/recyclerv_round" />
+    </LinearLayout>
+
+    <include android:id="@+id/toolbarSiguiente"
+        layout="@layout/toolbar_siguiente"/>
 </RelativeLayout>

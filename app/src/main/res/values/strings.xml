@@ -22,6 +22,7 @@
     <string name="jugador">jugador</string>
     <string name="jugadorNombre">Nombre</string>
     <string name="jugadorDorsal">Dorsal</string>
+    <string name="crear">Crear</string>
 
     <!--listaJugadores-->
     <string name="jugadores">Jugadores</string>
@@ -52,7 +53,7 @@
 
     <string name="t3menos" translatable="false">T3 -</string>
     <string name="t2menos" translatable="false">T2 -</string>
-    <string name="tlmenos" translatable="false">TL -</string>
+    <string name="tlmenos">TL -</string>
     <string name="deshacer">Deshacer</string>
 
     <string name="acabarPartido">Acabar Partido</string>

@@ -35,4 +35,6 @@
     <string name="partidos">Games</string>
     <string name="siguiente">Next</string>
     <string name="rosters">Rosters</string>
+    <string name="crear">Create</string>
+    <string name="roster">Rostrer</string>
 </resources>
