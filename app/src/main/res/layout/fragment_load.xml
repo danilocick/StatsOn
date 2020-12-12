@@ -8,9 +8,10 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginTop="140dp"
+        android:layout_gravity="center_horizontal"
         android:src="@drawable/logito" />
 
     <TextView
@@ -21,7 +22,7 @@
         android:fontFamily="@font/postnobillsjaffna_extrabold"
         android:textSize="75sp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="95dp"
         android:textAlignment="center"
         android:textColor="@color/white" />
 

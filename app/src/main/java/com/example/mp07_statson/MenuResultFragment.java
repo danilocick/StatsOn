@@ -45,7 +45,7 @@ public class MenuResultFragment extends Fragment {
         finishedLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                navController.navigate(R.id.action_menuResultFragment_to_resultadoMenuFragment);
+                navController.navigate(R.id.action_menuResultFragment_to_listaJugadoresFragment);
             }
         });
 

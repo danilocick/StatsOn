@@ -18,13 +18,13 @@
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageView android:id="@+id/botonComeBack"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_baseline_arrow_back_24"
             android:paddingStart="80dp"
             android:paddingEnd="75dp"/>
-        <TextView
+        <TextView android:id="@+id/botonSiguiente"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/siguiente"

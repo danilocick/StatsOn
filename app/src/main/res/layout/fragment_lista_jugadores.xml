@@ -23,12 +23,10 @@
             android:textAllCaps="true"
             android:textColor="@color/white" />
 
-        <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaPartidos"
-            android:layout_width="match_parent"
+        <ListView android:id="@+id/listaPartidos"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="10dp"
-            android:background="@drawable/recyclerv_round" />
+            android:background="@drawable/recyclerv_round"/>
 
     </LinearLayout>
     <include android:id="@+id/toolbarSiguiente"
