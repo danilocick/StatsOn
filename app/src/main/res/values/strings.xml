@@ -5,15 +5,18 @@
     <!--menu-->
     <string name="partido_nuevo">Partido Nuevo</string>
     <string name="resultados">Resultados Partidos</string>
-    <string name="estadisticas">Estadísticas Individuales</string>
+    <string name="mi_equipo">Mi Equipo</string>
     <string name="opciones">Opciones</string>
 
     <!--barraSuperior-->
     <string name="done">Done</string>
+    <string name="siguiente">Siguiente</string>
 
     <!--equipo_rival-->
     <string name="e_rival">Equipo Rival</string>
     <string name="nombrerival">Inserta el nombre del rival</string>
+    <string name="rosters">Rostros</string>
+
 
     <!--añadirJugador-->
     <string name="jugador">jugador</string>

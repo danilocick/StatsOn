@@ -95,9 +95,6 @@
         <action
             android:id="@+id/action_equipoAFragment_to_equipoBFragment"
             app:destination="@id/equipoBFragment" />
-        <action
-            android:id="@+id/action_equipoAFragment_to_addJugadorFragment"
-            app:destination="@id/addJugadorFragment" />
     </fragment>
     <fragment
         android:id="@+id/equipoBFragment"
@@ -138,6 +135,9 @@
         <action
             android:id="@+id/action_resultadoMenuFragment_to_listaResultadosFragment"
             app:destination="@id/listaResultadosFragment" />
+        <action
+            android:id="@+id/action_resultadoMenuFragment_to_addJugadorMTFragment"
+            app:destination="@id/addJugadorMTFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaJugadoresFragment"
@@ -166,4 +166,9 @@
             android:id="@+id/action_menuEstadisticasFragment_to_listaJugadoresFragment"
             app:destination="@id/listaJugadoresFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addJugadorMTFragment"
+        android:name="com.example.mp07_statson.AddJugadorMTFragment"
+        android:label="fragment_add_jugador_m_t"
+        tools:layout="@layout/fragment_add_jugador_m_t" />
 </navigation>

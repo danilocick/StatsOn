@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:textColor="@color/red"
-            android:text="@string/estadisticas"
+            android:text="@string/mi_equipo"
             app:layout_constraintTop_toBottomOf="@id/botonResultados"
             app:layout_constraintBottom_toTopOf="@id/botonOpciones"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -1,51 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context=".EquipoAFragment"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<include android:id="@+id/toolbarDone"
+    layout="@layout/toolbar_done"/>
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EquipoAFragment"
     android:background="@color/background"
+    android:layout_marginTop="40dp"
     android:padding="16dp"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tituloResultados"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/postnobillsjaffna_extrabold"
-            android:text="@string/jugadores"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="70sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/postnobillsjaffna_extrabold"
-            android:text="@string/santaColoma"
-            android:textSize="33sp"
-            android:gravity="end|bottom"
-            android:paddingTop="72dp"/>
-    </RelativeLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaPartidos"
-        android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:background="@drawable/recyclerv_round"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        android:textAlignment="center" />
-
-    <Button
-        android:id="@+id/anyadirjugador"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/anyadirjugador"/>
+        android:fontFamily="@font/postnobillsjaffna_extrabold"
+        android:text="@string/santaColoma"
+        android:textColor="@color/black"
+        android:textSize="70sp"
+        android:gravity="center"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaJugadores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/recyclerv_round" />
 
 </LinearLayout>
+</RelativeLayout>

@@ -49,7 +49,7 @@
             android:backgroundTint="@color/button"
             android:textColor="@color/white"
             android:alpha="0.65"
-            android:text="@string/estadisticas"
+            android:text="@string/mi_equipo"
             app:layout_constraintTop_toBottomOf="@id/botonResultados"
             app:layout_constraintBottom_toTopOf="@id/botonOpciones"
             app:layout_constraintLeft_toLeftOf="parent"
