@@ -39,18 +39,16 @@ android:layout_height="match_parent">
             android:paddingTop="72dp"/>
     </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaJugadores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/recyclerv_round" />
+        <ListView android:id="@+id/listaJugadores"
+            android:layout_width="wrap_content"
+            android:layout_height="450dp"
+            android:background="@drawable/recyclerv_round"/>
 
         <Button
         android:id="@+id/anyadirjugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="@string/anyadirjugador"/>
     </LinearLayout>
 

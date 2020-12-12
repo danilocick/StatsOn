@@ -1,11 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ListaResultadosFragment"
-    android:background="@color/background"
-    android:padding="32dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:layout_marginTop="35dp"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <!--encabezado-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:orientation="horizontal">
+            <!--foto a la derecha-->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/recyclerv_round">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:src="@drawable/add_jugador"
+                    android:scaleType="fitStart"
+                    android:textAlignment="center" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tituloResultados"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/postnobillsjaffna_medium"
+                    android:text="@string/jugadorNombre"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:lineSpacingMultiplier="0.6"
+                    android:textColor="@color/white"
+                    android:textSize="42sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/postnobillsjaffna_extrabold"
+                    android:text="@string/jugadorDorsal"
+                    android:textSize="42dp"
+                    android:gravity="end|bottom"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="55dp"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!--TODO: Stats demostration-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!--información table row how to do-->
+            <!--indice de acierto puntos 2-->
+            <!--indice de acierto puntos 3-->
+            <!--indice de acierto puntos 1-->
+            <!--pts x game-->
+            <!--assts x game-->
+            <!--rebound x game-->
+            <!--to x game-->
+
+        </LinearLayout>
 
 
-</FrameLayout>
+    </LinearLayout>
+
+    <include android:id="@+id/toolbarComeback"
+        layout="@layout/toolbar_comeback"/>
+</RelativeLayout>
+
+
+
+

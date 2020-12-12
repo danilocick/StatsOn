@@ -9,11 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
+        android:layout_marginTop="35dp"
         android:padding="16dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tituloMiEquipo"
+        <TextView android:id="@+id/tituloMiEquipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/partidos"
@@ -23,8 +23,7 @@
             android:textAllCaps="true"
             android:textColor="@color/white" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaPartidos"
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaPartidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -32,4 +31,6 @@
             android:background="@drawable/recyclerv_round" />
 
     </LinearLayout>
+    <include android:id="@+id/toolbarSiguiente"
+        layout="@layout/toolbar_siguiente"/>
 </RelativeLayout>

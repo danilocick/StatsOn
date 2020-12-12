@@ -114,11 +114,6 @@
         android:label="fragment_add_jugador"
         tools:layout="@layout/fragment_add_jugador" />
     <fragment
-        android:id="@+id/jugadorFragment"
-        android:name="com.example.mp07_statson.JugadorFragment"
-        android:label="fragment_jugador"
-        tools:layout="@layout/fragment_jugador" />
-    <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.mp07_statson.GameFragment"
         android:label="fragment_game"
@@ -143,20 +138,12 @@
         android:id="@+id/listaJugadoresFragment"
         android:name="com.example.mp07_statson.ListaJugadoresFragment"
         android:label="fragment_lista_jugadores"
-        tools:layout="@layout/fragment_lista_jugadores" >
-        <action
-            android:id="@+id/action_listaJugadoresFragment_to_jugadorFragment"
-            app:destination="@id/jugadorFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_lista_jugadores" />
     <fragment
         android:id="@+id/listaResultadosFragment"
         android:name="com.example.mp07_statson.ListaResultadosFragment"
         android:label="fragment_lista_resultados"
-        tools:layout="@layout/fragment_lista_resultados" >
-        <action
-            android:id="@+id/action_listaResultadosFragment_to_outputFragment"
-            app:destination="@id/outputFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_lista_resultados" />
     <fragment
         android:id="@+id/menuEstadisticasFragment"
         android:name="com.example.mp07_statson.MenuEstadisticasFragment"

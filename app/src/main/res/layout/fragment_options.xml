@@ -1,65 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".OptionsFragment"
-    android:background="@color/background"
-    android:padding="16dp"
-    android:orientation="vertical">
-
-    <!--TODO: rigth button expansion-->
-    <TextView
-        android:id="@+id/tituloOpciones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/opciones"
-        android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="75sp"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        />
-
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp">
+        android:layout_height="match_parent"
+        android:layout_marginTop="35dp"
+        android:padding="16dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!--TODO: rigth button expansion-->
+        <TextView android:id="@+id/tituloOpciones"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/minutos"
-            android:text="@string/minutos"/>
+            android:text="@string/opciones"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:textSize="75sp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp">
+
+            <TextView android:id="@+id/minutos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minutos"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp">
+
+            <TextView android:id="@+id/periodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/periodos"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp">
+
+            <TextView android:id="@+id/minutospe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minpe"/>
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp">
+    <include android:id="@+id/toolbarComeback"
+        layout="@layout/toolbar_comeback"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/periodos"
-            android:text="@string/periodos"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/minutospe"
-            android:text="@string/minpe"/>
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

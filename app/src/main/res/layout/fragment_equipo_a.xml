@@ -22,13 +22,10 @@ android:layout_height="match_parent">
             android:textSize="70sp"
             android:gravity="center"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaJugadores"
-            android:layout_width="match_parent"
+        <ListView android:id="@+id/listaJugadores"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/recyclerv_round" />
+            android:background="@drawable/recyclerv_round"/>
     </LinearLayout>
 
     <include android:id="@+id/toolbarSiguiente"
