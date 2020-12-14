@@ -11,6 +11,7 @@
     <!--barraSuperior-->
     <string name="done">Done</string>
     <string name="siguiente">Siguiente</string>
+    <string name="guardar">Guardar</string>
 
     <!--equipo_rival-->
     <string name="e_rival">Equipo Rival</string>
@@ -31,7 +32,7 @@
 
     <!--listaJugadores-->
     <string name="rivales">Rivales</string>
-    <string name="partidos">Partidos</string>
+    <string name="partidos" translatable="true">Partidos</string>
 
     <!--opciones-->
     <string name="minutos">Minutos</string>
@@ -68,5 +69,6 @@
     <string name="goCBSC" translatable="false">goCBSC</string>
     <string name="hello_blank_fragment" translatable="false">Helloworld</string>
     <string name="rostro">Rostro</string>
+    <string name="iniciarPartido" >Iniciar Partido</string>
 
 </resources>

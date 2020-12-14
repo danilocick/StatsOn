@@ -37,4 +37,6 @@
     <string name="crear">Create</string>
     <string name="rostro">Rostrer</string>
     <string name="partidos" translatable="false">Matches</string>
+    <string name="guardar">Save</string>
+    <string name="iniciarPartido" >Start Match</string>
 </resources>

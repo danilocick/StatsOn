@@ -37,4 +37,6 @@
     <string name="rosters">Rostros</string>
     <string name="crear">Crear</string>
     <string name="rostro">Rostro</string>
+    <string name="guardar">Guardar</string>
+    <string name="iniciarPartido" >Iniciar Partido</string>
 </resources>

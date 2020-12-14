@@ -60,7 +60,7 @@
             android:background="@drawable/textedit_round"/>
 
         <Button
-            android:id="@+id/botonCrear"
+            android:id="@+id/botonCrearAddJ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -70,6 +70,19 @@
             android:layout_gravity="center"/>
     </LinearLayout>
 
-    <include android:id="@+id/toolbarSiguiente"
-        layout="@layout/toolbar_siguiente"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/black"
+        android:minHeight="35dp">
+
+        <!--TODO: seeButton-->
+        <Button
+            android:id="@+id/botonComeBackAddJ"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:textCursorDrawable="@drawable/ic_baseline_arrow_back_24" />
+    </LinearLayout>
 </RelativeLayout>
