@@ -37,37 +37,28 @@
         android:hint="@string/nombrerival"
         android:background="@drawable/textedit_round"/>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarSiguiente"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:minHeight="35dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        android:orientation="horizontal"
+        android:minHeight="35dp">
 
-        <LinearLayout
+        <!--TODO: seeButton-->
+        <Button
+            android:id="@+id/botonComeBackERival"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:textCursorDrawable="@drawable/ic_baseline_arrow_back_24" />
+
+        <Button android:id="@+id/botonSiguienteERival"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <ImageView android:id="@+id/botonComeBackERival"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_baseline_arrow_back_24"
-                android:paddingStart="80dp"
-                android:paddingEnd="75dp"/>
-            <TextView android:id="@+id/botonSiguienteERival"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/siguiente"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textAlignment="center" />
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
+            android:text="@string/siguiente"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textAlignment="center" />
+    </LinearLayout>
 
 </RelativeLayout>

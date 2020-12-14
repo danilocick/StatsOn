@@ -20,6 +20,7 @@ public class MenuFragment extends Fragment {
 
     Button botonPartidoNuevo;
     Button botonResultados;
+    Button botonMiEquipo;
     Button botonOpciones;
     NavController navController;
     private FragmentMenuBinding binding;
@@ -38,26 +39,34 @@ public class MenuFragment extends Fragment {
 
         botonPartidoNuevo = view.findViewById(R.id.botonPartidoNuevo);
         botonResultados = view.findViewById(R.id.botonResultados);
+        botonMiEquipo= view.findViewById(R.id.botonMiEquipo);
         botonOpciones = view.findViewById(R.id.botonOpciones);
 
         botonPartidoNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_menuPNuevoFragment2);
+                navController.navigate(R.id.action_menuFragment_to_rivalFragment);
             }
         });
 
         botonResultados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_menuResultFragment);
+                navController.navigate(R.id.action_menuFragment_to_listaPartidosFragment);
+            }
+        });
+
+        botonMiEquipo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_menuFragment_to_resultadoMenuFragment);
             }
         });
 
         botonOpciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_menuOptionsFragment);
+                navController.navigate(R.id.action_menuFragment_to_optionsFragment);
             }
         });
     }

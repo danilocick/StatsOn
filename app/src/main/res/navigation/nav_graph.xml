@@ -20,17 +20,17 @@
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/action_menuFragment_to_menuPNuevoFragment2"
-            app:destination="@id/menuPNuevoFragment" />
+            android:id="@+id/action_menuFragment_to_optionsFragment"
+            app:destination="@id/optionsFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_menuOptionsFragment"
-            app:destination="@id/menuOptionsFragment" />
+            android:id="@+id/action_menuFragment_to_listaPartidosFragment"
+            app:destination="@id/listaPartidosFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_menuEstadisticasFragment"
-            app:destination="@id/menuEstadisticasFragment" />
+            android:id="@+id/action_menuFragment_to_resultadoMenuFragment"
+            app:destination="@id/resultadoMenuFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_menuResultFragment"
-            app:destination="@id/menuResultFragment" />
+            android:id="@+id/action_menuFragment_to_rivalFragment"
+            app:destination="@id/rivalFragment" />
     </fragment>
     <fragment
         android:id="@+id/load2Fragment"
@@ -45,29 +45,17 @@
         android:id="@+id/menuPNuevoFragment"
         android:name="com.example.mp07_statson.MenuPNuevoFragment"
         android:label="fragment_menu_p_nuevo"
-        tools:layout="@layout/fragment_menu_p_nuevo" >
-        <action
-            android:id="@+id/action_menuPNuevoFragment_to_rivalFragment"
-            app:destination="@id/rivalFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_menu_p_nuevo" />
     <fragment
         android:id="@+id/menuResultFragment"
         android:name="com.example.mp07_statson.MenuResultFragment"
         android:label="fragment_menu_result"
-        tools:layout="@layout/fragment_menu_result" >
-        <action
-            android:id="@+id/action_menuResultFragment_to_listaPartidosFragment"
-            app:destination="@id/listaPartidosFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_menu_result" />
     <fragment
         android:id="@+id/menuOptionsFragment"
         android:name="com.example.mp07_statson.MenuOptionsFragment"
         android:label="fragment_menu_options"
-        tools:layout="@layout/fragment_menu_options" >
-        <action
-            android:id="@+id/action_menuOptionsFragment_to_optionsFragment"
-            app:destination="@id/optionsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_menu_options" />
     <fragment
         android:id="@+id/optionsFragment"
         android:name="com.example.mp07_statson.OptionsFragment"
@@ -98,6 +86,9 @@
         <action
             android:id="@+id/action_equipoAFragment_to_equipoBFragment"
             app:destination="@id/equipoBFragment" />
+        <action
+            android:id="@+id/action_equipoAFragment_to_rivalFragment"
+            app:destination="@id/rivalFragment" />
     </fragment>
     <fragment
         android:id="@+id/equipoBFragment"
@@ -141,11 +132,7 @@
         android:id="@+id/menuEstadisticasFragment"
         android:name="com.example.mp07_statson.MenuEstadisticasFragment"
         android:label="fragment_menu_estadisticas"
-        tools:layout="@layout/fragment_menu_estadisticas" >
-        <action
-            android:id="@+id/action_menuEstadisticasFragment_to_resultadoMenuFragment"
-            app:destination="@id/resultadoMenuFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_menu_estadisticas" />
     <fragment
         android:id="@+id/addJugadorMTFragment"
         android:name="com.example.mp07_statson.AddJugadorMTFragment"

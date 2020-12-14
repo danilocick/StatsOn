@@ -44,7 +44,7 @@ public class MenuOptionsFragment extends Fragment {
         finishedLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                navController.navigate(R.id.action_menuOptionsFragment_to_optionsFragment);
+                //navController.navigate(R.id.action_menuOptionsFragment_to_optionsFragment);
             }
         });
 

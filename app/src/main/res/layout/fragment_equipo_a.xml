@@ -28,6 +28,27 @@ android:layout_height="match_parent">
             android:background="@drawable/recyclerv_round"/>
     </LinearLayout>
 
-    <include android:id="@+id/toolbarSiguiente"
-        layout="@layout/toolbar_siguiente"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="35dp">
+
+        <!--TODO: seeButton-->
+        <Button
+            android:id="@+id/botonComeBackTeamA"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:textCursorDrawable="@drawable/ic_baseline_arrow_back_24" />
+
+        <Button android:id="@+id/botonSiguienteTeamA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/siguiente"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textAlignment="center"/>
+    </LinearLayout>
 </RelativeLayout>

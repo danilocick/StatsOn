@@ -45,7 +45,7 @@ public class MenuPNuevoFragment extends Fragment {
         finishedLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                navController.navigate(R.id.action_menuPNuevoFragment_to_rivalFragment);
+                //navController.navigate(R.id.action_menuPNuevoFragment_to_rivalFragment);
             }
         });
 

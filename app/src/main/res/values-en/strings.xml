@@ -8,12 +8,12 @@
     <string name="jugadores">Players</string>
     <string name="santaColoma">Santa Coloma</string>
     <string name="minutos">Minuts</string>
-    <string name="periodos">Quarters</string>
+    <string name="periodos">Periods</string>
     <string name="minpe">Min. Overtime</string>
     <string name="teamB">TeamB</string>
-    <string name="periodo">Quarter</string>
-    <string name="fRecibida">F. Recived</string>
-    <string name="cambio">Change</string>
+    <string name="periodo">Period</string>
+    <string name="fRecibida">Recived F.</string>
+    <string name="cambio">Substitution</string>
     <string name="tiempoM">Time Out</string>
     <string name="tapon">Block</string>
     <string name="perdida">Turnover</string>
@@ -22,19 +22,19 @@
     <string name="vistaPrevia">Preview</string>
     <string name="asistencia">Assist</string>
     <string name="robo">Steal</string>
-    <string name="faltaRecibida">F. Recived</string>
+    <string name="faltaRecibida">Recived F.</string>
     <string name="rebote">Rebound</string>
     <string name="taponRecibido">Block Recived</string>
-    <string name="nombrerival">Insert rival name</string>
+    <string name="nombrerival">Insert oponent name</string>
     <string name="jugador">Player</string>
     <string name="jugadorNombre">Name</string>
-    <string name="jugadorDorsal">Dorsal</string>
-    <string name="rivales">Rivals</string>
+    <string name="jugadorDorsal">Jersey Number</string>
+    <string name="rivales">Opponents</string>
     <string name="anyadirjugador">Add player</string>
     <string name="mi_equipo">My Team</string>
-    <string name="partidos">Games</string>
     <string name="siguiente">Next</string>
     <string name="rosters">Rosters</string>
     <string name="crear">Create</string>
-    <string name="roster">Rostrer</string>
+    <string name="rostro">Rostrer</string>
+    <string name="partidos" translatable="false">Matches</string>
 </resources>

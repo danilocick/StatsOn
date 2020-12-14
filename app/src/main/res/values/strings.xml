@@ -4,7 +4,7 @@
     <string name="goCBSCcarga" translatable="false">#goCBSC</string>
     <!--menu-->
     <string name="partido_nuevo">Partido Nuevo</string>
-    <string name="resultados">Resultados Partidos</string>
+    <string name="resultados">Resultados</string>
     <string name="mi_equipo">Mi Equipo</string>
     <string name="opciones">Opciones</string>
 
@@ -67,5 +67,6 @@
     <string name="taponRecibido">Tapón Recibido</string>
     <string name="goCBSC" translatable="false">goCBSC</string>
     <string name="hello_blank_fragment" translatable="false">Helloworld</string>
+    <string name="rostro">Rostro</string>
 
 </resources>
