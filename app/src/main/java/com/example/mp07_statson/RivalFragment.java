@@ -32,32 +32,5 @@ public class RivalFragment extends Fragment {
     }
 
 
-    /*
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        navController = Navigation.findNavController(view);
-        botonSiguienteERival = view.findViewById(R.id.botonSiguienteERival);
-        botonComebackERival = view.findViewById(R.id.botonComeBackERival);
-
-
-        botonSiguienteERival.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
-            }
-        });
-
-        botonComebackERival.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_rivalFragment_to_menuFragment);
-            }
-        });
-
-    }
-    */
-
 
 }

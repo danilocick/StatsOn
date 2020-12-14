@@ -56,8 +56,8 @@
         android:label="fragment_menu_result"
         tools:layout="@layout/fragment_menu_result" >
         <action
-            android:id="@+id/action_menuResultFragment_to_listaJugadoresFragment"
-            app:destination="@id/listaJugadoresFragment" />
+            android:id="@+id/action_menuResultFragment_to_listaPartidosFragment"
+            app:destination="@id/listaPartidosFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuOptionsFragment"
@@ -131,22 +131,12 @@
         android:label="fragment_resultado_menu"
         tools:layout="@layout/fragment_resultado_menu" >
         <action
-            android:id="@+id/action_resultadoMenuFragment_to_listaResultadosFragment"
-            app:destination="@id/listaResultadosFragment" />
-        <action
             android:id="@+id/action_resultadoMenuFragment_to_addJugadorMTFragment"
             app:destination="@id/addJugadorMTFragment" />
+        <action
+            android:id="@+id/action_resultadoMenuFragment_to_jugadorStatsFragment"
+            app:destination="@id/jugadorStatsFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/listaJugadoresFragment"
-        android:name="com.example.mp07_statson.ListaJugadoresFragment"
-        android:label="fragment_lista_jugadores"
-        tools:layout="@layout/fragment_lista_jugadores" />
-    <fragment
-        android:id="@+id/listaResultadosFragment"
-        android:name="com.example.mp07_statson.ListaResultadosFragment"
-        android:label="fragment_lista_resultados"
-        tools:layout="@layout/fragment_lista_resultados" />
     <fragment
         android:id="@+id/menuEstadisticasFragment"
         android:name="com.example.mp07_statson.MenuEstadisticasFragment"
@@ -161,4 +151,23 @@
         android:name="com.example.mp07_statson.AddJugadorMTFragment"
         android:label="fragment_add_jugador_m_t"
         tools:layout="@layout/fragment_add_jugador_m_t" />
+    <fragment
+        android:id="@+id/outputMatchesFragment"
+        android:name="com.example.mp07_statson.OutputMatchesFragment"
+        android:label="fragment_output_matches"
+        tools:layout="@layout/fragment_output_matches" />
+    <fragment
+        android:id="@+id/listaPartidosFragment"
+        android:name="com.example.mp07_statson.ListaPartidosFragment"
+        android:label="fragment_lista_partidos"
+        tools:layout="@layout/fragment_lista_partidos" >
+        <action
+            android:id="@+id/action_listaPartidosFragment_to_outputMatchesFragment"
+            app:destination="@id/outputMatchesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jugadorStatsFragment"
+        android:name="com.example.mp07_statson.JugadorStatsFragment"
+        android:label="fragment_jugador_stats"
+        tools:layout="@layout/fragment_jugador_stats" />
 </navigation>
