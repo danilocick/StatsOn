@@ -75,14 +75,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/black"
-        android:minHeight="35dp">
+        android:minHeight="50dp">
 
-        <!--TODO: seeButton-->
-        <Button
+        <ImageButton
             android:id="@+id/botonComeBackAddJTM"
             android:layout_width="180dp"
+            android:paddingStart="25dp"
             android:layout_height="match_parent"
             android:background="@color/black"
-            android:textCursorDrawable="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24" />
     </LinearLayout>
 </RelativeLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ResultadoMenuFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -37,9 +38,12 @@
                 android:paddingTop="72dp"/>
         </RelativeLayout>
 
-        <ListView android:id="@+id/listaJugadoresMiTM"
-            android:layout_width="wrap_content"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaJugadoresMiTM"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:background="@drawable/recyclerv_round"/>
 
         <Button android:id="@+id/botonanyadirjugadorMiTM"
@@ -54,15 +58,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/black"
-        android:minHeight="35dp">
+        android:minHeight="50dp">
 
-        <!--TODO: seeButton-->
-        <Button
+        <ImageButton
             android:id="@+id/botonComeBackMiTM"
             android:layout_width="180dp"
+            android:paddingStart="25dp"
             android:layout_height="match_parent"
             android:background="@color/black"
-            android:textCursorDrawable="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24" />
     </LinearLayout>
 
 </RelativeLayout>
