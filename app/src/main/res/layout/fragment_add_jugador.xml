@@ -31,7 +31,7 @@
             android:layout_marginLeft="120dp"
             android:background="@drawable/recyclerv_round">
 
-            <ImageButton
+            <ImageView android:id="@+id/imagen_jugador"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
