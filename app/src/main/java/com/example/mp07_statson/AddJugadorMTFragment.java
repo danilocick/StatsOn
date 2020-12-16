@@ -73,6 +73,8 @@ public class AddJugadorMTFragment extends Fragment {
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
             jugadoresMiTMViewModel.insertar(nombre, dorsal, imagenSeleccionada);
 
+            //para volver atras
+            navController.popBackStack();
         });
     }
 
