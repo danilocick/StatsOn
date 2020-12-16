@@ -17,8 +17,6 @@ import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 import com.example.mp07_statson.databinding.FragmentOptionsBinding;
 
 public class OptionsFragment extends Fragment {
-    Button botonComebackOpc;
-    Button botonGuardarOpc;
 
     private NavController navController;
     private FragmentOptionsBinding binding;
@@ -35,11 +33,8 @@ public class OptionsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComebackOpc = view.findViewById(R.id.botonComeBackOpc);
-        botonGuardarOpc = view.findViewById(R.id.botonGuardarOpc);
-
         //ComeBack
-        botonComebackOpc.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackOpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_optionsFragment_to_menuFragment);
@@ -47,7 +42,7 @@ public class OptionsFragment extends Fragment {
         });
 
         //Crear Jugador
-        botonGuardarOpc.setOnClickListener(new View.OnClickListener() {
+        binding.botonGuardarOpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_optionsFragment_to_menuFragment);

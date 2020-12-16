@@ -18,10 +18,6 @@ import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
 
 public class EquipoBFragment extends Fragment {
 
-    Button botonSiguienteTeamB;
-    Button botonComebackTeamB;
-    Button botonAnyadirJugador;
-
     private NavController navController;
     private FragmentEquipoBBinding binding;
 
@@ -37,12 +33,8 @@ public class EquipoBFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComebackTeamB = view.findViewById(R.id.botonComeBackTeamB);
-        botonAnyadirJugador = view.findViewById(R.id.botonanyadirjugador);
-        botonSiguienteTeamB = view.findViewById(R.id.botonIniciarPartidoTeamB);
-
-        //Siguiente
-        botonSiguienteTeamB.setOnClickListener(new View.OnClickListener() {
+        //empezar partido
+        binding.botonIniciarPartidoTeamB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_equipoBFragment_to_gameFragment);
@@ -50,7 +42,7 @@ public class EquipoBFragment extends Fragment {
         });
 
         //ComeBack
-        botonComebackTeamB.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackTeamB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_equipoBFragment_to_equipoAFragment);
@@ -58,7 +50,7 @@ public class EquipoBFragment extends Fragment {
         });
 
         //Ir anyadirjugador
-        botonAnyadirJugador.setOnClickListener(new View.OnClickListener() {
+        binding.botonanyadirjugador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_equipoBFragment_to_addJugadorFragment);

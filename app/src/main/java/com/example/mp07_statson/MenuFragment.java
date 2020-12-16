@@ -18,10 +18,6 @@ import com.example.mp07_statson.databinding.FragmentMenuBinding;
 
 public class MenuFragment extends Fragment {
 
-    Button botonPartidoNuevo;
-    Button botonResultados;
-    Button botonMiEquipo;
-    Button botonOpciones;
     NavController navController;
     private FragmentMenuBinding binding;
 
@@ -37,33 +33,32 @@ public class MenuFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
 
-        botonPartidoNuevo = view.findViewById(R.id.botonPartidoNuevo);
-        botonResultados = view.findViewById(R.id.botonResultados);
-        botonMiEquipo= view.findViewById(R.id.botonMiEquipo);
-        botonOpciones = view.findViewById(R.id.botonOpciones);
-
-        botonPartidoNuevo.setOnClickListener(new View.OnClickListener() {
+        //ir a partido nuevo
+        binding.botonPartidoNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_menuFragment_to_rivalFragment);
             }
         });
 
-        botonResultados.setOnClickListener(new View.OnClickListener() {
+        //ir a resultados
+        binding.botonResultados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_menuFragment_to_listaPartidosFragment);
             }
         });
 
-        botonMiEquipo.setOnClickListener(new View.OnClickListener() {
+        //ir a mi equipo
+        binding.botonMiEquipo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_menuFragment_to_resultadoMenuFragment);
             }
         });
 
-        botonOpciones.setOnClickListener(new View.OnClickListener() {
+        //ir a opciones
+        binding.botonOpciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_menuFragment_to_optionsFragment);

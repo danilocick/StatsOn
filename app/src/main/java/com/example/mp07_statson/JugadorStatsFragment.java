@@ -17,7 +17,6 @@ import com.example.mp07_statson.databinding.FragmentAddJugadorMTBinding;
 import com.example.mp07_statson.databinding.FragmentJugadorStatsBinding;
 
 public class JugadorStatsFragment extends Fragment {
-    Button botonComeBackSeeTM;
 
     private NavController navController;
     private FragmentJugadorStatsBinding binding;
@@ -34,10 +33,8 @@ public class JugadorStatsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComeBackSeeTM = view.findViewById(R.id.botonComeBackAddJTM);
-
         //ComeBack
-        botonComeBackSeeTM.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackSeeTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_jugadorStatsFragment_to_resultadoMenuFragment);

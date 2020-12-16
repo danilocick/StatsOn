@@ -13,14 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 import com.example.mp07_statson.databinding.FragmentAddJugadorMTBinding;
 
 
 public class AddJugadorMTFragment extends Fragment {
-
-    Button botonComebackAddJTM;
-    Button botonCrearAddJTM;
 
     private NavController navController;
     private FragmentAddJugadorMTBinding binding;
@@ -37,11 +33,8 @@ public class AddJugadorMTFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComebackAddJTM = view.findViewById(R.id.botonComeBackAddJTM);
-        botonCrearAddJTM = view.findViewById(R.id.botonCrearAddJTM);
-
         //ComeBack
-        botonComebackAddJTM.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackAddJTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_addJugadorMTFragment_to_resultadoMenuFragment);
@@ -49,12 +42,11 @@ public class AddJugadorMTFragment extends Fragment {
         });
 
         //Crear Jugador
-        botonCrearAddJTM.setOnClickListener(new View.OnClickListener() {
+        binding.botonCrearAddJTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_addJugadorMTFragment_to_resultadoMenuFragment);
             }
         });
-
     }
 }

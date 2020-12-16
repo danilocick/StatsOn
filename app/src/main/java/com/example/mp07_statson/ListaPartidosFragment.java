@@ -19,8 +19,6 @@ import com.example.mp07_statson.databinding.FragmentListaPartidosBinding;
 
 public class ListaPartidosFragment extends Fragment {
 
-    Button botonComebackPartidos;
-
     private NavController navController;
     private FragmentListaPartidosBinding binding;
 
@@ -36,10 +34,8 @@ public class ListaPartidosFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComebackPartidos = view.findViewById(R.id.botonComeBackPartidos);
-
         //ComeBack
-        botonComebackPartidos.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackPartidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_listaPartidosFragment_to_menuFragment);

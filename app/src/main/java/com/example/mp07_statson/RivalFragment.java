@@ -19,9 +19,6 @@ import com.example.mp07_statson.databinding.FragmentRivalBinding;
 
 public class RivalFragment extends Fragment {
 
-    Button botonSiguienteERival;
-    Button botonComebackERival;
-
     private NavController navController;
     private FragmentRivalBinding binding;
 
@@ -37,22 +34,18 @@ public class RivalFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComebackERival = view.findViewById(R.id.botonComeBackERival);
-        botonSiguienteERival = view.findViewById(R.id.botonSiguienteERival);
-
-        botonSiguienteERival.setOnClickListener(new View.OnClickListener() {
+        binding.botonSiguienteERival.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
             }
         });
 
-        botonComebackERival.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_rivalFragment_to_menuFragment);
             }
         });
-    }
-
+     }
 }

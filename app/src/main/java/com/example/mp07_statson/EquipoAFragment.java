@@ -19,9 +19,6 @@ import com.example.mp07_statson.databinding.FragmentRivalBinding;
 
 public class EquipoAFragment extends Fragment {
 
-    Button botonSiguienteTeamA;
-    Button botonComebackTeamA;
-
     private NavController navController;
     private FragmentEquipoABinding binding;
 
@@ -37,17 +34,14 @@ public class EquipoAFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComebackTeamA = view.findViewById(R.id.botonComeBackTeamA);
-        botonSiguienteTeamA = view.findViewById(R.id.botonSiguienteTeamA);
-
-        botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
+        binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_equipoAFragment_to_equipoBFragment);
             }
         });
 
-        botonComebackTeamA.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_equipoAFragment_to_rivalFragment);

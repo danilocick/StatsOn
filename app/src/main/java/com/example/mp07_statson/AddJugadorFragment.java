@@ -18,9 +18,6 @@ import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
 
 public class AddJugadorFragment extends Fragment {
 
-    Button botonComebackAddJ;
-    Button botonCrearAddJ;
-
     private NavController navController;
     private FragmentAddJugadorBinding binding;
 
@@ -36,11 +33,8 @@ public class AddJugadorFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComebackAddJ = view.findViewById(R.id.botonComeBackAddJ);
-        botonCrearAddJ = view.findViewById(R.id.botonCrearAddJ);
-
         //ComeBack
-        botonComebackAddJ.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackAddJ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_addJugadorFragment_to_equipoBFragment);
@@ -48,12 +42,11 @@ public class AddJugadorFragment extends Fragment {
         });
 
         //Crear Jugador
-        botonCrearAddJ.setOnClickListener(new View.OnClickListener() {
+        binding.botonCrearAddJ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_addJugadorFragment_to_equipoBFragment);
             }
         });
-
     }
 }

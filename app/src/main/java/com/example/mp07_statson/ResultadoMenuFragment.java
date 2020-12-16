@@ -18,9 +18,6 @@ import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
 
 public class ResultadoMenuFragment extends Fragment {
 
-    Button botonComebackMiTM;
-    Button botonAnyadirJugadorMiTM;
-
     private NavController navController;
     private FragmentResultadoMenuBinding binding;
 
@@ -36,11 +33,8 @@ public class ResultadoMenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        botonComebackMiTM = view.findViewById(R.id.botonComeBackMiTM);
-        botonAnyadirJugadorMiTM = view.findViewById(R.id.botonanyadirjugadorMiTM);
-
         //ComeBack
-        botonComebackMiTM.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackMiTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_resultadoMenuFragment_to_menuFragment);
@@ -48,7 +42,7 @@ public class ResultadoMenuFragment extends Fragment {
         });
 
         //Ir anyadirjugador
-        botonAnyadirJugadorMiTM.setOnClickListener(new View.OnClickListener() {
+        binding.botonanyadirjugadorMiTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_resultadoMenuFragment_to_addJugadorMTFragment);
