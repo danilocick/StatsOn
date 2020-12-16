@@ -36,7 +36,7 @@
                 android:layout_height="match_parent"
 
                 android:src="@drawable/add_jugador"
-                android:scaleType="fitStart"
+                android:scaleType="centerCrop"
                 android:textAlignment="center" />
         </RelativeLayout>
         <!--TODO: aligment button-->

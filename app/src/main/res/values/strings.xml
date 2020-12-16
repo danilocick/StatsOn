@@ -21,8 +21,8 @@
 
     <!--añadirJugador-->
     <string name="jugador">jugador</string>
-    <string name="jugadorNombre">Daniel Hernandez</string>
-    <string name="jugadorDorsal">11</string>
+    <string name="jugadorNombre">Nombre Jugador</string>
+    <string name="jugadorDorsal">Dorsal</string>
     <string name="crear">Crear</string>
 
     <!--listaJugadores-->
