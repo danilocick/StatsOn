@@ -5,21 +5,28 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
 import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
+import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
+
+import java.util.List;
 
 public class ResultadoMenuFragment extends Fragment {
 
     private NavController navController;
     private FragmentResultadoMenuBinding binding;
+    private JugadoresMiTMViewModel jugadoresViewModel;
 
 
     @Override
@@ -32,6 +39,8 @@ public class ResultadoMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+
+        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
 
         //ComeBack
         binding.botonComeBackMiTM.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +57,56 @@ public class ResultadoMenuFragment extends Fragment {
                 navController.navigate(R.id.action_resultadoMenuFragment_to_addJugadorMTFragment);
             }
         });
+
+        //obtener datos de los jugadores
+        JugadoresAdapter jugadoresAdapter = new JugadoresAdapter();
+        binding.listaJugadoresMiTM.setAdapter(jugadoresAdapter);
+
+        jugadoresViewModel.obtener().observe(getViewLifecycleOwner(), jugadors -> {
+            jugadoresAdapter.establecerJugadorList(jugadors);
+        });
+
+
+    }
+
+    //adaptador
+    class JugadoresAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
+
+        List<Jugador> jugadorList;
+        @NonNull
+        @Override
+        public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new JugadorViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater()), parent, false);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
+            Jugador jugador = jugadorList.get(position);
+            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
+            holder.binding.nombreJugador.setText(jugador.nombre);
+            holder.binding.dorsalJugador.setText(jugador.dorsal);
+        }
+
+        @Override
+        public int getItemCount() {
+            return jugadorList == null ? 0 : jugadorList.size();
+        }
+
+        void establecerJugadorList(List<Jugador> jugadorList){
+            this.jugadorList=jugadorList;
+            notifyDataSetChanged();
+        }
+    }
+
+
+    //clase para acceder a los campos de viewholder_jugador_miteam
+    class JugadorViewHolder extends RecyclerView.ViewHolder{
+        ViewholderJugadorMiTeamBinding binding;
+
+        public JugadorViewHolder(@NonNull ViewholderJugadorMiTeamBinding binding, ViewGroup parent, boolean b){
+            super(binding.getRoot());
+            this.binding=binding;
+        }
 
     }
 }

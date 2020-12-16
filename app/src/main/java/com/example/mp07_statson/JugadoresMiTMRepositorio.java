@@ -3,7 +3,9 @@ package com.example.mp07_statson;
 import android.app.Application;
 import android.net.Uri;
 
-import java.lang.reflect.Executable;
+import androidx.lifecycle.LiveData;
+
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -19,5 +21,9 @@ public class JugadoresMiTMRepositorio {
         executor.execute(() -> {
             jugadoresDao.insertar(new Jugador(nombre,dorsal,imagenSeleccionada.toString()));
         });
+    }
+
+    public LiveData<List<Jugador>> obtener() {
+        return jugadoresDao.obtener();
     }
 }
