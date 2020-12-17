@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="grey">#787878</color>
     <color name="white">#FFFFFFFF</color>
     <color name="reddark">#641220</color>
     <color name="redmiddle">#A11D33</color>
@@ -9,4 +10,6 @@
     <color name="red">#F02E3A</color>
     <color name="button">#742A2A</color>
     <color name="background">#8f0100</color>
+    <color name="green">#4FCA54</color>
+
 </resources>

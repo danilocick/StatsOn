@@ -63,7 +63,7 @@
     <!--emergentesGame-->
     <string name="asistencia">Asistencia</string>
     <string name="robo">Robo</string>
-    <string name="faltaRecibida">Falta Recibida</string>
+    <string name="faltaRecibida">F.Recibida</string>
     <string name="rebote">Rebote</string>
     <string name="taponRecibido">Tapón Recibido</string>
     <string name="goCBSC" translatable="false">goCBSC</string>

@@ -29,7 +29,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="120dp"
-            android:background="@drawable/recyclerv_round">
+            android:background="@drawable/recyclerv_round_white">
 
             <ImageView android:id="@+id/imagen_jugadorTeamB"
                 android:layout_width="match_parent"
