@@ -11,7 +11,6 @@
         android:layout_height="match_parent"
         android:background="@color/background"
         android:layout_marginTop="35dp"
-        android:padding="16dp"
         android:orientation="vertical">
 
         <TextView
@@ -19,16 +18,17 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/postnobillsjaffna_extrabold"
             android:text="@string/santaColoma"
-            android:textColor="@color/black"
+            android:background="@drawable/title_backgroud"
+            android:textColor="@color/white"
             android:textSize="70sp"
             android:gravity="center"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaJugadoresTeamA"
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaJugadoresTeamA"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:background="@drawable/recyclerv_round_white"/>
+            android:layout_height="450dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     </LinearLayout>
 
     <LinearLayout

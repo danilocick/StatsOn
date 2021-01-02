@@ -7,6 +7,8 @@
     tools:context=".OptionsFragment"
     android:background="@color/background">
 
+    <!--https://github.com/florent37/ExpansionPanel-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,22 +27,20 @@
             android:textColor="@color/white"
             />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <GridLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="15dp">
+            android:layout_gravity="center"
+            android:columnCount="2"
+            android:orientation="horizontal" >
 
+            <!--fila 1-->
             <TextView android:id="@+id/minutos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/minutos"
                 android:textSize="20sp"
-                android:textColor="@color/white"
-                android:layout_gravity="start|center"
-                android:layout_marginEnd="119sp"
-                android:layout_marginStart="40dp"/>
-
+                android:textColor="@color/white"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,24 +117,14 @@
                     </LinearLayout>
                 </com.github.florent37.expansionpanel.ExpansionLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="15dp">
-
+            <!--fila 2-->
             <TextView android:id="@+id/periodos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/periodos"
                 android:textSize="20sp"
-                android:textColor="@color/white"
-                android:layout_gravity="start|center"
-                android:layout_marginEnd="120sp"
-                android:layout_marginStart="38dp"/>
-
+                android:textColor="@color/white" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -204,24 +194,15 @@
                     </LinearLayout>
                 </com.github.florent37.expansionpanel.ExpansionLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="15dp">
-
+            <!--fila 3-->
             <TextView android:id="@+id/minutospe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:text="@string/minpe"
                 android:textSize="20sp"
-                android:layout_gravity="start|center"
-                android:layout_marginEnd="123sp"
-                android:layout_marginStart="40dp"/>
-
+                android:layout_marginEnd="150sp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -291,7 +272,9 @@
                     </LinearLayout>
                 </com.github.florent37.expansionpanel.ExpansionLayout>
             </LinearLayout>
-        </LinearLayout>
+
+        </GridLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -316,6 +299,11 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textAlignment="center"/>
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 
 </RelativeLayout>

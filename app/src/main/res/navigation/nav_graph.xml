@@ -43,21 +43,6 @@
             app:destination="@id/menuFragment" />
     </fragment>
     <fragment
-        android:id="@+id/menuPNuevoFragment"
-        android:name="com.example.mp07_statson.MenuPNuevoFragment"
-        android:label="fragment_menu_p_nuevo"
-        tools:layout="@layout/fragment_menu_p_nuevo" />
-    <fragment
-        android:id="@+id/menuResultFragment"
-        android:name="com.example.mp07_statson.MenuResultFragment"
-        android:label="fragment_menu_result"
-        tools:layout="@layout/fragment_menu_result" />
-    <fragment
-        android:id="@+id/menuOptionsFragment"
-        android:name="com.example.mp07_statson.MenuOptionsFragment"
-        android:label="fragment_menu_options"
-        tools:layout="@layout/fragment_menu_options" />
-    <fragment
         android:id="@+id/optionsFragment"
         android:name="com.example.mp07_statson.OptionsFragment"
         android:label="fragment_options"
@@ -127,6 +112,9 @@
         <action
             android:id="@+id/action_gameFragment_to_outputFragment"
             app:destination="@id/outputFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultadoMenuFragment"
@@ -143,11 +131,6 @@
             android:id="@+id/action_resultadoMenuFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/menuEstadisticasFragment"
-        android:name="com.example.mp07_statson.MenuEstadisticasFragment"
-        android:label="fragment_menu_estadisticas"
-        tools:layout="@layout/fragment_menu_estadisticas" />
     <fragment
         android:id="@+id/addJugadorMTFragment"
         android:name="com.example.mp07_statson.AddJugadorMTFragment"

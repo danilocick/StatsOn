@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Jugador {
     @PrimaryKey @NonNull
-            String dorsal = "0";
+        String dorsal = "0";
 
     String nombre;
     String imagen;

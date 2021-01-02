@@ -55,7 +55,7 @@
             android:id="@+id/dorsalJugador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:hint="@string/jugadorDorsal"
             android:background="@drawable/textedit_round"/>
 
