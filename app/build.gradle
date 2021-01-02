@@ -58,4 +58,6 @@ dependencies {
     implementation 'cn.zhouchaoyuan:excelpanel:1.0.5'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'com.github.florent37:expansionpanel:1.2.4'
 }

@@ -70,5 +70,12 @@
     <string name="hello_blank_fragment" translatable="false">Helloworld</string>
     <string name="rostro">Rostro</string>
     <string name="iniciarPartido" >Iniciar Partido</string>
+    <string name="_10">10</string>
+    <string name="_12">12</string>
+    <string name="_4">4</string>
+    <string name="_8">8</string>
+    <string name="_5">5</string>
+    <string name="_3">3</string>
+    <string name="_6">6</string>
 
 </resources>
