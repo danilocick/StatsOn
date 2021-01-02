@@ -26,6 +26,8 @@ public class JugadorStatsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return (binding = FragmentJugadorStatsBinding.inflate(inflater, container, false)).getRoot();
+
+
     }
 
     @Override

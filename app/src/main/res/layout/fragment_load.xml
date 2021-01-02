@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoadFragment"
-    android:background="@color/background">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    tools:context=".LoadFragment">
 
-    <ImageView
-        android:id="@+id/logo"
+    <ImageView android:id="@+id/logoexit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/logito" />
+        android:layout_marginTop="140dp"
+        android:rotationX="0"
+        android:src="@drawable/logito"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/goCBSCexit"
+        />
 
     <TextView
-        android:id="@+id/goCBSC"
+        android:id="@+id/goCBSCexit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/goCBSCcarga"
-        android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="75sp"
         android:layout_gravity="bottom"
         android:layout_marginBottom="95dp"
+        android:fontFamily="@font/postnobillsjaffna_extrabold"
+        android:rotationX="50"
+        android:text="@string/goCBSCcarga"
         android:textAlignment="center"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="75sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoexit"
+        />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

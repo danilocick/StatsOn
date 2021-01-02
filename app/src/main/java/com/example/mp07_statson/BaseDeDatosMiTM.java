@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Database;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Room;
@@ -40,6 +41,9 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
         @Query("SELECT * FROM Jugador")
         LiveData<List<Jugador>> obtener();
+
+        @Delete
+        void delete(Jugador jugador);
     }
 
 }

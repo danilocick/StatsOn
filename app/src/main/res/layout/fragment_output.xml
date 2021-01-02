@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".OutputFragment"
     android:background="@color/background"
-    android:padding="32dp">
+    android:padding="16dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/goCBSC"/>
+    <cn.zhouchaoyuan.excelpanel.ExcelPanel
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:left_cell_width="10dp"
+        app:normal_cell_width="10dp"
+        app:top_cell_height="10dp" />
+
 </FrameLayout>

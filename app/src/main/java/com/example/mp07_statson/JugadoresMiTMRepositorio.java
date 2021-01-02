@@ -23,6 +23,12 @@ public class JugadoresMiTMRepositorio {
         });
     }
 
+    public void delete(String nombre, String dorsal, Uri imagenSeleccionada) {
+        executor.execute(() -> {
+            //jugadoresDao.delete(dorsal);
+        });
+    }
+
     public LiveData<List<Jugador>> obtener() {
         return jugadoresDao.obtener();
     }

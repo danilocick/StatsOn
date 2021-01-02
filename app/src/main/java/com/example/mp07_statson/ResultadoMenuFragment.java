@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.bumptech.glide.Glide;
-import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
 import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
@@ -58,6 +56,7 @@ public class ResultadoMenuFragment extends Fragment {
             }
         });
 
+
         //obtener datos de los jugadores
         JugadoresAdapter jugadoresAdapter = new JugadoresAdapter();
         binding.listaJugadoresMiTM.setAdapter(jugadoresAdapter);
@@ -69,7 +68,7 @@ public class ResultadoMenuFragment extends Fragment {
 
     }
 
-    //adaptador
+    //adaptador bd
     class JugadoresAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
         List<Jugador> jugadorList;
@@ -109,4 +108,48 @@ public class ResultadoMenuFragment extends Fragment {
         }
 
     }
+
+
+    /*
+    //Ir jugadorstats
+    class JugadorStatsViewHolder extends RecyclerView.ViewHolder {
+        private final ViewholderJugadorMiTeamBinding binding;
+
+        public JugadorStatsViewHolder(ViewholderJugadorMiTeamBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+    }
+
+
+    class JugadorStatsAdapter extends RecyclerView.Adapter<JugadorStatsViewHolder> {
+
+        List<Jugador> jugadors;
+
+        @NonNull
+        @Override
+        public JugadorStatsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new JugadorStatsViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater(), parent, false));
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull JugadorStatsViewHolder holder, int position) {
+
+            Jugador jugador = jugadors.get(position);
+
+            holder.binding.nombreJugador.setText(jugador.nombre);
+            holder.binding.dorsalJugador.setText(jugador.dorsal);
+            holder.binding.imagenJugadorMiTeam.setImageAlpha(Integer.parseInt(jugador.imagen));
+        }
+
+        @Override
+        public int getItemCount() {
+            return jugadors != null ? jugadors.size() : 0;
+        }
+
+        public void establecerLista(List<Jugador> jugador){
+            this.jugadors = jugador;
+            notifyDataSetChanged();
+        }
+    }*/
 }

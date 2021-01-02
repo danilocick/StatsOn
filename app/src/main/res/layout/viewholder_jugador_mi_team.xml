@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
     android:layout_margin="8dp">
     <LinearLayout
-        android:background="@color/redwhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
         <ImageView android:id="@+id/imagen_jugadorMiTeam"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -32,6 +34,13 @@
             android:layout_gravity="center"
             android:padding="8dp"
             android:layout_marginStart="16dp"/>
+
+        <Switch android:id="@+id/jugarONo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp" />
 
         <ImageView android:id="@+id/eliminarJugador"
             android:layout_width="wrap_content"
