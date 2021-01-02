@@ -10,13 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
+
         android:layout_marginTop="35dp"
-        android:padding="16dp"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/title_backgroud">
 
             <TextView android:id="@+id/tituloMiEquipo"
                 android:layout_width="match_parent"
@@ -38,17 +39,30 @@
                 android:paddingTop="72dp"/>
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaJugadoresMiTM"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:background="@drawable/recyclerv_round_white"/>
+            android:padding="16dp">
 
-        <Button android:id="@+id/botonanyadirjugadorMiTM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/anyadirjugador"/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaJugadoresMiTM"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/botonanyadirjugadorMiTM"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <Button android:id="@+id/botonanyadirjugadorMiTM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/anyadirjugador"
+                app:layout_constraintTop_toBottomOf="@+id/listaJugadoresMiTM"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <LinearLayout

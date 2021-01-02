@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -57,19 +58,28 @@ public class ResultadoMenuFragment extends Fragment {
         });
 
 
-        //obtener datos de los jugadores
-        JugadoresAdapter jugadoresAdapter = new JugadoresAdapter();
-        binding.listaJugadoresMiTM.setAdapter(jugadoresAdapter);
+        //obtener datos de los jugadores de la bd
+        JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
+        binding.listaJugadoresMiTM.setAdapter(jugadoresbdAdapter);
+        jugadoresViewModel.obtener().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
+/*
+        //Crear un objeto y asignar al recyclerview
+        JugadoresRvAdapter jugadoresRvAdapter = new JugadoresRvAdapter();
+        binding.listaJugadoresMiTM.setAdapter(jugadoresRvAdapter);
 
-        jugadoresViewModel.obtener().observe(getViewLifecycleOwner(), jugadors -> {
-            jugadoresAdapter.establecerJugadorList(jugadors);
+        jugadoresViewModel.obtener().observe(getViewLifecycleOwner(), new Observer<List<Jugador>>() {
+            @Override
+            public void onChanged(List<Jugador> jugadors) {
+                jugadoresRvAdapter.establecerLista(jugadors);
+            }
         });
 
 
+ */
     }
 
     //adaptador bd
-    class JugadoresAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
+    class JugadoresbdAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
         List<Jugador> jugadorList;
         @NonNull
@@ -106,49 +116,35 @@ public class ResultadoMenuFragment extends Fragment {
             super(binding.getRoot());
             this.binding=binding;
         }
-
     }
+/*
+    //adapter
+    class JugadoresRvAdapter extends RecyclerView.Adapter<JugadorViewHolder> {
 
-
-    /*
-    //Ir jugadorstats
-    class JugadorStatsViewHolder extends RecyclerView.ViewHolder {
-        private final ViewholderJugadorMiTeamBinding binding;
-
-        public JugadorStatsViewHolder(ViewholderJugadorMiTeamBinding binding) {
-            super(binding.getRoot());
-            this.binding = binding;
-        }
-    }
-
-
-    class JugadorStatsAdapter extends RecyclerView.Adapter<JugadorStatsViewHolder> {
-
-        List<Jugador> jugadors;
+        List<Jugador> jugadorList;
 
         @NonNull
         @Override
-        public JugadorStatsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new JugadorStatsViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater(), parent, false));
+        public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new JugadorViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater(), parent, false));
         }
 
         @Override
-        public void onBindViewHolder(@NonNull JugadorStatsViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
 
-            Jugador jugador = jugadors.get(position);
+            Jugador jugador = jugadorList.get(position);
 
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(jugador.dorsal);
-            holder.binding.imagenJugadorMiTeam.setImageAlpha(Integer.parseInt(jugador.imagen));
         }
 
         @Override
         public int getItemCount() {
-            return jugadors != null ? jugadors.size() : 0;
+            return jugadorList != null ? jugadorList.size() : 0;
         }
 
-        public void establecerLista(List<Jugador> jugador){
-            this.jugadors = jugador;
+        public void establecerLista(List<Jugador> elementos){
+            this.jugadorList = elementos;
             notifyDataSetChanged();
         }
     }*/
