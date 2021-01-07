@@ -109,7 +109,7 @@ public class ResultadoMenuFragment extends Fragment {
 
 
     //clase para acceder a los campos de viewholder_jugador_miteam
-    class JugadorViewHolder extends RecyclerView.ViewHolder{
+    static class JugadorViewHolder extends RecyclerView.ViewHolder{
         ViewholderJugadorMiTeamBinding binding;
 
         public JugadorViewHolder(@NonNull ViewholderJugadorMiTeamBinding binding, ViewGroup parent, boolean b){

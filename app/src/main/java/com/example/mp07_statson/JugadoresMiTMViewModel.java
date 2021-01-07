@@ -12,6 +12,8 @@ import java.util.List;
 public class JugadoresMiTMViewModel extends AndroidViewModel {
     private final JugadoresMiTMRepositorio jugadoresRepositorio;
 
+    String TeamB;
+
     public JugadoresMiTMViewModel(@NonNull Application application) {
         super(application);
 
@@ -24,5 +26,13 @@ public class JugadoresMiTMViewModel extends AndroidViewModel {
 
     public LiveData<List<Jugador>> obtener() {
         return jugadoresRepositorio.obtener();
+    }
+
+    public String getTeamB() {
+        return TeamB;
+    }
+
+    public void setTeamB(String teamB) {
+        TeamB = teamB;
     }
 }

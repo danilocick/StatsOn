@@ -11,9 +11,8 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.Toast;
 
-import com.example.mp07_statson.databinding.FragmentMenuBinding;
 import com.example.mp07_statson.databinding.FragmentRivalBinding;
 
 
@@ -21,6 +20,7 @@ public class RivalFragment extends Fragment {
 
     private NavController navController;
     private FragmentRivalBinding binding;
+    NombreRivalViewModel rival = new NombreRivalViewModel();
 
 
     @Override
@@ -34,12 +34,23 @@ public class RivalFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        binding.botonSiguienteERival.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        //insertar nombre rival
+        binding.botonSiguienteERival.setOnClickListener(v -> {
+            String teamb = binding.nombreRival.getText().toString();
+
+            if(!teamb.equals("")) {
+                //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
+                rival.setNombreRival(teamb);
+                //TODO: es una prueba -- binding.botonPrueba.setText(teamb);
+                //navegamos
                 navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
             }
+            else {
+                // If name is not entered
+                Toast.makeText(requireActivity().getApplicationContext(), "Name is required", Toast.LENGTH_LONG).show();
+            }
         });
+
 
         binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
             @Override

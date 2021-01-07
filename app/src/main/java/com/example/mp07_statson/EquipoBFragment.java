@@ -1,5 +1,6 @@
 package com.example.mp07_statson;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -39,6 +40,11 @@ public class EquipoBFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+
+        /* TODO:SetText from jugadoresMiTMViewModel.getNombre()*/
+        NombreRivalViewModel nombreRival = new NombreRivalViewModel();
+        binding.tituloTeamB.setText(String.format("%s", nombreRival.getNombreRival()));
+
 
         //empezar partido
         binding.botonIniciarPartidoTeamB.setOnClickListener(new View.OnClickListener() {

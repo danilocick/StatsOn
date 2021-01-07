@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,7 +27,7 @@ public class EquipoAFragment extends Fragment {
 
     private NavController navController;
     private FragmentEquipoABinding binding;
-
+    private JugadoresMiTMViewModel jugadoresMiTMViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -38,6 +39,8 @@ public class EquipoAFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+
+        jugadoresMiTMViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
 
         binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +55,48 @@ public class EquipoAFragment extends Fragment {
                 navController.navigate(R.id.action_equipoAFragment_to_rivalFragment);
             }
         });
+
+        JugadorAdapter jugadorAdapter = new JugadorAdapter();
+        binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
+        //acceder al viewModel
+        jugadoresMiTMViewModel.obtener();
     }
 
+    class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
+        List<Jugador> jugadorList;
+        @NonNull
+        @Override
+        public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new JugadorViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater()), parent, false);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
+            Jugador jugador = jugadorList.get(position);
+            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
+            holder.binding.nombreJugador.setText(jugador.nombre);
+            holder.binding.dorsalJugador.setText(jugador.dorsal);
+        }
+
+        @Override
+        public int getItemCount() {
+            return jugadorList == null ? 0 : jugadorList.size();
+        }
+
+        void establecerjugadores(List<Jugador> jugadorList){
+            this.jugadorList = jugadorList;
+            notifyDataSetChanged();
+        }
+    }
+
+    //clase para acceder a los campos de viewholder_jugador_miteam
+    static class JugadorViewHolder extends RecyclerView.ViewHolder{
+        ViewholderJugadorMiTeamBinding binding;
+
+        public JugadorViewHolder(@NonNull ViewholderJugadorMiTeamBinding binding, ViewGroup parent, boolean b){
+            super(binding.getRoot());
+            this.binding=binding;
+        }
+    }
 }
