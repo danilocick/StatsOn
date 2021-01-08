@@ -41,7 +41,7 @@ public class RivalFragment extends Fragment {
             if(!teamb.equals("")) {
                 //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
                 rival.setNombreRival(teamb);
-                //TODO: es una prueba -- binding.botonPrueba.setText(teamb);
+                binding.botonPrueba.setText(rival.getNombreRival());
                 //navegamos
                 navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
             }
