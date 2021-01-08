@@ -1,17 +1,16 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.mp07_statson.databinding.FragmentRivalBinding;
 
@@ -41,7 +40,7 @@ public class RivalFragment extends Fragment {
             if(!teamb.equals("")) {
                 //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
                 rival.setNombreRival(teamb);
-                binding.botonPrueba.setText(rival.getNombreRival());
+                //binding.botonPrueba.setText(rival.getNombreRival());
                 //navegamos
                 navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
             }

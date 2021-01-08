@@ -5,6 +5,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loadFragment">
 
+    <!--LOAD 1 FRAGMENT-->
     <fragment
         android:id="@+id/loadFragment"
         android:name="com.example.mp07_statson.LoadFragment"
@@ -13,26 +14,12 @@
         <action
             android:id="@+id/action_loadFragment_to_load2Fragment"
             app:destination="@id/load2Fragment"
-            app:enterAnim="@anim/nav_default_enter_anim" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
-    <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.example.mp07_statson.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
-        <action
-            android:id="@+id/action_menuFragment_to_optionsFragment"
-            app:destination="@id/optionsFragment" />
-        <action
-            android:id="@+id/action_menuFragment_to_listaPartidosFragment"
-            app:destination="@id/listaPartidosFragment" />
-        <action
-            android:id="@+id/action_menuFragment_to_resultadoMenuFragment"
-            app:destination="@id/resultadoMenuFragment" />
-        <action
-            android:id="@+id/action_menuFragment_to_rivalFragment"
-            app:destination="@id/rivalFragment" />
-    </fragment>
+    <!--LOAD 2 FRAGMENT-->
     <fragment
         android:id="@+id/load2Fragment"
         android:name="com.example.mp07_statson.Load2Fragment"
@@ -40,8 +27,50 @@
         tools:layout="@layout/fragment_load2" >
         <action
             android:id="@+id/action_load2Fragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+
+    <!--MENU FRAGMENT-->
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.mp07_statson.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_optionsFragment"
+            app:destination="@id/optionsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_listaPartidosFragment"
+            app:destination="@id/listaPartidosFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_resultadoMenuFragment"
+            app:destination="@id/resultadoMenuFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_rivalFragment"
+            app:destination="@id/rivalFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <!--OPTIONS FRAGMENT-->
     <fragment
         android:id="@+id/optionsFragment"
         android:name="com.example.mp07_statson.OptionsFragment"
@@ -51,11 +80,15 @@
             android:id="@+id/action_optionsFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
+
+    <!--GAME OUTPUT FRAGMENT-->
     <fragment
         android:id="@+id/outputFragment"
         android:name="com.example.mp07_statson.OutputFragment"
         android:label="fragment_output"
         tools:layout="@layout/fragment_output" />
+
+    <!--RIVAL FRAGMENT-->
     <fragment
         android:id="@+id/rivalFragment"
         android:name="com.example.mp07_statson.RivalFragment"
@@ -68,6 +101,8 @@
             android:id="@+id/action_rivalFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
+
+    <!--SANTA COLOMA FRAGMENT-->
     <fragment
         android:id="@+id/equipoAFragment"
         android:name="com.example.mp07_statson.EquipoAFragment"
@@ -80,6 +115,8 @@
             android:id="@+id/action_equipoAFragment_to_rivalFragment"
             app:destination="@id/rivalFragment" />
     </fragment>
+
+    <!--EQUIPO RIVAL FRAGMENT-->
     <fragment
         android:id="@+id/equipoBFragment"
         android:name="com.example.mp07_statson.EquipoBFragment"
@@ -95,6 +132,8 @@
             android:id="@+id/action_equipoBFragment_to_equipoAFragment"
             app:destination="@id/equipoAFragment" />
     </fragment>
+
+    <!--AÑADIR JUGADOR TEAM B FRAGMENT-->
     <fragment
         android:id="@+id/addJugadorFragment"
         android:name="com.example.mp07_statson.AddJugadorFragment"
@@ -104,6 +143,8 @@
             android:id="@+id/action_addJugadorFragment_to_equipoBFragment"
             app:destination="@id/equipoBFragment" />
     </fragment>
+
+    <!--JUEGO FRAGMENT-->
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.mp07_statson.GameFragment"
@@ -116,6 +157,8 @@
             android:id="@+id/action_gameFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
+
+    <!--LISTA MIEQUIPO FRAGMENT-->
     <fragment
         android:id="@+id/resultadoMenuFragment"
         android:name="com.example.mp07_statson.ResultadoMenuFragment"
@@ -131,6 +174,7 @@
             android:id="@+id/action_resultadoMenuFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
+    <!--AÑADIR JUGADOR MITM FRAGMENT-->
     <fragment
         android:id="@+id/addJugadorMTFragment"
         android:name="com.example.mp07_statson.AddJugadorMTFragment"
@@ -140,23 +184,7 @@
             android:id="@+id/action_addJugadorMTFragment_to_resultadoMenuFragment"
             app:destination="@id/resultadoMenuFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/outputMatchesFragment"
-        android:name="com.example.mp07_statson.OutputMatchesFragment"
-        android:label="fragment_output_matches"
-        tools:layout="@layout/fragment_output_matches" />
-    <fragment
-        android:id="@+id/listaPartidosFragment"
-        android:name="com.example.mp07_statson.ListaPartidosFragment"
-        android:label="fragment_lista_partidos"
-        tools:layout="@layout/fragment_lista_partidos" >
-        <action
-            android:id="@+id/action_listaPartidosFragment_to_outputMatchesFragment"
-            app:destination="@id/outputMatchesFragment" />
-        <action
-            android:id="@+id/action_listaPartidosFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
-    </fragment>
+    <!--JUGADOR FRAGMENT-->
     <fragment
         android:id="@+id/jugadorStatsFragment"
         android:name="com.example.mp07_statson.JugadorStatsFragment"
@@ -166,4 +194,26 @@
             android:id="@+id/action_jugadorStatsFragment_to_resultadoMenuFragment"
             app:destination="@id/resultadoMenuFragment" />
     </fragment>
+
+
+    <!-- LISTA RESULTADOS FRAGMENT-->
+    <fragment
+    android:id="@+id/listaPartidosFragment"
+    android:name="com.example.mp07_statson.ListaPartidosFragment"
+    android:label="fragment_lista_partidos"
+    tools:layout="@layout/fragment_lista_partidos" >
+        <action
+        android:id="@+id/action_listaPartidosFragment_to_outputMatchesFragment"
+        app:destination="@id/outputMatchesFragment" />
+        <action
+        android:id="@+id/action_listaPartidosFragment_to_menuFragment"
+        app:destination="@id/menuFragment" />
+    </fragment>
+    <!--OUTPUT RESULTADOS FRAGMENT-->
+    <fragment
+    android:id="@+id/outputMatchesFragment"
+    android:name="com.example.mp07_statson.OutputMatchesFragment"
+    android:label="fragment_output_matches"
+    tools:layout="@layout/fragment_output_matches" />
+
 </navigation>

@@ -34,8 +34,20 @@
         android:textSize="75sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/logoexit" />
+
+    <!--https://github.com/ybq/Android-SpinKit-->
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/progressBar"
+        style="@style/SpinKitView.Large.WanderingCubes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        app:SpinKit_Color="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoexit"
-        />
+        app:layout_constraintTop_toBottomOf="@id/logoexit"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

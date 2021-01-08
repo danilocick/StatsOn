@@ -14,9 +14,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.example.mp07_statson.databinding.FragmentLoadBinding;
 import com.example.mp07_statson.databinding.FragmentMenuBinding;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.ChasingDots;
+import com.github.ybq.android.spinkit.style.CubeGrid;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
+import com.github.ybq.android.spinkit.style.FoldingCube;
+import com.github.ybq.android.spinkit.style.Pulse;
+import com.github.ybq.android.spinkit.style.WanderingCubes;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -30,6 +38,7 @@ public class LoadFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentLoadBinding.inflate(inflater, container, false)).getRoot();
+
     }
 
     @Override
@@ -62,5 +71,9 @@ public class LoadFragment extends Fragment {
                 }
             }
         });
+
+        //progressBar
+        Sprite doubleBounce = new WanderingCubes();
+        binding.progressBar.setIndeterminateDrawable(doubleBounce);
     }
 }

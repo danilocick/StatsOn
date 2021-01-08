@@ -6,8 +6,9 @@
     <gradient
         android:type="linear"
         android:startColor="@color/black"
-        android:gradientRadius="@dimen/cardview_default_elevation"
         android:endColor="@color/background"
+        android:angle="270"
+        android:gradientRadius="@dimen/cardview_default_elevation"
         />
 
 </shape>
