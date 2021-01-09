@@ -78,7 +78,19 @@
     <string name="rostro">Rostro</string>
     <string name="iniciarPartido" >Iniciar Partido</string>
 
-
+    <!--table-->
+    <string-array name="header_table">
+        <item></item>
+        <item>TL</item>
+        <item>TL+</item>
+        <item>TL-</item>
+        <item>T2</item>
+        <item>T2+</item>
+        <item>T2-</item>
+        <item>T3</item>
+        <item>T3+</item>
+        <item>T3-</item>
+    </string-array>
 
 
 </resources>
