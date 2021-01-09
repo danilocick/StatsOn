@@ -80,7 +80,7 @@
 
     <!--table-->
     <string-array name="header_table">
-        <item></item>
+        <item>@string/jugador</item>
         <item>TL</item>
         <item>TL+</item>
         <item>TL-</item>

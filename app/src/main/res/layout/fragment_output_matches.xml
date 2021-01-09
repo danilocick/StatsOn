@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".OutputMatchesFragment">
 
-    <com.github.tlaabs.timetableview.TimetableView
-        android:id="@+id/contentTable"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:column_count="10"
-        app:row_count="12"
-        app:header_title="@string/header_table"/>
+
 
 </FrameLayout>

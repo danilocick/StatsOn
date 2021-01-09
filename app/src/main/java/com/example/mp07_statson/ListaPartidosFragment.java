@@ -41,5 +41,12 @@ public class ListaPartidosFragment extends Fragment {
                 navController.navigate(R.id.action_listaPartidosFragment_to_menuFragment);
             }
         });
+
+        binding.buttontooutput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment);
+            }
+        });
     }
 }
