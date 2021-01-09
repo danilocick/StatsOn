@@ -48,6 +48,7 @@ public class ResultadoMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_resultadoMenuFragment_to_menuFragment);
+
             }
         });
 

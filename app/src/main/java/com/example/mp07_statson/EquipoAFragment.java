@@ -17,8 +17,8 @@ import android.widget.Button;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentEquipoABinding;
-import com.example.mp07_statson.databinding.FragmentRivalBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
+
 
 import java.util.List;
 
@@ -59,7 +59,7 @@ public class EquipoAFragment extends Fragment {
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
         binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
         //acceder al viewModel
-        jugadoresMiTMViewModel.obtener();
+        jugadoresMiTMViewModel.obtener().observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{

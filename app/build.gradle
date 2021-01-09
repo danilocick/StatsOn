@@ -29,6 +29,10 @@ android {
     buildFeatures {
         viewBinding true
     }
+    //implementation 'com.github.tlaabs:TimetableView:1.0.3-fx1'
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
 }
 
 dependencies {
@@ -54,12 +58,9 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     implementation 'androidx.fragment:fragment:1.3.0-rc01'
-
     implementation 'cn.zhouchaoyuan:excelpanel:1.0.5'
-
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
     implementation 'com.github.florent37:expansionpanel:1.2.4'
-
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation 'com.github.tlaabs:TimetableView:1.0.3-fx1'
 }
