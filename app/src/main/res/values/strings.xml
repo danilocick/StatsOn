@@ -1,7 +1,10 @@
 <resources>
     <!--intro-->
-    <string name="app_name" translatable="false">MP07-StatsOn</string>
+    <string name="app_name" translatable="false">StatsOn</string>
     <string name="goCBSCcarga" translatable="false">#goCBSC</string>
+    <string name="goCBSC" translatable="false">goCBSC</string>
+    <string name="hello_blank_fragment" translatable="false">Helloworld</string>
+
     <!--menu-->
     <string name="partido_nuevo">Partido Nuevo</string>
     <string name="resultados">Resultados</string>
@@ -12,12 +15,13 @@
     <string name="done">Done</string>
     <string name="siguiente">Siguiente</string>
     <string name="guardar">Guardar</string>
+    <string name="acabarPartido">Acabar Partido</string>
+    <string name="vistaPrevia">Vista Previa</string>
 
     <!--equipo_rival-->
     <string name="e_rival">Equipo Rival</string>
     <string name="nombrerival">Inserta el nombre del rival</string>
-    <string name="rosters">Rostros</string>
-
+    <string name="rosters">Plantilla</string>
 
     <!--añadirJugador-->
     <string name="jugador">jugador</string>
@@ -29,15 +33,21 @@
     <string name="jugadores">Jugadores</string>
     <string name="santaColoma">Santa Coloma</string>
     <string name="anyadirjugador">Añadir Jugador</string>
-
-    <!--listaJugadores-->
     <string name="rivales">Rivales</string>
-    <string name="partidos" translatable="true">Partidos</string>
+    <string name="partidos">Partidos</string>
 
     <!--opciones-->
     <string name="minutos">Minutos</string>
     <string name="periodos">Periodos</string>
     <string name="minpe">Min. PE</string>
+    <string name="_10" translatable="false">10</string>
+    <string name="_12" translatable="false">12</string>
+    <string name="_4" translatable="false">4</string>
+    <string name="_8" translatable="false">8</string>
+    <string name="_5" translatable="false">5</string>
+    <string name="_3" translatable="false">3</string>
+    <string name="_6" translatable="false">6</string>
+
     <!--game-->
     <string name="teamB">TeamB</string>
     <string name="periodo">Periodo</string>
@@ -57,8 +67,6 @@
     <string name="tlmenos" translatable="false">TL -</string>
     <string name="deshacer">Deshacer</string>
 
-    <string name="acabarPartido">Acabar Partido</string>
-    <string name="vistaPrevia">Vista Previa</string>
 
     <!--emergentesGame-->
     <string name="asistencia">Asistencia</string>
@@ -66,16 +74,11 @@
     <string name="faltaRecibida">F.Recibida</string>
     <string name="rebote">Rebote</string>
     <string name="taponRecibido">Tapón Recibido</string>
-    <string name="goCBSC" translatable="false">goCBSC</string>
-    <string name="hello_blank_fragment" translatable="false">Helloworld</string>
+
     <string name="rostro">Rostro</string>
     <string name="iniciarPartido" >Iniciar Partido</string>
-    <string name="_10">10</string>
-    <string name="_12">12</string>
-    <string name="_4">4</string>
-    <string name="_8">8</string>
-    <string name="_5">5</string>
-    <string name="_3">3</string>
-    <string name="_6">6</string>
+
+
+
 
 </resources>

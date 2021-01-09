@@ -54,7 +54,7 @@ public class LoadFragment extends Fragment {
         finishedLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                navController.navigate(R.id.action_loadFragment_to_load2Fragment);
+                navController.navigate(R.id.action_loadFragment_to_menuFragment);
             }
         });
 

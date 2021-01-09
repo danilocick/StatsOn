@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
@@ -82,10 +84,12 @@ public class ResultadoMenuFragment extends Fragment {
     class JugadoresbdAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
         List<Jugador> jugadorList;
+
         @NonNull
         @Override
         public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new JugadorViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater()), parent, false);
+
         }
 
         @Override
@@ -98,6 +102,7 @@ public class ResultadoMenuFragment extends Fragment {
 
         @Override
         public int getItemCount() {
+
             return jugadorList == null ? 0 : jugadorList.size();
         }
 

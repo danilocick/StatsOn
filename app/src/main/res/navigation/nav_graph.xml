@@ -12,21 +12,7 @@
         android:label="fragment_load"
         tools:layout="@layout/fragment_load" >
         <action
-            android:id="@+id/action_loadFragment_to_load2Fragment"
-            app:destination="@id/load2Fragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
-    <!--LOAD 2 FRAGMENT-->
-    <fragment
-        android:id="@+id/load2Fragment"
-        android:name="com.example.mp07_statson.Load2Fragment"
-        android:label="fragment_load2"
-        tools:layout="@layout/fragment_load2" >
-        <action
-            android:id="@+id/action_load2Fragment_to_menuFragment"
+            android:id="@+id/action_loadFragment_to_menuFragment"
             app:destination="@id/menuFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
