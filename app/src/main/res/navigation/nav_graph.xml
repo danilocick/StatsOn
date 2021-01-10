@@ -59,15 +59,7 @@
         android:id="@+id/optionsFragment"
         android:name="com.example.mp07_statson.OptionsFragment"
         android:label="fragment_options"
-        tools:layout="@layout/fragment_options" >
-        <action
-            android:id="@+id/action_optionsFragment_to_menuFragment"
-            app:destination="@id/menuFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"/>
-    </fragment>
+        tools:layout="@layout/fragment_options" />
 
     <!--GAME OUTPUT FRAGMENT-->
     <fragment
@@ -89,13 +81,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_rivalFragment_to_menuFragment"
-            app:destination="@id/menuFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
 
     <!--SANTA COLOMA FRAGMENT-->
@@ -111,13 +96,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_equipoAFragment_to_rivalFragment"
-            app:destination="@id/rivalFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
 
     <!--EQUIPO RIVAL FRAGMENT-->
@@ -140,13 +118,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_equipoBFragment_to_equipoAFragment"
-            app:destination="@id/equipoAFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
 
     <!--AÑADIR JUGADOR TEAM B FRAGMENT-->
@@ -206,42 +177,19 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_resultadoMenuFragment_to_menuFragment"
-            app:destination="@id/menuFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <!--AÑADIR JUGADOR MITM FRAGMENT-->
     <fragment
         android:id="@+id/addJugadorMTFragment"
         android:name="com.example.mp07_statson.AddJugadorMTFragment"
         android:label="fragment_add_jugador_m_t"
-        tools:layout="@layout/fragment_add_jugador_m_t" >
-        <action
-            android:id="@+id/action_addJugadorMTFragment_to_resultadoMenuFragment"
-            app:destination="@id/resultadoMenuFragment"
-            app:enterAnim="@anim/slide_in_down"
-            app:exitAnim="@anim/slide_out_up"
-            app:popEnterAnim="@anim/slide_in_up"
-            app:popExitAnim="@anim/slide_out_down"/>
-    </fragment>
+        tools:layout="@layout/fragment_add_jugador_m_t" />
     <!--JUGADOR FRAGMENT-->
     <fragment
         android:id="@+id/jugadorStatsFragment"
         android:name="com.example.mp07_statson.JugadorStatsFragment"
         android:label="fragment_jugador_stats"
-        tools:layout="@layout/fragment_jugador_stats" >
-        <action
-            android:id="@+id/action_jugadorStatsFragment_to_resultadoMenuFragment"
-            app:destination="@id/resultadoMenuFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
+        tools:layout="@layout/fragment_jugador_stats" />
 
 
     <!-- LISTA RESULTADOS FRAGMENT-->
@@ -257,27 +205,12 @@
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"
         app:popExitAnim="@anim/slide_out_right" />
-        <action
-        android:id="@+id/action_listaPartidosFragment_to_menuFragment"
-        app:destination="@id/menuFragment"
-        app:enterAnim="@anim/slide_in_left"
-        app:exitAnim="@anim/slide_out_right"
-        app:popEnterAnim="@anim/slide_in_right"
-        app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <!--OUTPUT RESULTADOS FRAGMENT-->
     <fragment
     android:id="@+id/outputMatchesFragment"
     android:name="com.example.mp07_statson.OutputMatchesFragment"
     android:label="fragment_output_matches"
-    tools:layout="@layout/fragment_output_matches" >
-        <action
-            android:id="@+id/action_outputMatchesFragment_to_listaPartidosFragment"
-            app:destination="@id/listaPartidosFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
+    tools:layout="@layout/fragment_output_matches" />
 
 </navigation>

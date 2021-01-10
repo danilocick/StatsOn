@@ -46,7 +46,8 @@ public class OptionsFragment extends Fragment {
         binding.botonGuardarOpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_optionsFragment_to_menuFragment);
+                //para volver atras
+                navController.popBackStack();
             }
         });
 
