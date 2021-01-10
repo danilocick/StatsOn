@@ -25,7 +25,7 @@
                 android:layout_height="100dp"
                 android:background="@drawable/recyclerv_round_white">
 
-                <ImageButton
+                <ImageButton android:id="@+id/imagen"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
@@ -38,8 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tituloResultados"
+                <TextView android:id="@+id/nombreJugador"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/postnobillsjaffna_medium"
@@ -50,7 +49,7 @@
                     android:textColor="@color/white"
                     android:textSize="42sp" />
 
-                <TextView
+                <TextView android:id="@+id/dorsalJugador"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/postnobillsjaffna_extrabold"

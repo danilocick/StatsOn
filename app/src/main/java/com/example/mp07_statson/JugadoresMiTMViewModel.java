@@ -6,6 +6,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
@@ -30,4 +31,15 @@ public class JugadoresMiTMViewModel extends AndroidViewModel {
     public LiveData<List<Jugador>> obtener() {
         return jugadoresRepositorio.obtener();
     }
+
+
+    MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();
+    void seleccionar(Jugador jugador){
+        jugadorMutableLiveData.setValue(jugador);
+    }
+
+    MutableLiveData<Jugador> seleccionado(){
+        return jugadorMutableLiveData;
+    }
+
 }

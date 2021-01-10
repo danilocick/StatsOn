@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
             android:background="@drawable/title_backgroud">
 
-            <TextView android:id="@+id/tituloTeamB"
+            <TextView android:id="@+id/nombreRival"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/postnobillsjaffna_extrabold"

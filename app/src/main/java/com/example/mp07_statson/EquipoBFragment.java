@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -29,6 +31,8 @@ public class EquipoBFragment extends Fragment {
     private FragmentEquipoBBinding binding;
     private JugadoresTeamBViewModel jugadorsTeamBViewModel;
 
+    private NombreRivalViewModel nombreRivalViewModel;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -41,9 +45,18 @@ public class EquipoBFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        /* TODO:SetText from jugadoresMiTMViewModel.getNombre()*/
-        NombreRivalViewModel nombreRival = new NombreRivalViewModel();
+        /* TODO:SetText from jugadoresMiTMViewModel.getNombre()
         binding.tituloTeamB.setText(String.format("%s", nombreRival.getNombreRival()));
+        */
+
+        nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
+
+        nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String a) {
+                binding.nombreRival.setText(a);
+            }
+        });
 
 
         //empezar partido

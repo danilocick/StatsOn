@@ -19,7 +19,7 @@ public class RivalFragment extends Fragment {
 
     private NavController navController;
     private FragmentRivalBinding binding;
-    NombreRivalViewModel rival = new NombreRivalViewModel();
+    NombreRivalViewModel NombreRivalViewModel = new NombreRivalViewModel();
 
 
     @Override
@@ -39,7 +39,7 @@ public class RivalFragment extends Fragment {
 
             if(!teamb.equals("")) {
                 //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-                rival.setNombreRival(teamb);
+                NombreRivalViewModel.seleccionar(teamb);
                 //binding.botonPrueba.setText(rival.getNombreRival());
                 //navegamos
                 navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);

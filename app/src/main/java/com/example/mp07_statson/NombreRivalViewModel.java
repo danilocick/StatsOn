@@ -1,13 +1,16 @@
 package com.example.mp07_statson;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class NombreRivalViewModel extends ViewModel {
-    NombreRival nombreRival = new NombreRival();
-    public void setNombreRival(String nombre){
-        nombreRival.setNombreRival(nombre);
+    MutableLiveData<String> nombreMutableLiveData = new MutableLiveData<>();
+
+    void seleccionar(String nombre){
+        nombreMutableLiveData.setValue(nombre);
     }
-    public String getNombreRival(){
-        return  nombreRival.getNombre();
+
+    MutableLiveData<String> seleccionado(){
+        return nombreMutableLiveData;
     }
 }
