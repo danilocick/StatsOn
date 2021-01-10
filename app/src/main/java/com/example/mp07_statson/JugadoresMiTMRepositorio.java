@@ -23,9 +23,9 @@ public class JugadoresMiTMRepositorio {
         });
     }
 
-    public void delete(String nombre, String dorsal, Uri imagenSeleccionada) {
+    public void delete(Jugador jugador) {
         executor.execute(() -> {
-            //jugadoresDao.delete(dorsal);
+            jugadoresDao.delete(jugador);
         });
     }
 

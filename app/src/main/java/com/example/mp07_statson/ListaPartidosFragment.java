@@ -38,7 +38,8 @@ public class ListaPartidosFragment extends Fragment {
         binding.botonComeBackPartidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_listaPartidosFragment_to_menuFragment);
+                //para volver atras
+                navController.popBackStack();
             }
         });
 

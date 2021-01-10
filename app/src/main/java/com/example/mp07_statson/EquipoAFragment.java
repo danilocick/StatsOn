@@ -17,6 +17,7 @@ import android.widget.Button;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentEquipoABinding;
+import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
 
@@ -52,7 +53,8 @@ public class EquipoAFragment extends Fragment {
         binding.botonComeBackTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_equipoAFragment_to_rivalFragment);
+                //para volver atras
+                navController.popBackStack();
             }
         });
 
@@ -68,15 +70,15 @@ public class EquipoAFragment extends Fragment {
         @NonNull
         @Override
         public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new JugadorViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater()), parent, false);
+            return new JugadorViewHolder(ViewholderJugadorEquipoABinding.inflate(getLayoutInflater()), parent, false);
         }
 
         @Override
         public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
             Jugador jugador = jugadorList.get(position);
-            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
-            holder.binding.nombreJugador.setText(jugador.nombre);
-            holder.binding.dorsalJugador.setText(jugador.dorsal);
+            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorEquipoA);
+            holder.binding.nombreJugadorEquipoA.setText(jugador.nombre);
+            holder.binding.dorsalJugadorEquipoA.setText(jugador.dorsal);
         }
 
         @Override
@@ -92,9 +94,9 @@ public class EquipoAFragment extends Fragment {
 
     //clase para acceder a los campos de viewholder_jugador_miteam
     static class JugadorViewHolder extends RecyclerView.ViewHolder{
-        ViewholderJugadorMiTeamBinding binding;
+        ViewholderJugadorEquipoABinding binding;
 
-        public JugadorViewHolder(@NonNull ViewholderJugadorMiTeamBinding binding, ViewGroup parent, boolean b){
+        public JugadorViewHolder(@NonNull ViewholderJugadorEquipoABinding binding, ViewGroup parent, boolean b){
             super(binding.getRoot());
             this.binding=binding;
         }

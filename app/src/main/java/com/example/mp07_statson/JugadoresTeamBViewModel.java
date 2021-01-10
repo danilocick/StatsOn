@@ -24,4 +24,8 @@ public class JugadoresTeamBViewModel extends AndroidViewModel {
     public LiveData<List<Jugador>> obtener() {
         return jugadoresTeamBRepositorio.obtener();
     }
+
+    public void delete(Jugador jugador) {
+        jugadoresTeamBRepositorio.delete(jugador);
+    }
 }

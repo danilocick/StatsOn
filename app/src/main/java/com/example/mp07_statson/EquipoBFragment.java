@@ -58,7 +58,8 @@ public class EquipoBFragment extends Fragment {
         binding.botonComeBackTeamB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_equipoBFragment_to_equipoAFragment);
+                //para volver atras
+                navController.popBackStack();
             }
         });
 
@@ -108,6 +109,14 @@ public class EquipoBFragment extends Fragment {
                 Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
                 holder.binding.nombreJugador.setText(jugador.nombre);
                 holder.binding.dorsalJugador.setText(jugador.dorsal);
+
+            holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
+                    jugadorsTeamBViewModel.delete(jugador);
+                }
+            });
         }
 
         @Override

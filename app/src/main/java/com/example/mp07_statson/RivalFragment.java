@@ -54,7 +54,8 @@ public class RivalFragment extends Fragment {
         binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_rivalFragment_to_menuFragment);
+                //para volver atras
+                navController.popBackStack();
             }
         });
      }

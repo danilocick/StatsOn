@@ -30,6 +30,7 @@ public class ResultadoMenuFragment extends Fragment {
     private JugadoresMiTMViewModel jugadoresViewModel;
 
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,8 +48,8 @@ public class ResultadoMenuFragment extends Fragment {
         binding.botonComeBackMiTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_resultadoMenuFragment_to_menuFragment);
-
+                //para volver atras
+                navController.popBackStack();
             }
         });
 
@@ -60,25 +61,10 @@ public class ResultadoMenuFragment extends Fragment {
             }
         });
 
-
         //obtener datos de los jugadores de la bd
         JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
         binding.listaJugadoresMiTM.setAdapter(jugadoresbdAdapter);
         jugadoresViewModel.obtener().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
-/*
-        //Crear un objeto y asignar al recyclerview
-        JugadoresRvAdapter jugadoresRvAdapter = new JugadoresRvAdapter();
-        binding.listaJugadoresMiTM.setAdapter(jugadoresRvAdapter);
-
-        jugadoresViewModel.obtener().observe(getViewLifecycleOwner(), new Observer<List<Jugador>>() {
-            @Override
-            public void onChanged(List<Jugador> jugadors) {
-                jugadoresRvAdapter.establecerLista(jugadors);
-            }
-        });
-
-
- */
     }
 
     //adaptador bd
@@ -99,6 +85,15 @@ public class ResultadoMenuFragment extends Fragment {
             Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(jugador.dorsal);
+
+            holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
+                    jugadoresViewModel.delete(jugador);
+                }
+            });
+
         }
 
         @Override
@@ -111,6 +106,11 @@ public class ResultadoMenuFragment extends Fragment {
             this.jugadorList=jugadorList;
             notifyDataSetChanged();
         }
+
+        public Jugador obtenerJugador (int posicion){
+            return jugadorList.get(posicion);
+        }
+
     }
 
 
@@ -123,35 +123,4 @@ public class ResultadoMenuFragment extends Fragment {
             this.binding=binding;
         }
     }
-/*
-    //adapter
-    class JugadoresRvAdapter extends RecyclerView.Adapter<JugadorViewHolder> {
-
-        List<Jugador> jugadorList;
-
-        @NonNull
-        @Override
-        public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new JugadorViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater(), parent, false));
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
-
-            Jugador jugador = jugadorList.get(position);
-
-            holder.binding.nombreJugador.setText(jugador.nombre);
-            holder.binding.dorsalJugador.setText(jugador.dorsal);
-        }
-
-        @Override
-        public int getItemCount() {
-            return jugadorList != null ? jugadorList.size() : 0;
-        }
-
-        public void establecerLista(List<Jugador> elementos){
-            this.jugadorList = elementos;
-            notifyDataSetChanged();
-        }
-    }*/
 }

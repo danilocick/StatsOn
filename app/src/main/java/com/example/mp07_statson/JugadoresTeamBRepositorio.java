@@ -26,4 +26,10 @@ public class JugadoresTeamBRepositorio {
     public LiveData<List<Jugador>> obtener() {
         return jugadoresTeamBDao.obtener();
     }
+
+    public void delete(Jugador jugador) {
+        executor.execute(()->{
+            jugadoresTeamBDao.delete(jugador);
+        });
+    }
 }

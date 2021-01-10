@@ -39,7 +39,8 @@ public class JugadorStatsFragment extends Fragment {
         binding.botonComeBackSeeTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_jugadorStatsFragment_to_resultadoMenuFragment);
+                //para volver atras
+                navController.popBackStack();
             }
         });
 

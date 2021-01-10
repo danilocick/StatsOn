@@ -48,15 +48,8 @@ public class AddJugadorMTFragment extends Fragment {
         binding.botonComeBackAddJTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_addJugadorMTFragment_to_resultadoMenuFragment);
-            }
-        });
-
-        //Crear Jugador
-        binding.botonCrearAddJTM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_addJugadorMTFragment_to_resultadoMenuFragment);
+                //para volver atras
+                navController.popBackStack();
             }
         });
 

@@ -49,7 +49,8 @@ public class AddJugadorFragment extends Fragment {
         binding.botonComeBackAddJ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_addJugadorFragment_to_equipoBFragment);
+                //para volver atras
+                navController.popBackStack();
             }
         });
 
