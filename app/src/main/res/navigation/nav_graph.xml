@@ -125,15 +125,7 @@
         android:id="@+id/addJugadorFragment"
         android:name="com.example.mp07_statson.AddJugadorFragment"
         android:label="fragment_add_jugador"
-        tools:layout="@layout/fragment_add_jugador" >
-        <action
-            android:id="@+id/action_addJugadorFragment_to_equipoBFragment"
-            app:destination="@id/equipoBFragment"
-            app:enterAnim="@anim/slide_in_down"
-            app:exitAnim="@anim/slide_out_up"
-            app:popEnterAnim="@anim/slide_in_up"
-            app:popExitAnim="@anim/slide_out_down"/>
-    </fragment>
+        tools:layout="@layout/fragment_add_jugador" />
 
     <!--JUEGO FRAGMENT-->
     <fragment

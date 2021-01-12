@@ -8,12 +8,6 @@
     android:background="@color/background"
     android:padding="16dp">
 
-    <cn.zhouchaoyuan.excelpanel.ExcelPanel
-        android:id="@+id/content_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:left_cell_width="10dp"
-        app:normal_cell_width="10dp"
-        app:top_cell_height="10dp" />
+
 
 </FrameLayout>

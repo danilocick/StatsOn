@@ -1,5 +1,6 @@
 package com.example.mp07_statson;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,13 @@ import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentAddJugadorMTBinding;
 import com.example.mp07_statson.databinding.FragmentJugadorStatsBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
+
+import org.eazegraph.lib.charts.BarChart;
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.BarModel;
+import org.eazegraph.lib.models.PieModel;
+import org.eazegraph.lib.models.ValueLinePoint;
+import org.eazegraph.lib.models.ValueLineSeries;
 
 public class JugadorStatsFragment extends Fragment {
 
@@ -64,5 +72,27 @@ public class JugadorStatsFragment extends Fragment {
             }
         });
 
+
+        //STATSBARRAS
+        BarChart mBarChart = (BarChart) binding.barchart;
+
+        mBarChart.addBar(new BarModel("Mina",7, 0xFF123456 ));
+        mBarChart.addBar(new BarModel("Neus",7,  0xFF343456));
+        mBarChart.addBar(new BarModel("Grama",9, 0xFF563456));
+        mBarChart.addBar(new BarModel("Ametlla",11, 0xFF873F56));
+        mBarChart.addBar(new BarModel("Sant Josep",33, 0xFF56B7F1));
+        mBarChart.addBar(new BarModel("UBSA",2,  0xFF343456));
+        mBarChart.addBar(new BarModel("Sant Andreu",7, 0xFF1FF4AC));
+        mBarChart.addBar(new BarModel("Dani",11,  0xFF1BA4E6));
+
+        mBarChart.startAnimation();
+        //STATSQUESO
+        PieChart mPieChart = (PieChart) binding.piechart;
+
+        mPieChart.addPieSlice(new PieModel("Tiros Anotados", 15, Color.parseColor("#FE6DA8")));
+        mPieChart.addPieSlice(new PieModel("Tiros Fallados", 9, Color.parseColor("#FED70E")));
+
+        mPieChart.startAnimation();
     }
+
 }

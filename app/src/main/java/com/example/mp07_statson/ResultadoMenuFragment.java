@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
@@ -23,13 +21,12 @@ import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
 import java.util.List;
 
+
 public class ResultadoMenuFragment extends Fragment {
 
     private NavController navController;
     private FragmentResultadoMenuBinding binding;
     private JugadoresMiTMViewModel jugadoresViewModel;
-
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

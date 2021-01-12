@@ -77,6 +77,10 @@
 
     <string name="rostro">Rostro</string>
     <string name="iniciarPartido" >Iniciar Partido</string>
+    <string name="puntos">puntos</string>
+    <string name="puntosporpartido">PPP</string>
+    <string name="tirosIntentados">TI</string>
+    <string name="tirosIntentadosPorPartido">TIPP</string>
 
     <!--table-->
     <string-array name="header_table">

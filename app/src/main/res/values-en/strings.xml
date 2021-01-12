@@ -39,4 +39,5 @@
     <string name="partidos" translatable="false">Matches</string>
     <string name="guardar">Save</string>
     <string name="iniciarPartido" >Start Match</string>
+    <string name="puntos">puntos</string>
 </resources>
