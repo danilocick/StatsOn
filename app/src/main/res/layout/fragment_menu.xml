@@ -19,61 +19,69 @@
         android:layout_margin="80dp"
         tools:context=".MenuFragment">
 
-        <Button
+        <TextView
             android:id="@+id/botonPartidoNuevo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_change"
-            android:padding="10dp"
-            android:text="@string/partido_nuevo"
+            android:padding="20dp"
+            android:textAllCaps="true"
+            android:textAlignment="center"
             android:textColor="@color/red"
+            android:text="@string/partido_nuevo"
             android:textSize="15sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/botonResultados"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
 
-        <Button
+        <TextView
             android:id="@+id/botonResultados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_change"
             android:textColor="@color/red"
+            android:padding="20dp"
+            android:textAllCaps="true"
+            android:textAlignment="center"
             android:text="@string/resultados"
             android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@id/botonPartidoNuevo"
             app:layout_constraintBottom_toTopOf="@id/botonMiEquipo"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
-        <Button
+        <TextView
             android:id="@+id/botonMiEquipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_change"
+            android:padding="20dp"
+            android:textAllCaps="true"
+            android:textAlignment="center"
             android:textColor="@color/red"
             android:text="@string/mi_equipo"
             android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@id/botonResultados"
             app:layout_constraintBottom_toTopOf="@id/botonOpciones"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
-        <Button
+        <TextView
             android:id="@+id/botonOpciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_change"
+            android:padding="20dp"
+            android:textAllCaps="true"
+            android:textAlignment="center"
             android:textColor="@color/red"
             android:text="@string/opciones"
             android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@id/botonMiEquipo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="10dp"/>
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
 
