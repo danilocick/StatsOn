@@ -35,6 +35,7 @@ public class JugadorStatsFragment extends Fragment {
     private NavController navController;
     private FragmentJugadorStatsBinding binding;
     private JugadoresMiTMViewModel jugadoresViewModel;
+    private VerJugadorViewModel verJugadorViewModel;
 
 
     @Override
@@ -49,6 +50,7 @@ public class JugadorStatsFragment extends Fragment {
         navController = Navigation.findNavController(view);
 
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
+        verJugadorViewModel = new ViewModelProvider(requireActivity()).get(VerJugadorViewModel.class);
 
 
         jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
@@ -66,6 +68,15 @@ public class JugadorStatsFragment extends Fragment {
 
         //IrEditar
         binding.botonEditTM.setOnClickListener(view12 -> {
+
+            String nombre= binding.nombreJugador.getText().toString();
+            String dorsal= binding.dorsalJugador.getText().toString();
+            String imagen= binding.imagen.toString();
+
+            Jugador jugador = new Jugador(nombre,dorsal,imagen);
+            //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
+            verJugadorViewModel.seleccionar(jugador);
+
             //para volver atras
             navController.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment);
         });

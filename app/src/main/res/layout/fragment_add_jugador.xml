@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".AddJugadorFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="AddJugadorFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/black"
+        android:minHeight="50dp">
+
+        <ImageButton
+            android:id="@+id/botonComeBackAddJTM"
+            android:layout_width="180dp"
+            android:paddingStart="25dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:layout_marginTop="35dp"
         android:padding="16dp"
         android:orientation="vertical">
 
@@ -39,28 +56,33 @@
                 android:scaleType="centerCrop"
                 android:textAlignment="center" />
         </RelativeLayout>
-        <!--TODO: aligment button-->
 
-        <EditText
-            android:id="@+id/nombreJugador"
+        <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/nombreJugador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/reddark"
             android:hint="@string/jugadorNombre"
-            android:background="@drawable/textedit_round"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"/>
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="25sp"
+            app:met_baseColor="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="20"
+            app:met_primaryColor="@color/white"
+            app:met_singleLineEllipsis="true" />
 
-        <EditText
-            android:id="@+id/dorsalJugador"
+        <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/dorsalJugador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:hint="@string/jugadorDorsal"
-            android:background="@drawable/textedit_round"/>
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="25sp"
+            app:met_baseColor="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="20"
+            app:met_primaryColor="@color/white"
+            app:met_singleLineEllipsis="true" />
 
         <Button
-            android:id="@+id/botonCrearAddJ"
+            android:id="@+id/botonCrearAddJTM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -69,20 +91,4 @@
             android:text="@string/crear"
             android:layout_gravity="center"/>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/black"
-        android:minHeight="50dp">
-
-        <ImageButton
-            android:id="@+id/botonComeBackAddJ"
-            android:layout_width="180dp"
-            android:layout_height="match_parent"
-            android:paddingStart="25dp"
-            android:background="@color/black"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
-    </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

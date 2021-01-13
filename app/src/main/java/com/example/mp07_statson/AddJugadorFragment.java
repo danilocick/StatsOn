@@ -46,7 +46,7 @@ public class AddJugadorFragment extends Fragment {
         jugadoresTeamBViewModel = new ViewModelProvider(requireActivity()).get(JugadoresTeamBViewModel.class);
 
         //ComeBack
-        binding.botonComeBackAddJ.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackAddJTM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //para volver atras
@@ -60,7 +60,7 @@ public class AddJugadorFragment extends Fragment {
         });
 
         //crearjugador
-        binding.botonCrearAddJ.setOnClickListener(v->{
+        binding.botonCrearAddJTM.setOnClickListener(v->{
             String nombre = binding.nombreJugador.getText().toString();
             String dorsal = binding.dorsalJugador.getText().toString();
 

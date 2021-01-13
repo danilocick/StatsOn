@@ -67,9 +67,7 @@ public class EquipoBFragment extends Fragment {
         JugadoresbdTeamBAdapter adapter = new JugadoresbdTeamBAdapter();
         binding.listaJugadoresTeamB.setAdapter(adapter);
 
-        jugadorsTeamBViewModel.obtener().observe(getViewLifecycleOwner(),jugadors -> {
-            adapter.establecerJugadoresList(jugadors);
-        });
+        jugadorsTeamBViewModel.obtener().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
 
     }
 
