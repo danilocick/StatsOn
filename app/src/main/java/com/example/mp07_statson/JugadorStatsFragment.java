@@ -87,12 +87,25 @@ public class JugadorStatsFragment extends Fragment {
 
         mBarChart.startAnimation();
         //STATSQUESO
-        PieChart mPieChart = (PieChart) binding.piechart;
+        PieChart mPieChart;
+        PieChart mPieChart2;
+        PieChart mPieChart3;
+        mPieChart = (PieChart) binding.piechart;
+        mPieChart2 = (PieChart) binding.piechart2;
+        mPieChart3 = (PieChart) binding.piechart3;
 
         mPieChart.addPieSlice(new PieModel("Tiros Anotados", 15, Color.parseColor("#FE6DA8")));
         mPieChart.addPieSlice(new PieModel("Tiros Fallados", 9, Color.parseColor("#FED70E")));
 
+        mPieChart2.addPieSlice(new PieModel("Triples Anotados", 2, Color.parseColor("#FE6DA8")));
+        mPieChart2.addPieSlice(new PieModel("Triples Fallados", 3, Color.parseColor("#FED70E")));
+
+        mPieChart3.addPieSlice(new PieModel("TL Anotados", 12, Color.parseColor("#FE6DA8")));
+        mPieChart3.addPieSlice(new PieModel("TL Fallados", 2, Color.parseColor("#FED70E")));
+
         mPieChart.startAnimation();
+        mPieChart2.startAnimation();
+        mPieChart3.startAnimation();
     }
 
 }
