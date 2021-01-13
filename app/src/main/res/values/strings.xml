@@ -20,7 +20,7 @@
 
     <!--equipo_rival-->
     <string name="e_rival">Equipo Rival</string>
-    <string name="nombrerival">Inserta el nombre del rival</string>
+    <string name="nombrerival">Nombre del rival</string>
     <string name="rosters">Plantilla</string>
 
     <!--añadirJugador-->
@@ -76,11 +76,11 @@
     <string name="taponRecibido">Tapón Recibido</string>
 
     <string name="rostro">Rostro</string>
-    <string name="iniciarPartido" >Iniciar Partido</string>
+    <string name="iniciarPartido">Iniciar Partido</string>
     <string name="puntos">puntos</string>
-    <string name="puntosporpartido">PPP</string>
-    <string name="tirosIntentados">TI</string>
-    <string name="tirosIntentadosPorPartido">TIPP</string>
+    <string name="puntosporpartido" translatable="false">PPP</string>
+    <string name="tirosIntentados" translatable="false">TI</string>
+    <string name="tirosIntentadosPorPartido" translatable="false">TIPP</string>
 
     <!--table-->
     <string-array name="header_table">

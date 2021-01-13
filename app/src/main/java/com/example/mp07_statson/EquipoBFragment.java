@@ -1,22 +1,18 @@
 package com.example.mp07_statson;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
@@ -51,40 +47,22 @@ public class EquipoBFragment extends Fragment {
 
         nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
 
-        nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String a) {
-                binding.nombreRival.setText(a);
-            }
-        });
+        nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.nombreRival.setText(a));
 
 
         //empezar partido
-        binding.botonIniciarPartidoTeamB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_equipoBFragment_to_gameFragment);
-            }
-        });
+        binding.botonIniciarPartidoTeamB.setOnClickListener(view1 -> navController.navigate(R.id.action_equipoBFragment_to_gameFragment));
 
         //ComeBack
-        binding.botonComeBackTeamB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
+        binding.botonComeBackTeamB.setOnClickListener(view12 -> {
+            //para volver atras
+            navController.popBackStack();
         });
 
         jugadorsTeamBViewModel = new ViewModelProvider(requireActivity()).get(JugadoresTeamBViewModel.class);
 
         //Ir anyadirjugador
-        binding.botonanyadirjugador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_equipoBFragment_to_addJugadorFragment);
-            }
-        });
+        binding.botonanyadirjugador.setOnClickListener(view13 -> navController.navigate(R.id.action_equipoBFragment_to_addJugadorFragment));
 
         JugadoresbdTeamBAdapter adapter = new JugadoresbdTeamBAdapter();
         binding.listaJugadoresTeamB.setAdapter(adapter);
@@ -96,7 +74,7 @@ public class EquipoBFragment extends Fragment {
     }
 
     //clase para acceder a los campos de viewholder_jugador_miteam
-    class JugadorTeamBViewHolder extends RecyclerView.ViewHolder{
+    static class JugadorTeamBViewHolder extends RecyclerView.ViewHolder{
         ViewholderJugadorMiTeamBinding binding;
 
         public JugadorTeamBViewHolder(@NonNull ViewholderJugadorMiTeamBinding binding) {

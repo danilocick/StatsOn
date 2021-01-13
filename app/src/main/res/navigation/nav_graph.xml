@@ -181,7 +181,11 @@
         android:id="@+id/jugadorStatsFragment"
         android:name="com.example.mp07_statson.JugadorStatsFragment"
         android:label="fragment_jugador_stats"
-        tools:layout="@layout/fragment_jugador_stats" />
+        tools:layout="@layout/fragment_jugador_stats" >
+        <action
+            android:id="@+id/action_jugadorStatsFragment_to_editJugadorFragment"
+            app:destination="@id/editJugadorFragment" />
+    </fragment>
 
 
     <!-- LISTA RESULTADOS FRAGMENT-->
@@ -204,5 +208,10 @@
     android:name="com.example.mp07_statson.OutputMatchesFragment"
     android:label="fragment_output_matches"
     tools:layout="@layout/fragment_output_matches" />
+    <fragment
+        android:id="@+id/editJugadorFragment"
+        android:name="com.example.mp07_statson.EditJugadorFragment"
+        android:label="fragment_edit_jugador"
+        tools:layout="@layout/fragment_edit_jugador" />
 
 </navigation>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".EditJugadorFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/black"
+        android:minHeight="50dp">
+
+        <ImageButton
+            android:id="@+id/botonComeBackAddJTM"
+            android:layout_width="180dp"
+            android:paddingStart="25dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tituloJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jugador"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:textSize="75dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"/>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/recyclerv_round_white">
+
+            <ImageView android:id="@+id/imagen_jugadorMiTeam"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:src="@drawable/add_jugador"
+                android:scaleType="centerCrop"
+                android:textAlignment="center" />
+        </RelativeLayout>
+
+        <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/nombreJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/jugadorNombre"
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="25sp"
+            app:met_baseColor="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="20"
+            app:met_primaryColor="@color/white"
+            app:met_singleLineEllipsis="true" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/dorsalJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/jugadorDorsal"
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:textSize="25sp"
+            app:met_baseColor="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="20"
+            app:met_primaryColor="@color/white"
+            app:met_singleLineEllipsis="true" />
+
+        <Button
+            android:id="@+id/botonCrearAddJTM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:text="@string/crear"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+
+</LinearLayout>

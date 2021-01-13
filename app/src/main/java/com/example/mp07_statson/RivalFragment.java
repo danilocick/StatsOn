@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -19,7 +20,7 @@ public class RivalFragment extends Fragment {
 
     private NavController navController;
     private FragmentRivalBinding binding;
-    NombreRivalViewModel NombreRivalViewModel = new NombreRivalViewModel();
+    NombreRivalViewModel nombreRivalViewModel;
 
 
     @Override
@@ -33,14 +34,15 @@ public class RivalFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
+        nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
+
         //insertar nombre rival
         binding.botonSiguienteERival.setOnClickListener(v -> {
             String teamb = binding.nombreRival.getText().toString();
 
             if(!teamb.equals("")) {
                 //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-                NombreRivalViewModel.seleccionar(teamb);
-                //binding.botonPrueba.setText(rival.getNombreRival());
+                nombreRivalViewModel.seleccionar(teamb);
                 //navegamos
                 navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
             }

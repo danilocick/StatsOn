@@ -64,4 +64,7 @@ dependencies {
     //graficos
     implementation 'com.github.blackfizz:eazegraph:1.2.2@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
+    //edittext
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
 }
+

@@ -72,6 +72,14 @@ public class JugadorStatsFragment extends Fragment {
             }
         });
 
+        //IrEditar
+        binding.botonEditTM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //para volver atras
+                navController.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment);
+            }
+        });
 
         //STATSBARRAS
         BarChart mBarChart = (BarChart) binding.barchart;
@@ -95,13 +103,13 @@ public class JugadorStatsFragment extends Fragment {
         mPieChart3 = (PieChart) binding.piechart3;
 
         mPieChart.addPieSlice(new PieModel("Tiros Anotados", 15, Color.parseColor("#85182A")));
-        mPieChart.addPieSlice(new PieModel("Tiros Fallados", 9, Color.parseColor("#A71E34")));
+        mPieChart.addPieSlice(new PieModel("Tiros Fallados", 9, Color.parseColor("#FF7F7F")));
 
         mPieChart2.addPieSlice(new PieModel("Triples Anotados", 2, Color.parseColor("#85182A")));
-        mPieChart2.addPieSlice(new PieModel("Triples Fallados", 3, Color.parseColor("#A71E34")));
+        mPieChart2.addPieSlice(new PieModel("Triples Fallados", 3, Color.parseColor("#FF7F7F")));
 
         mPieChart3.addPieSlice(new PieModel("TL Anotados", 12, Color.parseColor("#85182A")));
-        mPieChart3.addPieSlice(new PieModel("TL Fallados", 2, Color.parseColor("#A71E34")));
+        mPieChart3.addPieSlice(new PieModel("TL Fallados", 2, Color.parseColor("#FF7F7F")));
 
         mPieChart.startAnimation();
         mPieChart2.startAnimation();
