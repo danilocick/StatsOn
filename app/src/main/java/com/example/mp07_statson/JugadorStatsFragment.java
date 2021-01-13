@@ -41,8 +41,6 @@ public class JugadorStatsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return (binding = FragmentJugadorStatsBinding.inflate(inflater, container, false)).getRoot();
-
-
     }
 
     @Override
@@ -52,33 +50,24 @@ public class JugadorStatsFragment extends Fragment {
 
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
 
-        //MutableLiveData<Jugador> jugador =jugadoresViewModel.seleccionado();
-        jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), new Observer<Jugador>() {
-            @Override
-            public void onChanged(Jugador elemento) {
-                //Glide.with().load(elemento.imagen).into(binding.imagen);
-                binding.nombreJugador.setText(elemento.nombre);
-                binding.dorsalJugador.setText(elemento.dorsal);
-            }
+
+        jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
+            Glide.with(JugadorStatsFragment.this).load(elemento.imagen).into(binding.imagen);
+            binding.nombreJugador.setText(elemento.nombre);
+            binding.dorsalJugador.setText(elemento.dorsal);
         });
 
 
         //ComeBack
-        binding.botonComeBackSeeTM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
+        binding.botonComeBackSeeTM.setOnClickListener(view1 -> {
+            //para volver atras
+            navController.popBackStack();
         });
 
         //IrEditar
-        binding.botonEditTM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment);
-            }
+        binding.botonEditTM.setOnClickListener(view12 -> {
+            //para volver atras
+            navController.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment);
         });
 
         //STATSBARRAS
