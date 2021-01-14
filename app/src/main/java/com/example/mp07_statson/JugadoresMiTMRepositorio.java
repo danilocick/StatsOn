@@ -32,4 +32,5 @@ public class JugadoresMiTMRepositorio {
     public LiveData<List<Jugador>> obtener() {
         return jugadoresDao.obtener();
     }
+
 }

@@ -18,8 +18,8 @@ import java.util.List;
 public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
     private static volatile BaseDeDatosMiTM db;
-
     public abstract JugadoresDao obtenerJugadoresDao();
+    public abstract ListaEquiposDao obtenerEquiposDao();
 
     public static BaseDeDatosMiTM getInstance(final Context context){
         if (db==null){
@@ -47,24 +47,12 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
     }
 
     @Dao
-    interface JugadoresTeamBDao{
+    interface ListaEquiposDao{
         @Insert
-        void insertar(Jugador jugador);
-
-        @Query("SELECT * FROM Jugador")
-        LiveData<List<Jugador>> obtener();
-
-        @Delete
-        void delete(Jugador jugador);
-    }
-
-    @Dao
-    interface ListaEquipos{
-        @Insert
-        void insertarEquipo (Equipo equipo);
+        void insertar (Equipo equipo);
 
         @Query("SELECT * FROM Equipo")
-        LiveData<List<String>> obtenerEquipos();
+        LiveData<List<Equipo>> obtener();
 
         @Delete
         void delete(Equipo equipo);
