@@ -46,4 +46,28 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
         void delete(Jugador jugador);
     }
 
+    @Dao
+    interface JugadoresTeamBDao{
+        @Insert
+        void insertar(Jugador jugador);
+
+        @Query("SELECT * FROM Jugador")
+        LiveData<List<Jugador>> obtener();
+
+        @Delete
+        void delete(Jugador jugador);
+    }
+
+    @Dao
+    interface ListaEquipos{
+        @Insert
+        void insertarEquipo (Equipo equipo);
+
+        @Query("SELECT * FROM Equipo")
+        LiveData<List<String>> obtenerEquipos();
+
+        @Delete
+        void delete(Equipo equipo);
+    }
+
 }

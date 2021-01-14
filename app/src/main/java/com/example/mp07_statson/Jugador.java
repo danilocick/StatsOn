@@ -15,6 +15,7 @@ public class Jugador {
             t1mas, t1menos, t2mas, t2menos, t3mas, t3menos,
             rebotesDef, rebotesOf, faltasRecibidas, faltasCometidas,
             taponesRealizados, taponesRecibidos;
+    int idEquipo;
 
     public Jugador(String nombre, String dorsal, String imagen) {
         this.nombre = nombre;
@@ -186,5 +187,12 @@ public class Jugador {
     }
     public void setTaponesRecibidos(int taponesRecibidos) {
         this.taponesRecibidos = taponesRecibidos;
+    }
+
+    public int getIdEquipo() {
+        return idEquipo;
+    }
+    public void setIdEquipo(int idEquipo) {
+        this.idEquipo = idEquipo;
     }
 }
