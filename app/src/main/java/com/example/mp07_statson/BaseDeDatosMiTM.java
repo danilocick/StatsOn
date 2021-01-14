@@ -11,6 +11,8 @@ import androidx.room.Query;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.mp07_statson.Model.Equipo;
+
 import java.util.List;
 
 /* https://developer.android.com/training/data-storage/room */

@@ -1,9 +1,10 @@
 package com.example.mp07_statson;
 
 import android.app.Application;
-import android.media.audiofx.DynamicsProcessing;
 
 import androidx.lifecycle.LiveData;
+
+import com.example.mp07_statson.Model.Equipo;
 
 import java.util.List;
 import java.util.concurrent.Executor;

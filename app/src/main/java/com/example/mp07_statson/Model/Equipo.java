@@ -1,4 +1,4 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.Model;
 
 
 import androidx.annotation.NonNull;

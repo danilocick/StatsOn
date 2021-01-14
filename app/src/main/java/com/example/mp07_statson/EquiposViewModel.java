@@ -1,12 +1,13 @@
 package com.example.mp07_statson;
 
 import android.app.Application;
-import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.mp07_statson.Model.Equipo;
 
 import java.util.List;
 
