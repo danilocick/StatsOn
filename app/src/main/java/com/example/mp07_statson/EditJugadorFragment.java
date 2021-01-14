@@ -39,7 +39,7 @@ public class EditJugadorFragment extends Fragment {
 
         verJugadorViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.nombreJugador.setText(a.nombre));
         verJugadorViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.dorsalJugador.setText(a.dorsal));
-        //verJugadorViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.imagenJugadorMiTeam.setImageAlpha(a.imagen.));
+        //verJugadorViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.imagenJugadorMiTeam.);
 
 
 

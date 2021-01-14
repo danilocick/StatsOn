@@ -1,47 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RivalFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background"
-        android:layout_marginTop="35dp"
-        android:padding="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tituloRival"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/e_rival"
-            android:fontFamily="@font/postnobillsjaffna_extrabold"
-            android:textSize="75dp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/white"/>
-    </LinearLayout>
-
-    <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/nombreRival"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/nombrerival"
-        android:textCursorDrawable="@drawable/text_cursor_cyan"
-        android:textSize="34sp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:padding="15dp"
-        android:layout_margin="16dp"
-        app:met_baseColor="@android:color/white"
-        app:met_floatingLabel="highlight"
-        app:met_maxCharacters="20"
-        app:met_primaryColor="@color/white"
-        app:met_singleLineEllipsis="true" />
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,7 +14,6 @@
         android:orientation="horizontal"
         android:minHeight="35dp">
 
-        <!--TODO: seeButton-->
         <ImageButton
             android:id="@+id/botonComeBackERival"
             android:layout_width="180dp"
@@ -68,4 +32,33 @@
             android:textAlignment="center" />
     </LinearLayout>
 
-</RelativeLayout>
+
+        <TextView
+            android:id="@+id/tituloRival"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/e_rival"
+            android:fontFamily="@font/postnobillsjaffna_extrabold"
+            android:textSize="75dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/nombreRival"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombrerival"
+        android:textCursorDrawable="@drawable/text_cursor_cyan"
+        android:textSize="34sp"
+        android:padding="15dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="20"
+        app:met_primaryColor="@color/white"
+        app:met_singleLineEllipsis="true" />
+
+
+</LinearLayout>

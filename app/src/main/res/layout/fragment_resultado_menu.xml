@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ResultadoMenuFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/black"
+        android:minHeight="50dp">
+
+        <ImageButton
+            android:id="@+id/botonComeBackMiTM"
+            android:layout_width="180dp"
+            android:paddingStart="25dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-
-        android:layout_marginTop="35dp"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -46,7 +61,8 @@
             <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaJugadoresMiTM"
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_margin="16dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/botonanyadirjugadorMiTM"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -56,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_margin="16dp"
                 android:text="@string/anyadirjugador"
                 app:layout_constraintTop_toBottomOf="@+id/listaJugadoresMiTM"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -64,20 +81,4 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/black"
-        android:minHeight="50dp">
-
-        <ImageButton
-            android:id="@+id/botonComeBackMiTM"
-            android:layout_width="180dp"
-            android:paddingStart="25dp"
-            android:layout_height="match_parent"
-            android:background="@color/black"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
