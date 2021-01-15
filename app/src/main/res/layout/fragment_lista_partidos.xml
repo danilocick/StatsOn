@@ -16,11 +16,15 @@
 
         <ImageButton
             android:id="@+id/botonComeBackPartidos"
-            android:layout_width="180dp"
-            android:paddingStart="25dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@color/black"
             android:src="@drawable/ic_baseline_arrow_back_24" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <LinearLayout

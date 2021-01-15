@@ -1,56 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
-    tools:context=".LoadFragment">
+    tools:context=".LoadFragment"
+    android:orientation="vertical">
 
     <!--https://github.com/ybq/Android-SpinKit-->
     <!--300-640-->
 
     <ImageView
         android:id="@+id/logoexit"
-        android:layout_width="126dp"
-        android:layout_height="368dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"
-        android:rotationX="0"
-        android:src="@drawable/logito"
-        app:layout_constraintBottom_toTopOf="@+id/goCBSCexit"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginTop="60sp"
+        android:layout_gravity="center"
+        android:src="@drawable/logito" />
 
     <TextView
         android:id="@+id/goCBSCexit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="152dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
         android:fontFamily="@font/postnobillsjaffna_extrabold"
         android:gravity="center"
         android:rotationX="50"
         android:text="@string/goCBSCcarga"
         android:textColor="@color/white"
-        android:textSize="75sp"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoexit" />
+        android:textSize="75sp"/>
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/progressBar"
         style="@style/SpinKitView.Large.WanderingCubes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        app:SpinKit_Color="@color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/goCBSCexit"/>
+        android:layout_weight="1"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/white"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
