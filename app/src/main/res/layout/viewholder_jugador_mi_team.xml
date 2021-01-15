@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
-    android:layout_margin="8dp">
+    android:layout_margin="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,6 +18,8 @@
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_weight="3"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="start|center"
             android:adjustViewBounds="true"/>
 
@@ -51,7 +53,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_remove_circle_outline_24"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
