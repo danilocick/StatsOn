@@ -1,12 +1,10 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.Model;
 
 import android.app.Application;
 
-import androidx.lifecycle.LiveData;
-
+import com.example.mp07_statson.Model.BaseDeDatosMiTM;
 import com.example.mp07_statson.Model.Equipo;
 
-import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -20,18 +18,20 @@ public class EquiposRepositorio {
 
     public void insertar(int idEquipo, String nombre) {
         executor.execute(() -> {
-            listaEquiposDao.insertar(new Equipo(idEquipo,nombre));
+            //listaEquiposDao.insertar(new Equipo(idEquipo,nombre));
         });
     }
 
     public void delete(Equipo equipo) {
         executor.execute(() -> {
-            listaEquiposDao.delete(equipo);
+            //listaEquiposDao.delete(equipo);
         });
     }
 
-    public LiveData<List<Equipo>> obtener() {
+    /*public LiveData<List<Equipo>> obtener() {
         return listaEquiposDao.obtener();
     }
+
+     */
 
 }

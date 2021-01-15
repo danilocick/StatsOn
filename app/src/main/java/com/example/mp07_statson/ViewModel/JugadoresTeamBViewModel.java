@@ -1,4 +1,4 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.ViewModel;
 
 import android.app.Application;
 import android.net.Uri;
@@ -6,6 +6,9 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.Model.JugadoresTeamBRepositorio;
 
 import java.util.List;
 

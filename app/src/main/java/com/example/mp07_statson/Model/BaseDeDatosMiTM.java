@@ -1,4 +1,4 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.Model;
 
 import android.content.Context;
 
@@ -10,8 +10,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-
-import com.example.mp07_statson.Model.Equipo;
 
 import java.util.List;
 
@@ -50,14 +48,14 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
     @Dao
     interface ListaEquiposDao{
-        @Insert
-        void insertar (Equipo equipo);
+//        @Insert
+//        void insertar (Equipo equipo);
 
-        @Query("SELECT * FROM Equipo")
-        LiveData<List<Equipo>> obtener();
+//        @Query("SELECT * FROM Equipo")
+//        LiveData<List<Equipo>> obtener();
 
-        @Delete
-        void delete(Equipo equipo);
+//        @Delete
+//        void delete(Equipo equipo);
     }
 
 }

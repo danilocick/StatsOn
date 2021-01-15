@@ -15,11 +15,10 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.ViewModel.JugadoresTeamBViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
-import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;

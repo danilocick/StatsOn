@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -16,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
 import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
@@ -65,7 +66,7 @@ public class ResultadoMenuFragment extends Fragment {
     }
 
     //adaptador bd
-    class JugadoresbdAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
+    public class JugadoresbdAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
         List<Jugador> jugadorList;
 
@@ -107,7 +108,7 @@ public class ResultadoMenuFragment extends Fragment {
             return jugadorList == null ? 0 : jugadorList.size();
         }
 
-        void establecerJugadorList(List<Jugador> jugadorList){
+        public void establecerJugadorList(List<Jugador> jugadorList){
             this.jugadorList=jugadorList;
             notifyDataSetChanged();
         }
@@ -120,7 +121,7 @@ public class ResultadoMenuFragment extends Fragment {
 
 
     //clase para acceder a los campos de viewholder_jugador_miteam
-    static class JugadorViewHolder extends RecyclerView.ViewHolder{
+    public static class JugadorViewHolder extends RecyclerView.ViewHolder{
         ViewholderJugadorMiTeamBinding binding;
 
         public JugadorViewHolder(@NonNull ViewholderJugadorMiTeamBinding binding, ViewGroup parent, boolean b){

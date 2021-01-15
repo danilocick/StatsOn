@@ -40,4 +40,9 @@
     <string name="guardar">Guardar</string>
     <string name="iniciarPartido" >Iniciar Partido</string>
     <string name="puntos">puntos</string>
+    <string name="foto">Foto</string>
+    <string name="nombre">Nombre</string>
+    <string name="dorsal">Dorsal</string>
+    <string name="eliminar">eliminar</string>
+    <string name="jugar">Jugar</string>
 </resources>

@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
 import com.example.mp07_statson.databinding.FragmentEquipoABinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
-import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
 
 import java.util.List;

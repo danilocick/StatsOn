@@ -1,4 +1,4 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.Model;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -7,15 +7,15 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Jugador {
     @PrimaryKey @NonNull
-        String dorsal;
+    public String dorsal;
 
-    String nombre;
-    String imagen;
-    int puntos, rebotes, asistencias, recuperaciones, perdidas, tapones,
+    public String nombre;
+    public String imagen;
+    public int puntos, rebotes, asistencias, recuperaciones, perdidas, tapones,
             t1mas, t1menos, t2mas, t2menos, t3mas, t3menos,
             rebotesDef, rebotesOf, faltasRecibidas, faltasCometidas,
             taponesRealizados, taponesRecibidos;
-    int idEquipo;
+    public  int idEquipo;
 
     public Jugador(String nombre, String dorsal, String imagen) {
         this.nombre = nombre;

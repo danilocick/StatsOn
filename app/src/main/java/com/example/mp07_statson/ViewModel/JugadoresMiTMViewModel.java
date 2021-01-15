@@ -1,4 +1,4 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.ViewModel;
 
 import android.app.Application;
 import android.net.Uri;
@@ -7,6 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.Model.JugadoresMiTMRepositorio;
 
 import java.util.List;
 
@@ -34,11 +37,11 @@ public class JugadoresMiTMViewModel extends AndroidViewModel {
 
 
     MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();
-    void seleccionar(Jugador jugador){
+    public void seleccionar(Jugador jugador){
         jugadorMutableLiveData.setValue(jugador);
     }
 
-    MutableLiveData<Jugador> seleccionado(){
+    public MutableLiveData<Jugador> seleccionado(){
         return jugadorMutableLiveData;
     }
 

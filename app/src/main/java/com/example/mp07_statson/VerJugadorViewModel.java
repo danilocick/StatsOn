@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.mp07_statson.Model.Jugador;
+
 public class VerJugadorViewModel extends AndroidViewModel {
 
     MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();

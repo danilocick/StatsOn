@@ -81,6 +81,11 @@
     <string name="puntosporpartido" translatable="false">PPP</string>
     <string name="tirosIntentados" translatable="false">TI</string>
     <string name="tirosIntentadosPorPartido" translatable="false">TIPP</string>
+    <string name="foto">Foto</string>
+    <string name="nombre">Nombre</string>
+    <string name="dorsal">Dorsal</string>
+    <string name="eliminar">eliminar</string>
+    <string name="jugar">Jugar</string>
 
     <!--table-->
     <string-array name="header_table">

@@ -61,8 +61,7 @@
             android:paddingTop="72dp"/>
     </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaJugadoresTeamB"
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaJugadoresTeamB"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_marginLeft="16dp"
@@ -72,9 +71,9 @@
         <Button android:id="@+id/botonanyadirjugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
         android:text="@string/anyadirjugador"/>
     </LinearLayout>
 

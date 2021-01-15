@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorMTBinding;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;

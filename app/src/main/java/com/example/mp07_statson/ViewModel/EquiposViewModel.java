@@ -1,15 +1,13 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.ViewModel;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.mp07_statson.Model.Equipo;
-
-import java.util.List;
+import com.example.mp07_statson.Model.EquiposRepositorio;
 
 public class EquiposViewModel extends AndroidViewModel {
     private final EquiposRepositorio equiposRepositorio;
@@ -29,9 +27,11 @@ public class EquiposViewModel extends AndroidViewModel {
         equiposRepositorio.delete(equipo);
     }
 
-    public LiveData<List<Equipo>> obtener() {
+    /*public LiveData<List<Equipo>> obtener() {
         return equiposRepositorio.obtener();
     }
+
+     */
 
 
     MutableLiveData<Equipo> jugadorMutableLiveData = new MutableLiveData<>();
