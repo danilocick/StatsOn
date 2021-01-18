@@ -30,6 +30,14 @@ public class OutputMatchesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
+        //ComeBack
+        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //para volver atras
+                navController.popBackStack();
+            }
+        });
 
     }
 

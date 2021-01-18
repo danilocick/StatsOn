@@ -43,12 +43,12 @@ public class ListaPartidosFragment extends Fragment {
             }
         });
 
-        /*
-        binding.buttontooutput.setOnClickListener(new View.OnClickListener() {
+
+        binding.boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment);
             }
-        });*/
+        });
     }
 }

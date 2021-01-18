@@ -37,6 +37,7 @@
         <TextView android:id="@+id/tituloMiEquipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:text="@string/partidos"
             android:fontFamily="@font/postnobillsjaffna_extrabold"
             android:textSize="75sp"
@@ -47,7 +48,15 @@
         <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaPartidos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="2"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+        <Button android:id="@+id/boton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:text="pulsame"
+            />
 
 
     </LinearLayout>

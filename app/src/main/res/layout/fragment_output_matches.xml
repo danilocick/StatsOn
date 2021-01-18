@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OutputMatchesFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".OutputMatchesFragment"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:minHeight="35dp"
+        android:minHeight="42dp"
         android:background="@color/black">
-        <ImageButton
-            android:id="@+id/botonComeBack"
+        <ImageButton android:id="@+id/botonComeBack"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
@@ -21,10 +22,13 @@
             android:src="@drawable/ic_baseline_arrow_back_24" />
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.fragment.app.FragmentContainerView
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:id="@+id/nav_host_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:background="@color/redwhite"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/tabbed_graph" />
 
 </LinearLayout>
