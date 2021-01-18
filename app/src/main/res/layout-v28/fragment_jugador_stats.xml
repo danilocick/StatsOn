@@ -17,20 +17,20 @@
 
         <ImageButton
             android:id="@+id/botonComeBackSeeTM"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black"
             android:src="@drawable/ic_baseline_arrow_back_24" />
 
-        <ImageButton android:id="@+id/botonEditTM"
-            android:layout_width="180dp"
+        <ImageView android:id="@+id/botonEditTM"
             android:layout_height="45dp"
+            android:layout_width="45dp"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
             android:background="@color/black"
-            android:src="@drawable/editar" />
+            android:src="@drawable/editar"/>
     </LinearLayout>
 
     <ScrollView
@@ -131,58 +131,37 @@
                     android:textColor="@color/reddark"
                     android:textAlignment="center"
                     android:layout_gravity="center"/>
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp">
                     <org.eazegraph.lib.charts.PieChart
                         android:id="@+id/piechart"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:paddingTop="15sp"
-                        android:paddingBottom="15sp"
-                        app:egLegendTextSize="15sp"
-                        app:egValueTextSize="20sp"
-                        app:egUsePieRotation="true"
-                        app:barrierDirection="right"
-                        app:egAutoCenter="true"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        app:egAutoCenter="false"/>
 
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toLeftOf="@id/piechart2"/>
                     <org.eazegraph.lib.charts.PieChart
                         android:id="@+id/piechart2"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:paddingTop="15sp"
-                        android:paddingBottom="15sp"
-                        app:egLegendTextSize="15sp"
-                        app:egValueTextSize="20sp"
-                        app:egUsePieRotation="true"
-                        app:barrierDirection="right"
-                        app:egAutoCenter="true"
+                        android:paddingEnd="5dp"
+                        app:egAutoCenter="false"/>
 
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/piechart"
-                        app:layout_constraintRight_toLeftOf="@id/piechart3"/>
                     <org.eazegraph.lib.charts.PieChart
                         android:id="@+id/piechart3"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:paddingTop="15sp"
-                        android:paddingBottom="15sp"
-                        app:egLegendTextSize="15sp"
-                        app:egValueTextSize="20sp"
-                        app:egUsePieRotation="true"
-                        app:barrierDirection="right"
-                        app:egAutoCenter="true"
-
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/piechart2"
-                        app:layout_constraintRight_toRightOf="parent"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:paddingEnd="5dp"
+                        app:egAutoCenter="false"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
