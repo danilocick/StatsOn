@@ -1,5 +1,7 @@
 package com.example.mp07_statson;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -87,8 +89,10 @@ public class ResultadoMenuFragment extends Fragment {
             holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
                     jugadoresViewModel.delete(jugador);
+
                 }
             });
 
