@@ -1,7 +1,7 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.Model;
 
 public class NombreRival {
-    String nombre;
+    public String nombre;
 
     public NombreRival() {
     }

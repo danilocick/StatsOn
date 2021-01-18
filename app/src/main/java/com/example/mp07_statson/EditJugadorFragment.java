@@ -13,9 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
+import com.example.mp07_statson.ViewModel.VerJugadorViewModel;
 import com.example.mp07_statson.databinding.FragmentEditJugadorBinding;
-import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
 
 public class EditJugadorFragment extends Fragment {
 

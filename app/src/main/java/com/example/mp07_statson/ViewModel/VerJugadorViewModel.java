@@ -1,4 +1,4 @@
-package com.example.mp07_statson;
+package com.example.mp07_statson.ViewModel;
 
 import android.app.Application;
 
@@ -10,17 +10,17 @@ import com.example.mp07_statson.Model.Jugador;
 
 public class VerJugadorViewModel extends AndroidViewModel {
 
-    MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();
+    public MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();
 
     public VerJugadorViewModel(@NonNull Application application) {
         super(application);
     }
 
-    void seleccionar(Jugador jugador){
+    public void seleccionar(Jugador jugador){
         jugadorMutableLiveData.setValue(jugador);
     }
 
-    MutableLiveData<Jugador> seleccionado(){
+    public MutableLiveData<Jugador> seleccionado(){
         return jugadorMutableLiveData;
     }
 }

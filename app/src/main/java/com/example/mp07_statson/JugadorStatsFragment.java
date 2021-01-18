@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
+import com.example.mp07_statson.ViewModel.VerJugadorViewModel;
 import com.example.mp07_statson.databinding.FragmentJugadorStatsBinding;
 
 import org.eazegraph.lib.charts.BarChart;
