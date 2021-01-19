@@ -24,7 +24,7 @@
     <string name="rosters">Plantilla</string>
 
     <!--añadirJugador-->
-    <string name="jugador">jugador</string>
+    <string name="jugador">Jugador</string>
     <string name="jugadorNombre">Nombre Jugador</string>
     <string name="jugadorDorsal">Dorsal</string>
     <string name="crear">Crear</string>
@@ -86,6 +86,8 @@
     <string name="dorsal">Dorsal</string>
     <string name="eliminar">eliminar</string>
     <string name="jugar">Jugar</string>
+    <string name="rebotesOf">Rebotes Ofensivos</string>
+    <string name="rebotesDef" />
 
     <!--table-->
     <string-array name="header_table">

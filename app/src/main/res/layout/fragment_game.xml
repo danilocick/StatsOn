@@ -47,67 +47,72 @@
         android:padding="16dp">
 
         <!--CRONOMETO-->
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/title_teamA"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/santaColoma"
-                android:fontFamily="@font/postnobillsjaffna_regular"
-                android:textSize="20sp"
-                android:textColor="@color/red"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/chronometer"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:fontFamily="@font/postnobillsjaffna_bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/green"
+                android:background="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/title_teamB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/teamB"
+                android:fontFamily="@font/postnobillsjaffna_bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <TextView android:id="@+id/marcador_teamA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="0"
-                android:textSize="40sp"
-                app:layout_constraintTop_toBottomOf="@+id/title_teamA"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/chronometer"/>
+                android:textSize="40sp"/>
 
-
-            <Chronometer android:id="@+id/chronometer"
+            <ImageView
+                android:layout_height="match_parent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/title_teamA"
-                app:layout_constraintRight_toLeftOf="@+id/title_teamB"
-                android:background="@drawable/recyclerv_round_black"/>
-
-            <TextView android:id="@+id/title_teamB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/teamB"
-                android:fontFamily="@font/postnobillsjaffna_regular"
-                android:textSize="20sp"
-                android:textColor="@color/red"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/chronometer"
-                app:layout_constraintRight_toRightOf="parent"/>
+                android:layout_weight="1" />
 
             <TextView android:id="@+id/marcador_teamB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="0"
-                android:textSize="40sp"
-                app:layout_constraintTop_toBottomOf="@+id/title_teamB"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/chronometer"
-                app:layout_constraintRight_toRightOf="parent"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textSize="40sp"/>
+        </LinearLayout>
         <!--1a fila-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

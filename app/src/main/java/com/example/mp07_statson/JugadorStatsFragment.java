@@ -49,7 +49,7 @@ public class JugadorStatsFragment extends Fragment {
 
 
         jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
-            Glide.with(JugadorStatsFragment.this).load(elemento.imagen).into(binding.imagen);
+            Glide.with(JugadorStatsFragment.this).load(elemento.imagen).into(binding.imagenJugador);
             binding.nombreJugador.setText(elemento.nombre);
             binding.dorsalJugador.setText(elemento.dorsal);
         });
@@ -66,7 +66,7 @@ public class JugadorStatsFragment extends Fragment {
 
             String nombre= binding.nombreJugador.getText().toString();
             String dorsal= binding.dorsalJugador.getText().toString();
-            String imagen= binding.imagen.toString();
+            String imagen= binding.imagenJugador.toString();
 
             Jugador jugador = new Jugador(nombre,dorsal,imagen);
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
