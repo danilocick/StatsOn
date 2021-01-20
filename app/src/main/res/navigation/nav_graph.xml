@@ -62,11 +62,6 @@
         tools:layout="@layout/fragment_options" />
 
     <!--GAME OUTPUT FRAGMENT-->
-    <fragment
-        android:id="@+id/outputFragment"
-        android:name="com.example.mp07_statson.OutputFragment"
-        android:label="fragment_output"
-        tools:layout="@layout/fragment_output" />
 
     <!--RIVAL FRAGMENT-->
     <fragment
@@ -134,15 +129,15 @@
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" >
         <action
-            android:id="@+id/action_gameFragment_to_outputFragment"
-            app:destination="@id/outputFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
             android:id="@+id/action_gameFragment_to_menuFragment"
             app:destination="@id/menuFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_down"
+            app:popEnterAnim="@anim/slide_in_down"
+            app:popExitAnim="@anim/slide_out_up"/>
+        <action
+            android:id="@+id/action_gameFragment_to_outputMatchesFragment"
+            app:destination="@id/outputMatchesFragment"
             app:enterAnim="@anim/slide_in_up"
             app:exitAnim="@anim/slide_out_down"
             app:popEnterAnim="@anim/slide_in_down"

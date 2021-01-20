@@ -50,7 +50,7 @@ public class GameFragment extends Fragment {
         binding.botonVistaPrevia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_gameFragment_to_outputFragment);
+                navController.navigate(R.id.action_gameFragment_to_outputMatchesFragment);
             }
         });
     }
