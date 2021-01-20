@@ -2694,7 +2694,7 @@
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
+            <TextView android:id="@+id/equiporival"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/e_rival"

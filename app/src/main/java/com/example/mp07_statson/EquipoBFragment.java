@@ -43,13 +43,10 @@ public class EquipoBFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        /* TODO:SetText from jugadoresMiTMViewModel.getNombre()
-        binding.tituloTeamB.setText(String.format("%s", nombreRival.getNombreRival()));
-        */
-
         nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
-
-        nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.nombreRival.setText(a));
+        if (nombreRivalViewModel.seleccionado() != null){
+            nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.nombreRival.setText(a));
+        }
 
         //empezar partido
         binding.botonIniciarPartidoTeamB.setOnClickListener(view1 -> navController.navigate(R.id.action_equipoBFragment_to_gameFragment));

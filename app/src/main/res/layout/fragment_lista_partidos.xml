@@ -51,14 +51,6 @@
             android:layout_weight="2"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-        <Button android:id="@+id/boton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="pulsame"
-            />
-
-
     </LinearLayout>
 
 </LinearLayout>

@@ -9,16 +9,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
-        <TextView android:id="@+id/partido"
+        <TextView android:id="@+id/local"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:padding="8dp"/>
+
+        <TextView android:id="@+id/vs"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:text="vs"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:textSize="25sp"
+            android:padding="8dp"/>
+
+        <TextView android:id="@+id/visitante"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
             android:padding="8dp"/>
 
     </LinearLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -12,12 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
 import com.example.mp07_statson.databinding.FragmentOutputMatchesBinding;
 
 public class OutputMatchesFragment extends Fragment {
 
     private FragmentOutputMatchesBinding binding;
     private NavController navController;
+    private NombreRivalViewModel nombreRivalViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -29,6 +32,11 @@ public class OutputMatchesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+
+        nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
+        if (nombreRivalViewModel.seleccionado() != null){
+            nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.equiporival.setText(a));
+        }
 
         //ComeBack
         binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
