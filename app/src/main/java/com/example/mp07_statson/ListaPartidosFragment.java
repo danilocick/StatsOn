@@ -93,24 +93,9 @@ public class ListaPartidosFragment extends Fragment {
             holder.binding.local.setText(elemento.nombreLocal);
             holder.binding.visitante.setText(elemento.nombreVisitante);
 
-            holder.binding.local.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment);
-                }
-            });
-            holder.binding.visitante.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment);
-                }
-            });
-            holder.binding.vs.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment);
-                }
-            });
+            holder.binding.local.setOnClickListener(view -> navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
+            holder.binding.visitante.setOnClickListener(view -> navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
+            holder.binding.vs.setOnClickListener(view -> navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
         }
 
         @Override
