@@ -45,7 +45,7 @@ public class ResultadoMenuFragment extends Fragment {
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
 
         //ComeBack
-        binding.botonComeBackMiTM.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //para volver atras

@@ -12,24 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/black"
-        android:minHeight="50dp">
-
+        android:minHeight="35dp">
         <ImageButton
-            android:id="@+id/botonComeBackSeeTM"
+            android:id="@+id/botonComeBackERival"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black"
             android:src="@drawable/ic_baseline_arrow_back_24" />
-
         <ImageView android:id="@+id/botonEditTM"
             android:layout_height="45dp"
             android:layout_width="45dp"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
-            android:background="@color/black"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:background="@color/black_80"
             android:src="@drawable/editar"/>
     </LinearLayout>
 

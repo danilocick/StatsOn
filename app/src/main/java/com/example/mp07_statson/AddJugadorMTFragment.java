@@ -46,7 +46,7 @@ public class AddJugadorMTFragment extends Fragment {
         jugadoresMiTMViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
 
         //ComeBack
-        binding.botonComeBackAddJTM.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //para volver atras

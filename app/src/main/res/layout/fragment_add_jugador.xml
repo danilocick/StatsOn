@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="AddJugadorFragment"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,20 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/black"
-        android:minHeight="50dp">
-
+        android:minHeight="35dp">
         <ImageButton
-            android:id="@+id/botonComeBackAddJTM"
+            android:id="@+id/botonComeBackERival"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black"
             android:src="@drawable/ic_baseline_arrow_back_24" />
-        <TextView
+        <Button android:id="@+id/botonSiguienteERival"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@color/black_80" />
     </LinearLayout>
 
     <LinearLayout

@@ -15,4 +15,6 @@
     <color name="background">#8f0100</color>
     <color name="green">#4FCA54</color>
     <color name="tucolor">#921E9A</color>
+    <color name="black_80">#66000000</color>
+    <color name="black_20">#B3000000</color>
 </resources>

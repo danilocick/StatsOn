@@ -49,10 +49,10 @@ public class EquipoBFragment extends Fragment {
         }
 
         //empezar partido
-        binding.botonIniciarPartidoTeamB.setOnClickListener(view1 -> navController.navigate(R.id.action_equipoBFragment_to_gameFragment));
+        binding.botonSiguienteERival.setOnClickListener(view1 -> navController.navigate(R.id.action_equipoBFragment_to_gameFragment));
 
         //ComeBack
-        binding.botonComeBackTeamB.setOnClickListener(view12 -> {
+        binding.botonComeBackERival.setOnClickListener(view12 -> {
             //para volver atras
             navController.popBackStack();
         });
