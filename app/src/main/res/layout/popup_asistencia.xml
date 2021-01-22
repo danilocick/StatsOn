@@ -39,15 +39,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@color/white"
                 android:scaleType="centerInside"
-                android:src="@drawable/two_shot" />
-
-            <TextView
-                android:id="@+id/text_two_point_more"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/t2mas"
-                android:textColor="@color/black" />
+                android:src="@drawable/perdida" />
         </LinearLayout>
         <LinearLayout android:id="@+id/jugA1"
             android:layout_width="match_parent"

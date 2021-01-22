@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.Gravity;
@@ -24,6 +25,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
+import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -32,11 +34,9 @@ import static com.example.mp07_statson.R.layout.popup_asistencia;
 
 public class GameFragment extends Fragment {
 
-
     private FragmentGameBinding binding;
     private NavController navController;
     private NombreRivalViewModel nombreRivalViewModel;
-    Executor executor = Executors.newSingleThreadExecutor();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -56,21 +56,17 @@ public class GameFragment extends Fragment {
         //vista previa
         binding.botonVistaPrevia.setOnClickListener(view15 -> navController.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
-
-
-
+        //POPUP
         View popupView = LayoutInflater.from(getActivity()).inflate(popup_asistencia, null);
         final PopupWindow popupWindow = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
         binding.imagenThreePointMore.setOnClickListener(view1 -> {
             popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0);
-            //TODO:COMO HACER ESTO
-            //popupWindow.dismiss();
         });
-
         binding.imagenTwoPointMore.setOnClickListener(view12 -> popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0));
-
         binding.imagenThreePointLess.setOnClickListener(view13 -> popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0));
-
         binding.imagenTwoPointLess.setOnClickListener(view14 -> popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0));
+
     }
 }
