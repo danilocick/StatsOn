@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:layout_marginTop="10dip"
+        android:textColor="@color/white"
         android:text="@string/asistencia"
         android:gravity="center"/>
     <LinearLayout
