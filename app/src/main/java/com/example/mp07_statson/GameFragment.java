@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
