@@ -59,10 +59,8 @@ public class ListaPartidosFragment extends Fragment {
             public void onClick(View view) {
                 //para volver atras
                 navController.popBackStack();
-
             }
         });
-
     }
 
     //accederPartidos
