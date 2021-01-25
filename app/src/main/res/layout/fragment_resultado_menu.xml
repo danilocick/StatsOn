@@ -50,6 +50,7 @@
             <TextView android:id="@+id/subtituloMiEquipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/postnobillsjaffna_extrabold"
                 android:text="@string/santaColoma"
                 android:textSize="33sp"
@@ -111,7 +112,7 @@
             <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaJugadoresMiTM"
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
-                android:layout_weight="5"
+                android:layout_weight="1"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
             <Button android:id="@+id/botonanyadirjugadorMiTM"

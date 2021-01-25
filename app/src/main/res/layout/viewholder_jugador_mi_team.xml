@@ -52,6 +52,7 @@
             tools:ignore="UseSwitchCompatOrMaterialXml"
             android:layout_weight="0"
             android:layout_gravity="center"
+            android:theme="@style/SCBSwitch"
             android:layout_marginStart="16dp"/>
 
         <ImageView android:id="@+id/eliminarJugador"

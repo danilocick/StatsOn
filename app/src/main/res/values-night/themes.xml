@@ -13,4 +13,20 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <!--Switch-->
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@color/red</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">@color/white
+        </item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground"> @color/red
+        </item>
+    </style>
+
 </resources>
