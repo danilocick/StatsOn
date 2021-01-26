@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
-            android:text="vs"
+            android:text="@string/vs"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="25sp"

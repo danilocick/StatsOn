@@ -102,6 +102,9 @@
     <string name="faltas" translatable="false" >F</string>
     <string name="faltasrecibidas" translatable="false" >F R</string>
     <string name="perdidas" translatable="false" >PER</string>
+    <string name="vs" translatable="false">VS</string>
+    <string name="local">Local</string>
+    <string name="visitante">Visitante</string>
 
     <!--table-->
     <string-array name="header_table">

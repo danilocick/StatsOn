@@ -83,6 +83,7 @@
             android:hint="@string/jugadorDorsal"
             android:textCursorDrawable="@drawable/text_cursor_cyan"
             android:textSize="25sp"
+            android:inputType="number"
             app:met_baseColor="@android:color/white"
             app:met_floatingLabel="highlight"
             app:met_maxCharacters="20"
