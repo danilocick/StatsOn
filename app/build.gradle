@@ -68,5 +68,7 @@ dependencies {
     implementation 'com.nineoldandroids:library:2.4.0'
     //edittext https://github.com/rengwuxian/MaterialEditText
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    //Switch https://github.com/polyak01/IconSwitch
+    implementation 'com.polyak:icon-switch:1.0.0'
 }
 

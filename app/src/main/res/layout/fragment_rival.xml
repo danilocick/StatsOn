@@ -59,7 +59,7 @@
         app:met_primaryColor="@color/white"
         app:met_singleLineEllipsis="true" />
 
-    <LinearLayout
+    <LinearLayout android:id="@+id/linearChange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -73,21 +73,30 @@
             android:text="@string/local"
             android:textColor="@color/white"
             android:gravity="center"
+            android:layout_gravity="center"
             android:textSize="16sp"
             android:layout_weight="1"/>
-        <Switch
-            android:id="@+id/switch1"
+        <com.polyak.iconswitch.IconSwitch
+            android:id="@+id/icon_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            tools:ignore="UseSwitchCompatOrMaterialXml"
-            android:theme="@style/SCBSwitch" />
+            app:isw_thumb_color_left="@color/reddark"
+            app:isw_thumb_color_right="@color/redwhite"
+            app:isw_inactive_tint_icon_left="@color/black"
+            app:isw_inactive_tint_icon_right="@color/black"
+            app:isw_background_color="@color/white"
+            app:isw_active_tint_icon_left="@color/white"
+            app:isw_active_tint_icon_right="@color/black_30"
+            app:isw_icon_left="@drawable/home"
+            app:isw_icon_right="@drawable/away" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/visitante"
             android:textColor="@color/white"
             android:textSize="16sp"
+            android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="1"/>
     </LinearLayout>

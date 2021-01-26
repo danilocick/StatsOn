@@ -1,5 +1,7 @@
 package com.example.mp07_statson;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +38,7 @@ public class RivalFragment extends Fragment {
         navController = Navigation.findNavController(view);
 
         nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
+
 
         //insertar nombre rival
         binding.botonSiguienteERival.setOnClickListener(v -> {
