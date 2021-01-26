@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             tools:ignore="UseSwitchCompatOrMaterialXml"
             android:layout_weight="0"
+            android:theme="@style/SCBSwitch"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"/>
     </LinearLayout>
