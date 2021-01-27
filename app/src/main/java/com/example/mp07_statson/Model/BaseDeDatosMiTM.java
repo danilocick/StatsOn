@@ -10,6 +10,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -19,7 +20,6 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
     private static volatile BaseDeDatosMiTM db;
     public abstract JugadoresDao obtenerJugadoresDao();
-    public abstract ListaEquiposDao obtenerEquiposDao();
 
     public static BaseDeDatosMiTM getInstance(final Context context){
         if (db==null){
@@ -44,18 +44,8 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
         @Delete
         void delete(Jugador jugador);
+
+        @Update
+        void actualizar (Jugador jugador);
     }
-
-    @Dao
-    interface ListaEquiposDao{
-//        @Insert
-//        void insertar (Equipo equipo);
-
-//        @Query("SELECT * FROM Equipo")
-//        LiveData<List<Equipo>> obtener();
-
-//        @Delete
-//        void delete(Equipo equipo);
-    }
-
 }

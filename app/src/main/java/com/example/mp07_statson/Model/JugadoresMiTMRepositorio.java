@@ -33,4 +33,9 @@ public class JugadoresMiTMRepositorio {
         return jugadoresDao.obtener();
     }
 
+    public void actualizar(String nombre, String dorsal, Uri imagenSeleccionada) {
+        executor.execute(() -> {
+            jugadoresDao.actualizar(new Jugador(nombre,dorsal,imagenSeleccionada.toString()));
+        });
+    }
 }

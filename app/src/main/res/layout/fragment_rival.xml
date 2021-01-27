@@ -32,16 +32,16 @@
     </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/tituloRival"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/e_rival"
-            android:fontFamily="@font/postnobillsjaffna_extrabold"
-            android:textSize="60sp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/tituloRival"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/e_rival"
+        android:fontFamily="@font/postnobillsjaffna_extrabold"
+        android:textSize="60sp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"/>
 
     <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/nombreRival"
         android:layout_width="match_parent"

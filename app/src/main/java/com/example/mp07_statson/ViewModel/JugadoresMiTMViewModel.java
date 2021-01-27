@@ -45,4 +45,7 @@ public class JugadoresMiTMViewModel extends AndroidViewModel {
         return jugadorMutableLiveData;
     }
 
+    public void actualizar(String nombre, String dorsal, Uri imagenSeleccionada) {
+        jugadoresRepositorio.actualizar(nombre, dorsal, imagenSeleccionada);
+    }
 }
