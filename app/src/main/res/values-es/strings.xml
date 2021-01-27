@@ -45,4 +45,7 @@
     <string name="dorsal">Dorsal</string>
     <string name="eliminar">eliminar</string>
     <string name="jugar">Jugar</string>
+    <string name="faltas">Fa</string>
+    <string name="local">Local</string>
+    <string name="visitante">Visitante</string>
 </resources>

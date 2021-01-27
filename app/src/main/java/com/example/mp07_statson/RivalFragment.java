@@ -39,7 +39,6 @@ public class RivalFragment extends Fragment {
 
         nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
 
-
         //insertar nombre rival
         binding.botonSiguienteERival.setOnClickListener(v -> {
             String teamb = binding.nombreRival.getText().toString();

@@ -99,7 +99,7 @@
     <string name="recuperadas" translatable="false" >REC</string>
     <string name="tapones" translatable="false" >TAP</string>
     <string name="taponesrecibidos" translatable="false" >TAP R</string>
-    <string name="faltas" translatable="false" >F</string>
+    <string name="faltas">Fa</string>
     <string name="faltasrecibidas" translatable="false" >F R</string>
     <string name="perdidas" translatable="false" >PER</string>
     <string name="vs" translatable="false">VS</string>
