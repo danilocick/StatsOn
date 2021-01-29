@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Equipo {
-    @PrimaryKey @NonNull
-        int idEquipo;
+    @PrimaryKey(autoGenerate = true) @NonNull
+    int idEquipo;
 
     String nombreEquipo;
 

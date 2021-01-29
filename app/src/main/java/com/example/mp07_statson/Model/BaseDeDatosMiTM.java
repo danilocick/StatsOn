@@ -20,6 +20,7 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
     private static volatile BaseDeDatosMiTM db;
     public abstract JugadoresDao obtenerJugadoresDao();
+    public abstract EquiposDao obtenerEquiposDao();
 
     public static BaseDeDatosMiTM getInstance(final Context context){
         if (db==null){
@@ -62,8 +63,5 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
         @Delete
         void delete (Equipo equipo);
-
-        @Update
-        void actualizar (Equipo equipo);
     }
 }
