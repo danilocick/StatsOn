@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.JugadoresTeamBViewModel;
+import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
 import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
@@ -27,7 +27,7 @@ public class EquipoBFragment extends Fragment {
 
     private NavController navController;
     private FragmentEquipoBBinding binding;
-    private JugadoresTeamBViewModel jugadorsTeamBViewModel;
+    private JugadoresViewModel jugadorsViewModel;
 
     private NombreRivalViewModel nombreRivalViewModel;
 
@@ -57,7 +57,7 @@ public class EquipoBFragment extends Fragment {
             navController.popBackStack();
         });
 
-        jugadorsTeamBViewModel = new ViewModelProvider(requireActivity()).get(JugadoresTeamBViewModel.class);
+        jugadorsViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //Ir anyadirjugador
         binding.botonanyadirjugador.setOnClickListener(view13 -> navController.navigate(R.id.action_equipoBFragment_to_addJugadorFragment));
@@ -65,7 +65,7 @@ public class EquipoBFragment extends Fragment {
         JugadoresbdTeamBAdapter adapter = new JugadoresbdTeamBAdapter();
         binding.listaJugadoresTeamB.setAdapter(adapter);
 
-        jugadorsTeamBViewModel.obtener().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
+        jugadorsViewModel.obtenerVisitante().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
 
     }
 
@@ -101,7 +101,7 @@ public class EquipoBFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-                    jugadorsTeamBViewModel.delete(jugador);
+                    jugadorsViewModel.delete(jugador);
                 }
             });
         }

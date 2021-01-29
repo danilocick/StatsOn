@@ -6,10 +6,12 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Jugador {
-    @PrimaryKey @NonNull
-    public String dorsal;
+
+    @PrimaryKey(autoGenerate = true) @NonNull
+    public int idJugador;
 
     public String nombre;
+    public int dorsal;
     public String imagen;
     public int puntos, rebotes, asistencias, recuperaciones, perdidas, tapones,
             t1mas, t1menos, t2mas, t2menos, t3mas, t3menos,
@@ -17,35 +19,43 @@ public class Jugador {
             taponesRealizados, taponesRecibidos;
     public  int idEquipo;
 
-    public Jugador(String nombre, String dorsal, String imagen) {
+    public Jugador(String nombre, int dorsal, String imagen, int idEquipo) {
         this.nombre = nombre;
         this.dorsal = dorsal;
         this.imagen = imagen;
-        puntos= 0;
-        rebotes= 0;
-        asistencias= 0;
-        recuperaciones= 0;
-        perdidas= 0;
-        tapones= 0;
-        t1mas= 0;
-        t1menos= 0;
-        t2mas= 0;
-        t2menos= 0;
-        t3mas= 0;
-        t3menos= 0;
-        rebotesDef= 0;
-        rebotesOf= 0;
-        faltasRecibidas= 0;
-        faltasCometidas= 0;
-        taponesRealizados= 0;
-        taponesRecibidos= 0;
+        this.puntos = 0;
+        this.rebotes = 0;
+        this.asistencias = 0;
+        this.recuperaciones = 0;
+        this.perdidas = 0;
+        this.tapones = 0;
+        this.t1mas = 0;
+        this.t1menos = 0;
+        this.t2mas = 0;
+        this.t2menos = 0;
+        this.t3mas = 0;
+        this.t3menos = 0;
+        this.rebotesDef = 0;
+        this.rebotesOf = 0;
+        this.faltasRecibidas = 0;
+        this.faltasCometidas = 0;
+        this.taponesRealizados = 0;
+        this.taponesRecibidos = 0;
+        this.idEquipo = idEquipo;
     }
 
     @NonNull
-    public String getDorsal() {
+    public int getIdJugador() {
+        return idJugador;
+    }
+    public void setIdJugador(@NonNull int idJugador) {
+        this.idJugador = idJugador;
+    }
+
+    public int getDorsal() {
         return dorsal;
     }
-    public void setDorsal(@NonNull String dorsal) {
+    public void setDorsal(int dorsal) {
         this.dorsal = dorsal;
     }
 

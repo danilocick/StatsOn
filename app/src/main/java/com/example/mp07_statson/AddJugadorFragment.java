@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
-import com.example.mp07_statson.ViewModel.JugadoresTeamBViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -29,7 +28,6 @@ public class AddJugadorFragment extends Fragment {
     private NavController navController;
     private FragmentAddJugadorBinding binding;
     Uri imagenSeleccionada;
-    private JugadoresTeamBViewModel jugadoresTeamBViewModel;
 
 
     @Override
@@ -42,7 +40,7 @@ public class AddJugadorFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        jugadoresTeamBViewModel = new ViewModelProvider(requireActivity()).get(JugadoresTeamBViewModel.class);
+        ///jugadoresVisitanteViewModel = new ViewModelProvider(requireActivity()).get(JugadoresVisitanteViewModel.class);
 
         //ComeBack
         binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +62,7 @@ public class AddJugadorFragment extends Fragment {
             String dorsal = binding.dorsalJugador.getText().toString();
 
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-            jugadoresTeamBViewModel.insertar(nombre, dorsal, imagenSeleccionada);
+            //jugadoresTeamBViewModel.insertar(nombre, dorsal, imagenSeleccionada);
 
             //para volver atras
             navController.popBackStack();

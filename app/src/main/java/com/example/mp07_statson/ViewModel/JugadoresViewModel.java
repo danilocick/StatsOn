@@ -13,30 +13,35 @@ import com.example.mp07_statson.Model.JugadoresMiTMRepositorio;
 
 import java.util.List;
 
-public class JugadoresMiTMViewModel extends AndroidViewModel {
+public class JugadoresViewModel extends AndroidViewModel {
     private final JugadoresMiTMRepositorio jugadoresRepositorio;
+    MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();
 
-
-    public JugadoresMiTMViewModel(@NonNull Application application) {
+    public JugadoresViewModel(@NonNull Application application) {
         super(application);
 
         jugadoresRepositorio = new JugadoresMiTMRepositorio(application);
     }
 
-    public void insertar(String nombre, String dorsal, Uri imagenSeleccionada) {
-        jugadoresRepositorio.insertar(nombre, dorsal, imagenSeleccionada);
+    //INSERTS
+    public void insertar(String nombre, int dorsal, Uri imagenSeleccionada, int i) {
+        jugadoresRepositorio.insertar(nombre, dorsal, imagenSeleccionada, i);
     }
 
+    //DELETES
     public void delete(Jugador jugador) {
         jugadoresRepositorio.delete(jugador);
     }
 
-    public LiveData<List<Jugador>> obtener() {
-        return jugadoresRepositorio.obtener();
+    //GETTERS
+    public LiveData<List<Jugador>> obtenerLocal() {
+        return jugadoresRepositorio.obtenerLocal();
+    }
+    public LiveData<List<Jugador>> obtenerVisitante() {
+        return jugadoresRepositorio.obtenerVisitante();
     }
 
-
-    MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();
+    //MUTABLE
     public void seleccionar(Jugador jugador){
         jugadorMutableLiveData.setValue(jugador);
     }
@@ -45,7 +50,7 @@ public class JugadoresMiTMViewModel extends AndroidViewModel {
         return jugadorMutableLiveData;
     }
 
-    public void actualizar(String nombre, String dorsal, Uri imagenSeleccionada) {
-        jugadoresRepositorio.actualizar(nombre, dorsal, imagenSeleccionada);
+    public void actualizar(String nombre, int dorsal, Uri imagenSeleccionada, int idEquipo) {
+        jugadoresRepositorio.actualizar(nombre, dorsal, imagenSeleccionada, idEquipo);
     }
 }

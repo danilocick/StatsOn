@@ -17,9 +17,15 @@ public class JugadoresMiTMRepositorio {
         jugadoresDao = BaseDeDatosMiTM.getInstance(application).obtenerJugadoresDao();
     }
 
-    public void insertar(String nombre, String dorsal, Uri imagenSeleccionada) {
+    public void insertar(String nombre, int dorsal, Uri imagenSeleccionada, int idEquipo) {
         executor.execute(() -> {
-            jugadoresDao.insertar(new Jugador(nombre,dorsal,imagenSeleccionada.toString()));
+            jugadoresDao.insertar(new Jugador(nombre,dorsal,imagenSeleccionada.toString(), idEquipo));
+        });
+    }
+
+    public void actualizar(String nombre, int dorsal, Uri imagenSeleccionada, int idEquipo) {
+        executor.execute(() -> {
+            jugadoresDao.actualizar(new Jugador(nombre,dorsal,imagenSeleccionada.toString(), idEquipo));
         });
     }
 
@@ -28,14 +34,11 @@ public class JugadoresMiTMRepositorio {
             jugadoresDao.delete(jugador);
         });
     }
-
-    public LiveData<List<Jugador>> obtener() {
-        return jugadoresDao.obtener();
+    public LiveData<List<Jugador>> obtenerLocal() {
+        return jugadoresDao.obtenerLocal();
     }
 
-    public void actualizar(String nombre, String dorsal, Uri imagenSeleccionada) {
-        executor.execute(() -> {
-            jugadoresDao.actualizar(new Jugador(nombre,dorsal,imagenSeleccionada.toString()));
-        });
+    public LiveData<List<Jugador>> obtenerVisitante() {
+        return jugadoresDao.obtenerVisitante();
     }
 }

@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
+import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentEquipoABinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 
@@ -28,7 +28,7 @@ public class EquipoAFragment extends Fragment {
 
     private NavController navController;
     private FragmentEquipoABinding binding;
-    private JugadoresMiTMViewModel jugadoresMiTMViewModel;
+    private JugadoresViewModel jugadoresMiTMViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -41,7 +41,7 @@ public class EquipoAFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        jugadoresMiTMViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
+        jugadoresMiTMViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +61,7 @@ public class EquipoAFragment extends Fragment {
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
         binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
         //acceder al viewModel
-        jugadoresMiTMViewModel.obtener().observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
+        jugadoresMiTMViewModel.obtenerLocal().observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{

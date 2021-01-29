@@ -18,8 +18,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
-import com.example.mp07_statson.ViewModel.VerJugadorViewModel;
+import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentEditJugadorBinding;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -31,10 +30,10 @@ public class EditJugadorFragment extends Fragment {
 
     private FragmentEditJugadorBinding binding;
     private NavController navController;
-    private JugadoresMiTMViewModel jugadoresViewModel;
+    private JugadoresViewModel jugadoresViewModel;
 
     Uri imagenSeleccionada;
-    private JugadoresMiTMViewModel jugadoresMiTMViewModel;
+    private JugadoresViewModel jugadoresMiTMViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -47,7 +46,7 @@ public class EditJugadorFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
+        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
             Glide.with(EditJugadorFragment.this).load(elemento.imagen).into(binding.imagenJugadorMiTeam);
@@ -71,9 +70,11 @@ public class EditJugadorFragment extends Fragment {
         //insertar jugador
         binding.botonCrearAddJTM.setOnClickListener(v -> {
             String nombre = binding.nombreJugador.getText().toString();
-            String dorsal = binding.dorsalJugador.getText().toString();
+            String dorsalString = binding.dorsalJugador.getText().toString();
+            int dorsal = Integer.parseInt(dorsalString);
+            int idEquipo = 0;
 
-            Jugador jugador = new Jugador(nombre,dorsal,imagenSeleccionada.toString());
+            Jugador jugador = new Jugador(nombre,dorsal,imagenSeleccionada.toString(), idEquipo);
 
             jugadoresViewModel.seleccionar(jugador);
 

@@ -1,7 +1,5 @@
 package com.example.mp07_statson;
 
-import android.app.ActivityOptions;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,7 +16,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
+import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
@@ -29,7 +27,7 @@ public class ResultadoMenuFragment extends Fragment {
 
     private NavController navController;
     private FragmentResultadoMenuBinding binding;
-    private JugadoresMiTMViewModel jugadoresViewModel;
+    private JugadoresViewModel jugadoresViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -42,7 +40,7 @@ public class ResultadoMenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
+        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //ComeBack
         binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +62,7 @@ public class ResultadoMenuFragment extends Fragment {
         //obtener datos de los jugadores de la bd
         JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
         binding.listaJugadoresMiTM.setAdapter(jugadoresbdAdapter);
-        jugadoresViewModel.obtener().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
+        jugadoresViewModel.obtenerLocal().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
     }
 
     //adaptador bd
@@ -84,7 +82,7 @@ public class ResultadoMenuFragment extends Fragment {
             Jugador jugador = jugadorList.get(position);
             Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
             holder.binding.nombreJugador.setText(jugador.nombre);
-            holder.binding.dorsalJugador.setText(jugador.dorsal);
+            holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
             holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
                 @Override

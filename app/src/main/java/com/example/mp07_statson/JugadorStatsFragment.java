@@ -15,8 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
-import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
+import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.ViewModel.VerJugadorViewModel;
 import com.example.mp07_statson.databinding.FragmentJugadorStatsBinding;
 
@@ -29,7 +28,7 @@ public class JugadorStatsFragment extends Fragment {
 
     private NavController navController;
     private FragmentJugadorStatsBinding binding;
-    private JugadoresMiTMViewModel jugadoresViewModel;
+    private JugadoresViewModel jugadoresViewModel;
     private VerJugadorViewModel verJugadorViewModel;
 
 
@@ -44,7 +43,7 @@ public class JugadorStatsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
+        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
         verJugadorViewModel = new ViewModelProvider(requireActivity()).get(VerJugadorViewModel.class);
 
 

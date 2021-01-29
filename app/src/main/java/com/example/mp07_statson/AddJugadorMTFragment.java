@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
-import com.example.mp07_statson.ViewModel.JugadoresMiTMViewModel;
+import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorMTBinding;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -29,9 +29,8 @@ public class AddJugadorMTFragment extends Fragment {
 
     private NavController navController;
     private FragmentAddJugadorMTBinding binding;
-
     Uri imagenSeleccionada;
-    private JugadoresMiTMViewModel jugadoresMiTMViewModel;
+    private JugadoresViewModel jugadoresMiTMViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -43,7 +42,7 @@ public class AddJugadorMTFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        jugadoresMiTMViewModel = new ViewModelProvider(requireActivity()).get(JugadoresMiTMViewModel.class);
+        jugadoresMiTMViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //ComeBack
         binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +61,15 @@ public class AddJugadorMTFragment extends Fragment {
         //insertar jugador
         binding.botonCrearAddJTM.setOnClickListener(v -> {
             String nombre = binding.nombreJugador.getText().toString();
-            String dorsal = binding.dorsalJugador.getText().toString();
+            String dorsalString = binding.dorsalJugador.getText().toString();
+            int dorsal = Integer.parseInt(dorsalString);
+
+            if (imagenSeleccionada == null){
+                //TODO:set default image
+            }
 
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-            jugadoresMiTMViewModel.insertar(nombre, dorsal, imagenSeleccionada);
+            jugadoresMiTMViewModel.insertar(nombre, dorsal, imagenSeleccionada, 0);
 
             //para volver atras
             navController.popBackStack();
@@ -84,8 +88,6 @@ public class AddJugadorMTFragment extends Fragment {
 
     private final ActivityResultLauncher<String> lanzadorGaleria =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
-                //albumsViewModel.establecerImagenSeleccionada(uri);
-
                 //guardar la imagen seleccionada para pasarla
                 imagenSeleccionada = uri;
                 //nos muestra la miniatura cargada
