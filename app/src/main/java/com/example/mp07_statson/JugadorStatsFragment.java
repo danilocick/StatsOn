@@ -50,7 +50,7 @@ public class JugadorStatsFragment extends Fragment {
         jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
             Glide.with(JugadorStatsFragment.this).load(elemento.imagen).into(binding.imagenJugador);
             binding.nombreJugador.setText(elemento.nombre);
-            binding.dorsalJugador.setText(elemento.dorsal);
+            binding.dorsalJugador.setText(String.valueOf(elemento.dorsal));
         });
 
 

@@ -92,10 +92,10 @@ public class EquipoBFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull JugadorTeamBViewHolder holder, int position) {
-                Jugador jugador = jugadorList.get(position);
-                Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
-                holder.binding.nombreJugador.setText(jugador.nombre);
-                holder.binding.dorsalJugador.setText(jugador.dorsal);
+            Jugador jugador = jugadorList.get(position);
+            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
+            holder.binding.nombreJugador.setText(jugador.nombre);
+            holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
             holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
                 @Override

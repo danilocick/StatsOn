@@ -78,7 +78,7 @@ public class EquipoAFragment extends Fragment {
             Jugador jugador = jugadorList.get(position);
             Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
             holder.binding.nombreJugador.setText(jugador.nombre);
-            holder.binding.dorsalJugador.setText(jugador.dorsal);
+            holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
         }
 
         @Override

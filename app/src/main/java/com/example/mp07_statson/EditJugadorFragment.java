@@ -51,7 +51,7 @@ public class EditJugadorFragment extends Fragment {
         jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
             Glide.with(EditJugadorFragment.this).load(elemento.imagen).into(binding.imagenJugadorMiTeam);
             binding.nombreJugador.setText(elemento.nombre);
-            binding.dorsalJugador.setText(elemento.dorsal);
+            binding.dorsalJugador.setText(String.valueOf(elemento.dorsal));
         });
         //ComeBack
         binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
