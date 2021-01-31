@@ -1,7 +1,5 @@
 package com.example.mp07_statson;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,26 +8,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
-import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
-import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import com.example.mp07_statson.databinding.PopupAsistenciaBinding;
 
 import static com.example.mp07_statson.R.layout.popup_asistencia;
 
@@ -50,24 +39,50 @@ public class GameFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
+        //setText NOMBRE RIVAL
         nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
         nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.titleTeamB.setText(a));
+
+        //Load PopUps
+        //POPUP
+        View popupViewAsistencia = LayoutInflater.from(getActivity()).inflate(popup_asistencia, null);
+        final PopupWindow popupWindowAsistencia = new PopupWindow(popupViewAsistencia, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        popupWindowAsistencia.setOutsideTouchable(true);
+        popupWindowAsistencia.setFocusable(true);
+
         //AcabarPartido
         binding.botonAcabarPartido.setOnClickListener(view16 -> navController.navigate(R.id.action_gameFragment_to_menuFragment));
         //vista previa
         binding.botonVistaPrevia.setOnClickListener(view15 -> navController.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
-        //POPUP
-        View popupView = LayoutInflater.from(getActivity()).inflate(popup_asistencia, null);
-        final PopupWindow popupWindow = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        popupWindow.setOutsideTouchable(true);
-        popupWindow.setFocusable(true);
-        binding.imagenThreePointMore.setOnClickListener(view1 -> {
-            popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0);
+
+        binding.jugB1.setOnClickListener(v->{
+
+            binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_white_red);
+
+            binding.imagenThreePointMore.setOnClickListener(view1 -> {
+                popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER,0,0);
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
+            });
+
+            binding.imagenThreePointLess.setOnClickListener(view1 -> {
+                popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER,0,0);
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
+            });
+
         });
-        binding.imagenTwoPointMore.setOnClickListener(view12 -> popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0));
-        binding.imagenThreePointLess.setOnClickListener(view13 -> popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0));
-        binding.imagenTwoPointLess.setOnClickListener(view14 -> popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0));
+
 
     }
+
+    //clase para acceder a los campos de viewholder_jugador_miteam
+    static class PopUp extends PopupWindow{
+        PopupAsistenciaBinding binding;
+
+        public PopUp(@NonNull PopupAsistenciaBinding binding, ViewGroup parent, boolean b){
+            super(binding.getRoot());
+            this.binding=binding;
+        }
+    }
+
 }

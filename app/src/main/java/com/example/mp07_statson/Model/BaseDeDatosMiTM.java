@@ -43,7 +43,7 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
         @Query("SELECT * FROM Jugador WHERE idEquipo=0")
         LiveData<List<Jugador>> obtenerLocal();
 
-        @Query("SELECT * FROM Jugador")
+        @Query("SELECT * FROM Jugador WHERE idEquipo=4")
         LiveData<List<Jugador>> obtenerVisitante();
 
         @Delete

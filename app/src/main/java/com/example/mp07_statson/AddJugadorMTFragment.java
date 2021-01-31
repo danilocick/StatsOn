@@ -64,6 +64,7 @@ public class AddJugadorMTFragment extends Fragment {
             String dorsalString = binding.dorsalJugador.getText().toString();
             int dorsal = Integer.parseInt(dorsalString);
 
+            int idEquipo = 4;
             if (imagenSeleccionada == null){
                 //TODO:set default image
             }
