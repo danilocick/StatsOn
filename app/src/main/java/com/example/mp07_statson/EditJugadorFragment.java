@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.Model.JugadoresMiTMRepositorio;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentEditJugadorBinding;
 
@@ -33,7 +34,7 @@ public class EditJugadorFragment extends Fragment {
     private JugadoresViewModel jugadoresViewModel;
 
     Uri imagenSeleccionada;
-    private JugadoresViewModel jugadoresMiTMViewModel;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -69,17 +70,24 @@ public class EditJugadorFragment extends Fragment {
 
         //insertar jugador
         binding.botonCrearAddJTM.setOnClickListener(v -> {
+
             String nombre = binding.nombreJugador.getText().toString();
             String dorsalString = binding.dorsalJugador.getText().toString();
             int dorsal = Integer.parseInt(dorsalString);
-            int idEquipo = 0;
 
-            Jugador jugador = new Jugador(nombre,dorsal,imagenSeleccionada.toString(), idEquipo);
+            final Jugador[] jugador = new Jugador[1];
+            jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
+                jugador[0] = elemento;
+            });
 
-            jugadoresViewModel.seleccionar(jugador);
+            jugador[0].setImagen(imagenSeleccionada.toString());
+            jugador[0].setDorsal(dorsal);
+            jugador[0].setNombre(nombre);
+
+            jugadoresViewModel.seleccionar(jugador[0]);
 
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-            //jugadoresMiTMViewModel.actualizar(nombre, dorsal, imagenSeleccionada);
+            jugadoresViewModel.actualizar(jugador[0]);
 
             //para volver atras
             navController.popBackStack();

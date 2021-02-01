@@ -23,9 +23,9 @@ public class JugadoresMiTMRepositorio {
         });
     }
 
-    public void actualizar(String nombre, int dorsal, Uri imagenSeleccionada, int idEquipo) {
+    public void actualizar(Jugador jugador) {
         executor.execute(() -> {
-            jugadoresDao.actualizar(new Jugador(nombre,dorsal,imagenSeleccionada.toString(), idEquipo));
+            jugadoresDao.actualizar(jugador);
         });
     }
 

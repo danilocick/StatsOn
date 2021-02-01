@@ -33,14 +33,19 @@ public class JugadoresViewModel extends AndroidViewModel {
         jugadoresRepositorio.delete(jugador);
     }
 
+    //ACTUALIZAR
+    public void actualizar(Jugador jugador) {
+        jugadoresRepositorio.actualizar(jugador);
+    }
+
     //GETTERS
     public LiveData<List<Jugador>> obtenerLocal() {
         return jugadoresRepositorio.obtenerLocal();
     }
+
     public LiveData<List<Jugador>> obtenerVisitante() {
         return jugadoresRepositorio.obtenerVisitante();
     }
-
     //MUTABLE
     public void seleccionar(Jugador jugador){
         jugadorMutableLiveData.setValue(jugador);
@@ -48,9 +53,5 @@ public class JugadoresViewModel extends AndroidViewModel {
 
     public MutableLiveData<Jugador> seleccionado(){
         return jugadorMutableLiveData;
-    }
-
-    public void actualizar(String nombre, int dorsal, Uri imagenSeleccionada, int idEquipo) {
-        jugadoresRepositorio.actualizar(nombre, dorsal, imagenSeleccionada, idEquipo);
     }
 }

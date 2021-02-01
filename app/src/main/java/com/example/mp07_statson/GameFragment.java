@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,9 +17,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
+import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 import com.example.mp07_statson.databinding.PopupAsistenciaBinding;
+import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
+
+import java.util.List;
 
 import static com.example.mp07_statson.R.layout.popup_asistencia;
 
@@ -50,39 +57,26 @@ public class GameFragment extends Fragment {
         popupWindowAsistencia.setOutsideTouchable(true);
         popupWindowAsistencia.setFocusable(true);
 
+
         //AcabarPartido
         binding.botonAcabarPartido.setOnClickListener(view16 -> navController.navigate(R.id.action_gameFragment_to_menuFragment));
         //vista previa
         binding.botonVistaPrevia.setOnClickListener(view15 -> navController.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
 
-        binding.jugB1.setOnClickListener(v->{
-
+        binding.jugB1.setOnClickListener(v -> {
             binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_white_red);
 
             binding.imagenThreePointMore.setOnClickListener(view1 -> {
-                popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER,0,0);
+                popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
+                //TODO:ONCLICK JUGADOR, return normal backgound
                 binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenThreePointLess.setOnClickListener(view1 -> {
-                popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER,0,0);
+                popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
                 binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
             });
-
         });
-
-
     }
-
-    //clase para acceder a los campos de viewholder_jugador_miteam
-    static class PopUp extends PopupWindow{
-        PopupAsistenciaBinding binding;
-
-        public PopUp(@NonNull PopupAsistenciaBinding binding, ViewGroup parent, boolean b){
-            super(binding.getRoot());
-            this.binding=binding;
-        }
-    }
-
 }
