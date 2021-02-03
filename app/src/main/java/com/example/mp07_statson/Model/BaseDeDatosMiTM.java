@@ -15,12 +15,13 @@ import androidx.room.Update;
 import java.util.List;
 
 /* https://developer.android.com/training/data-storage/room */
-@Database(entities = {Jugador.class, Equipo.class}, version = 1, exportSchema = false)
+@Database(entities = {Jugador.class, Equipo.class, Partido.class}, version = 1, exportSchema = false)
 public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
     private static volatile BaseDeDatosMiTM db;
     public abstract JugadoresDao obtenerJugadoresDao();
     public abstract EquiposDao obtenerEquiposDao();
+    public abstract PartidosDao obtenerPartidosDao();
 
     public static BaseDeDatosMiTM getInstance(final Context context){
         if (db==null){
@@ -63,5 +64,17 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
 
         @Delete
         void delete (Equipo equipo);
+    }
+
+    @Dao
+    interface PartidosDao {
+        @Insert
+        void insertar (Partido partido);
+
+        @Query("SELECT * FROM Partido")
+        LiveData<List<Partido>> obtener();
+
+        @Delete
+        void delete (Partido partido);
     }
 }

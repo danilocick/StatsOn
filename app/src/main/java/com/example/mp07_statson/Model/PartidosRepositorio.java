@@ -1,26 +1,36 @@
 package com.example.mp07_statson.Model;
 
+import android.app.Application;
+
+import androidx.lifecycle.LiveData;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class PartidosRepositorio {
     List<Partido> partidos = new ArrayList<Partido>();
+    Executor executor = Executors.newSingleThreadExecutor();
+    private final BaseDeDatosMiTM.PartidosDao partidosDao;
 
-    public PartidosRepositorio(){
-        partidos.add(new Partido("Santa Coloma", "Sant Josep"));
-        partidos.add(new Partido("Santa Coloma", "Mina"));
-        partidos.add(new Partido("Santa Coloma", "Barsa"));
-        partidos.add(new Partido("Santa Coloma", "Peña"));
-        partidos.add(new Partido("Santa Coloma", "Masnou"));
-        partidos.add(new Partido("Santa Coloma", "Lugo"));
-        partidos.add(new Partido("Santa Coloma", "Fuenlabrada"));
-        partidos.add(new Partido("Santa Coloma", "Estudiantes"));
-        partidos.add(new Partido("Santa Coloma", "Madrid"));
-        partidos.add(new Partido("Santa Coloma", "Neus"));
-        partidos.add(new Partido("Santa Coloma", "Fuster"));
+    public PartidosRepositorio(Application application){
+        partidosDao = BaseDeDatosMiTM.getInstance(application).obtenerPartidosDao();
     }
 
-    public List<Partido> obtener(){return partidos;}
+    public void insertar(Partido partido) {
+        executor.execute(() -> {
+            partidosDao.insertar(partido);
+        });
+    }
 
+    public void delete(Partido partido) {
+        executor.execute(() -> {
+            partidosDao.delete(partido);
+        });
+    }
+    public LiveData<List<Partido>> obtener() {
+        return partidosDao.obtener();
+    }
 }
 

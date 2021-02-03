@@ -87,10 +87,8 @@ public class ResultadoMenuFragment extends Fragment {
             holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
                     jugadoresViewModel.delete(jugador);
-
                 }
             });
 
