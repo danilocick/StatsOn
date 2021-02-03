@@ -30,7 +30,7 @@ public class JugadorStatsFragment extends Fragment {
     private FragmentJugadorStatsBinding binding;
     private JugadoresViewModel jugadoresViewModel;
     private VerJugadorViewModel verJugadorViewModel;
-
+    int T2F, T2A, T3A, T3F, TLA, TLF;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -51,6 +51,12 @@ public class JugadorStatsFragment extends Fragment {
             Glide.with(JugadorStatsFragment.this).load(elemento.imagen).into(binding.imagenJugador);
             binding.nombreJugador.setText(elemento.nombre);
             binding.dorsalJugador.setText(String.valueOf(elemento.dorsal));
+            T2A = elemento.t2mas;
+            T2F = elemento.t2menos;
+            T3A = elemento.t3mas;
+            T3F = elemento.t3menos;
+            TLA = elemento.t1mas;
+            TLF = elemento.t1menos;
         });
 
 
@@ -87,14 +93,14 @@ public class JugadorStatsFragment extends Fragment {
         mPieChart2 = (PieChart) binding.piechart2;
         mPieChart3 = (PieChart) binding.piechart3;
 
-        mPieChart.addPieSlice(new PieModel("Tiros Anotados", 15, Color.parseColor("#85182A")));
-        mPieChart.addPieSlice(new PieModel("Tiros Fallados", 9, Color.parseColor("#FF7F7F")));
+        mPieChart.addPieSlice(new PieModel("T2 Fallados", T2F, Color.parseColor("#FF7F7F")));
+        mPieChart.addPieSlice(new PieModel("T2 Anotados", T2A, Color.parseColor("#85182A")));
 
-        mPieChart2.addPieSlice(new PieModel("Triples Anotados", 2, Color.parseColor("#85182A")));
-        mPieChart2.addPieSlice(new PieModel("Triples Fallados", 3, Color.parseColor("#FF7F7F")));
+        mPieChart2.addPieSlice(new PieModel("T3 Fallados", T3F, Color.parseColor("#FF7F7F")));
+        mPieChart2.addPieSlice(new PieModel("T3 Anotados", T3A, Color.parseColor("#85182A")));
 
-        mPieChart3.addPieSlice(new PieModel("TL Anotados", 12, Color.parseColor("#85182A")));
-        mPieChart3.addPieSlice(new PieModel("TL Fallados", 2, Color.parseColor("#FF7F7F")));
+        mPieChart3.addPieSlice(new PieModel("TL Fallados", TLF, Color.parseColor("#FF7F7F")));
+        mPieChart3.addPieSlice(new PieModel("TL Anotados", TLA, Color.parseColor("#85182A")));
 
         mPieChart.startAnimation();
         mPieChart2.startAnimation();

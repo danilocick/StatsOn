@@ -80,12 +80,11 @@ public class EditJugadorFragment extends Fragment {
                 jugador[0] = elemento;
             });
 
-            jugador[0].setImagen(imagenSeleccionada.toString());
+            if(imagenSeleccionada != null){jugador[0].setImagen(imagenSeleccionada.toString());}
             jugador[0].setDorsal(dorsal);
             jugador[0].setNombre(nombre);
 
             jugadoresViewModel.seleccionar(jugador[0]);
-
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
             jugadoresViewModel.actualizar(jugador[0]);
 
