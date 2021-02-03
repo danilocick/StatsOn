@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,7 @@ public class EquipoBFragment extends Fragment {
     private JugadoresViewModel jugadorsViewModel;
 
     private NombreRivalViewModel nombreRivalViewModel;
+    int starts=0;
 
 
     @Override
@@ -50,7 +52,15 @@ public class EquipoBFragment extends Fragment {
         }
 
         //empezar partido
-        binding.botonSiguienteERival.setOnClickListener(view1 -> navController.navigate(R.id.action_equipoBFragment_to_gameFragment));
+        binding.botonSiguienteERival.setOnClickListener(view1 -> {
+            if (starts == 5){
+                navController.navigate(R.id.action_equipoBFragment_to_gameFragment);
+                starts = 0;
+            }else{
+                // If name is not entered
+                Toast.makeText(requireActivity().getApplicationContext(), "Select 5 Stars, Click Photo", Toast.LENGTH_LONG).show();
+            }
+        });
 
         //ComeBack
         binding.botonComeBackERival.setOnClickListener(view12 -> {
@@ -110,12 +120,20 @@ public class EquipoBFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     //para volver atras
-
-                    if (holder.binding.imagenJugador.getBorderColor() == Color.rgb(255,215,0)){
-                        holder.binding.imagenJugador.setBorderColor(Color.rgb(0,0,0));
-                    }else {
+                    if (holder.binding.imagenJugador.getBorderColor() == Color.rgb(0,0,0)){
                         holder.binding.imagenJugador.setBorderColor(Color.rgb(255,215,0));
+                        starts++;
+                        System.out.println(starts);
+                    }else {
+                        if (starts == 5){
+                            Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
+                        }else {
+                            holder.binding.imagenJugador.setBorderColor(Color.rgb(0, 0, 0));
+                            starts--;
+                            System.out.println(starts);
+                        }
                     }
+
                 }
             });
 

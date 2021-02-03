@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
@@ -30,6 +31,9 @@ public class EquipoAFragment extends Fragment {
     private NavController navController;
     private FragmentEquipoABinding binding;
     private JugadoresViewModel jugadoresMiTMViewModel;
+    JugadorAdapter jugadorAdapter = new JugadorAdapter();
+    int starts=0;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -47,7 +51,13 @@ public class EquipoAFragment extends Fragment {
         binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_equipoAFragment_to_equipoBFragment);
+                if (starts == 5){
+                    navController.navigate(R.id.action_equipoAFragment_to_equipoBFragment);
+                    starts = 0;
+                }else{
+                    // If name is not entered
+                    Toast.makeText(requireActivity().getApplicationContext(), "Select 5 Stars, Click Photo", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -59,7 +69,6 @@ public class EquipoAFragment extends Fragment {
             }
         });
 
-        JugadorAdapter jugadorAdapter = new JugadorAdapter();
         binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
         //acceder al viewModel
         jugadoresMiTMViewModel.obtenerLocal().observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
@@ -68,6 +77,7 @@ public class EquipoAFragment extends Fragment {
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
         List<Jugador> jugadorList;
+
         @NonNull
         @Override
         public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -85,12 +95,20 @@ public class EquipoAFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     //para volver atras
-
-                    if (holder.binding.imagenJugador.getBorderColor() == Color.rgb(255,215,0)){
-                        holder.binding.imagenJugador.setBorderColor(Color.rgb(0,0,0));
-                    }else {
+                    if (holder.binding.imagenJugador.getBorderColor() == Color.rgb(0,0,0)){
                         holder.binding.imagenJugador.setBorderColor(Color.rgb(255,215,0));
+                        starts++;
+                        System.out.println(starts);
+                    }else {
+                        if (starts == 5){
+                            Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
+                        }else {
+                            holder.binding.imagenJugador.setBorderColor(Color.rgb(0, 0, 0));
+                            starts--;
+                            System.out.println(starts);
+                        }
                     }
+
                 }
             });
         }
