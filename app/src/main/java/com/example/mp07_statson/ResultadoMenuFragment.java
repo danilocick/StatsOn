@@ -82,7 +82,7 @@ public class ResultadoMenuFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
             Jugador jugador = jugadorList.get(position);
-            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
+            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugador);
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 

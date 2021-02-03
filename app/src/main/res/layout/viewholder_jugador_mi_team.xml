@@ -11,10 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:background="@color/black_20"
         android:layout_gravity="center">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imagen_jugadorMiTeam"
+            android:id="@+id/imagen_jugador"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/add_jugador"
@@ -23,7 +24,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="start|center"
-            app:civ_border_width="1dp"
+            app:civ_border_width="2dp"
             app:civ_border_color="@color/black"/>
 
         <TextView android:id="@+id/nombreJugador"
@@ -33,6 +34,7 @@
             android:textSize="18sp"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/white"
             android:padding="8dp"
             android:layout_marginStart="16dp"/>
 
@@ -43,6 +45,7 @@
             android:textSize="18sp"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/white"
             android:padding="8dp"
             android:layout_marginStart="16dp"/>
 

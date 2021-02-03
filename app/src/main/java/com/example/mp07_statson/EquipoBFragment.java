@@ -1,5 +1,6 @@
 package com.example.mp07_statson;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -93,7 +94,7 @@ public class EquipoBFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull JugadorTeamBViewHolder holder, int position) {
             Jugador jugador = jugadorList.get(position);
-            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugadorMiTeam);
+            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugador);
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
@@ -104,6 +105,21 @@ public class EquipoBFragment extends Fragment {
                     jugadorsViewModel.delete(jugador);
                 }
             });
+
+            holder.binding.imagenJugador.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //para volver atras
+
+                    if (holder.binding.imagenJugador.getBorderColor() == Color.rgb(255,215,0)){
+                        holder.binding.imagenJugador.setBorderColor(Color.rgb(0,0,0));
+                    }else {
+                        holder.binding.imagenJugador.setBorderColor(Color.rgb(255,215,0));
+                    }
+                }
+            });
+
+
         }
 
         @Override
