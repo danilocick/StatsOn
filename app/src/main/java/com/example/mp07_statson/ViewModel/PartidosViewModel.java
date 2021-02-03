@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.EquipoRepositorio;
+import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.Model.PartidosRepositorio;
 
@@ -40,7 +41,12 @@ public class PartidosViewModel extends AndroidViewModel {
 
 
     //MUTABLE LIVE DATA
-    public void seleccionar(Partido partido) {
+    public MutableLiveData<Partido> jugadorMutableLiveData = new MutableLiveData<>();
 
+    public void seleccionar(Partido partido){
+        jugadorMutableLiveData.setValue(partido);
+    }
+    public MutableLiveData<Partido> seleccionado(){
+        return jugadorMutableLiveData;
     }
 }

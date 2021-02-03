@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
+import com.example.mp07_statson.ViewModel.PartidosViewModel;
 import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -17,8 +18,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
+import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.ViewModel.PartidosViewModel;
 import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
 import com.example.mp07_statson.databinding.FragmentListaPartidosBinding;
@@ -87,6 +90,7 @@ public class ListaPartidosFragment extends Fragment {
     public class PartidosbdAdapter extends RecyclerView.Adapter<PartidoViewHolder>{
 
         List<Partido> partidosList;
+        private EquipoViewModel equipoViewModel;
 
         @NonNull
         @Override
@@ -97,19 +101,27 @@ public class ListaPartidosFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull PartidoViewHolder holder, int position) {
+
+            equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
+
             Partido partido = partidosList.get(position);
+
+            //if( Equipo.idEquipo== partido.idLocal){
+            //    holder.binding.nombreLocal.setText(Equipo.getNombre);
+            //}
+
             holder.binding.nombreLocal.setText(String.valueOf(partido.idLocal));
             holder.binding.puntosLocal.setText(String.valueOf(partido.puntosLocal));
             holder.binding.nombreVisitante.setText(String.valueOf(partido.idVisitante));
             holder.binding.puntosVisitante.setText(String.valueOf(partido.puntosVisitante));
 
-//            holder.binding.vs.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    partidosViewModel.seleccionar(partido);
-//                    navController.navigate(R.id.action_resultadoMenuFragment_to_jugadorStatsFragment);
-//                }
-//            });
+            holder.binding.recycler.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    partidosViewModel.seleccionar(partido);
+                    navController.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment);
+                }
+            });
         }
 
         @Override

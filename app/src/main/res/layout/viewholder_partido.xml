@@ -2,18 +2,20 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
+    android:background="@drawable/recyclerv_white_red"
     android:layout_margin="3dp">
 
-    <LinearLayout
+    <LinearLayout android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:background="@drawable/recyclerv_white_red"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
         <TextView android:id="@+id/nombreLocal"
             android:layout_width="match_parent"
@@ -21,16 +23,18 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:padding="8dp"/>
 
         <TextView android:id="@+id/puntosLocal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="0"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textSize="10sp"
+            android:textColor="@color/reddark"
+            android:textSize="15sp"
             android:padding="8dp"/>
 
         <TextView android:id="@+id/vs"
@@ -43,23 +47,26 @@
             android:textSize="25sp"
             android:padding="8dp"/>
 
+        <TextView android:id="@+id/puntosVisitante"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/reddark"
+            android:textSize="15sp"
+            android:padding="8dp"/>
+
         <TextView android:id="@+id/nombreVisitante"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:padding="8dp"/>
 
-        <TextView android:id="@+id/puntosVisitante"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:padding="8dp"/>
 
     </LinearLayout>
 

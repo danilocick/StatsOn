@@ -34,7 +34,7 @@ public class EquipoViewModel extends AndroidViewModel {
     }
 
     //GETTERS
-    public LiveData<List<Equipo>> obtenerLocal() {
+    public LiveData<List<Equipo>> obtener() {
         return equiposRepositorio.obtener();
     }
 }
