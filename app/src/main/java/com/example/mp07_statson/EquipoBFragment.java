@@ -118,7 +118,7 @@ public class EquipoBFragment extends Fragment {
                 }
             });
 
-            holder.binding.imagenJugador.setOnClickListener(new View.OnClickListener() {
+            holder.binding.background.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int color = Color.TRANSPARENT;
@@ -128,7 +128,7 @@ public class EquipoBFragment extends Fragment {
 
                     //para volver atras
                     if (color ==Color.rgb(0,0,0)){
-                        holder.binding.background.setBackgroundColor(Color.rgb(255,215,0));
+                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
                         starts++;
                         System.out.println(starts);
                     }else {
@@ -136,9 +136,7 @@ public class EquipoBFragment extends Fragment {
                             Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
                         }else {
                             holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
-                            if (starts > 0){
-                                starts--;
-                            }
+                            starts--;
                             System.out.println(starts);
                         }
                     }

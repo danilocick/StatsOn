@@ -1,6 +1,8 @@
 package com.example.mp07_statson;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -91,19 +93,24 @@ public class EquipoAFragment extends Fragment {
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
-            holder.binding.imagenJugador.setOnClickListener(new View.OnClickListener() {
+            holder.binding.background.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    int color = Color.TRANSPARENT;
+                    Drawable background = holder.binding.background.getBackground();
+                    if (background instanceof ColorDrawable)
+                        color = ((ColorDrawable) background).getColor();
+
                     //para volver atras
-                    if (holder.binding.imagenJugador.getBorderColor() == Color.rgb(0,0,0)){
-                        holder.binding.imagenJugador.setBorderColor(Color.rgb(255,215,0));
+                    if (color ==Color.rgb(0,0,0)){
+                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
                         starts++;
                         System.out.println(starts);
                     }else {
                         if (starts == 5){
                             Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
                         }else {
-                            holder.binding.imagenJugador.setBorderColor(Color.rgb(0, 0, 0));
+                            holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
                             starts--;
                             System.out.println(starts);
                         }

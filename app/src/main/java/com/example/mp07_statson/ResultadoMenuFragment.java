@@ -94,7 +94,7 @@ public class ResultadoMenuFragment extends Fragment {
                 }
             });
 
-            holder.binding.nombreJugador.setOnClickListener(new View.OnClickListener() {
+            holder.binding.background.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     jugadoresViewModel.seleccionar(jugador);
