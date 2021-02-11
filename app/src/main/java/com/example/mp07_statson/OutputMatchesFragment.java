@@ -34,9 +34,9 @@ public class OutputMatchesFragment extends Fragment {
         navController = Navigation.findNavController(view);
 
         nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
-        if (nombreRivalViewModel.seleccionado() != null){
-            nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.equiporival.setText(a));
-        }
+//        if (nombreRivalViewModel.seleccionado() != null){
+//            nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.equiporival.setText(a));
+//        }
 
         //ComeBack
         binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
