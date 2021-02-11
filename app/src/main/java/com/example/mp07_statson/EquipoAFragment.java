@@ -53,13 +53,13 @@ public class EquipoAFragment extends Fragment {
         binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (starts == 5){
                     navController.navigate(R.id.action_equipoAFragment_to_equipoBFragment);
-                    starts = 0;
-                }else{
-                    // If name is not entered
-                    Toast.makeText(requireActivity().getApplicationContext(), "Select 5 Stars, Click Photo", Toast.LENGTH_LONG).show();
-                }
+//                if (starts == 5){
+//                    starts = 0;
+//                }else{
+//                    // If name is not entered
+//                    Toast.makeText(requireActivity().getApplicationContext(), "Select 5 Stars, Click Photo", Toast.LENGTH_LONG).show();
+//                }
             }
         });
 
@@ -102,7 +102,7 @@ public class EquipoAFragment extends Fragment {
                         color = ((ColorDrawable) background).getColor();
 
                     //para volver atras
-                    if (color ==Color.rgb(0,0,0)){
+                    if (color ==Color.rgb(0,0,0) && starts < 5){
                         holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
                         starts++;
                         System.out.println(starts);

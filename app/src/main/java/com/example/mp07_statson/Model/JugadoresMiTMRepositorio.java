@@ -35,6 +35,6 @@ public class JugadoresMiTMRepositorio {
     }
 
     public LiveData<List<Jugador>> obtenerEquipo() {
-        return jugadoresDao.obtenerEquipo(0);
+        return jugadoresDao.obtenerEquipo(4);
     }
 }

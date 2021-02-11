@@ -59,15 +59,22 @@ public class AddJugadorFragment extends Fragment {
             String imagen = "file:///android_asset/jugador.png";
             if(jugadoresViewModel.imagenSeleccionada != null){
                 imagen = jugadoresViewModel.imagenSeleccionada.toString();
+                jugadoresViewModel.imagenSeleccionada = null;
             }
 
             int idEquipo = 4;
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
             jugadoresViewModel.insertar(nombre, dorsal, imagen, idEquipo);
 
+
             //para volver atras
             navController.popBackStack();
         });
+
+        if (jugadoresViewModel.imagenSeleccionada != null){
+            //En caso de perdida, insertamos la imagen:
+            Glide.with(this).load(jugadoresViewModel.imagenSeleccionada).into(binding.imagenJugador);
+        }
     }
 
 

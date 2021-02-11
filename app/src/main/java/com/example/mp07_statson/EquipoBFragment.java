@@ -55,13 +55,13 @@ public class EquipoBFragment extends Fragment {
 
         //empezar partido
         binding.botonSiguienteERival.setOnClickListener(view1 -> {
-            if (starts == 5){
                 navController.navigate(R.id.action_equipoBFragment_to_gameFragment);
-                starts = 0;
-            }else{
-                // If name is not entered
-                Toast.makeText(requireActivity().getApplicationContext(), "Select 5 Stars, Click Photo", Toast.LENGTH_LONG).show();
-            }
+//            if (starts == 5){
+//                starts = 0;
+//            }else{
+//                // If name is not entered
+//                Toast.makeText(requireActivity().getApplicationContext(), "Select 5 Stars, Click Photo", Toast.LENGTH_LONG).show();
+//            }
         });
 
         //ComeBack
@@ -127,7 +127,7 @@ public class EquipoBFragment extends Fragment {
                         color = ((ColorDrawable) background).getColor();
 
                     //para volver atras
-                    if (color ==Color.rgb(0,0,0)){
+                    if (color ==Color.rgb(0,0,0) && starts < 5){
                         holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
                         starts++;
                         System.out.println(starts);
