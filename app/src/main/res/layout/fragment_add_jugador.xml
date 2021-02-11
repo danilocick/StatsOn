@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:minHeight="35dp">
         <ImageButton
-            android:id="@+id/botonComeBackERival"
+            android:id="@+id/boton_come_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -56,7 +56,7 @@
             android:layout_gravity="center"
             android:background="@drawable/recyclerv_round_white">
 
-            <ImageView android:id="@+id/imagen_jugadorTeamB"
+            <ImageView android:id="@+id/imagen_jugador"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
@@ -91,7 +91,7 @@
             app:met_singleLineEllipsis="true" />
 
         <Button
-            android:id="@+id/botonCrearAddJTM"
+            android:id="@+id/boton_crear_add_jugador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"

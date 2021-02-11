@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:minHeight="35dp">
         <ImageButton
-            android:id="@+id/botonComeBackERival"
+            android:id="@+id/boton_come_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

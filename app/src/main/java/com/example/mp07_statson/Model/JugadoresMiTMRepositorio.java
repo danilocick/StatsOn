@@ -1,7 +1,6 @@
 package com.example.mp07_statson.Model;
 
 import android.app.Application;
-import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
 
@@ -17,9 +16,9 @@ public class JugadoresMiTMRepositorio {
         jugadoresDao = BaseDeDatosMiTM.getInstance(application).obtenerJugadoresDao();
     }
 
-    public void insertar(String nombre, int dorsal, Uri imagenSeleccionada, int idEquipo) {
+    public void insertar(String nombre, int dorsal, String imagenSeleccionada, int idEquipo) {
         executor.execute(() -> {
-            jugadoresDao.insertar(new Jugador(nombre,dorsal,imagenSeleccionada.toString(), idEquipo));
+            jugadoresDao.insertar(new Jugador(nombre,dorsal,imagenSeleccionada, idEquipo));
         });
     }
 
@@ -34,11 +33,8 @@ public class JugadoresMiTMRepositorio {
             jugadoresDao.delete(jugador);
         });
     }
-    public LiveData<List<Jugador>> obtenerLocal() {
-        return jugadoresDao.obtenerLocal();
-    }
 
-    public LiveData<List<Jugador>> obtenerVisitante() {
-        return jugadoresDao.obtenerVisitante();
+    public LiveData<List<Jugador>> obtenerEquipo() {
+        return jugadoresDao.obtenerEquipo(0);
     }
 }

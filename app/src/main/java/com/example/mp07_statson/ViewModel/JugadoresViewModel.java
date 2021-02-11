@@ -16,6 +16,7 @@ import java.util.List;
 public class JugadoresViewModel extends AndroidViewModel {
     private final JugadoresMiTMRepositorio jugadoresRepositorio;
     MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();
+    public Uri imagenSeleccionada;
 
     public JugadoresViewModel(@NonNull Application application) {
         super(application);
@@ -24,7 +25,7 @@ public class JugadoresViewModel extends AndroidViewModel {
     }
 
     //INSERTS
-    public void insertar(String nombre, int dorsal, Uri imagenSeleccionada, int i) {
+    public void insertar(String nombre, int dorsal, String imagenSeleccionada, int i) {
         jugadoresRepositorio.insertar(nombre, dorsal, imagenSeleccionada, i);
     }
 
@@ -39,12 +40,8 @@ public class JugadoresViewModel extends AndroidViewModel {
     }
 
     //GETTERS
-    public LiveData<List<Jugador>> obtenerLocal() {
-        return jugadoresRepositorio.obtenerLocal();
-    }
-
-    public LiveData<List<Jugador>> obtenerVisitante() {
-        return jugadoresRepositorio.obtenerVisitante();
+    public LiveData<List<Jugador>> obtenerEquipo() {
+        return jugadoresRepositorio.obtenerEquipo();
     }
     //MUTABLE
     public void seleccionar(Jugador jugador){

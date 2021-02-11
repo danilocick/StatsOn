@@ -56,7 +56,7 @@ public class RivalFragment extends Fragment {
         });
 
 
-        binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //para volver atras

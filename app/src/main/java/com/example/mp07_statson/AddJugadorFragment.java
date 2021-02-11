@@ -1,7 +1,9 @@
 package com.example.mp07_statson;
 
-import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -12,25 +14,15 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
-
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static androidx.core.content.ContextCompat.checkSelfPermission;
 
 public class AddJugadorFragment extends Fragment {
 
     private NavController navController;
     private FragmentAddJugadorBinding binding;
-    private JugadoresViewModel jugadoresVisitanteViewModel;
-    Uri imagenSeleccionada;
-
+    private JugadoresViewModel jugadoresViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -42,10 +34,10 @@ public class AddJugadorFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        jugadoresVisitanteViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
+        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //ComeBack
-        binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //para volver atras
@@ -54,45 +46,36 @@ public class AddJugadorFragment extends Fragment {
         });
 
         //para abrir la galeria i seleccionar foto
-        binding.imagenJugadorTeamB.setOnClickListener(v->{
-            abrirGaleria();
+        binding.imagenJugador.setOnClickListener(v->{
+            lanzadorGaleria.launch("image/*");
         });
 
         //crearjugador
-        binding.botonCrearAddJTM.setOnClickListener(v->{
+        binding.botonCrearAddJugador.setOnClickListener(v->{
             String nombre = binding.nombreJugador.getText().toString();
             String dorsalString = binding.dorsalJugador.getText().toString();
             int dorsal = Integer.parseInt(dorsalString);
 
+            String imagen = "file:///android_asset/jugador.png";
+            if(jugadoresViewModel.imagenSeleccionada != null){
+                imagen = jugadoresViewModel.imagenSeleccionada.toString();
+            }
+
             int idEquipo = 4;
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-            jugadoresVisitanteViewModel.insertar(nombre, dorsal, imagenSeleccionada, idEquipo);
+            jugadoresViewModel.insertar(nombre, dorsal, imagen, idEquipo);
 
             //para volver atras
             navController.popBackStack();
         });
     }
 
-    //abrirgaleria
-    private void abrirGaleria(){
-        if (checkSelfPermission(requireContext(), READ_EXTERNAL_STORAGE) == PERMISSION_GRANTED) {
-            lanzadorGaleria.launch("image/*");
-        } else {
-            lanzadorPermisos.launch(READ_EXTERNAL_STORAGE);
-        }
-    }
+
 
     private final ActivityResultLauncher<String> lanzadorGaleria =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
                 //albumsViewModel.establecerImagenSeleccionada(uri);
-                imagenSeleccionada = uri;
-                Glide.with(requireView()).load(uri).into(binding.imagenJugadorTeamB);
-            });
-
-    private final ActivityResultLauncher<String> lanzadorPermisos =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-                if (isGranted) {
-                    lanzadorGaleria.launch("image/*");
-                }
+                jugadoresViewModel.imagenSeleccionada = uri;
+                Glide.with(requireView()).load(uri).into(binding.imagenJugador);
             });
 }

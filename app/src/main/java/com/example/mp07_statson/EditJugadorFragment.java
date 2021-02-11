@@ -55,7 +55,7 @@ public class EditJugadorFragment extends Fragment {
             binding.dorsalJugador.setText(String.valueOf(elemento.dorsal));
         });
         //ComeBack
-        binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //para volver atras
@@ -69,7 +69,7 @@ public class EditJugadorFragment extends Fragment {
         });
 
         //insertar jugador
-        binding.botonCrearAddJTM.setOnClickListener(v -> {
+        binding.botonCrearAddJugador.setOnClickListener(v -> {
 
             String nombre = binding.nombreJugador.getText().toString();
             String dorsalString = binding.dorsalJugador.getText().toString();

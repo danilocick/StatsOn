@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:minHeight="35dp">
         <ImageButton
-            android:id="@+id/botonComeBackERival"
+            android:id="@+id/boton_come_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -109,13 +109,13 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView android:id="@+id/listaJugadoresMiTM"
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/lista_jugadores"
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
                 android:layout_weight="1"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-            <Button android:id="@+id/botonanyadirjugadorMiTM"
+            <Button android:id="@+id/botonanyadirjugador"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"

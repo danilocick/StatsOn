@@ -61,7 +61,7 @@ public class JugadorStatsFragment extends Fragment {
 
 
         //ComeBack
-        binding.botonComeBackERival.setOnClickListener(view1 -> {
+        binding.botonComeBack.setOnClickListener(view1 -> {
             //para volver atras
             navController.popBackStack();
         });

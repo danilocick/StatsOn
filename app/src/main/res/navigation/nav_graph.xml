@@ -151,26 +151,17 @@
         android:label="fragment_resultado_menu"
         tools:layout="@layout/fragment_resultado_menu" >
         <action
-            android:id="@+id/action_resultadoMenuFragment_to_addJugadorMTFragment"
-            app:destination="@id/addJugadorMTFragment"
-            app:enterAnim="@anim/slide_in_up"
-            app:exitAnim="@anim/slide_out_down"
-            app:popEnterAnim="@anim/slide_in_down"
-            app:popExitAnim="@anim/slide_out_up"/>
-        <action
             android:id="@+id/action_resultadoMenuFragment_to_jugadorStatsFragment"
             app:destination="@id/jugadorStatsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_resultadoMenuFragment_to_addJugadorFragment"
+            app:destination="@id/addJugadorFragment" />
     </fragment>
     <!--AÑADIR JUGADOR MITM FRAGMENT-->
-    <fragment
-        android:id="@+id/addJugadorMTFragment"
-        android:name="com.example.mp07_statson.AddJugadorMTFragment"
-        android:label="fragment_add_jugador_m_t"
-        tools:layout="@layout/fragment_add_jugador_m_t" />
     <!--JUGADOR FRAGMENT-->
     <fragment
         android:id="@+id/jugadorStatsFragment"

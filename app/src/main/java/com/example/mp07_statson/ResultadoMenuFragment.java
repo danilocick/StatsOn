@@ -16,9 +16,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
-import com.example.mp07_statson.ViewModel.PartidosViewModel;
 import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
@@ -45,7 +43,7 @@ public class ResultadoMenuFragment extends Fragment {
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //ComeBack
-        binding.botonComeBackERival.setOnClickListener(new View.OnClickListener() {
+        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //para volver atras
@@ -54,17 +52,17 @@ public class ResultadoMenuFragment extends Fragment {
         });
 
         //Ir anyadirjugador
-        binding.botonanyadirjugadorMiTM.setOnClickListener(new View.OnClickListener() {
+        binding.botonanyadirjugador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_resultadoMenuFragment_to_addJugadorMTFragment);
+                navController.navigate(R.id.action_resultadoMenuFragment_to_addJugadorFragment);
             }
         });
 
         //obtener datos de los jugadores de la bd
         JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
-        binding.listaJugadoresMiTM.setAdapter(jugadoresbdAdapter);
-        jugadoresViewModel.obtenerLocal().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
+        binding.listaJugadores.setAdapter(jugadoresbdAdapter);
+        jugadoresViewModel.obtenerEquipo().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
     }
 
     //adaptador bd

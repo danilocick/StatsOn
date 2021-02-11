@@ -23,24 +23,6 @@ public class Jugador {
         this.nombre = nombre;
         this.dorsal = dorsal;
         this.imagen = imagen;
-        this.puntos = 0;
-        this.rebotes = 0;
-        this.asistencias = 0;
-        this.recuperaciones = 0;
-        this.perdidas = 0;
-        this.tapones = 0;
-        this.t1mas = 0;
-        this.t1menos = 0;
-        this.t2mas = 0;
-        this.t2menos = 0;
-        this.t3mas = 0;
-        this.t3menos = 0;
-        this.rebotesDef = 0;
-        this.rebotesOf = 0;
-        this.faltasRecibidas = 0;
-        this.faltasCometidas = 0;
-        this.taponesRealizados = 0;
-        this.taponesRecibidos = 0;
         this.idEquipo = idEquipo;
     }
 

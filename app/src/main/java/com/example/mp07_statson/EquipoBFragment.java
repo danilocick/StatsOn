@@ -65,7 +65,7 @@ public class EquipoBFragment extends Fragment {
         });
 
         //ComeBack
-        binding.botonComeBackERival.setOnClickListener(view12 -> {
+        binding.botonComeBack.setOnClickListener(view12 -> {
             //para volver atras
             navController.popBackStack();
         });
@@ -78,7 +78,7 @@ public class EquipoBFragment extends Fragment {
         JugadoresbdTeamBAdapter adapter = new JugadoresbdTeamBAdapter();
         binding.listaJugadoresTeamB.setAdapter(adapter);
 
-        jugadorsViewModel.obtenerVisitante().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
+        jugadorsViewModel.obtenerEquipo().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
 
     }
 
