@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class JugadoresMiTMRepositorio {
+public class JugadoresRepositorio {
     Executor executor = Executors.newSingleThreadExecutor();
     private final BaseDeDatosMiTM.JugadoresDao jugadoresDao;
 
-    public JugadoresMiTMRepositorio(Application application){
+    public JugadoresRepositorio(Application application){
         jugadoresDao = BaseDeDatosMiTM.getInstance(application).obtenerJugadoresDao();
     }
 
@@ -37,4 +37,5 @@ public class JugadoresMiTMRepositorio {
     public LiveData<List<Jugador>> obtenerJugadoresDeEquipo() {
         return jugadoresDao.obtenerJugadoresDeEquipo(4);
     }
+
 }

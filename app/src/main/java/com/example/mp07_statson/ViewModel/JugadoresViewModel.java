@@ -9,19 +9,19 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.Model.JugadoresMiTMRepositorio;
+import com.example.mp07_statson.Model.JugadoresRepositorio;
 
 import java.util.List;
 
 public class JugadoresViewModel extends AndroidViewModel {
-    private final JugadoresMiTMRepositorio jugadoresRepositorio;
+    private final JugadoresRepositorio jugadoresRepositorio;
     MutableLiveData<Jugador> jugadorMutableLiveData = new MutableLiveData<>();
     public Uri imagenSeleccionada;
 
     public JugadoresViewModel(@NonNull Application application) {
         super(application);
 
-        jugadoresRepositorio = new JugadoresMiTMRepositorio(application);
+        jugadoresRepositorio = new JugadoresRepositorio(application);
     }
 
     //INSERTS
