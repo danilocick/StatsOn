@@ -62,7 +62,11 @@ public class ResultadoMenuFragment extends Fragment {
         //obtener datos de los jugadores de la bd
         JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
         binding.listaJugadores.setAdapter(jugadoresbdAdapter);
-        jugadoresViewModel.obtenerJugadoresDeEquipo().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
+
+        //printar jugadores
+        //TODO: int m que se coja bien el numero, sin errores.
+        int m = 4;
+        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
     }
 
     //adaptador bd

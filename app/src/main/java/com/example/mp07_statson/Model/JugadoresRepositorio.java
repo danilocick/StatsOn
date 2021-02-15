@@ -12,13 +12,13 @@ public class JugadoresRepositorio {
     Executor executor = Executors.newSingleThreadExecutor();
     private final BaseDeDatosMiTM.JugadoresDao jugadoresDao;
 
-    public JugadoresRepositorio(Application application){
+    public JugadoresRepositorio(Application application) {
         jugadoresDao = BaseDeDatosMiTM.getInstance(application).obtenerJugadoresDao();
     }
 
     public void insertar(String nombre, int dorsal, String imagenSeleccionada, int idEquipo) {
         executor.execute(() -> {
-            jugadoresDao.insertar(new Jugador(nombre,dorsal,imagenSeleccionada, idEquipo));
+            jugadoresDao.insertar(new Jugador(nombre, dorsal, imagenSeleccionada, idEquipo));
         });
     }
 
@@ -34,8 +34,11 @@ public class JugadoresRepositorio {
         });
     }
 
-    public LiveData<List<Jugador>> obtenerJugadoresDeEquipo() {
-        return jugadoresDao.obtenerJugadoresDeEquipo(4);
+    public LiveData<List<Jugador>> obtenerJugadoresDeEquipo(int m) {
+        return jugadoresDao.obtenerJugadoresDeEquipo(m);
     }
 
+    public LiveData<List<Jugador>> obteenerJugadoresStarter(int m) {
+        return jugadoresDao.obteenerJugadoresStarter(m);
+    }
 }

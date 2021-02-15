@@ -50,8 +50,8 @@ public class EquipoBFragment extends Fragment {
 
         //TODO: insertar nombre equipo
         equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
-        int m = 0;
-        //equipoViewModel.obtener(m).observe
+        int m = 4;
+        //binding.nombreRival.setText(equipoViewModel.obtener(m).toString());
 
 
         //empezar partido
@@ -79,7 +79,9 @@ public class EquipoBFragment extends Fragment {
         JugadoresbdTeamBAdapter adapter = new JugadoresbdTeamBAdapter();
         binding.listaJugadores.setAdapter(adapter);
 
-        jugadorsViewModel.obtenerJugadoresDeEquipo().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
+        //printar jugadores
+        //TODO: int m que se coja bien el numero, sin errores.
+        jugadorsViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
 
     }
 
@@ -129,16 +131,28 @@ public class EquipoBFragment extends Fragment {
 
                     //para volver atras
                     if (color ==Color.rgb(0,0,0) && starts < 5){
+                        //anyadimos jugador a la base de datos:
+                        jugador.setStarter(true);
+                        jugadorsViewModel.actualizar(jugador);
+
                         holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
+
                         starts++;
+
                         System.out.println(starts);
                     }else {
                         if (starts == 5){
                             Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
                         }else {
+                            //anyadimos jugador a la base de datos:
+                            jugador.setStarter(false);
+                            jugadorsViewModel.actualizar(jugador);
+
                             holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
                             starts--;
                             System.out.println(starts);
+
+
                         }
                     }
 

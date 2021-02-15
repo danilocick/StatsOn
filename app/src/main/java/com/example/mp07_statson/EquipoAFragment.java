@@ -32,7 +32,7 @@ public class EquipoAFragment extends Fragment {
 
     private NavController navController;
     private FragmentEquipoABinding binding;
-    private JugadoresViewModel jugadoresMiTMViewModel;
+    private JugadoresViewModel jugadoresViewModel;
     JugadorAdapter jugadorAdapter = new JugadorAdapter();
     int starts=0;
 
@@ -48,7 +48,7 @@ public class EquipoAFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        jugadoresMiTMViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
+        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +73,10 @@ public class EquipoAFragment extends Fragment {
 
         binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
         //acceder al viewModel
-        jugadoresMiTMViewModel.obtenerJugadoresDeEquipo().observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
+        //printar jugadores
+        //TODO: int m que se coja bien el numero, sin errores.
+        int m = 0;
+        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
