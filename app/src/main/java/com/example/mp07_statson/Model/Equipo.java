@@ -12,8 +12,7 @@ public class Equipo {
 
     String nombreEquipo;
 
-    public Equipo(int idEquipo, String nombreEquipo) {
-        this.idEquipo = idEquipo;
+    public Equipo(String nombreEquipo) {
         this.nombreEquipo = nombreEquipo;
     }
 }

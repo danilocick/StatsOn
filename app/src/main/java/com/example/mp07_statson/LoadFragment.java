@@ -25,6 +25,7 @@ import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.github.ybq.android.spinkit.style.FoldingCube;
 import com.github.ybq.android.spinkit.style.Pulse;
 import com.github.ybq.android.spinkit.style.WanderingCubes;
+import com.romainpiel.shimmer.Shimmer;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -34,6 +35,7 @@ public class LoadFragment extends Fragment {
     Executor executor = Executors.newSingleThreadExecutor();
     NavController navController;
     private FragmentLoadBinding binding;
+    private Shimmer shimmer = new Shimmer();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,11 +60,16 @@ public class LoadFragment extends Fragment {
             }
         });
 
+
         // esto deberia estar en el Model y llamarlo a traves del ViewModel
         executor.execute(new Runnable() {
             @Override
             public void run() {
                 try {
+                    //shimmer
+                    shimmer.start(binding.shimmer);
+                    shimmer.setDirection(Shimmer.ANIMATION_DIRECTION_LTR);
+
                     // simular la carga de recursos
                     Thread.sleep(5000);
                     finishedLoading.postValue(true);
@@ -72,8 +79,11 @@ public class LoadFragment extends Fragment {
             }
         });
 
+
+
+
         //progressBar
-        Sprite doubleBounce = new WanderingCubes();
-        binding.progressBar.setIndeterminateDrawable(doubleBounce);
+//        Sprite doubleBounce = new WanderingCubes();
+//        binding.progressBar.setIndeterminateDrawable(doubleBounce);
     }
 }

@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,15 +18,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
-import com.bumptech.glide.Glide;
-import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.JugadoresViewModel;
-import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
-import com.example.mp07_statson.databinding.PopupAsistenciaBinding;
-import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
-import java.util.List;
+import java.util.Locale;
 
 import static com.example.mp07_statson.R.layout.popup_asistencia;
 
@@ -33,7 +28,12 @@ public class GameFragment extends Fragment {
 
     private FragmentGameBinding binding;
     private NavController navController;
-    private NombreRivalViewModel nombreRivalViewModel;
+    private int MarcadorLocal;
+    private int MarcadorVisitante;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private static final long START_TIME_IN_MILLIS = 600000;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -46,16 +46,23 @@ public class GameFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        //setText NOMBRE RIVAL
-        nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
-        nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.titleTeamB.setText(a));
 
         //Load PopUps
-        //POPUP
         View popupViewAsistencia = LayoutInflater.from(getActivity()).inflate(popup_asistencia, null);
+        //POPUP
         final PopupWindow popupWindowAsistencia = new PopupWindow(popupViewAsistencia, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         popupWindowAsistencia.setOutsideTouchable(true);
         popupWindowAsistencia.setFocusable(true);
+
+
+        binding.start.setOnClickListener(view17 ->{
+                if (mTimerRunning) {
+                    pauseTimer();
+                } else {
+                    startTimer();
+                }
+        });
+        updateCountDownText();
 
 
         //AcabarPartido
@@ -79,4 +86,31 @@ public class GameFragment extends Fragment {
             });
         });
     }
+
+    private void startTimer() {
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+            @Override
+            public void onFinish() {
+                mTimerRunning = false;
+                binding.chronometer.setVisibility(View.INVISIBLE);
+            }
+        }.start();
+        mTimerRunning = true;
+    }
+    private void pauseTimer() {
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+    }
+    private void updateCountDownText() {
+        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        binding.chronometer.setText(timeLeftFormatted);
+    }
+
 }

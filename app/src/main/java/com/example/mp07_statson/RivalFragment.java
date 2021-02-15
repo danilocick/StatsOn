@@ -1,7 +1,5 @@
 package com.example.mp07_statson;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
+import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentRivalBinding;
 
 
@@ -23,7 +21,7 @@ public class RivalFragment extends Fragment {
 
     private NavController navController;
     private FragmentRivalBinding binding;
-    NombreRivalViewModel nombreRivalViewModel;
+    private EquipoViewModel Equipo;
 
 
     @Override
@@ -37,7 +35,7 @@ public class RivalFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
+        Equipo = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
 
         //insertar nombre rival
         binding.botonSiguienteERival.setOnClickListener(v -> {
@@ -45,7 +43,7 @@ public class RivalFragment extends Fragment {
 
             if(!teamb.equals("")) {
                 //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-                nombreRivalViewModel.seleccionar(teamb);
+                Equipo.insertar(teamb);
                 //navegamos
                 navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
             }

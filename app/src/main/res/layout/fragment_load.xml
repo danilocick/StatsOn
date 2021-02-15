@@ -15,32 +15,31 @@
         android:id="@+id/logoexit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:layout_marginTop="60sp"
+        android:layout_weight="50"
         android:layout_gravity="center"
-        android:src="@drawable/logito" />
+        android:src="@drawable/pantalla_carga" />
 
-    <TextView
-        android:id="@+id/goCBSCexit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:gravity="center"
-        android:rotationX="50"
-        android:text="@string/goCBSCcarga"
-        android:textColor="@color/white"
-        android:textSize="75sp"/>
-
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/progressBar"
-        style="@style/SpinKitView.Large.WanderingCubes"
+    <com.romainpiel.shimmer.ShimmerTextView
+        android:id="@+id/shimmer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50sp"
+        android:text="@string/goCBSCcarga"
+        android:fontFamily="@font/postnobillsjaffna_bold"
         android:layout_gravity="center"
-        app:SpinKit_Color="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:reflectionColor="@color/black"/>
+
+<!--    <com.github.ybq.android.spinkit.SpinKitView-->
+<!--        android:id="@+id/progressBar"-->
+<!--        style="@style/SpinKitView.Large.WanderingCubes"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_marginBottom="50dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        app:SpinKit_Color="@color/white"/>-->
 
 </LinearLayout>

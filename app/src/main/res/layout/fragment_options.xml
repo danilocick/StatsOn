@@ -76,72 +76,74 @@
                     android:orientation="vertical"
                     android:paddingBottom="15dp"
                     android:layout_gravity="center">
-                    <com.github.florent37.expansionpanel.ExpansionHeader
-                        android:layout_height="wrap_content"
-                        android:layout_width="60dp"
-                        android:padding="8dp"
-                        app:expansion_headerIndicator="@id/headerIndicatorMinutos"
-                        app:expansion_layout="@id/expansionLayoutMinutos"
-                        app:expansion_toggleOnClick="true"
-                        android:background="@color/black">
 
-                        <!-- HEADER -->
-                        <TextView
-                            android:layout_width="match_parent"
+                        <com.github.florent37.expansionpanel.ExpansionHeader
                             android:layout_height="wrap_content"
-                            android:text="@string/_10"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center"
-                            />
-                        <!-- HEADER INDICATOR -->
-                        <ImageView
-                            android:adjustViewBounds="true"
-                            android:id="@+id/headerIndicatorMinutos"
-                            android:layout_gravity="center_vertical|right"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_width="wrap_content"
-                            app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
-                    </com.github.florent37.expansionpanel.ExpansionHeader>
+                            android:layout_width="60dp"
+                            android:padding="8dp"
+                            app:expansion_headerIndicator="@id/headerIndicatorMinutos"
+                            app:expansion_layout="@id/expansionLayoutMinutos"
+                            app:expansion_toggleOnClick="true"
+                            android:background="@color/black">
 
-                    <com.github.florent37.expansionpanel.ExpansionLayout
-                        android:id="@+id/expansionLayoutMinutos"
-                        android:layout_height="wrap_content"
-                        android:layout_width="60dp"
-                        android:background="@color/black_30">
-
-                        <!-- CONTENT -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/_5"
-                                android:padding="8dp"
-                                android:textColor="@color/white"
-                                android:layout_marginBottom="5dp"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/_6"
-                                android:padding="8dp"
-                                android:textColor="@color/white"
-                                android:layout_marginBottom="5dp"
-                                />
+                            <!-- HEADER -->
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/_10"
-                                android:padding="8dp"
                                 android:textColor="@color/white"
-                                android:layout_marginBottom="5dp"
+                                android:layout_gravity="center"
                                 />
-                        </LinearLayout>
-                    </com.github.florent37.expansionpanel.ExpansionLayout>
+                            <!-- HEADER INDICATOR -->
+                            <ImageView
+                                android:adjustViewBounds="true"
+                                android:id="@+id/headerIndicatorMinutos"
+                                android:layout_gravity="center_vertical|right"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_width="wrap_content"
+                                app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+                        </com.github.florent37.expansionpanel.ExpansionHeader>
+                        <com.github.florent37.expansionpanel.ExpansionLayout
+                            android:id="@+id/expansionLayoutMinutos"
+                            android:layout_height="wrap_content"
+                            android:layout_width="60dp"
+                            android:background="@color/black_30">
+
+                            <!-- CONTENT -->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_5"
+                                    android:padding="8dp"
+                                    android:textColor="@color/white"
+                                    android:layout_marginBottom="5dp"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_6"
+                                    android:padding="8dp"
+                                    android:textColor="@color/white"
+                                    android:layout_marginBottom="5dp"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_10"
+                                    android:padding="8dp"
+                                    android:textColor="@color/white"
+                                    android:layout_marginBottom="5dp"
+                                    />
+                            </LinearLayout>
+                        </com.github.florent37.expansionpanel.ExpansionLayout>
+
+
                 </LinearLayout>
 
                 <!--fila 2-->
@@ -158,72 +160,78 @@
                     android:orientation="vertical"
                     android:paddingBottom="15dp"
                     android:layout_gravity="center">
-                    <com.github.florent37.expansionpanel.ExpansionHeader
+                    <com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_width="60dp"
-                        android:padding="8dp"
-                        app:expansion_headerIndicator="@id/headerIndicatorPeriodos"
-                        app:expansion_layout="@id/expansionLayoutPeriodos"
-                        app:expansion_toggleOnClick="true"
-                        android:background="@color/black">
-
-                        <!-- HEADER -->
-                        <TextView
-                            android:layout_width="match_parent"
+                        app:expansion_openOnlyOne="true"
+                        android:orientation="vertical">
+                        <com.github.florent37.expansionpanel.ExpansionHeader
                             android:layout_height="wrap_content"
-                            android:text="@string/_4"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center"
-                            />
-                        <!-- HEADER INDICATOR -->
-                        <ImageView
-                            android:adjustViewBounds="true"
-                            android:id="@+id/headerIndicatorPeriodos"
-                            android:layout_gravity="center_vertical|right"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_width="wrap_content"
-                            app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
-                    </com.github.florent37.expansionpanel.ExpansionHeader>
+                            android:layout_width="60dp"
+                            android:padding="8dp"
+                            app:expansion_headerIndicator="@id/headerIndicatorPeriodos"
+                            app:expansion_layout="@id/expansionLayoutPeriodos"
+                            app:expansion_toggleOnClick="true"
+                            android:background="@color/black">
 
-                    <com.github.florent37.expansionpanel.ExpansionLayout
-                        android:id="@+id/expansionLayoutPeriodos"
-                        android:layout_height="wrap_content"
-                        android:layout_width="60dp"
-                        android:background="@color/black_30">
-
-                        <!-- CONTENT -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
+                            <!-- HEADER -->
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/_4"
-                                android:padding="8dp"
                                 android:textColor="@color/white"
-                                android:layout_marginBottom="5dp"
+                                android:layout_gravity="center"
                                 />
-                            <TextView
-                                android:layout_width="match_parent"
+                            <!-- HEADER INDICATOR -->
+                            <ImageView
+                                android:adjustViewBounds="true"
+                                android:id="@+id/headerIndicatorPeriodos"
+                                android:layout_gravity="center_vertical|right"
                                 android:layout_height="wrap_content"
-                                android:text="@string/_6"
-                                android:padding="8dp"
-                                android:textColor="@color/white"
-                                android:layout_marginBottom="5dp"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
+                                android:layout_marginStart="16dp"
+                                android:layout_width="wrap_content"
+                                app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+                        </com.github.florent37.expansionpanel.ExpansionHeader>
+                        <com.github.florent37.expansionpanel.ExpansionLayout
+                            android:id="@+id/expansionLayoutPeriodos"
+                            android:layout_height="wrap_content"
+                            android:layout_width="60dp"
+                            android:background="@color/black_30">
+
+                            <!-- CONTENT -->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/_8"
-                                android:padding="8dp"
-                                android:textColor="@color/white"
-                                android:layout_marginBottom="5dp"
-                                />
-                        </LinearLayout>
-                    </com.github.florent37.expansionpanel.ExpansionLayout>
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_4"
+                                    android:padding="8dp"
+                                    android:textColor="@color/white"
+                                    android:layout_marginBottom="5dp"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_6"
+                                    android:padding="8dp"
+                                    android:textColor="@color/white"
+                                    android:layout_marginBottom="5dp"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_8"
+                                    android:padding="8dp"
+                                    android:textColor="@color/white"
+                                    android:layout_marginBottom="5dp"
+                                    />
+                            </LinearLayout>
+                        </com.github.florent37.expansionpanel.ExpansionLayout>
+
+                    </com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout>
                 </LinearLayout>
 
                 <!--fila 3-->

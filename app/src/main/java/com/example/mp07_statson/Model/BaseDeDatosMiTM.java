@@ -56,8 +56,8 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
         @Insert
         void insertar (Equipo equipo);
 
-        @Query("SELECT * FROM Equipo")
-        LiveData<List<Equipo>> obtener();
+        @Query("SELECT * FROM Equipo WHERE idEquipo=:m")
+        Equipo obtener(int m);
 
         @Delete
         void delete (Equipo equipo);

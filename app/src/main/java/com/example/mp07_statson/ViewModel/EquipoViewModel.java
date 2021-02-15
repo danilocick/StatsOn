@@ -24,8 +24,8 @@ public class EquipoViewModel extends AndroidViewModel {
     }
 
     //INSERT
-    public void insertar(Equipo equipo) {
-        equiposRepositorio.insertar(equipo);
+    public void insertar(String equipo) {
+        equiposRepositorio.insertar(new Equipo(equipo));
     }
 
     //DELETES
@@ -34,7 +34,7 @@ public class EquipoViewModel extends AndroidViewModel {
     }
 
     //GETTERS
-    public LiveData<List<Equipo>> obtener() {
-        return equiposRepositorio.obtener();
+    public Equipo obtener(int m) {
+        return equiposRepositorio.obtener(m);
     }
 }

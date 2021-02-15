@@ -19,6 +19,8 @@ public class Jugador {
             taponesRealizados, taponesRecibidos;
     public  int idEquipo;
 
+    public boolean starter;
+
     public Jugador(String nombre, int dorsal, String imagen, int idEquipo) {
         this.nombre = nombre;
         this.dorsal = dorsal;
@@ -30,15 +32,22 @@ public class Jugador {
     public int getIdJugador() {
         return idJugador;
     }
+
     public void setIdJugador(@NonNull int idJugador) {
         this.idJugador = idJugador;
     }
-
     public int getDorsal() {
         return dorsal;
     }
     public void setDorsal(int dorsal) {
         this.dorsal = dorsal;
+    }
+
+    public boolean isStarter() {
+        return starter;
+    }
+    public void setStarter(boolean starter) {
+        this.starter = starter;
     }
 
     public String getNombre() {

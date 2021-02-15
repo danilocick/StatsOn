@@ -15,11 +15,17 @@ import android.widget.Button;
 
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 import com.example.mp07_statson.databinding.FragmentOptionsBinding;
+import com.github.florent37.expansionpanel.ExpansionHeader;
+import com.github.florent37.expansionpanel.ExpansionLayout;
+import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
 
 public class OptionsFragment extends Fragment {
 
     private NavController navController;
     private FragmentOptionsBinding binding;
+
+    //add an ExpansionLayoutCollection to your recycler adapter
+    final ExpansionLayoutCollection expansionsCollection = new ExpansionLayoutCollection();
 
 
     @Override
@@ -48,6 +54,14 @@ public class OptionsFragment extends Fragment {
             public void onClick(View view) {
                 //para volver atras
                 navController.popBackStack();
+            }
+        });
+
+        //NEW EXPANSIONSPANEL
+        binding.expansionLayoutMinutos.addListener(new ExpansionLayout.Listener() {
+            @Override
+            public void onExpansionChanged(ExpansionLayout expansionLayout, boolean expanded) {
+
             }
         });
 

@@ -13,14 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
+import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentOutputMatchesBinding;
 
 public class OutputMatchesFragment extends Fragment {
 
     private FragmentOutputMatchesBinding binding;
     private NavController navController;
-    private NombreRivalViewModel nombreRivalViewModel;
+    private EquipoViewModel equipoViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -33,7 +33,9 @@ public class OutputMatchesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
+        binding.tableInvoices.setStretchAllColumns(true);
+        
+        equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
 //        if (nombreRivalViewModel.seleccionado() != null){
 //            nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.equiporival.setText(a));
 //        }
@@ -48,5 +50,6 @@ public class OutputMatchesFragment extends Fragment {
         });
 
     }
+
 
 }

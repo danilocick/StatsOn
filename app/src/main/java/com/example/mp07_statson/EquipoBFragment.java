@@ -18,9 +18,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
-import com.example.mp07_statson.ViewModel.NombreRivalViewModel;
 import com.example.mp07_statson.databinding.FragmentEquipoBBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
@@ -33,8 +34,8 @@ public class EquipoBFragment extends Fragment {
     private FragmentEquipoBBinding binding;
     private JugadoresViewModel jugadorsViewModel;
 
-    private NombreRivalViewModel nombreRivalViewModel;
     int starts=0;
+    private EquipoViewModel equipoViewModel;
 
 
     @Override
@@ -48,10 +49,11 @@ public class EquipoBFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        nombreRivalViewModel = new ViewModelProvider(requireActivity()).get(NombreRivalViewModel.class);
-        if (nombreRivalViewModel.seleccionado() != null){
-            nombreRivalViewModel.seleccionado().observe(getViewLifecycleOwner(), a -> binding.nombreRival.setText(a));
-        }
+        //TODO: insertar nombre equipo
+        equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
+        int m = 0;
+        //equipoViewModel.obtener(m).observe
+
 
         //empezar partido
         binding.botonSiguienteERival.setOnClickListener(view1 -> {
@@ -76,7 +78,7 @@ public class EquipoBFragment extends Fragment {
         binding.botonanyadirjugador.setOnClickListener(view13 -> navController.navigate(R.id.action_equipoBFragment_to_addJugadorFragment));
 
         JugadoresbdTeamBAdapter adapter = new JugadoresbdTeamBAdapter();
-        binding.listaJugadoresTeamB.setAdapter(adapter);
+        binding.listaJugadores.setAdapter(adapter);
 
         jugadorsViewModel.obtenerEquipo().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
 
