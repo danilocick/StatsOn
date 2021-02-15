@@ -34,7 +34,7 @@ public class JugadoresMiTMRepositorio {
         });
     }
 
-    public LiveData<List<Jugador>> obtenerEquipo() {
-        return jugadoresDao.obtenerEquipo(4);
+    public LiveData<List<Jugador>> obtenerJugadoresDeEquipo() {
+        return jugadoresDao.obtenerJugadoresDeEquipo(4);
     }
 }

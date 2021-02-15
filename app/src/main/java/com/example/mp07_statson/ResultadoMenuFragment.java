@@ -62,7 +62,7 @@ public class ResultadoMenuFragment extends Fragment {
         //obtener datos de los jugadores de la bd
         JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
         binding.listaJugadores.setAdapter(jugadoresbdAdapter);
-        jugadoresViewModel.obtenerEquipo().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
+        jugadoresViewModel.obtenerJugadoresDeEquipo().observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
     }
 
     //adaptador bd

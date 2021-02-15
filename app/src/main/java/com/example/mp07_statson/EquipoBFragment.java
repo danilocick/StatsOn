@@ -18,7 +18,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
@@ -80,7 +79,7 @@ public class EquipoBFragment extends Fragment {
         JugadoresbdTeamBAdapter adapter = new JugadoresbdTeamBAdapter();
         binding.listaJugadores.setAdapter(adapter);
 
-        jugadorsViewModel.obtenerEquipo().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
+        jugadorsViewModel.obtenerJugadoresDeEquipo().observe(getViewLifecycleOwner(), adapter::establecerJugadoresList);
 
     }
 

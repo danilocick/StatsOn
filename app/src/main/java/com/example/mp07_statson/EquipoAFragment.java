@@ -73,7 +73,7 @@ public class EquipoAFragment extends Fragment {
 
         binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
         //acceder al viewModel
-        jugadoresMiTMViewModel.obtenerEquipo().observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
+        jugadoresMiTMViewModel.obtenerJugadoresDeEquipo().observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{

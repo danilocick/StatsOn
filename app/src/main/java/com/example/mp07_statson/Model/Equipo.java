@@ -9,7 +9,6 @@ import androidx.room.PrimaryKey;
 public class Equipo {
     @PrimaryKey(autoGenerate = true) @NonNull
     int idEquipo;
-
     String nombreEquipo;
 
     public Equipo(String nombreEquipo) {

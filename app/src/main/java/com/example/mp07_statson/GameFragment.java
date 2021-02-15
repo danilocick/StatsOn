@@ -28,12 +28,14 @@ public class GameFragment extends Fragment {
 
     private FragmentGameBinding binding;
     private NavController navController;
-    private int MarcadorLocal;
-    private int MarcadorVisitante;
+    private int marcadorLocal = 0;
+    private int marcadorVisitante = 0;
+    private int cuarto = 0;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
     private static final long START_TIME_IN_MILLIS = 600000;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    /*https://codinginflow.com/tutorials/android/countdowntimer/part-1-countdown-timer*/
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -53,7 +55,6 @@ public class GameFragment extends Fragment {
         final PopupWindow popupWindowAsistencia = new PopupWindow(popupViewAsistencia, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         popupWindowAsistencia.setOutsideTouchable(true);
         popupWindowAsistencia.setFocusable(true);
-
 
         binding.start.setOnClickListener(view17 ->{
                 if (mTimerRunning) {
@@ -75,14 +76,35 @@ public class GameFragment extends Fragment {
             binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_white_red);
 
             binding.imagenThreePointMore.setOnClickListener(view1 -> {
-                popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
+                //popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
+
+                marcadorVisitante+=3;
+                String str = String.valueOf(marcadorVisitante);
+                binding.marcadorVisitante.setText(str);
                 //TODO:ONCLICK JUGADOR, return normal backgound
                 binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenThreePointLess.setOnClickListener(view1 -> {
-                popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
+                //popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
                 binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
+            });
+        });
+
+        binding.jugA1.setOnClickListener(v -> {
+            binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_white_red);
+            binding.imagenThreePointMore.setOnClickListener(view1 -> {
+                //popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
+                marcadorLocal+=3;
+                String str = String.valueOf(marcadorLocal);
+                binding.marcadorLocal.setText(str);
+                //TODO:ONCLICK JUGADOR, return normal backgound
+                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
+            });
+
+            binding.imagenThreePointLess.setOnClickListener(view1 -> {
+                //popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
+                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
             });
         });
     }

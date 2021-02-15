@@ -40,8 +40,8 @@ public class JugadoresViewModel extends AndroidViewModel {
     }
 
     //GETTERS
-    public LiveData<List<Jugador>> obtenerEquipo() {
-        return jugadoresRepositorio.obtenerEquipo();
+    public LiveData<List<Jugador>> obtenerJugadoresDeEquipo() {
+        return jugadoresRepositorio.obtenerJugadoresDeEquipo();
     }
     //MUTABLE
     public void seleccionar(Jugador jugador){
