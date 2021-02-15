@@ -41,10 +41,10 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
         @Insert
         void insertar (Jugador jugador);
 
-        @Query("SELECT * FROM Jugador WHERE idEquipo=:m")
+        @Query("SELECT * FROM Jugador WHERE idEquipo=:m ORDER BY dorsal")
         LiveData<List<Jugador>> obtenerJugadoresDeEquipo(int m);
 
-        @Query("SELECT * FROM Jugador WHERE starter='true' AND idEquipo=:m")
+        @Query("SELECT * FROM Jugador WHERE starter='true' AND idEquipo=:m ORDER BY dorsal")
         LiveData<List<Jugador>> obteenerJugadoresStarter(int m);
 
         @Delete
