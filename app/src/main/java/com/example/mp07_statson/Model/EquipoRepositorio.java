@@ -29,7 +29,7 @@ public class EquipoRepositorio {
             equiposDao.delete(equipo);
         });
     }
-    public Equipo obtener(int m) {
+    public String obtener(int m) {
         return equiposDao.obtener(m);
     }
 }

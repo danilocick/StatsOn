@@ -34,7 +34,7 @@ public class EquipoViewModel extends AndroidViewModel {
     }
 
     //GETTERS
-    public Equipo obtener(int m) {
+    public String obtener(int m) {
         return equiposRepositorio.obtener(m);
     }
 }

@@ -106,7 +106,7 @@ public class ListaPartidosFragment extends Fragment {
 
             Partido partido = partidosList.get(position);
 
-            //if( Equipo.idEquipo== partido.idLocal){
+            //if( Equipo.idEquipo == partido.idLocal){
             //    holder.binding.nombreLocal.setText(Equipo.getNombre);
             //}
 

@@ -38,7 +38,7 @@ public class JugadoresRepositorio {
         return jugadoresDao.obtenerJugadoresDeEquipo(m);
     }
 
-    public LiveData<List<Jugador>> obteenerJugadoresStarter(int m) {
-        return jugadoresDao.obteenerJugadoresStarter(m);
+    public LiveData<List<Jugador>> obtenerJugadoresStarter(int m) {
+        return jugadoresDao.obtenerJugadoresStarter(m);
     }
 }

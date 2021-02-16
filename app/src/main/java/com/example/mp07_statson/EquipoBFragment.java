@@ -12,12 +12,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.BaseDeDatosMiTM;
+import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
@@ -37,6 +41,7 @@ public class EquipoBFragment extends Fragment {
     private EquipoViewModel equipoViewModel;
 
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,10 +53,12 @@ public class EquipoBFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        //TODO: insertar nombre equipo
         equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
+
+        //TODO: insertar nombre equipo
         int m = 4;
-        //binding.nombreRival.setText(equipoViewModel.obtener(m).toString());
+        String equipoNombre =equipoViewModel.obtener(m);
+        binding.nombreRival.setText(equipoNombre);
 
 
         //empezar partido
