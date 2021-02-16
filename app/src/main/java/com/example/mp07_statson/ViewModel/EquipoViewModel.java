@@ -16,6 +16,7 @@ import java.util.List;
 
 public class EquipoViewModel extends AndroidViewModel {
     private final EquipoRepositorio equiposRepositorio;
+    public String nombreRival;
 
     public EquipoViewModel(@NonNull Application application) {
         super(application);
@@ -25,6 +26,7 @@ public class EquipoViewModel extends AndroidViewModel {
 
     //INSERT
     public void insertar(String equipo) {
+        nombreRival = equipo;
         equiposRepositorio.insertar(new Equipo(equipo));
     }
 

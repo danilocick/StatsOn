@@ -36,7 +36,6 @@ public class EquipoBFragment extends Fragment {
     private NavController navController;
     private FragmentEquipoBBinding binding;
     private JugadoresViewModel jugadorsViewModel;
-
     int starts=0;
     private EquipoViewModel equipoViewModel;
 
@@ -57,8 +56,9 @@ public class EquipoBFragment extends Fragment {
 
         //TODO: insertar nombre equipo
         int m = 4;
-        String equipoNombre =equipoViewModel.obtener(m);
-        binding.nombreRival.setText(equipoNombre);
+//        String equipoNombre =equipoViewModel.obtener(m);
+//        binding.nombreRival.setText(equipoNombre);
+        binding.nombreRival.setText(equipoViewModel.nombreRival);
 
 
         //empezar partido

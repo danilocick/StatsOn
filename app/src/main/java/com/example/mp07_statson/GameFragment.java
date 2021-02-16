@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
+import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 
 import java.util.Locale;
@@ -35,6 +36,7 @@ public class GameFragment extends Fragment {
     private boolean mTimerRunning;
     private static final long START_TIME_IN_MILLIS = 600000;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private EquipoViewModel equipoViewModel;
     /*https://codinginflow.com/tutorials/android/countdowntimer/part-1-countdown-timer*/
 
     @Override
@@ -49,6 +51,9 @@ public class GameFragment extends Fragment {
         navController = Navigation.findNavController(view);
 
 
+        //Load RivalName
+        equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
+        binding.titleTeamB.setText(equipoViewModel.nombreRival);
         //Load PopUps
         View popupViewAsistencia = LayoutInflater.from(getActivity()).inflate(popup_asistencia, null);
         //POPUP
