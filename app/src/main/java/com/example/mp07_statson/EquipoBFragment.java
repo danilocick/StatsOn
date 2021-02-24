@@ -12,8 +12,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -56,9 +58,14 @@ public class EquipoBFragment extends Fragment {
 
         //TODO: insertar nombre equipo
         int m = 4;
-//        String equipoNombre =equipoViewModel.obtener(m);
-//        binding.nombreRival.setText(equipoNombre);
-        binding.nombreRival.setText(equipoViewModel.nombreRival);
+        final String[] equipoNombre = new String[1];
+//        equipoViewModel.obtener(m).observe(getViewLifecycleOwner(),Object::notify  );
+//        equipoViewModel.obtener(m).observe(getViewLifecycleOwner(), );
+
+
+//        System.out.println(equipoNombre[0]+ "");
+//        binding.nombreRival.setText(equipoNombre[0]);
+//        binding.nombreRival.setText(equipoViewModel.nombreRival);
 
 
         //empezar partido

@@ -60,7 +60,7 @@ public abstract class BaseDeDatosMiTM extends RoomDatabase{
         void insertar (Equipo equipo);
 
         @Query("SELECT nombreEquipo FROM Equipo WHERE idEquipo=:m LIMIT 1")
-        String  obtener(int m);
+        LiveData<String>  obtener(int m);
 
         @Delete
         void delete (Equipo equipo);

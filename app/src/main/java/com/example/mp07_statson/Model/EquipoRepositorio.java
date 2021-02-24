@@ -29,7 +29,7 @@ public class EquipoRepositorio {
             equiposDao.delete(equipo);
         });
     }
-    public String obtener(int m) {
+    public LiveData<String> obtener(int m) {
         return equiposDao.obtener(m);
     }
 }

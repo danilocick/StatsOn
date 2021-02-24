@@ -36,7 +36,7 @@ public class EquipoViewModel extends AndroidViewModel {
     }
 
     //GETTERS
-    public String obtener(int m) {
+    public LiveData<String> obtener(int m) {
         return equiposRepositorio.obtener(m);
     }
 }

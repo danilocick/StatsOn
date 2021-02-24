@@ -21,10 +21,6 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentEditJugadorBinding;
 
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static androidx.core.content.ContextCompat.checkSelfPermission;
-
 public class EditJugadorFragment extends Fragment {
 
 
@@ -49,7 +45,7 @@ public class EditJugadorFragment extends Fragment {
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
-            Glide.with(EditJugadorFragment.this).load(elemento.imagen).into(binding.imagenJugadorMiTeam);
+            Glide.with(EditJugadorFragment.this).load(elemento.imagen).into(binding.imagenJugador);
             binding.nombreJugador.setText(elemento.nombre);
             binding.dorsalJugador.setText(String.valueOf(elemento.dorsal));
         });
@@ -63,8 +59,8 @@ public class EditJugadorFragment extends Fragment {
         });
 
         //insertar imagen
-        binding.imagenJugadorMiTeam.setOnClickListener(v -> {
-            abrirGaleria();
+        binding.imagenJugador.setOnClickListener(v -> {
+            lanzadorGaleria.launch("image/*");
         });
 
         //insertar jugador
@@ -92,31 +88,11 @@ public class EditJugadorFragment extends Fragment {
         });
     }
 
-
-    private void abrirGaleria(){
-        //comprobar si el usuari ha dado permiso
-        if (checkSelfPermission(requireContext(), READ_EXTERNAL_STORAGE) == PERMISSION_GRANTED) {
-            lanzadorGaleria.launch("image/*");
-        } else {
-            //lanza el dialogo
-            lanzadorPermisos.launch(READ_EXTERNAL_STORAGE);
-        }
-    }
-
     private final ActivityResultLauncher<String> lanzadorGaleria =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
-                //albumsViewModel.establecerImagenSeleccionada(uri);
-
                 //guardar la imagen seleccionada para pasarla
-                imagenSeleccionada = uri;
+                jugadoresViewModel.imagenSeleccionada = uri;
                 //nos muestra la miniatura cargada
-                Glide.with(requireView()).load(uri).into(binding.imagenJugadorMiTeam);
-            });
-
-    private final ActivityResultLauncher<String> lanzadorPermisos =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-                if (isGranted) {
-                    lanzadorGaleria.launch("image/*");
-                }
+                Glide.with(requireView()).load(uri).into(binding.imagenJugador);
             });
 }
