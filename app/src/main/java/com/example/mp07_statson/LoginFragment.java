@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.romainpiel.shimmer.Shimmer;
 
+import java.util.Objects;
+
 
 public class LoginFragment extends Fragment {
 
@@ -48,7 +50,7 @@ public class LoginFragment extends Fragment {
 
     ActivityResultLauncher<Intent> signInClient = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         try {
-            FirebaseAuth.getInstance().signInWithCredential(GoogleAuthProvider.getCredential(GoogleSignIn.getSignedInAccountFromIntent(result.getData()).getResult(ApiException.class).getIdToken(), null)).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            FirebaseAuth.getInstance().signInWithCredential(GoogleAuthProvider.getCredential(Objects.requireNonNull(GoogleSignIn.getSignedInAccountFromIntent(result.getData()).getResult(ApiException.class)).getIdToken(), null)).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
                     navController.navigate(R.id.action_loginFragment_to_menuFragment);
