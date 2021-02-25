@@ -86,22 +86,22 @@
     <string name="dorsal">Dorsal</string>
     <string name="eliminar">eliminar</string>
     <string name="jugar">Jugar</string>
-    <string name="min" translatable="false" >MIN</string>
+    <string name="min" translatable="false">MIN</string>
     <string name="pts" translatable="false">PTS</string>
     <string name="ptsporcentaje" translatable="false">PTS %</string>
     <string name="T2porcentaje" translatable="false">T2 %</string>
     <string name="T3porcentaje" translatable="false">T3 %</string>
     <string name="TLporcentaje" translatable="false">TL %</string>
     <string name="rebotesOf" translatable="false">R Of</string>
-    <string name="rebotesDef" translatable="false" >R Def</string>
-    <string name="rebotesTotales" translatable="false" >R T</string>
-    <string name="asist" translatable="false" >AST</string>
-    <string name="recuperadas" translatable="false" >REC</string>
-    <string name="tapones" translatable="false" >TAP</string>
-    <string name="taponesrecibidos" translatable="false" >TAP R</string>
+    <string name="rebotesDef" translatable="false">R Def</string>
+    <string name="rebotesTotales" translatable="false">R T</string>
+    <string name="asist" translatable="false">AST</string>
+    <string name="recuperadas" translatable="false">REC</string>
+    <string name="tapones" translatable="false">TAP</string>
+    <string name="taponesrecibidos" translatable="false">TAP R</string>
     <string name="faltas">Fa</string>
-    <string name="faltasrecibidas" translatable="false" >F R</string>
-    <string name="perdidas" translatable="false" >PER</string>
+    <string name="faltasrecibidas" translatable="false">F R</string>
+    <string name="perdidas" translatable="false">PER</string>
     <string name="vs" translatable="false">VS</string>
     <string name="local">Local</string>
     <string name="visitante">Visitante</string>

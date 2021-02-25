@@ -58,15 +58,7 @@ public class EquipoBFragment extends Fragment {
 
         //TODO: insertar nombre equipo
         int m = 4;
-        final String[] equipoNombre = new String[1];
-//        equipoViewModel.obtener(m).observe(getViewLifecycleOwner(),Object::notify  );
-//        equipoViewModel.obtener(m).observe(getViewLifecycleOwner(), );
-
-
-//        System.out.println(equipoNombre[0]+ "");
-//        binding.nombreRival.setText(equipoNombre[0]);
-//        binding.nombreRival.setText(equipoViewModel.nombreRival);
-
+        equipoViewModel.obtener(m).observe(getViewLifecycleOwner(), nombreEquipo -> binding.nombreRival.setText(nombreEquipo));
 
         //empezar partido
         binding.botonSiguienteERival.setOnClickListener(view1 -> {
@@ -127,50 +119,44 @@ public class EquipoBFragment extends Fragment {
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
-            holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-                    jugadorsViewModel.delete(jugador);
-                }
+            holder.binding.eliminarJugador.setOnClickListener(view -> {
+                //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
+                jugadorsViewModel.delete(jugador);
             });
 
-            holder.binding.background.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int color = Color.TRANSPARENT;
-                    Drawable background = holder.binding.background.getBackground();
-                    if (background instanceof ColorDrawable)
-                        color = ((ColorDrawable) background).getColor();
+            holder.binding.background.setOnClickListener(view -> {
+                int color = Color.TRANSPARENT;
+                Drawable background = holder.binding.background.getBackground();
+                if (background instanceof ColorDrawable)
+                    color = ((ColorDrawable) background).getColor();
 
-                    //para volver atras
-                    if (color ==Color.rgb(0,0,0) && starts < 5){
+                //para volver atras
+                if (color ==Color.rgb(0,0,0) && starts < 5){
+                    //anyadimos jugador a la base de datos:
+                    jugador.setStarter(true);
+                    jugadorsViewModel.actualizar(jugador);
+
+                    holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
+
+                    starts++;
+
+                    System.out.println(starts);
+                }else {
+                    if (starts == 5){
+                        Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
+                    }else {
                         //anyadimos jugador a la base de datos:
-                        jugador.setStarter(true);
+                        jugador.setStarter(false);
                         jugadorsViewModel.actualizar(jugador);
 
-                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
-
-                        starts++;
-
+                        holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
+                        starts--;
                         System.out.println(starts);
-                    }else {
-                        if (starts == 5){
-                            Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
-                        }else {
-                            //anyadimos jugador a la base de datos:
-                            jugador.setStarter(false);
-                            jugadorsViewModel.actualizar(jugador);
-
-                            holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
-                            starts--;
-                            System.out.println(starts);
 
 
-                        }
                     }
-
                 }
+
             });
 
 

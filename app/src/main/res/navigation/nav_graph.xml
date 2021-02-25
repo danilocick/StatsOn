@@ -12,10 +12,12 @@
         android:label="fragment_load"
         tools:layout="@layout/fragment_load" >
         <action
-            android:id="@+id/action_loadFragment_to_menuFragment"
-            app:destination="@id/menuFragment"
-            app:enterAnim="@anim/slide_in_up"
-            app:exitAnim="@anim/slide_out_down" />
+            android:id="@+id/action_loadFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <!--MENU FRAGMENT-->
@@ -199,5 +201,18 @@
         android:name="com.example.mp07_statson.EditJugadorFragment"
         android:label="fragment_edit_jugador"
         tools:layout="@layout/fragment_edit_jugador" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.mp07_statson.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
 </navigation>
