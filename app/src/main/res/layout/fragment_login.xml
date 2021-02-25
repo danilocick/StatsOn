@@ -5,20 +5,46 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LoginFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background">
 
-    <com.shaishavgandhi.loginbuttons.GoogleButton android:id="@+id/google"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:textAlignment="center"
-        app:iconSize="30dp"
-        android:text="Sign in with Google"
         android:layout_height="wrap_content"
-        />
-
-    <com.shaishavgandhi.loginbuttons.GoogleButton
-        android:layout_width="75dp"
-        app:iconSize="30dp"
-        android:layout_height="75dp"
-        />
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal">
+        <com.shaishavgandhi.loginbuttons.GoogleButton android:id="@+id/google"
+            android:layout_width="75dp"
+            android:layout_weight="0"
+            android:layout_marginEnd="10dp"
+            app:roundedCorner="true"
+            app:transparentBackground="false"
+            app:roundedCornerRadius="10dp"
+            app:iconSize="30dp"
+            android:layout_height="75dp"
+            />
+        <com.shaishavgandhi.loginbuttons.FacebookButton android:id="@+id/facebook"
+            android:layout_width="75dp"
+            android:layout_weight="0"
+            app:roundedCorner="true"
+            app:transparentBackground="false"
+            app:roundedCornerRadius="10dp"
+            app:iconSize="30dp"
+            android:layout_height="75dp"
+            />
+        <com.shaishavgandhi.loginbuttons.TwitterButton android:id="@+id/twitter"
+            android:layout_width="75dp"
+            android:layout_weight="0"
+            app:roundedCorner="true"
+            android:layout_marginStart="10dp"
+            app:transparentBackground="false"
+            app:roundedCornerRadius="10dp"
+            app:iconSize="30dp"
+            android:layout_height="75dp"
+            />
+    </LinearLayout>
 
 </LinearLayout>

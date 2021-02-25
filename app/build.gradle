@@ -76,10 +76,10 @@ dependencies {
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     //Switch https://github.com/polyak01/IconSwitch
     implementation 'com.polyak:icon-switch:1.0.0'
-    //shimmer
-    implementation 'com.romainpiel.shimmer:library:1.4.0@aar'
     //https://github.com/ShaishavGandhi/LoginButtons
     implementation 'com.shaishavgandhi:login-buttons:1.0.0'
+    //shimmer
+    implementation 'com.romainpiel.shimmer:library:1.4.0@aar'
 
 }
 
