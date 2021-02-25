@@ -21,13 +21,16 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentEditJugadorBinding;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static androidx.core.content.ContextCompat.checkSelfPermission;
+
 public class EditJugadorFragment extends Fragment {
 
 
     private FragmentEditJugadorBinding binding;
     private NavController navController;
     private JugadoresViewModel jugadoresViewModel;
-
     Uri imagenSeleccionada;
 
 
@@ -60,7 +63,7 @@ public class EditJugadorFragment extends Fragment {
 
         //insertar imagen
         binding.imagenJugador.setOnClickListener(v -> {
-            lanzadorGaleria.launch("image/*");
+            abrirGaleria();
         });
 
         //insertar jugador
@@ -88,11 +91,31 @@ public class EditJugadorFragment extends Fragment {
         });
     }
 
+
+    private void abrirGaleria(){
+        //comprobar si el usuari ha dado permiso
+        if (checkSelfPermission(requireContext(), READ_EXTERNAL_STORAGE) == PERMISSION_GRANTED) {
+            lanzadorGaleria.launch("image/*");
+        } else {
+            //lanza el dialogo
+            lanzadorPermisos.launch(READ_EXTERNAL_STORAGE);
+        }
+    }
+
     private final ActivityResultLauncher<String> lanzadorGaleria =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+                //albumsViewModel.establecerImagenSeleccionada(uri);
+
                 //guardar la imagen seleccionada para pasarla
-                jugadoresViewModel.imagenSeleccionada = uri;
+                imagenSeleccionada = uri;
                 //nos muestra la miniatura cargada
                 Glide.with(requireView()).load(uri).into(binding.imagenJugador);
+            });
+
+    private final ActivityResultLauncher<String> lanzadorPermisos =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    lanzadorGaleria.launch("image/*");
+                }
             });
 }
