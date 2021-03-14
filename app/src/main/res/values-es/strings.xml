@@ -48,4 +48,7 @@
     <string name="faltas">Fa</string>
     <string name="local">Local</string>
     <string name="visitante">Visitante</string>
+    <string name="cuarto">Cuarto</string>
+    <string name="paswd">Contraseña</string>
+    <string name="email">Correo</string>
 </resources>

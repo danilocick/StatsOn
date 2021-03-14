@@ -60,18 +60,18 @@ public class ListaPartidosFragment extends Fragment {
 
 
         //TODO: IF TABLE ON DATABASE IS EMPTY, LOAD DATA(TO SEE)
-//        if (bol){
-//            Partido p1 = new Partido(0, 1, 50,33);
-//            Partido p2 = new Partido(0, 2, 60,61);
-//            Partido p3 = new Partido(0, 3, 70,50);
-//            Partido p4 = new Partido(0, 4, 80,40);
-//            partidosViewModel.insertar(p1);
-//            partidosViewModel.insertar(p2);
-//            partidosViewModel.insertar(p3);
-//            partidosViewModel.insertar(p4);
-//
-//            bol = false;
-//        }
+        if (bol){
+            Partido p1 = new Partido(0, 1, 50,33);
+            Partido p2 = new Partido(0, 2, 60,61);
+            Partido p3 = new Partido(0, 3, 70,50);
+            Partido p4 = new Partido(0, 4, 80,40);
+            partidosViewModel.insertar(p1);
+            partidosViewModel.insertar(p2);
+            partidosViewModel.insertar(p3);
+            partidosViewModel.insertar(p4);
+
+            bol = false;
+        }
 
 
         //ComeBack

@@ -6,47 +6,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LoginFragment"
     android:orientation="vertical"
+    android:padding="16dp"
     android:background="@color/background">
 
 
-<!--    TODO: Acceso con correo normal-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal">
-        <com.shaishavgandhi.loginbuttons.GoogleButton android:id="@+id/google"
-            android:layout_width="75dp"
-            android:layout_weight="0"
-            android:layout_marginEnd="10dp"
-            app:roundedCorner="true"
-            app:transparentBackground="false"
-            app:roundedCornerRadius="10dp"
-            app:iconSize="30dp"
-            android:layout_height="75dp"
-            />
-        <com.shaishavgandhi.loginbuttons.FacebookButton android:id="@+id/facebook"
-            android:layout_width="75dp"
-            android:layout_weight="0"
-            app:roundedCorner="true"
-            app:transparentBackground="false"
-            app:roundedCornerRadius="10dp"
-            app:iconSize="30dp"
-            android:layout_height="75dp"
-            />
-        <com.shaishavgandhi.loginbuttons.TwitterButton android:id="@+id/twitter"
-            android:layout_width="75dp"
-            android:layout_weight="0"
-            app:roundedCorner="true"
-            android:layout_marginStart="10dp"
-            app:transparentBackground="false"
-            app:roundedCornerRadius="10dp"
-            app:iconSize="30dp"
-            android:layout_height="75dp"
-            />
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <!--    TODO: Acceso con correo normal-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal">
+            <com.shaishavgandhi.loginbuttons.GoogleButton android:id="@+id/google"
+                android:layout_width="75dp"
+                android:layout_weight="0"
+                android:layout_marginEnd="10dp"
+                app:roundedCorner="true"
+                app:transparentBackground="false"
+                app:roundedCornerRadius="10dp"
+                app:iconSize="30dp"
+                android:layout_height="75dp"
+                />
+            <com.shaishavgandhi.loginbuttons.FacebookButton android:id="@+id/facebook"
+                android:layout_width="75dp"
+                android:layout_weight="0"
+                app:roundedCorner="true"
+                app:transparentBackground="false"
+                app:roundedCornerRadius="10dp"
+                app:iconSize="30dp"
+                android:layout_height="75dp"
+                />
+            <com.shaishavgandhi.loginbuttons.TwitterButton android:id="@+id/twitter"
+                android:layout_width="75dp"
+                android:layout_weight="0"
+                app:roundedCorner="true"
+                android:layout_marginStart="10dp"
+                app:transparentBackground="false"
+                app:roundedCornerRadius="10dp"
+                app:iconSize="30dp"
+                android:layout_height="75dp"
+                />
+        </LinearLayout>
+
+        <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:inputType="textEmailAddress"
+            android:textSize="25sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+
+            app:met_baseColor="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="50"
+            app:met_primaryColor="@color/white"
+            app:met_singleLineEllipsis="true" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/contrasenya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/paswd"
+            android:textCursorDrawable="@drawable/text_cursor_cyan"
+            android:inputType="textPassword"
+            android:textSize="25sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+
+            app:met_baseColor="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="50"
+            app:met_primaryColor="@color/white"
+            app:met_singleLineEllipsis="true" />
     </LinearLayout>
+
 
 </LinearLayout>

@@ -105,7 +105,9 @@
     <string name="vs" translatable="false">VS</string>
     <string name="local">Local</string>
     <string name="visitante">Visitante</string>
-    <string name="cuarto">cuarto</string>
+    <string name="cuarto">Cuarto</string>
+    <string name="paswd">Contraseña</string>
+    <string name="email">Correo</string>
 
     <!--table-->
     <string-array name="header_table">

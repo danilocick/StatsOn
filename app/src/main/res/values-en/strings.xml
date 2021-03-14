@@ -48,4 +48,7 @@
     <string name="faltas">Fo</string>
     <string name="local">Home</string>
     <string name="visitante">Away</string>
+    <string name="cuarto">Part</string>
+    <string name="email">E-mail</string>
+    <string name="paswd">Password</string>
 </resources>
