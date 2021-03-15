@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CreateAccountFragment"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/progressBar"
+        style="@style/SpinKitView.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="end"
+        android:visibility="invisible"
+        app:SpinKit_Color="@color/white"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:textCursorDrawable="@drawable/text_cursor_cyan"
+        android:inputType="textEmailAddress"
+        android:textSize="25sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="50"
+        app:met_primaryColor="@color/white"
+        app:met_singleLineEllipsis="true" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/contrasenya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/paswd"
+        android:textCursorDrawable="@drawable/text_cursor_cyan"
+        android:inputType="textPassword"
+        android:textSize="25sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="50"
+        app:met_primaryColor="@color/white"
+        app:met_singleLineEllipsis="true" />
+
+    <Button android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>

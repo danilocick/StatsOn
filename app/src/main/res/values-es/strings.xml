@@ -51,4 +51,5 @@
     <string name="cuarto">Cuarto</string>
     <string name="paswd">Contraseña</string>
     <string name="email">Correo</string>
+    <string name="login">Login</string>
 </resources>

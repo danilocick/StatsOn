@@ -9,6 +9,15 @@
     android:padding="16dp"
     android:background="@color/background">
 
+    <com.github.ybq.android.spinkit.SpinKitView
+    android:id="@+id/progressBar"
+    style="@style/SpinKitView.Circle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_gravity="end"
+    android:visibility="invisible"
+    app:SpinKit_Color="@color/white"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,6 +100,19 @@
             app:met_maxCharacters="50"
             app:met_primaryColor="@color/white"
             app:met_singleLineEllipsis="true" />
+
+        <Button android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            />
+        <Button android:id="@+id/crearCuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crearCuenta"
+            />
+
+
     </LinearLayout>
 
 

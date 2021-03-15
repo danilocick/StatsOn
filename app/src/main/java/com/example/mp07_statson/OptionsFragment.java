@@ -18,11 +18,14 @@ import com.example.mp07_statson.databinding.FragmentOptionsBinding;
 import com.github.florent37.expansionpanel.ExpansionHeader;
 import com.github.florent37.expansionpanel.ExpansionLayout;
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class OptionsFragment extends Fragment {
 
     private NavController navController;
     private FragmentOptionsBinding binding;
+    private FirebaseAuth mAuth;
+
 
     //add an ExpansionLayoutCollection to your recycler adapter
     final ExpansionLayoutCollection expansionsCollection = new ExpansionLayoutCollection();
@@ -38,6 +41,8 @@ public class OptionsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+        mAuth = FirebaseAuth.getInstance();
+
 
         //ComeBack
         binding.botonComeBackOpc.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +68,10 @@ public class OptionsFragment extends Fragment {
             public void onExpansionChanged(ExpansionLayout expansionLayout, boolean expanded) {
 
             }
+        });
+
+        binding.cerrarSesion.setOnClickListener(v->{
+            mAuth.getInstance().signOut();
         });
 
     }

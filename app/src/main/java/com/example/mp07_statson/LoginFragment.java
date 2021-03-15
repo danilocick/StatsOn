@@ -18,6 +18,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mp07_statson.databinding.FragmentLoginBinding;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.Circle;
+import com.github.ybq.android.spinkit.style.WanderingCubes;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
@@ -57,46 +60,47 @@ public class LoginFragment extends Fragment {
         navController = Navigation.findNavController(view);
 
         mAuth = FirebaseAuth.getInstance();
-//        FileInputStream serviceAccount = null;
-//        serviceAccount = new FileInputStream("mp07-statson-firebase-adminsdk-mk8os-9fc49eb156.json");
-//
-//        FirebaseOptions options = new FirebaseOptions.Builder()
-//                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-//                .build();
-//
-//
-//        FirebaseApp.initializeApp(options);
-        String mCustomToken;
-//        mAuth.signInWithCustomToken(mCustomToken)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "signInWithCustomToken:success");
-//                            FirebaseUser user = mAuth.getCurrentUser();
-//                            updateUI(user);
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Log.w(TAG, "signInWithCustomToken:failure", task.getException());
-//                            Toast.makeText(requireActivity().getApplicationContext(), "Authentication failed.",
-//                                    Toast.LENGTH_SHORT).show();
-//                            updateUI(null);
-//                        }
-//                    }
-//                });
-
-
 
         binding.google.setOnClickListener(view1 -> {
-            signInClient.launch(GoogleSignIn.getClient(requireActivity(), new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).build()).getSignInIntent());
+            signInClient.launch(GoogleSignIn.getClient(requireActivity(),
+                    new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).build()).getSignInIntent());
         });
-
 
 
         binding.facebook.setOnClickListener(view1 -> {
-
         });
+
+        binding.login.setOnClickListener(v->{
+            binding.progressBar.setVisibility(View.VISIBLE);
+
+            mAuth.signInWithEmailAndPassword(binding.email.getText().toString(),binding.contrasenya.getText().toString())
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            binding.progressBar.setVisibility(View.INVISIBLE);
+
+                            if (task.isSuccessful()){
+                                Toast.makeText(requireActivity().getApplicationContext(),
+                                        "Access permitted",
+                                        Toast.LENGTH_LONG).show();
+                                navController.navigate(R.id.action_loginFragment_to_menuFragment);
+
+                            }else {
+                                Toast.makeText(requireActivity().getApplicationContext(),
+                                        task.getException().getMessage(),
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        });
+
+        binding.crearCuenta.setOnClickListener(v->{
+            navController.navigate(R.id.action_loginFragment_to_createAccountFragment);
+        });
+
+        //progressBar
+        Sprite doubleBounce = new Circle();
+        binding.progressBar.setIndeterminateDrawable(doubleBounce);
     }
 
     //signInClient GOOGLE
@@ -108,15 +112,7 @@ public class LoginFragment extends Fragment {
                     navController.navigate(R.id.action_loginFragment_to_menuFragment);
                 }
             });
-        } catch (ApiException e) {}
+        } catch (ApiException e) {
+        }
     });
-
-    //Custom address
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        updateUI(currentUser);
-//    }
 }

@@ -321,6 +321,27 @@
             </GridLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/cerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/CerrarSesion"/>
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/progressBar"
+                style="@style/SpinKitView.Circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="bottom"
+                android:visibility="visible"
+                app:SpinKit_Color="@color/white"/>
+        </LinearLayout>
+
     </ScrollView>
 
 
