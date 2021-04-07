@@ -53,7 +53,7 @@ public class OptionsFragment extends Fragment {
             }
         });
 
-        //Crear Jugador
+        //Guardar
         binding.botonGuardarOpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,9 +70,9 @@ public class OptionsFragment extends Fragment {
             }
         });
 
-        binding.cerrarSesion.setOnClickListener(v->{
-            mAuth.getInstance().signOut();
-        });
+//        binding.cerrarSesion.setOnClickListener(v->{
+//            mAuth.getInstance().signOut();
+//        });
 
     }
 }
