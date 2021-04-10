@@ -70,9 +70,9 @@ public class OptionsFragment extends Fragment {
             }
         });
 
-//        binding.cerrarSesion.setOnClickListener(v->{
-//            mAuth.getInstance().signOut();
-//        });
+        binding.cerrarSesion.setOnClickListener(v->{
+            mAuth.getInstance().signOut();
+        });
 
     }
 }

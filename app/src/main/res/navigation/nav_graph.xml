@@ -61,7 +61,11 @@
         android:id="@+id/optionsFragment"
         android:name="com.example.mp07_statson.OptionsFragment"
         android:label="fragment_options"
-        tools:layout="@layout/fragment_options" />
+        tools:layout="@layout/fragment_options" >
+        <action
+            android:id="@+id/action_optionsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 
     <!--GAME OUTPUT FRAGMENT-->
 

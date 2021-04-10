@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
-    android:background="@drawable/recyclerv_white_red"
+    android:background="@color/black"
     android:layout_margin="3dp">
 
     <LinearLayout android:id="@+id/recycler"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:background="@drawable/recyclerv_white_red"
+        android:background="@color/white"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
@@ -37,15 +37,12 @@
             android:textSize="15sp"
             android:padding="8dp"/>
 
-        <TextView android:id="@+id/vs"
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:text="@string/vs"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:padding="8dp"/>
+            android:layout_height="wrap_content"
+            android:src="@drawable/vs"
+            android:scaleType="fitXY"
+            />
 
         <TextView android:id="@+id/puntosVisitante"
             android:layout_width="wrap_content"
@@ -66,8 +63,6 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:padding="8dp"/>
-
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
