@@ -329,6 +329,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/CerrarSesion"/>
+
             <com.github.ybq.android.spinkit.SpinKitView
                 android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
@@ -337,7 +338,7 @@
                 style="@style/SpinKitView.Circle"
                 android:layout_marginBottom="16dp"
                 android:layout_gravity="bottom"
-                android:visibility="visible"
+                android:visibility="invisible"
                 app:SpinKit_Color="@color/white"/>
         </LinearLayout>
 

@@ -1,6 +1,9 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,29 +13,25 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
-import com.example.mp07_statson.databinding.FragmentResultadoMenuBinding;
+import com.example.mp07_statson.databinding.FragmentMiEquipoBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
 import java.util.List;
 
 
-public class ResultadoMenuFragment extends Fragment {
+public class MiEquipoFragment extends Fragment {
 
     private NavController navController;
-    private FragmentResultadoMenuBinding binding;
+    private FragmentMiEquipoBinding binding;
     private JugadoresViewModel jugadoresViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return (binding = FragmentResultadoMenuBinding.inflate(inflater, container, false)).getRoot();
+        return (binding = FragmentMiEquipoBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override

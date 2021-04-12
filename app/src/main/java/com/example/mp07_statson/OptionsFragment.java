@@ -12,12 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 import com.example.mp07_statson.databinding.FragmentOptionsBinding;
 import com.github.florent37.expansionpanel.ExpansionHeader;
 import com.github.florent37.expansionpanel.ExpansionLayout;
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class OptionsFragment extends Fragment {
@@ -71,7 +75,10 @@ public class OptionsFragment extends Fragment {
         });
 
         binding.cerrarSesion.setOnClickListener(v->{
+            binding.progressBar.setVisibility(View.VISIBLE);
             mAuth.getInstance().signOut();
+
+            navController.navigate(R.id.action_optionsFragment_to_menuFragment);
         });
 
     }

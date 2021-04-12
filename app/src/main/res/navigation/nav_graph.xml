@@ -64,7 +64,11 @@
         tools:layout="@layout/fragment_options" >
         <action
             android:id="@+id/action_optionsFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <!--GAME OUTPUT FRAGMENT-->
@@ -72,9 +76,9 @@
     <!--RIVAL FRAGMENT-->
     <fragment
         android:id="@+id/rivalFragment"
-        android:name="com.example.mp07_statson.RivalFragment"
+        android:name="com.example.mp07_statson.EquipoRivalFragment"
         android:label="fragment_rival"
-        tools:layout="@layout/fragment_rival" >
+        tools:layout="@layout/fragment_equipo_rival" >
         <action
             android:id="@+id/action_rivalFragment_to_equipoAFragment"
             app:destination="@id/equipoAFragment"
@@ -153,9 +157,9 @@
     <!--LISTA MIEQUIPO FRAGMENT-->
     <fragment
         android:id="@+id/resultadoMenuFragment"
-        android:name="com.example.mp07_statson.ResultadoMenuFragment"
+        android:name="com.example.mp07_statson.MiEquipoFragment"
         android:label="fragment_resultado_menu"
-        tools:layout="@layout/fragment_resultado_menu" >
+        tools:layout="@layout/fragment_mi_equipo" >
         <action
             android:id="@+id/action_resultadoMenuFragment_to_jugadorStatsFragment"
             app:destination="@id/jugadorStatsFragment"

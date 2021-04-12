@@ -14,20 +14,20 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.mp07_statson.ViewModel.EquipoViewModel;
-import com.example.mp07_statson.databinding.FragmentRivalBinding;
+import com.example.mp07_statson.databinding.FragmentEquipoRivalBinding;
 
 
-public class RivalFragment extends Fragment {
+public class EquipoRivalFragment extends Fragment {
 
     private NavController navController;
-    private FragmentRivalBinding binding;
+    private FragmentEquipoRivalBinding binding;
     private EquipoViewModel equipoViewModel;
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return (binding = FragmentRivalBinding.inflate(inflater, container, false)).getRoot();
+        return (binding = FragmentEquipoRivalBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
