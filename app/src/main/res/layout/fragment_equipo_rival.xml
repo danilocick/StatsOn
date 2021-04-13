@@ -43,21 +43,6 @@
         android:textAllCaps="true"
         android:textColor="@color/white"/>
 
-    <com.rengwuxian.materialedittext.MaterialEditText android:id="@+id/nombreRival"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/nombrerival"
-        android:textCursorDrawable="@drawable/text_cursor_cyan"
-        android:textSize="34sp"
-        android:padding="15dp"
-        android:layout_margin="16dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-
-        app:met_baseColor="@android:color/white"
-        app:met_floatingLabel="highlight"
-        app:met_maxCharacters="20"
-        app:met_primaryColor="@color/white"
-        app:met_singleLineEllipsis="true" />
 
     <LinearLayout android:id="@+id/linearChange"
         android:layout_width="match_parent"
@@ -101,5 +86,14 @@
             android:layout_weight="1"/>
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaEquipos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"/>
 
 </LinearLayout>

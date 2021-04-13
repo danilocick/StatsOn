@@ -109,9 +109,10 @@
     <string name="paswd">Contraseña</string>
     <string name="email">Correo</string>
     <string name="login">Login</string>
-    <string name="singin">Sing in</string>
+    <string name="singin" translatable="false">Sing in</string>
     <string name="crearCuenta">Crear Cuenta</string>
     <string name="CerrarSesion">Cerrar Sesion</string>
+    <string name="anyadirequipo">Añadir equipo</string>
 
     <!--table-->
     <string-array name="header_table">

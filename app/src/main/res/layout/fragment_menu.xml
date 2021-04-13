@@ -63,6 +63,22 @@
             android:text="@string/mi_equipo"
             android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@id/botonResultados"
+            app:layout_constraintBottom_toTopOf="@id/botonRivales"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/botonRivales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_change"
+            android:padding="20dp"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@color/redmiddle"
+            android:text="@string/rivales"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@id/botonMiEquipo"
             app:layout_constraintBottom_toTopOf="@id/botonOpciones"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
@@ -78,7 +94,7 @@
             android:textColor="@color/redmiddle"
             android:text="@string/opciones"
             android:textSize="15sp"
-            app:layout_constraintTop_toBottomOf="@id/botonMiEquipo"
+            app:layout_constraintTop_toBottomOf="@id/botonRivales"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

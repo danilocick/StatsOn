@@ -38,7 +38,7 @@ public class ListaPartidosFragment extends Fragment {
     private PartidosViewModel partidosViewModel;
 
     //PARA HACER PRUEBAS
-    boolean bol= true;
+    boolean bol;
 
 
     @Override
@@ -110,7 +110,9 @@ public class ListaPartidosFragment extends Fragment {
             //    holder.binding.nombreLocal.setText(Equipo.getNombre);
             //}
 
-            holder.binding.nombreLocal.setText(String.valueOf(partido.idLocal));
+            //TODO: preguntar lo de los equipos
+            LiveData<String> x = equipoViewModel.obtener(partido.idLocal);
+            holder.binding.nombreLocal.setText(x.getValue());
             holder.binding.puntosLocal.setText(String.valueOf(partido.puntosLocal));
             holder.binding.nombreVisitante.setText(String.valueOf(partido.idVisitante));
             holder.binding.puntosVisitante.setText(String.valueOf(partido.puntosVisitante));

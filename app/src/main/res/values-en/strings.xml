@@ -52,4 +52,7 @@
     <string name="email">E-mail</string>
     <string name="paswd">Password</string>
     <string name="login">Login</string>
+    <string name="crearCuenta">Create account</string>
+    <string name="CerrarSesion">Sign out</string>
+    <string name="anyadirequipo">Add team</string>
 </resources>

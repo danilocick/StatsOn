@@ -61,6 +61,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_rivalesFragment"
+            app:destination="@id/rivalesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <!--OPTIONS FRAGMENT-->
@@ -102,35 +109,11 @@
         android:label="fragment_equipo_a"
         tools:layout="@layout/fragment_equipo_a" >
         <action
-            android:id="@+id/action_equipoAFragment_to_equipoBFragment"
-            app:destination="@id/equipoBFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            android:id="@+id/action_equipoAFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
     </fragment>
 
     <!--EQUIPO RIVAL FRAGMENT-->
-    <fragment
-        android:id="@+id/equipoBFragment"
-        android:name="com.example.mp07_statson.EquipoBFragment"
-        android:label="fragment_equipo_b"
-        tools:layout="@layout/fragment_equipo_b" >
-        <action
-            android:id="@+id/action_equipoBFragment_to_addJugadorFragment"
-            app:destination="@id/addJugadorFragment"
-            app:enterAnim="@anim/slide_in_up"
-            app:exitAnim="@anim/slide_out_down"
-            app:popEnterAnim="@anim/slide_in_down"
-            app:popExitAnim="@anim/slide_out_up"/>
-        <action
-            android:id="@+id/action_equipoBFragment_to_gameFragment"
-            app:destination="@id/gameFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
 
     <!--AÑADIR JUGADOR TEAM B FRAGMENT-->
     <fragment
@@ -238,5 +221,18 @@
         android:name="com.example.mp07_statson.CreateAccountFragment"
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account" />
+    <fragment
+        android:id="@+id/rivalesFragment"
+        android:name="com.example.mp07_statson.RivalesFragment"
+        android:label="fragment_rivales"
+        tools:layout="@layout/fragment_rivales" >
+        <action
+            android:id="@+id/action_rivalesFragment_to_resultadoMenuFragment"
+            app:destination="@id/resultadoMenuFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
 </navigation>
