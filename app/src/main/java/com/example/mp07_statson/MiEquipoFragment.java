@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentMiEquipoBinding;
+import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
 
 import java.util.List;
@@ -76,7 +77,7 @@ public class MiEquipoFragment extends Fragment {
         @NonNull
         @Override
         public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new JugadorViewHolder(ViewholderJugadorMiTeamBinding.inflate(getLayoutInflater()), parent, false);
+            return new JugadorViewHolder(ViewholderJugadorEquipoABinding.inflate(getLayoutInflater()), parent, false);
 
         }
 
@@ -87,13 +88,13 @@ public class MiEquipoFragment extends Fragment {
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
-            holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-                    jugadoresViewModel.delete(jugador);
-                }
-            });
+//            holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
+//                    jugadoresViewModel.delete(jugador);
+//                }
+//            });
 
             holder.binding.background.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -125,9 +126,9 @@ public class MiEquipoFragment extends Fragment {
 
     //clase para acceder a los campos de viewholder_jugador_miteam
     public static class JugadorViewHolder extends RecyclerView.ViewHolder{
-        ViewholderJugadorMiTeamBinding binding;
+        ViewholderJugadorEquipoABinding binding;
 
-        public JugadorViewHolder(@NonNull ViewholderJugadorMiTeamBinding binding, ViewGroup parent, boolean b){
+        public JugadorViewHolder(@NonNull ViewholderJugadorEquipoABinding binding, ViewGroup parent, boolean b){
             super(binding.getRoot());
             this.binding=binding;
         }

@@ -78,7 +78,7 @@ public class OptionsFragment extends Fragment {
             binding.progressBar.setVisibility(View.VISIBLE);
             mAuth.getInstance().signOut();
 
-            navController.navigate(R.id.action_optionsFragment_to_menuFragment);
+            navController.navigate(R.id.action_optionsFragment_to_loginFragment);
         });
 
     }

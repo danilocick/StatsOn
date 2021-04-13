@@ -25,6 +25,7 @@ import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.github.ybq.android.spinkit.style.FoldingCube;
 import com.github.ybq.android.spinkit.style.Pulse;
 import com.github.ybq.android.spinkit.style.WanderingCubes;
+import com.google.firebase.auth.FirebaseAuth;
 import com.romainpiel.shimmer.Shimmer;
 
 import java.util.concurrent.Executor;
@@ -36,6 +37,7 @@ public class LoadFragment extends Fragment {
     NavController navController;
     private FragmentLoadBinding binding;
     private Shimmer shimmer = new Shimmer();
+    private FirebaseAuth mAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class LoadFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
 
+        mAuth = FirebaseAuth.getInstance();
+
         // esta variable deberia estar en un ViewModel
         MutableLiveData<Boolean> finishedLoading = new MutableLiveData<>();
 
@@ -56,7 +60,11 @@ public class LoadFragment extends Fragment {
         finishedLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                navController.navigate(R.id.action_loadFragment_to_loginFragment);
+                if (mAuth.getCurrentUser() == null) {
+                    navController.navigate(R.id.action_loadFragment_to_loginFragment);
+                } else {
+                    navController.navigate(R.id.action_loadFragment_to_menuFragment);
+                }
             }
         });
 
