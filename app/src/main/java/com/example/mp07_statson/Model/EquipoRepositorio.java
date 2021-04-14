@@ -1,12 +1,9 @@
 package com.example.mp07_statson.Model;
 
 import android.app.Application;
-import android.media.audiofx.DynamicsProcessing;
-import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
 
-import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -29,7 +26,11 @@ public class EquipoRepositorio {
             equiposDao.delete(equipo);
         });
     }
-    public LiveData<String> obtener(int m) {
-        return equiposDao.obtener(m);
+    public LiveData<Equipo> obtenerUnEquipo(int m) {
+        return equiposDao.obtenerUnEquipo(m);
+    }
+
+    public LiveData<Equipo> obtener() {
+        return equiposDao.obtener();
     }
 }

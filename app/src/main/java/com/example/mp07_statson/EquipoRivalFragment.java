@@ -39,18 +39,18 @@ public class EquipoRivalFragment extends Fragment {
 
         //insertar nombre rival
         binding.botonSiguienteERival.setOnClickListener(v -> {
-            String teamb = binding.nombreRival.getText().toString();
-
-            if(!teamb.equals("")) {
-                //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-                equipoViewModel.insertar(teamb);
-                //navegamos
-                navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
-            }
-            else {
-                // If name is not entered
-                Toast.makeText(requireActivity().getApplicationContext(), "Name is required", Toast.LENGTH_LONG).show();
-            }
+//            String teamb = binding.nombreRival.getText().toString();
+//
+//            if(!teamb.equals("")) {
+//                //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
+//                equipoViewModel.insertar(teamb);
+//                //navegamos
+//                navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
+//            }
+//            else {
+//                // If name is not entered
+//                Toast.makeText(requireActivity().getApplicationContext(), "Name is required", Toast.LENGTH_LONG).show();
+//            }
         });
 
 

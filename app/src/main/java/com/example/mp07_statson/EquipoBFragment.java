@@ -58,11 +58,11 @@ public class EquipoBFragment extends Fragment {
 
         //TODO: insertar nombre equipo
         int m = 4;
-        equipoViewModel.obtener(m).observe(getViewLifecycleOwner(), nombreEquipo -> binding.nombreRival.setText(nombreEquipo));
+//        equipoViewModel.obtener(m).observe(getViewLifecycleOwner(), nombreEquipo -> binding.nombreRival.setText(nombreEquipo));
 
         //empezar partido
         binding.botonSiguienteERival.setOnClickListener(view1 -> {
-                navController.navigate(R.id.action_equipoBFragment_to_gameFragment);
+//                navController.navigate(R.id.action_equipoBFragment_to_gameFragment);
 //            if (starts == 5){
 //                starts = 0;
 //            }else{
@@ -80,7 +80,7 @@ public class EquipoBFragment extends Fragment {
         jugadorsViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //Ir anyadirjugador
-        binding.botonanyadirjugador.setOnClickListener(view13 -> navController.navigate(R.id.action_equipoBFragment_to_addJugadorFragment));
+//        binding.botonanyadirjugador.setOnClickListener(view13 -> navController.navigate(R.id.action_equipoBFragment_to_addJugadorFragment));
 
         JugadoresbdTeamBAdapter adapter = new JugadoresbdTeamBAdapter();
         binding.listaJugadores.setAdapter(adapter);

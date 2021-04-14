@@ -111,8 +111,8 @@ public class ListaPartidosFragment extends Fragment {
             //}
 
             //TODO: preguntar lo de los equipos
-            LiveData<String> x = equipoViewModel.obtener(partido.idLocal);
-            holder.binding.nombreLocal.setText(x.getValue());
+//            LiveData<Equipo> x = equipoViewModel.obtenerUnEquipo();
+//            holder.binding.nombreLocal.setText(x.getValue());
             holder.binding.puntosLocal.setText(String.valueOf(partido.puntosLocal));
             holder.binding.nombreVisitante.setText(String.valueOf(partido.idVisitante));
             holder.binding.puntosVisitante.setText(String.valueOf(partido.puntosVisitante));

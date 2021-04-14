@@ -36,7 +36,14 @@ public class EquipoViewModel extends AndroidViewModel {
     }
 
     //GETTERS
-    public LiveData<String> obtener(int m) {
-        return equiposRepositorio.obtener(m);
+    public LiveData<Equipo> obtenerUnEquipo(int m) {
+        return equiposRepositorio.obtenerUnEquipo(m);
+    }
+    public LiveData<Equipo> obtener() {
+        return equiposRepositorio.obtener();
+    }
+
+
+    public void seleccionar(Equipo jugador) {
     }
 }

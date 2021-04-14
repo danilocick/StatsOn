@@ -53,7 +53,7 @@ public class EquipoAFragment extends Fragment {
         binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    navController.navigate(R.id.action_equipoAFragment_to_equipoBFragment);
+                    navController.navigate(R.id.action_equipoAFragment_to_gameFragment);
 //                if (starts == 5){
 //                    starts = 0;
 //                }else{
