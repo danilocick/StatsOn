@@ -233,6 +233,18 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_rivalesFragment_to_addEquipoFragment"
+            app:destination="@id/addEquipoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/addEquipoFragment"
+        android:name="com.example.mp07_statson.AddEquipoFragment"
+        android:label="fragment_add_equipo"
+        tools:layout="@layout/fragment_add_equipo" />
 
 </navigation>

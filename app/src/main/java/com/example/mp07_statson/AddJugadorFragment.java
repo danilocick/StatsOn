@@ -64,7 +64,7 @@ public class AddJugadorFragment extends Fragment {
 
             int idEquipo = 4;
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-            jugadoresViewModel.insertar(nombre, dorsal, imagen, idEquipo);
+//            jugadoresViewModel.insertar(nombre, dorsal, imagen, idEquipo);
 
 
             //para volver atras

@@ -53,6 +53,13 @@ public class RivalesFragment extends Fragment {
         });
 
         //Ir anyadirjugador
+        binding.botonanyadirequipo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //para volver atras
+                navController.navigate(R.id.action_rivalesFragment_to_addEquipoFragment);
+            }
+        });
 
         //obtener datos de los jugadores de la bd
         EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
