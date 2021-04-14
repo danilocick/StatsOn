@@ -15,8 +15,12 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class AddJugadorFragment extends Fragment {
 
@@ -66,6 +70,17 @@ public class AddJugadorFragment extends Fragment {
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
 //            jugadoresViewModel.insertar(nombre, dorsal, imagen, idEquipo);
 
+//            binding.botonCrearAddJugador.
+
+            FirebaseFirestore.getInstance().collection("jugdores").add(new Jugador(nombre,dorsal, imagen, 2))
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            String s = documentReference.getId();
+                            FirebaseFirestore.getInstance().collection("jugdores").add();
+                        }
+                    })
+            ;
 
             //para volver atras
             navController.popBackStack();
