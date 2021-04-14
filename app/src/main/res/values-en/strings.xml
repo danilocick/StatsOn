@@ -55,4 +55,6 @@
     <string name="crearCuenta">Create account</string>
     <string name="CerrarSesion">Sign out</string>
     <string name="anyadirequipo">Add team</string>
+    <string name="singin">Sing in</string>
+    <string name="noCuenta">Don\'t have an account?</string>
 </resources>

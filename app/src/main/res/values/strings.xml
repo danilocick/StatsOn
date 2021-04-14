@@ -108,9 +108,11 @@
     <string name="cuarto">Cuarto</string>
     <string name="paswd">Contraseña</string>
     <string name="email">Correo</string>
-    <string name="login">Login</string>
-    <string name="singin" translatable="false">Sing in</string>
+
+    <string name="login">Inicio de sesion</string>
+    <string name="singin">Registrarse</string>
     <string name="crearCuenta">Crear Cuenta</string>
+    <string name="noCuenta">¿Todavía no tienes cuenta?</string>
     <string name="CerrarSesion">Cerrar Sesion</string>
     <string name="anyadirequipo">Añadir equipo</string>
 

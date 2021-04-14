@@ -19,4 +19,7 @@
     <color name="black_20">#B3000000</color>
     <color name="white_30" >#4DD3D3D3</color>
     <color name="gold">#FFD700</color>
+    <color name="crema">#D8FFFFFF</color>
+    <color name="negropuro">#000000</color>
+    <color name="bluelink">#0588BC</color>
 </resources>
