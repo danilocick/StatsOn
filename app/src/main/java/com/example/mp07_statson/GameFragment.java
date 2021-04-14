@@ -54,7 +54,7 @@ public class GameFragment extends Fragment {
         //Load RivalName
         equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
         int m = 4;
-        equipoViewModel.obtenerUnEquipo(m).observe(getViewLifecycleOwner(), nombreEquipo -> binding.equipoB.setText(nombreEquipo.toString()));
+//        equipoViewModel.obtenerUnEquipo(m).observe(getViewLifecycleOwner(), nombreEquipo -> binding.equipoB.setText(nombreEquipo.toString()));
 
         //Load PopUps
         View popupViewAsistencia = LayoutInflater.from(getActivity()).inflate(popup_asistencia, null);

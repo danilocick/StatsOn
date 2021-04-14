@@ -57,6 +57,14 @@ public class MenuFragment extends Fragment {
             }
         });
 
+        //ir a mi equipo
+        binding.botonRivales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_menuFragment_to_rivalesFragment);
+            }
+        });
+
         //ir a opciones
         binding.botonOpciones.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -66,7 +66,7 @@ public class MiEquipoFragment extends Fragment {
         //printar jugadores
         //TODO: int m que se coja bien el numero, sin errores.
         int m = 4;
-        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
+//        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
     }
 
     //adaptador bd

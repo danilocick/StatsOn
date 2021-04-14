@@ -84,7 +84,6 @@ public class EditJugadorFragment extends Fragment {
 
             jugadoresViewModel.seleccionar(jugador[0]);
             //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-            jugadoresViewModel.actualizar(jugador[0]);
 
             //para volver atras
             navController.popBackStack();

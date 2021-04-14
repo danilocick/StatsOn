@@ -15,12 +15,4 @@ public class VerJugadorViewModel extends AndroidViewModel {
     public VerJugadorViewModel(@NonNull Application application) {
         super(application);
     }
-
-    public void seleccionar(Jugador jugador){
-        jugadorMutableLiveData.setValue(jugador);
-    }
-
-    public MutableLiveData<Jugador> seleccionado(){
-        return jugadorMutableLiveData;
-    }
 }

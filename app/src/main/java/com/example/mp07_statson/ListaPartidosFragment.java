@@ -56,7 +56,7 @@ public class ListaPartidosFragment extends Fragment {
         //obtener datos de los partidos de la bd
         PartidosbdAdapter partidosbdAdapter = new PartidosbdAdapter();
         binding.listaPartidos.setAdapter(partidosbdAdapter);
-        partidosViewModel.obtener().observe(getViewLifecycleOwner(), partidosbdAdapter::establecerPartidoList);
+//        partidosViewModel.obtener().observe(getViewLifecycleOwner(), partidosbdAdapter::establecerPartidoList);
 
 
         //TODO: IF TABLE ON DATABASE IS EMPTY, LOAD DATA(TO SEE)
@@ -65,12 +65,6 @@ public class ListaPartidosFragment extends Fragment {
             Partido p2 = new Partido(0, 2, 60,61);
             Partido p3 = new Partido(0, 3, 70,50);
             Partido p4 = new Partido(0, 4, 80,40);
-            partidosViewModel.insertar(p1);
-            partidosViewModel.insertar(p2);
-            partidosViewModel.insertar(p3);
-            partidosViewModel.insertar(p4);
-
-            bol = false;
         }
 
 

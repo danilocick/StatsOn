@@ -76,7 +76,7 @@ public class EquipoAFragment extends Fragment {
         //printar jugadores
         //TODO: int m que se coja bien el numero, sin errores.
         int m = 4;
-        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
+//        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
