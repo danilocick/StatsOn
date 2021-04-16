@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,8 +22,11 @@ import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentMiEquipoBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -42,6 +46,8 @@ public class MiEquipoFragment extends Fragment {
     private JugadoresViewModel jugadoresViewModel;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    private FirestoreRecyclerAdapter<Jugador, JugadorViewHolder> adapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -74,90 +80,42 @@ public class MiEquipoFragment extends Fragment {
         });
 
         //obtener datos de los jugadores de la bd
-        JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
-        binding.listaJugadores.setAdapter(jugadoresbdAdapter);
-
-
-        db.collection("jugadores")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.w(TAG, "Error getting documents.", task.getException());
-                        }
-                    }
-                });
-
-        FirestoreRecyclerOptions<Jugador> options = new FirestoreRecyclerOptions.Builder<Jugador>()
-                .setQuery(query, ProductModel.class)
-                .build();
-
-        db.collection("jugadores");
+//        JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
+//        binding.listaJugadores.setAdapter(jugadoresbdAdapter);
 
         //printar jugadores
         //TODO: int m que se coja bien el numero, sin errores.
-        int m = 4;
-//        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
-    }
+//        jugadoresViewModel.obtenerJugadoresDeEquipo(4).observe(getViewLifecycleOwner(), jugadoresbdAdapter::establecerJugadorList);
 
-    //adaptador bd
-    public class JugadoresbdAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
-        List<Jugador> jugadorList;
 
-        @NonNull
-        @Override
-        public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new JugadorViewHolder(ViewholderJugadorEquipoABinding.inflate(getLayoutInflater()), parent, false);
 
-        }
 
-        @Override
-        public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
-            Jugador jugador = jugadorList.get(position);
-            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugador);
-            holder.binding.nombreJugador.setText(jugador.nombre);
-            holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
+        Query query = db.collection("jugador");
 
-//            holder.binding.eliminarJugador.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-//                    jugadoresViewModel.delete(jugador);
-//                }
-//            });
+        FirestoreRecyclerOptions<Jugador> options = new FirestoreRecyclerOptions.Builder<Jugador>()
+                .setQuery(query, Jugador.class)
+                .build();
 
-            holder.binding.background.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    jugadoresViewModel.seleccionar(jugador);
-                    navController.navigate(R.id.action_resultadoMenuFragment_to_jugadorStatsFragment);
-                }
-            });
 
-        }
 
-        @Override
-        public int getItemCount() {
+        adapter = new FirestoreRecyclerAdapter<Jugador, JugadorViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(JugadorViewHolder jugadorViewHolder, int i, Jugador jugador) {
+                jugadorViewHolder.binding.nombreJugador.setText(jugador.nombre);
+            }
 
-            return jugadorList == null ? 0 : jugadorList.size();
-        }
 
-        public void establecerJugadorList(List<Jugador> jugadorList){
-            this.jugadorList=jugadorList;
-            notifyDataSetChanged();
-        }
-
-        public Jugador obtenerJugador (int posicion){
-            return jugadorList.get(posicion);
-        }
+            @NonNull
+            @Override
+            public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                return new JugadorViewHolder(ViewholderJugadorEquipoABinding.inflate(getLayoutInflater()),parent,false);
+            }
+        };
+        binding.listaJugadores.setAdapter(adapter);
 
     }
+
 
 
     //clase para acceder a los campos de viewholder_jugador_miteam
@@ -169,4 +127,8 @@ public class MiEquipoFragment extends Fragment {
             this.binding=binding;
         }
     }
+
+    public class asd{
+    }
+
 }

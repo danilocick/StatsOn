@@ -64,6 +64,10 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    implementation "com.google.firebase:firebase-firestore:11.4.2"
+    implementation "com.firebaseui:firebase-ui-auth:3.0.0"
+    implementation "com.firebaseui:firebase-ui-firestore:3.0.0"
+
 
     //cicrulo de imagen
     implementation 'de.hdodenhof:circleimageview:3.1.0'
