@@ -77,7 +77,7 @@ public class AddJugadorFragment extends Fragment {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             String s = documentReference.getId();
-                            FirebaseFirestore.getInstance().collection("jugdores").add();
+//                            FirebaseFirestore.getInstance().collection("jugdores").add();
                         }
                     })
             ;

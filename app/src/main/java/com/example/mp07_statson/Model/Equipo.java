@@ -10,8 +10,11 @@ public class Equipo {
     @PrimaryKey(autoGenerate = true) @NonNull
     int idEquipo;
     String nombreEquipo;
+    String imagen;
 
-    public Equipo(String nombreEquipo) {
+
+    public Equipo(String nombreEquipo, String imagen) {
         this.nombreEquipo = nombreEquipo;
+        this.imagen = imagen;
     }
 }

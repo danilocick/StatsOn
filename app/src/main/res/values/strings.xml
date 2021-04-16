@@ -115,6 +115,8 @@
     <string name="noCuenta">¿Todavía no tienes cuenta?</string>
     <string name="CerrarSesion">Cerrar Sesion</string>
     <string name="anyadirequipo">Añadir equipo</string>
+    <string name="equipo">Equipo</string>
+    <string name="nombreEquipo">Nombre equipo</string>
 
     <!--table-->
     <string-array name="header_table">
