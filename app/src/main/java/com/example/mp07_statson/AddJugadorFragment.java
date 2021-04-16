@@ -72,7 +72,7 @@ public class AddJugadorFragment extends Fragment {
 
 //            binding.botonCrearAddJugador.
 
-            FirebaseFirestore.getInstance().collection("jugdores").add(new Jugador(nombre,dorsal, imagen, 2))
+            FirebaseFirestore.getInstance().collection("jugadores").add(new Jugador(nombre, dorsal, imagen, 2))
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {

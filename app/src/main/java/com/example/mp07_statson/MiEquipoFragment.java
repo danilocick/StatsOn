@@ -1,6 +1,7 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -19,8 +21,18 @@ import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentMiEquipoBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 
 public class MiEquipoFragment extends Fragment {
@@ -28,6 +40,8 @@ public class MiEquipoFragment extends Fragment {
     private NavController navController;
     private FragmentMiEquipoBinding binding;
     private JugadoresViewModel jugadoresViewModel;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -62,6 +76,28 @@ public class MiEquipoFragment extends Fragment {
         //obtener datos de los jugadores de la bd
         JugadoresbdAdapter jugadoresbdAdapter = new JugadoresbdAdapter();
         binding.listaJugadores.setAdapter(jugadoresbdAdapter);
+
+
+        db.collection("jugadores")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+        FirestoreRecyclerOptions<Jugador> options = new FirestoreRecyclerOptions.Builder<Jugador>()
+                .setQuery(query, ProductModel.class)
+                .build();
+
+        db.collection("jugadores");
 
         //printar jugadores
         //TODO: int m que se coja bien el numero, sin errores.
