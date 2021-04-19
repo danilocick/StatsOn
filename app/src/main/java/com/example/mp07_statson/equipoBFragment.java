@@ -28,7 +28,7 @@ import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 import java.util.List;
 
 
-public class EquipoAFragment extends Fragment {
+public class equipoBFragment extends Fragment {
 
     private NavController navController;
     private FragmentEquipoABinding binding;
@@ -46,14 +46,14 @@ public class EquipoAFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        navController = Navigation.findNavController(view);
+        //navController = Navigation.findNavController(view);
 
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
 //        binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                    navController.navigate(R.id.action_equipoAFragment_to_gameFragment);
+        //            navController.navigate(R.id.action_equipoAyBFragment_to_gameFragment);
 ////                if (starts == 5){
 ////                    starts = 0;
 ////                }else{
@@ -121,6 +121,8 @@ public class EquipoAFragment extends Fragment {
 
                 }
             });
+
+            //navController.navigate(R.id.action_equipoAyBFragment_to_gameFragment);
         }
 
         @Override

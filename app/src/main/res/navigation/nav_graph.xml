@@ -94,12 +94,8 @@
         android:label="fragment_rival"
         tools:layout="@layout/fragment_equipo_rival" >
         <action
-            android:id="@+id/action_rivalFragment_to_equipoAFragment"
-            app:destination="@id/equipoAFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            android:id="@+id/action_rivalFragment_to_equipoAyBFragment"
+            app:destination="@id/equipoAyBFragment" />
     </fragment>
 
     <!--SANTA COLOMA FRAGMENT-->
@@ -107,11 +103,7 @@
         android:id="@+id/equipoAFragment"
         android:name="com.example.mp07_statson.EquipoAFragment"
         android:label="fragment_equipo_a"
-        tools:layout="@layout/fragment_equipo_a" >
-        <action
-            android:id="@+id/action_equipoAFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_equipo_a" />
 
     <!--EQUIPO RIVAL FRAGMENT-->
 
@@ -246,5 +238,19 @@
         android:name="com.example.mp07_statson.AddEquipoFragment"
         android:label="fragment_add_equipo"
         tools:layout="@layout/fragment_add_equipo" />
+    <fragment
+        android:id="@+id/equipoBFragment"
+        android:name="com.example.mp07_statson.equipoBFragment"
+        android:label="fragment_equipo_b2"
+        tools:layout="@layout/fragment_equipo_b2" />
+    <fragment
+        android:id="@+id/equipoAyBFragment"
+        android:name="com.example.mp07_statson.EquipoAyBFragment"
+        android:label="fragment_equipo_ay_b"
+        tools:layout="@layout/fragment_equipo_ay_b" >
+        <action
+            android:id="@+id/action_equipoAyBFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
 
 </navigation>

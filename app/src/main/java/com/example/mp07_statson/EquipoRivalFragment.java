@@ -45,7 +45,7 @@ public class EquipoRivalFragment extends Fragment {
 //                //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
 //                equipoViewModel.insertar(teamb);
 //                //navegamos
-//                navController.navigate(R.id.action_rivalFragment_to_equipoAFragment);
+                navController.navigate(R.id.action_rivalFragment_to_equipoAyBFragment);
 //            }
 //            else {
 //                // If name is not entered
