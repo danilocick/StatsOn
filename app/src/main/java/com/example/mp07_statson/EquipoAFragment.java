@@ -71,7 +71,7 @@ public class EquipoAFragment extends Fragment {
             }
         });
 
-        binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
+//        binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
         //acceder al viewModel
         //printar jugadores
         //TODO: int m que se coja bien el numero, sin errores.
