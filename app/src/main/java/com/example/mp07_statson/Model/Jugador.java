@@ -28,6 +28,9 @@ public class Jugador {
         this.idEquipo = idEquipo;
     }
 
+    public Jugador() {
+    }
+
     @NonNull
     public int getIdJugador() {
         return idJugador;

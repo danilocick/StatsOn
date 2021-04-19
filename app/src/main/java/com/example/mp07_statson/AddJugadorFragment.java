@@ -67,23 +67,17 @@ public class AddJugadorFragment extends Fragment {
             }
 
             int idEquipo = 4;
-            //le pasamos la informacion obtenida al viewmodel de jugadoresMiTM
-//            jugadoresViewModel.insertar(nombre, dorsal, imagen, idEquipo);
-
-//            binding.botonCrearAddJugador.
-
+            //le pasamos la informacion obtenida al Firebase
             FirebaseFirestore.getInstance().collection("jugadores").add(new Jugador(nombre, dorsal, imagen, 2))
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             String s = documentReference.getId();
-//                            FirebaseFirestore.getInstance().collection("jugdores").add();
+                            //para volver atras
+                            navController.popBackStack();
                         }
-                    })
-            ;
+                    });
 
-            //para volver atras
-            navController.popBackStack();
         });
 
         if (jugadoresViewModel.imagenSeleccionada != null){
@@ -91,8 +85,6 @@ public class AddJugadorFragment extends Fragment {
             Glide.with(this).load(jugadoresViewModel.imagenSeleccionada).into(binding.imagenJugador);
         }
     }
-
-
 
     private final ActivityResultLauncher<String> lanzadorGaleria =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {

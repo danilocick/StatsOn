@@ -1,11 +1,15 @@
 package com.example.mp07_statson;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,6 +57,8 @@ public class MiEquipoFragment extends Fragment {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     ArrayList<Jugador> jugadors = new ArrayList<>();
+    JugadorAdapter jugadorAdapter = new JugadorAdapter();
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -85,26 +91,69 @@ public class MiEquipoFragment extends Fragment {
         });
 
 
-        String x = "asd";
-        Task<QuerySnapshot> resultado = db.collection("jugadores")
-//                .whereEqualTo("id_equipo", x)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
 
-//        binding.listaJugadores.setAdapter();
+
+        DocumentReference docRef = db.collection("jugadores").document();
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Jugador jugador = documentSnapshot.toObject(Jugador.class);
+                jugadors.add(jugador);
+            }
+        });
+
+//        Task<QuerySnapshot> resultado = db.collection("jugadores")
+//                .whereEqualTo("id_equipo", x)
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                Log.d(TAG, document.getId() + " => " + document.getData());
+//                            }
+//                        } else {
+//                            Log.d(TAG, "Error getting documents: ", task.getException());
+//                        }
+//                    }
+//                });
+
+
+
+        jugadorAdapter.establecerjugadores(jugadors);
+        binding.listaJugadores.setAdapter(jugadorAdapter);
     }
 
+
+
+    class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
+
+        List<Jugador> jugadorList;
+
+        @NonNull
+        @Override
+        public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new JugadorViewHolder(ViewholderJugadorEquipoABinding.inflate(getLayoutInflater()), parent, false);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
+            Jugador jugador = jugadorList.get(position);
+            Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugador);
+            holder.binding.nombreJugador.setText(jugador.nombre);
+            holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
+        }
+
+        @Override
+        public int getItemCount() {
+            return jugadorList == null ? 0 : jugadorList.size();
+        }
+
+        void establecerjugadores(List<Jugador> jugadorList){
+            this.jugadorList = jugadorList;
+            notifyDataSetChanged();
+        }
+    }
 
     //clase para acceder a los campos de viewholder_jugador_miteam
     public static class JugadorViewHolder extends RecyclerView.ViewHolder{

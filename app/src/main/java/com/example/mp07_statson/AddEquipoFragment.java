@@ -68,7 +68,6 @@ public class AddEquipoFragment extends Fragment {
             }
 
             //almacena la imagen
-//            FirebaseStorage.getInstance().
 
             //guarda el equipo
             FirebaseFirestore.getInstance().collection("equipos").add(new Equipo(nombre, imagen))
@@ -78,9 +77,7 @@ public class AddEquipoFragment extends Fragment {
                             String s = documentReference.getId();
 //                            FirebaseFirestore.getInstance().collection("jugdores").add();
                         }
-                    })
-            ;
-
+                    });
             //para volver atras
             navController.popBackStack();
         });
