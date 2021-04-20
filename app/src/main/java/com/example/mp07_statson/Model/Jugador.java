@@ -4,10 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
 public class Jugador {
 
-    @PrimaryKey(autoGenerate = true) @NonNull
     public int idJugador;
 
     public String nombre;
@@ -29,6 +27,33 @@ public class Jugador {
     }
 
     public Jugador() {
+    }
+
+    public Jugador(int idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int recuperaciones, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRealizados, int taponesRecibidos, int idEquipo, boolean starter) {
+        this.idJugador = idJugador;
+        this.nombre = nombre;
+        this.dorsal = dorsal;
+        this.imagen = imagen;
+        this.puntos = puntos;
+        this.rebotes = rebotes;
+        this.asistencias = asistencias;
+        this.recuperaciones = recuperaciones;
+        this.perdidas = perdidas;
+        this.tapones = tapones;
+        this.t1mas = t1mas;
+        this.t1menos = t1menos;
+        this.t2mas = t2mas;
+        this.t2menos = t2menos;
+        this.t3mas = t3mas;
+        this.t3menos = t3menos;
+        this.rebotesDef = rebotesDef;
+        this.rebotesOf = rebotesOf;
+        this.faltasRecibidas = faltasRecibidas;
+        this.faltasCometidas = faltasCometidas;
+        this.taponesRealizados = taponesRealizados;
+        this.taponesRecibidos = taponesRecibidos;
+        this.idEquipo = idEquipo;
+        this.starter = starter;
     }
 
     @NonNull
