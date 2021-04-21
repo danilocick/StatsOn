@@ -97,6 +97,7 @@ public class RivalesFragment extends Fragment {
                 public void onClick(View view) {
                     //TODO: EQUIPO
                     equipoViewModel.seleccionar(equipo);
+                    equipoViewModel.setRival(true);
                     navController.navigate(R.id.action_rivalesFragment_to_resultadoMenuFragment);
                 }
             });

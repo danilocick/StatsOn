@@ -44,12 +44,9 @@ public class AddEquipoFragment extends Fragment {
         equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
 
         //ComeBack
-        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
+        binding.botonComeBack.setOnClickListener(view1 -> {
+            //para volver atras
+            navController.popBackStack();
         });
 
         //para abrir la galeria i seleccionar foto
@@ -68,6 +65,7 @@ public class AddEquipoFragment extends Fragment {
             }
 
             //almacena la imagen
+            FirebaseStorage.getInstance().getReference().putFile(equipoViewModel.imagenSeleccionada);
 
             //guarda el equipo
             FirebaseFirestore.getInstance().collection("equipos").add(new Equipo(nombre, imagen))

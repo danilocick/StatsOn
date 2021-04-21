@@ -21,7 +21,9 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentMiEquipoBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
@@ -53,6 +55,7 @@ public class MiEquipoFragment extends Fragment {
     private NavController navController;
     private FragmentMiEquipoBinding binding;
     private JugadoresViewModel jugadoresViewModel;
+    private EquipoViewModel equipoViewModel;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -83,14 +86,29 @@ public class MiEquipoFragment extends Fragment {
         //Ir anyadirjugador
         binding.botonanyadirjugador.setOnClickListener(view12 -> navController.navigate(R.id.action_resultadoMenuFragment_to_addJugadorFragment));
 
+//        if (equipoViewModel.isRival()){
+//            db.collection(FirebaseVar.JUGADORES)
+//                    .whereEqualTo(FirebaseVar.ID_EQUIPO, equipoViewModel.id_equipo_seleccionado)
+//                    .get().addOnSuccessListener(queryDocumentSnapshots -> {
+//                for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+//                    jugadors.add(documentSnapshot.toObject(Jugador.class));
+//                }
+//
+//                jugadorAdapter.establecerjugadores(jugadors);
+//            });
+//        }else {
+            //selecciona al equipo local (SANTA COLOMA CON ID FIJO)
+            db.collection(FirebaseVar.JUGADORES).get().addOnSuccessListener(queryDocumentSnapshots -> {
+                for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+                    jugadors.add(documentSnapshot.toObject(Jugador.class));
+                }
 
-        db.collection("jugadores").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
-                jugadors.add(documentSnapshot.toObject(Jugador.class));
-            }
+                jugadorAdapter.establecerjugadores(jugadors);
+            });
+//        }
 
-            jugadorAdapter.establecerjugadores(jugadors);
-        });
+
+
 
         binding.listaJugadores.setAdapter(jugadorAdapter);
     }
