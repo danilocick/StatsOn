@@ -21,9 +21,13 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentAddEquipoBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class AddEquipoFragment extends Fragment {
 
@@ -65,7 +69,7 @@ public class AddEquipoFragment extends Fragment {
             }
 
             //almacena la imagen
-            FirebaseStorage.getInstance().getReference().putFile(equipoViewModel.imagenSeleccionada);
+//            FirebaseStorage.getInstance().getReference().putFile(equipoViewModel.imagenSeleccionada);
 
             //guarda el equipo
             FirebaseFirestore.getInstance().collection("equipos").add(new Equipo(nombre, imagen))
