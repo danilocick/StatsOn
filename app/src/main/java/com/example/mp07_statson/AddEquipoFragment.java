@@ -77,7 +77,8 @@ public class AddEquipoFragment extends Fragment {
                             String s = documentReference.getId();
 //                            FirebaseFirestore.getInstance().collection("jugdores").add();
                         }
-                    });
+                    })
+            ;
             //para volver atras
             navController.popBackStack();
         });

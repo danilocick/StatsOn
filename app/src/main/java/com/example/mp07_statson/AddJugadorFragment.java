@@ -41,12 +41,9 @@ public class AddJugadorFragment extends Fragment {
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //ComeBack
-        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
+        binding.botonComeBack.setOnClickListener(view1 -> {
+            //para volver atras
+            navController.popBackStack();
         });
 
         //para abrir la galeria i seleccionar foto
@@ -68,16 +65,14 @@ public class AddJugadorFragment extends Fragment {
 
             int idEquipo = 4;
             //le pasamos la informacion obtenida al Firebase
-            FirebaseFirestore.getInstance().collection("jugadores").add(new Jugador(nombre, dorsal, imagen, 2))
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            String s = documentReference.getId();
-                            //para volver atras
-                            navController.popBackStack();
-                        }
-                    });
-
+            FirebaseFirestore.getInstance().collection("jugadores").add(new Jugador(nombre, dorsal, imagen, idEquipo))
+                    .addOnSuccessListener(documentReference -> {
+                        String s = documentReference.getId();
+//                            FirebaseFirestore.getInstance().collection("jugdores").add();
+                    })
+            ;
+            //para volver atras
+            navController.popBackStack();
         });
 
         if (jugadoresViewModel.imagenSeleccionada != null){

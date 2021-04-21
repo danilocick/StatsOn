@@ -74,33 +74,23 @@ public class MiEquipoFragment extends Fragment {
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //ComeBack
-        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
+        binding.botonComeBack.setOnClickListener(view1 -> {
+            //para volver atras
+            navController.popBackStack();
         });
 
         //Ir anyadirjugador
-        binding.botonanyadirjugador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_resultadoMenuFragment_to_addJugadorFragment);
+        binding.botonanyadirjugador.setOnClickListener(view12 -> navController.navigate(R.id.action_resultadoMenuFragment_to_addJugadorFragment));
+
+
+        db.collection("jugadores").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+                jugadors.add(documentSnapshot.toObject(Jugador.class));
             }
+
+            jugadorAdapter.establecerjugadores(jugadors);
         });
 
-
-
-
-        DocumentReference docRef = db.collection("jugadores").document();
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Jugador jugador = documentSnapshot.toObject(Jugador.class);
-                jugadors.add(jugador);
-            }
-        });
 
 //        Task<QuerySnapshot> resultado = db.collection("jugadores")
 //                .whereEqualTo("id_equipo", x)
@@ -118,9 +108,6 @@ public class MiEquipoFragment extends Fragment {
 //                    }
 //                });
 
-
-
-        jugadorAdapter.establecerjugadores(jugadors);
         binding.listaJugadores.setAdapter(jugadorAdapter);
     }
 
