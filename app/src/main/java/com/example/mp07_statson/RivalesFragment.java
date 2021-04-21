@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.EquipoViewModel;
@@ -40,6 +41,7 @@ public class RivalesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        equipos.clear();
         return (binding = FragmentRivalesBinding.inflate(inflater, container, false)).getRoot();
     }
 
@@ -88,8 +90,8 @@ public class RivalesFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull EquipoViewHolder holder, int position) {
             Equipo equipo = equipoList.get(position);
-            //Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
-            holder.binding.nombreEquipo.setText(equipo.toString());
+            Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
+            holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
             holder.binding.background.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

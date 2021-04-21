@@ -63,6 +63,7 @@ public class MiEquipoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        jugadors.clear();
         return (binding = FragmentMiEquipoBinding.inflate(inflater, container, false)).getRoot();
     }
 

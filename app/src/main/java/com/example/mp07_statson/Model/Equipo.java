@@ -8,9 +8,9 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Equipo {
     @PrimaryKey(autoGenerate = true) @NonNull
-    int idEquipo;
-    String nombreEquipo;
-    String imagen;
+    public int idEquipo;
+    public String nombreEquipo;
+    public String imagen;
 
 
     public Equipo(String nombreEquipo, String imagen) {
