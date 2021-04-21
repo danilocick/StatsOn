@@ -17,4 +17,7 @@ public class Equipo {
         this.nombreEquipo = nombreEquipo;
         this.imagen = imagen;
     }
+
+    public Equipo() {
+    }
 }

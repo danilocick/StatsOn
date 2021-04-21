@@ -71,12 +71,9 @@ public class AddEquipoFragment extends Fragment {
 
             //guarda el equipo
             FirebaseFirestore.getInstance().collection("equipos").add(new Equipo(nombre, imagen))
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            String s = documentReference.getId();
+                    .addOnSuccessListener(documentReference -> {
+                        String s = documentReference.getId();
 //                            FirebaseFirestore.getInstance().collection("jugdores").add();
-                        }
                     })
             ;
             //para volver atras

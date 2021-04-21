@@ -91,23 +91,6 @@ public class MiEquipoFragment extends Fragment {
             jugadorAdapter.establecerjugadores(jugadors);
         });
 
-
-//        Task<QuerySnapshot> resultado = db.collection("jugadores")
-//                .whereEqualTo("id_equipo", x)
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//                                Log.d(TAG, document.getId() + " => " + document.getData());
-//                            }
-//                        } else {
-//                            Log.d(TAG, "Error getting documents: ", task.getException());
-//                        }
-//                    }
-//                });
-
         binding.listaJugadores.setAdapter(jugadorAdapter);
     }
 
@@ -129,6 +112,10 @@ public class MiEquipoFragment extends Fragment {
             Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugador);
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
+
+            holder.binding.background.setOnClickListener(v->{
+                navController.navigate(R.id.action_resultadoMenuFragment_to_jugadorStatsFragment);
+            });
         }
 
         @Override

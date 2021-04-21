@@ -15,13 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
+import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentRivalesBinding;
 import com.example.mp07_statson.databinding.ViewholderEquipoBinding;
-import com.example.mp07_statson.databinding.ViewholderJugadorMiTeamBinding;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RivalesFragment extends Fragment {
@@ -29,6 +31,11 @@ public class RivalesFragment extends Fragment {
     private NavController navController;
     private FragmentRivalesBinding binding;
     private EquipoViewModel equipoViewModel;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ArrayList<Equipo> equipos = new ArrayList<>();
+    EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -44,30 +51,27 @@ public class RivalesFragment extends Fragment {
         equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
 
         //ComeBack
-        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
+        binding.botonComeBack.setOnClickListener(view12 -> {
+            //para volver atras
+            navController.popBackStack();
         });
 
         //Ir anyadirjugador
-        binding.botonanyadirequipo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.navigate(R.id.action_rivalesFragment_to_addEquipoFragment);
+        binding.botonanyadirequipo.setOnClickListener(view1 -> {
+            //para volver atras
+            navController.navigate(R.id.action_rivalesFragment_to_addEquipoFragment);
+        });
+
+
+        db.collection("equipos").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+                equipos.add(documentSnapshot.toObject(Equipo.class));
             }
+            equiposbdAdapter.establecerEquipoList(equipos);
         });
 
         //obtener datos de los jugadores de la bd
-        EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
         binding.listaEquipos.setAdapter(equiposbdAdapter);
-
-        //printar jugadores
-        //TODO: int m que se coja bien el numero, sin errores.
-//        equipoViewModel.obtener().observe(getViewLifecycleOwner(), equiposbdAdapter::establecerEquipoList);
     }
 
     //adaptador bd
