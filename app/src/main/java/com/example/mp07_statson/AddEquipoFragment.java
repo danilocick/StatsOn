@@ -17,6 +17,8 @@ import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentAddEquipoBinding;
 
+import java.util.UUID;
+
 public class AddEquipoFragment extends BaseFragment {
 
     private FragmentAddEquipoBinding binding;
@@ -49,13 +51,10 @@ public class AddEquipoFragment extends BaseFragment {
             String nombre = binding.nombreEquipo.getText().toString();
 
             String imagen = "file:///android_asset/equipo.png";
-            if(equipoViewModel.imagenSeleccionada != null){
+            if(equipoViewModel.imagenSeleccionada != null) {
                 imagen = equipoViewModel.imagenSeleccionada.toString();
                 equipoViewModel.imagenSeleccionada = null;
             }
-
-            //almacena la imagen
-//            FirebaseStorage.getInstance().getReference().putFile(equipoViewModel.imagenSeleccionada);
 
             //guarda el equipo
             Equipo equipo = new Equipo(nombre, imagen);
@@ -77,10 +76,13 @@ public class AddEquipoFragment extends BaseFragment {
 
 
 
-    private final ActivityResultLauncher<String> lanzadorGaleria =
-            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
-                //albumsViewModel.establecerImagenSeleccionada(uri);
-                equipoViewModel.imagenSeleccionada = uri;
-                Glide.with(requireView()).load(uri).into(binding.imagenEquipo);
-            });
+    ActivityResultLauncher<String> lanzadorGaleria = registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+        stor.getReference("imagenes/"+ UUID.randomUUID())
+                .putFile(uri)
+                .continueWithTask(task -> task.getResult().getStorage().getDownloadUrl())
+                .addOnSuccessListener(url -> {
+                    equipoViewModel.imagenSeleccionada = url;
+                });
+
+    });
 }
