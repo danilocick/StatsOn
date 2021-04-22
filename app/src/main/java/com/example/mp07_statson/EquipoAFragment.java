@@ -28,9 +28,8 @@ import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 import java.util.List;
 
 
-public class EquipoAFragment extends Fragment {
+public class EquipoAFragment extends BaseFragment {
 
-    private NavController navController;
     private FragmentEquipoABinding binding;
     private JugadoresViewModel jugadoresViewModel;
     JugadorAdapter jugadorAdapter = new JugadorAdapter();
@@ -38,15 +37,13 @@ public class EquipoAFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentEquipoABinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        navController = Navigation.findNavController(view);
 
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 

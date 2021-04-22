@@ -6,10 +6,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,21 +14,11 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
-import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentAddEquipoBinding;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
-public class AddEquipoFragment extends Fragment {
+public class AddEquipoFragment extends BaseFragment {
 
-    private NavController navController;
     private FragmentAddEquipoBinding binding;
     private EquipoViewModel equipoViewModel;
 
@@ -44,13 +31,12 @@ public class AddEquipoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
         equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
 
         //ComeBack
         binding.botonComeBack.setOnClickListener(view1 -> {
             //para volver atras
-            navController.popBackStack();
+            nav.popBackStack();
         });
 
         //para abrir la galeria i seleccionar foto
@@ -72,14 +58,17 @@ public class AddEquipoFragment extends Fragment {
 //            FirebaseStorage.getInstance().getReference().putFile(equipoViewModel.imagenSeleccionada);
 
             //guarda el equipo
-            FirebaseFirestore.getInstance().collection("equipos").add(new Equipo(nombre, imagen))
+            Equipo equipo = new Equipo(nombre, imagen);
+            db.collection("equipos").add(equipo)
                     .addOnSuccessListener(documentReference -> {
-                        String s = documentReference.getId();
+                        String id = documentReference.getId();
+                        db.collection("usuarios").document(auth.getUid()).collection("equipos").document(id).set(equipo);
+
 //                            FirebaseFirestore.getInstance().collection("jugdores").add();
-                    })
-            ;
+                    });
+
             //para volver atras
-            navController.popBackStack();
+            nav.popBackStack();
         });
 
         if (equipoViewModel.imagenSeleccionada != null){

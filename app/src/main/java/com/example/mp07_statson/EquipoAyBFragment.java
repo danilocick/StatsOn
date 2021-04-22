@@ -16,9 +16,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 
-public class EquipoAyBFragment extends Fragment {
+public class EquipoAyBFragment extends BaseFragment {
     private FragmentEquipoAyBBinding binding;
-    private NavController navController;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,14 +27,14 @@ public class EquipoAyBFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
 
         binding.viewPager.setAdapter(new FragmentStateAdapter(this) {
             @NonNull
             @Override
             public Fragment createFragment(int position) {
                 switch (position) {
-                    case 0: default:
+                    case 0:
+                    default:
                         return new EquipoAFragment();
                     case 1:
                         return new equipoBFragment();
@@ -48,37 +47,20 @@ public class EquipoAyBFragment extends Fragment {
             }
         });
 
-        new TabLayoutMediator(binding.tabLayout, binding.viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                switch (position) {
-                    case 0: default:
-                        tab.setText("MI EQUIPO");
-                        break;
-                    case 1:
-                        tab.setText("RIVAL");
-                        break;
-                }
+        new TabLayoutMediator(binding.tabLayout, binding.viewPager, (tab, position) -> {
+            switch (position) {
+                case 0:
+                default:
+                    tab.setText("MI EQUIPO");
+                    break;
+                case 1:
+                    tab.setText("RIVAL");
+                    break;
             }
         }).attach();
 
-        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
-        });
+        binding.botonComeBack.setOnClickListener(view1 -> { nav.popBackStack(); });
 
-            binding.siguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_equipoAyBFragment_to_gameFragment);
-            }
-            });
-
-
+        binding.siguiente.setOnClickListener(view12 -> nav.navigate(R.id.action_equipoAyBFragment_to_gameFragment));
     }
-
-
 }

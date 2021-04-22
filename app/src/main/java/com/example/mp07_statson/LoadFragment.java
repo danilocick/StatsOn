@@ -57,33 +57,27 @@ public class LoadFragment extends Fragment {
         MutableLiveData<Boolean> finishedLoading = new MutableLiveData<>();
 
 
-        finishedLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean aBoolean) {
-                if (mAuth.getCurrentUser() == null) {
-                    navController.navigate(R.id.action_loadFragment_to_loginFragment);
-                } else {
-                    navController.navigate(R.id.action_loadFragment_to_menuFragment);
-                }
+        finishedLoading.observe(getViewLifecycleOwner(), aBoolean -> {
+            if (mAuth.getCurrentUser() == null) {
+                navController.navigate(R.id.action_loadFragment_to_loginFragment);
+            } else {
+                navController.navigate(R.id.action_loadFragment_to_menuFragment);
             }
         });
 
 
         // esto deberia estar en el Model y llamarlo a traves del ViewModel
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    //shimmer
-                    shimmer.start(binding.shimmer);
-                    shimmer.setDirection(Shimmer.ANIMATION_DIRECTION_LTR);
+        executor.execute(() -> {
+            try {
+                //shimmer
+                shimmer.start(binding.shimmer);
+                shimmer.setDirection(Shimmer.ANIMATION_DIRECTION_LTR);
 
-                    // simular la carga de recursos
-                    Thread.sleep(5000);
-                    finishedLoading.postValue(true);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                // simular la carga de recursos
+                Thread.sleep(50);
+                finishedLoading.postValue(true);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
