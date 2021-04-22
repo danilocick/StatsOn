@@ -36,9 +36,6 @@ public class EquipoAFragment extends BaseFragment {
 
     private FragmentEquipoABinding binding;
     private JugadoresViewModel jugadoresViewModel;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    JugadorAdapter jugadorAdapter = new JugadorAdapter();
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,6 +76,8 @@ public class EquipoAFragment extends BaseFragment {
         //int m = 4;
 //        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
 
+        JugadorAdapter jugadorAdapter = new JugadorAdapter();
+
         db.collection(FirebaseVar.JUGADORES).get().addOnSuccessListener(queryDocumentSnapshots -> {
             ArrayList<Jugador> jugadors = new ArrayList<>();
 
@@ -92,8 +91,8 @@ public class EquipoAFragment extends BaseFragment {
 
         binding.listaJugadores.setAdapter(jugadorAdapter);
     }
-
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
+
 
         List<Jugador> jugadorList;
         @NonNull
