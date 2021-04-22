@@ -55,10 +55,8 @@ public class MiEquipoFragment extends Fragment {
     private NavController navController;
     private FragmentMiEquipoBinding binding;
     private JugadoresViewModel jugadoresViewModel;
-    private EquipoViewModel equipoViewModel;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     ArrayList<Jugador> jugadors = new ArrayList<>();
     JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
@@ -108,12 +106,8 @@ public class MiEquipoFragment extends Fragment {
 //        }
 
 
-
-
         binding.listaJugadores.setAdapter(jugadorAdapter);
     }
-
-
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 

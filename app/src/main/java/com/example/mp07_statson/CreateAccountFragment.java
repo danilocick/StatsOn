@@ -38,7 +38,7 @@ public class CreateAccountFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
 
-        binding.login.setOnClickListener(v->{
+        binding.login.setOnClickListener(v -> {
             binding.progressBar.setVisibility(View.VISIBLE);
 
             mAuth.createUserWithEmailAndPassword(binding.email.getText().toString(), binding.contrasenya.getText().toString())
@@ -53,7 +53,7 @@ public class CreateAccountFragment extends Fragment {
                                         Toast.LENGTH_LONG).show();
                                 navController.popBackStack();
 
-                            }else {
+                            } else {
                                 Toast.makeText(requireActivity().getApplicationContext(),
                                         task.getException().getMessage(),
                                         Toast.LENGTH_LONG).show();
@@ -64,7 +64,5 @@ public class CreateAccountFragment extends Fragment {
         });
 
 
-
     }
-
 }

@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -19,28 +18,35 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
-import com.example.mp07_statson.databinding.FragmentEquipoABinding;
+import com.example.mp07_statson.databinding.FragmentEquipoB2Binding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class equipoBFragment extends Fragment {
 
     private NavController navController;
-    private FragmentEquipoABinding binding;
+    private FragmentEquipoB2Binding binding;
     private JugadoresViewModel jugadoresViewModel;
     JugadorAdapter jugadorAdapter = new JugadorAdapter();
     int starts=0;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ArrayList<Jugador> jugadors = new ArrayList<>();
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return (binding = FragmentEquipoABinding.inflate(inflater, container, false)).getRoot();
+        jugadors.clear();
+        return (binding = FragmentEquipoB2Binding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
@@ -77,6 +83,16 @@ public class equipoBFragment extends Fragment {
         //TODO: int m que se coja bien el numero, sin errores.
         int m = 4;
 //        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
+        db.collection(FirebaseVar.JUGADORES).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+                jugadors.add(documentSnapshot.toObject(Jugador.class));
+            }
+
+            jugadorAdapter.establecerjugadores(jugadors);
+        });
+//        }
+
+        binding.listaJugadoresTeamB.setAdapter(jugadorAdapter);
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
@@ -96,32 +112,31 @@ public class equipoBFragment extends Fragment {
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
-            holder.binding.background.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int color = Color.TRANSPARENT;
-                    Drawable background = holder.binding.background.getBackground();
-                    if (background instanceof ColorDrawable)
-                        color = ((ColorDrawable) background).getColor();
-
-                    //para volver atras
-                    if (color ==Color.rgb(0,0,0) && starts < 5){
-                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
-                        starts++;
-                        System.out.println(starts);
-                    }else {
-                        if (starts == 5){
-                            Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
-                        }else {
-                            holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
-                            starts--;
-                            System.out.println(starts);
-                        }
-                    }
-
-                }
-            });
-
+//            holder.binding.background.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    int color = Color.TRANSPARENT;
+//                    Drawable background = holder.binding.background.getBackground();
+//                    if (background instanceof ColorDrawable)
+//                        color = ((ColorDrawable) background).getColor();
+//
+//                    //para volver atras
+//                    if (color ==Color.rgb(0,0,0) && starts < 5){
+//                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
+//                        starts++;
+//                        System.out.println(starts);
+//                    }else {
+//                        if (starts == 5){
+//                            Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
+//                        }else {
+//                            holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
+//                            starts--;
+//                            System.out.println(starts);
+//                        }
+//                    }
+//
+//                }
+//            });
             //navController.navigate(R.id.action_equipoAyBFragment_to_gameFragment);
         }
 

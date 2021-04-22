@@ -19,12 +19,16 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentEquipoABinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -32,8 +36,8 @@ public class EquipoAFragment extends BaseFragment {
 
     private FragmentEquipoABinding binding;
     private JugadoresViewModel jugadoresViewModel;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     JugadorAdapter jugadorAdapter = new JugadorAdapter();
-    int starts=0;
 
 
     @Override
@@ -72,14 +76,26 @@ public class EquipoAFragment extends BaseFragment {
         //acceder al viewModel
         //printar jugadores
         //TODO: int m que se coja bien el numero, sin errores.
-        int m = 4;
+        //int m = 4;
 //        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
+
+        db.collection(FirebaseVar.JUGADORES).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            ArrayList<Jugador> jugadors = new ArrayList<>();
+
+            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+                jugadors.add(documentSnapshot.toObject(Jugador.class));
+            }
+
+            jugadorAdapter.establecerjugadores(jugadors);
+        });
+//        }
+
+        binding.listaJugadores.setAdapter(jugadorAdapter);
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
         List<Jugador> jugadorList;
-
         @NonNull
         @Override
         public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -93,31 +109,32 @@ public class EquipoAFragment extends BaseFragment {
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
-            holder.binding.background.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int color = Color.TRANSPARENT;
-                    Drawable background = holder.binding.background.getBackground();
-                    if (background instanceof ColorDrawable)
-                        color = ((ColorDrawable) background).getColor();
+//            holder.binding.background.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    int color = Color.TRANSPARENT;
+//                    Drawable background = holder.binding.background.getBackground();
+//                    if (background instanceof ColorDrawable)
+//                        color = ((ColorDrawable) background).getColor();
+//
+//                    //para volver atras
+//                    if (color ==Color.rgb(0,0,0) && starts < 5){
+//                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
+//                        starts++;
+//                        System.out.println(starts);
+//                    }else {
+//                        if (starts == 5){
+//                            Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
+//                        }else {
+//                            holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
+//                            starts--;
+//                            System.out.println(starts);
+//                        }
+//                    }
+//
+//                }
+//            });
 
-                    //para volver atras
-                    if (color ==Color.rgb(0,0,0) && starts < 5){
-                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
-                        starts++;
-                        System.out.println(starts);
-                    }else {
-                        if (starts == 5){
-                            Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
-                        }else {
-                            holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
-                            starts--;
-                            System.out.println(starts);
-                        }
-                    }
-
-                }
-            });
         }
 
         @Override
