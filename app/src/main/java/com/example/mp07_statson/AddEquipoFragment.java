@@ -42,16 +42,16 @@ public class AddEquipoFragment extends BaseFragment {
         });
 
         //para abrir la galeria i seleccionar foto
-        binding.imagenEquipo.setOnClickListener(v->{
+        binding.imagenEquipo.setOnClickListener(v -> {
             lanzadorGaleria.launch("image/*");
         });
 
         //crearjugador
-        binding.botonCrearAddEquipo.setOnClickListener(v->{
+        binding.botonCrearAddEquipo.setOnClickListener(v -> {
             String nombre = binding.nombreEquipo.getText().toString();
 
             String imagen = "file:///android_asset/equipo.png";
-            if(equipoViewModel.imagenSeleccionada != null) {
+            if (equipoViewModel.imagenSeleccionada != null) {
                 imagen = equipoViewModel.imagenSeleccionada.toString();
                 equipoViewModel.imagenSeleccionada = null;
             }
@@ -68,20 +68,21 @@ public class AddEquipoFragment extends BaseFragment {
             nav.popBackStack();
         });
 
-        if (equipoViewModel.imagenSeleccionada != null){
+        if (equipoViewModel.imagenSeleccionada != null) {
             //En caso de perdida, insertamos la imagen:
             Glide.with(this).load(equipoViewModel.imagenSeleccionada).into(binding.imagenEquipo);
         }
     }
 
 
-
     ActivityResultLauncher<String> lanzadorGaleria = registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+        Glide.with(requireView()).load(uri).into(binding.imagenEquipo);
         stor.getReference("imagenes/"+ UUID.randomUUID())
                 .putFile(uri)
                 .continueWithTask(task -> task.getResult().getStorage().getDownloadUrl())
                 .addOnSuccessListener(url -> {
                     equipoViewModel.imagenSeleccionada = url;
+
                 });
 
     });

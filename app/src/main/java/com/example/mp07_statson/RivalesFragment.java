@@ -75,6 +75,7 @@ public class RivalesFragment extends BaseFragment {
             }
         });
 
+
 ///*
 //        db.collection("usuarios").document(auth.getUid()).collection("equipos").get().addOnSuccessListener(queryDocumentSnapshots -> {
 //            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){

@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class EquipoRivalFragment extends Fragment {
+public class EquipoRivalFragment extends BaseFragment {
 
     private NavController navController;
     private FragmentEquipoRivalBinding binding;
@@ -82,7 +82,8 @@ public class EquipoRivalFragment extends Fragment {
             }
         });
 
-        db.collection("equipos").get().addOnSuccessListener(queryDocumentSnapshots -> {
+
+        db.collection("usuarios").document(auth.getUid()).collection("equipos").get().addOnSuccessListener(queryDocumentSnapshots -> {
             for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
                 equipos.add(documentSnapshot.toObject(Equipo.class));
             }
