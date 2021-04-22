@@ -15,6 +15,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
@@ -22,28 +23,25 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class AddJugadorFragment extends Fragment {
+public class AddJugadorFragment extends BaseFragment {
 
-    private NavController navController;
     private FragmentAddJugadorBinding binding;
     private JugadoresViewModel jugadoresViewModel;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentAddJugadorBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
         //ComeBack
         binding.botonComeBack.setOnClickListener(view1 -> {
             //para volver atras
-            navController.popBackStack();
+            nav.popBackStack();
         });
 
         //para abrir la galeria i seleccionar foto
@@ -63,16 +61,15 @@ public class AddJugadorFragment extends Fragment {
                 jugadoresViewModel.imagenSeleccionada = null;
             }
 
-            int idEquipo = 4;
-            //le pasamos la informacion obtenida al Firebase
-            FirebaseFirestore.getInstance().collection("jugadores").add(new Jugador(nombre, dorsal, imagen, idEquipo))
+            Equipo equipo = new Equipo(nombre, imagen);
+            db.collection("jugadores").add(equipo)
                     .addOnSuccessListener(documentReference -> {
-                        String s = documentReference.getId();
-//                            FirebaseFirestore.getInstance().collection("jugdores").add();
-                    })
-            ;
+                        String id = documentReference.getId();
+                        db.collection("usuarios").document(auth.getUid()).collection("jugadores").document(id).set(equipo);
+                    });
+
             //para volver atras
-            navController.popBackStack();
+            nav.popBackStack();
         });
 
         if (jugadoresViewModel.imagenSeleccionada != null){

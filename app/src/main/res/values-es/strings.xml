@@ -57,4 +57,6 @@
     <string name="anyadirequipo">Añadir equipo</string>
     <string name="singin">Registrarse</string>
     <string name="noCuenta">¿Todavía no tienes cuenta?</string>
+    <string name="equipo">Equipo</string>
+    <string name="nombreEquipo">Nombre equipo</string>
 </resources>

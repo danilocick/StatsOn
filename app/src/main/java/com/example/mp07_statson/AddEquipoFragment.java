@@ -63,8 +63,6 @@ public class AddEquipoFragment extends BaseFragment {
                     .addOnSuccessListener(documentReference -> {
                         String id = documentReference.getId();
                         db.collection("usuarios").document(auth.getUid()).collection("equipos").document(id).set(equipo);
-
-//                            FirebaseFirestore.getInstance().collection("jugdores").add();
                     });
 
             //para volver atras

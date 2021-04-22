@@ -57,4 +57,6 @@
     <string name="anyadirequipo">Add team</string>
     <string name="singin">Sing in</string>
     <string name="noCuenta">Don\'t have an account?</string>
+    <string name="equipo">Team</string>
+    <string name="nombreEquipo">Team name</string>
 </resources>

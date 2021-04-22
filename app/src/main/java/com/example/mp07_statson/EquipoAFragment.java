@@ -48,34 +48,7 @@ public class EquipoAFragment extends BaseFragment {
 
         jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
-//        binding.botonSiguienteTeamA.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                    navController.navigate(R.id.action_equipoAFragment_to_gameFragment);
-////                if (starts == 5){
-////                    starts = 0;
-////                }else{
-////                    // If name is not entered
-////                    Toast.makeText(requireActivity().getApplicationContext(), "Select 5 Stars, Click Photo", Toast.LENGTH_LONG).show();
-////                }
-//            }
-//        });
-//
-//        binding.botonComeBackTeamA.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //para volver atras
-//                navController.popBackStack();
-//            }
-//        });
-
-//        binding.listaJugadoresTeamA.setAdapter(jugadorAdapter);
-        //acceder al viewModel
-        //printar jugadores
         //TODO: int m que se coja bien el numero, sin errores.
-        //int m = 4;
-//        jugadoresViewModel.obtenerJugadoresDeEquipo(m).observe(getViewLifecycleOwner(), jugadorAdapter::establecerjugadores);
-
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
         db.collection(FirebaseVar.JUGADORES).get().addOnSuccessListener(queryDocumentSnapshots -> {

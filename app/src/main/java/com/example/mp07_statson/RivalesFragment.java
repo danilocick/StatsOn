@@ -22,18 +22,19 @@ import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentRivalesBinding;
 import com.example.mp07_statson.databinding.ViewholderEquipoBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RivalesFragment extends Fragment {
+public class RivalesFragment extends BaseFragment {
 
-    private NavController navController;
     private FragmentRivalesBinding binding;
     private EquipoViewModel equipoViewModel;
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
     ArrayList<Equipo> equipos = new ArrayList<>();
     EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
 
@@ -48,29 +49,40 @@ public class RivalesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
 
         equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
 
         //ComeBack
         binding.botonComeBack.setOnClickListener(view12 -> {
             //para volver atras
-            navController.popBackStack();
+            nav.popBackStack();
         });
 
         //Ir anyadirjugador
         binding.botonanyadirequipo.setOnClickListener(view1 -> {
             //para volver atras
-            navController.navigate(R.id.action_rivalesFragment_to_addEquipoFragment);
+            nav.navigate(R.id.action_rivalesFragment_to_addEquipoFragment);
         });
 
-
-        db.collection("equipos").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
-                equipos.add(documentSnapshot.toObject(Equipo.class));
+        db.collection("usuarios").document(auth.getUid()).collection("equipos").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                equipos.clear();
+                for(DocumentSnapshot documentSnapshot: value){
+                    equipos.add(documentSnapshot.toObject(Equipo.class));
+                }
+                equiposbdAdapter.establecerEquipoList(equipos);
             }
-            equiposbdAdapter.establecerEquipoList(equipos);
         });
+
+///*
+//        db.collection("usuarios").document(auth.getUid()).collection("equipos").get().addOnSuccessListener(queryDocumentSnapshots -> {
+//            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+//                equipos.add(documentSnapshot.toObject(Equipo.class));
+//            }
+//            equiposbdAdapter.establecerEquipoList(equipos);
+//        });
+//*/
 
         //obtener datos de los jugadores de la bd
         binding.listaEquipos.setAdapter(equiposbdAdapter);
@@ -98,7 +110,7 @@ public class RivalesFragment extends Fragment {
                     //TODO: EQUIPO
                     equipoViewModel.seleccionar(equipo);
                     equipoViewModel.setRival(true);
-                    navController.navigate(R.id.action_rivalesFragment_to_resultadoMenuFragment);
+                    nav.navigate(R.id.action_rivalesFragment_to_resultadoMenuFragment);
                 }
             });
 
