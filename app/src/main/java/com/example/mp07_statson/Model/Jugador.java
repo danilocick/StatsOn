@@ -17,15 +17,13 @@ public class Jugador {
             t1mas, t1menos, t2mas, t2menos, t3mas, t3menos,
             rebotesDef, rebotesOf, faltasRecibidas, faltasCometidas,
             taponesRealizados, taponesRecibidos;
-    public  int idEquipo;
 
     public boolean starter;
 
-    public Jugador(String nombre, int dorsal, String imagen, int idEquipo) {
+    public Jugador(String nombre, int dorsal, String imagen) {
         this.nombre = nombre;
         this.dorsal = dorsal;
         this.imagen = imagen;
-        this.idEquipo = idEquipo;
     }
 
     public Jugador() {
@@ -191,12 +189,5 @@ public class Jugador {
     }
     public void setTaponesRecibidos(int taponesRecibidos) {
         this.taponesRecibidos = taponesRecibidos;
-    }
-
-    public int getIdEquipo() {
-        return idEquipo;
-    }
-    public void setIdEquipo(int idEquipo) {
-        this.idEquipo = idEquipo;
     }
 }

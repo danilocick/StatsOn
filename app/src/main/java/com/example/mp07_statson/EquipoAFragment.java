@@ -1,32 +1,20 @@
 package com.example.mp07_statson;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentEquipoABinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +23,6 @@ import java.util.List;
 public class EquipoAFragment extends BaseFragment {
 
     private FragmentEquipoABinding binding;
-    private JugadoresViewModel jugadoresViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,8 +33,6 @@ public class EquipoAFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
-
         //TODO: int m que se coja bien el numero, sin errores.
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
@@ -57,7 +42,6 @@ public class EquipoAFragment extends BaseFragment {
             for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
                 jugadors.add(documentSnapshot.toObject(Jugador.class));
             }
-
             jugadorAdapter.establecerjugadores(jugadors);
         });
 //        }
@@ -66,8 +50,8 @@ public class EquipoAFragment extends BaseFragment {
     }
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
 
-
         List<Jugador> jugadorList;
+
         @NonNull
         @Override
         public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -80,33 +64,6 @@ public class EquipoAFragment extends BaseFragment {
             Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugador);
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
-
-//            holder.binding.background.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    int color = Color.TRANSPARENT;
-//                    Drawable background = holder.binding.background.getBackground();
-//                    if (background instanceof ColorDrawable)
-//                        color = ((ColorDrawable) background).getColor();
-//
-//                    //para volver atras
-//                    if (color ==Color.rgb(0,0,0) && starts < 5){
-//                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
-//                        starts++;
-//                        System.out.println(starts);
-//                    }else {
-//                        if (starts == 5){
-//                            Toast.makeText(requireActivity().getApplicationContext(), "You have 5 Stars", Toast.LENGTH_LONG).show();
-//                        }else {
-//                            holder.binding.background.setBackgroundColor(Color.rgb(0, 0, 0));
-//                            starts--;
-//                            System.out.println(starts);
-//                        }
-//                    }
-//
-//                }
-//            });
-
         }
 
         @Override

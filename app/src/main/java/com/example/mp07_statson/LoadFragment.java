@@ -1,43 +1,23 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.MutableLiveData;
 import com.example.mp07_statson.databinding.FragmentLoadBinding;
-import com.example.mp07_statson.databinding.FragmentMenuBinding;
-import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.style.ChasingDots;
-import com.github.ybq.android.spinkit.style.CubeGrid;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
-import com.github.ybq.android.spinkit.style.FoldingCube;
-import com.github.ybq.android.spinkit.style.Pulse;
-import com.github.ybq.android.spinkit.style.WanderingCubes;
-import com.google.firebase.auth.FirebaseAuth;
 import com.romainpiel.shimmer.Shimmer;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class LoadFragment extends Fragment {
+public class LoadFragment extends BaseFragment {
 
     Executor executor = Executors.newSingleThreadExecutor();
-    NavController navController;
     private FragmentLoadBinding binding;
-    private Shimmer shimmer = new Shimmer();
-    private FirebaseAuth mAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,24 +29,18 @@ public class LoadFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        navController = Navigation.findNavController(view);
+        Shimmer shimmer = new Shimmer();
 
-        mAuth = FirebaseAuth.getInstance();
-
-        // esta variable deberia estar en un ViewModel
         MutableLiveData<Boolean> finishedLoading = new MutableLiveData<>();
 
-
         finishedLoading.observe(getViewLifecycleOwner(), aBoolean -> {
-            if (mAuth.getCurrentUser() == null) {
-                navController.navigate(R.id.action_loadFragment_to_loginFragment);
+            if (auth.getCurrentUser() == null) {
+                nav.navigate(R.id.action_loadFragment_to_loginFragment);
             } else {
-                navController.navigate(R.id.action_loadFragment_to_menuFragment);
+                nav.navigate(R.id.action_loadFragment_to_menuFragment);
             }
         });
 
-
-        // esto deberia estar en el Model y llamarlo a traves del ViewModel
         executor.execute(() -> {
             try {
                 //shimmer
@@ -80,12 +54,5 @@ public class LoadFragment extends Fragment {
                 e.printStackTrace();
             }
         });
-
-
-
-
-        //progressBar
-//        Sprite doubleBounce = new WanderingCubes();
-//        binding.progressBar.setIndeterminateDrawable(doubleBounce);
     }
 }

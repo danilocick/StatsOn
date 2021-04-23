@@ -1,20 +1,17 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
-import com.example.mp07_statson.ViewModel.EquipoViewModel;
 import com.example.mp07_statson.databinding.FragmentAddEquipoBinding;
 
 import java.util.UUID;
@@ -22,7 +19,6 @@ import java.util.UUID;
 public class AddEquipoFragment extends BaseFragment {
 
     private FragmentAddEquipoBinding binding;
-    private EquipoViewModel equipoViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -33,27 +29,18 @@ public class AddEquipoFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
 
-        //ComeBack
-        binding.botonComeBack.setOnClickListener(view1 -> {
-            //para volver atras
-            nav.popBackStack();
-        });
+        binding.botonComeBack.setOnClickListener(view1 -> { nav.popBackStack();});
 
-        //para abrir la galeria i seleccionar foto
-        binding.imagenEquipo.setOnClickListener(v -> {
-            lanzadorGaleria.launch("image/*");
-        });
+        binding.imagenEquipo.setOnClickListener(v -> { lanzadorGaleria.launch("image/*"); });
 
-        //crearjugador
         binding.botonCrearAddEquipo.setOnClickListener(v -> {
-            String nombre = binding.nombreEquipo.getText().toString();
 
+            String nombre = binding.nombreEquipo.getText().toString();
             String imagen = "file:///android_asset/equipo.png";
-            if (equipoViewModel.imagenSeleccionada != null) {
-                imagen = equipoViewModel.imagenSeleccionada.toString();
-                equipoViewModel.imagenSeleccionada = null;
+            if (viewmodel.imagenEquipoSeleccionada != null) {
+                imagen = viewmodel.imagenEquipoSeleccionada.toString();
+                viewmodel.imagenEquipoSeleccionada = null;
             }
 
             //guarda el equipo
@@ -68,10 +55,7 @@ public class AddEquipoFragment extends BaseFragment {
             nav.popBackStack();
         });
 
-        if (equipoViewModel.imagenSeleccionada != null) {
-            //En caso de perdida, insertamos la imagen:
-            Glide.with(this).load(equipoViewModel.imagenSeleccionada).into(binding.imagenEquipo);
-        }
+        if (viewmodel.imagenEquipoSeleccionada != null) { Glide.with(this).load(viewmodel.imagenEquipoSeleccionada).into(binding.imagenEquipo); }
     }
 
 
@@ -81,7 +65,7 @@ public class AddEquipoFragment extends BaseFragment {
                 .putFile(uri)
                 .continueWithTask(task -> task.getResult().getStorage().getDownloadUrl())
                 .addOnSuccessListener(url -> {
-                    equipoViewModel.imagenSeleccionada = url;
+                    viewmodel.imagenEquipoSeleccionada = url;
 
                 });
 

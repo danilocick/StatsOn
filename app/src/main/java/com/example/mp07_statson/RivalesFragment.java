@@ -1,31 +1,21 @@
 package com.example.mp07_statson;
 
-import android.media.audiofx.DynamicsProcessing;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
-import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.EquipoViewModel;
+import com.example.mp07_statson.ViewModel.StatsOnViewModel;
 import com.example.mp07_statson.databinding.FragmentRivalesBinding;
 import com.example.mp07_statson.databinding.ViewholderEquipoBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +23,7 @@ import java.util.List;
 public class RivalesFragment extends BaseFragment {
 
     private FragmentRivalesBinding binding;
-    private EquipoViewModel equipoViewModel;
+    private StatsOnViewModel statsOnViewModel;
 
     ArrayList<Equipo> equipos = new ArrayList<>();
     EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
@@ -50,7 +40,7 @@ public class RivalesFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
+        statsOnViewModel = new ViewModelProvider(requireActivity()).get(StatsOnViewModel.class);
 
         //ComeBack
         binding.botonComeBack.setOnClickListener(view12 -> {
@@ -64,15 +54,17 @@ public class RivalesFragment extends BaseFragment {
             nav.navigate(R.id.action_rivalesFragment_to_addEquipoFragment);
         });
 
-        db.collection("usuarios").document(auth.getUid()).collection("equipos").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                equipos.clear();
-                for(DocumentSnapshot documentSnapshot: value){
-                    equipos.add(documentSnapshot.toObject(Equipo.class));
-                }
-                equiposbdAdapter.establecerEquipoList(equipos);
+        db.collection("usuarios").document(auth.getUid()).collection("equipos").addSnapshotListener((value, error) -> {
+            equipos.clear();
+            for(DocumentSnapshot documentSnapshot: value){
+                documentSnapshot.getId();
+
+                Equipo equipo = documentSnapshot.toObject(Equipo.class);
+                equipo.idEquipo = documentSnapshot.getId();
+
+                equipos.add(equipo);
             }
+            equiposbdAdapter.establecerEquipoList(equipos);
         });
 
 
@@ -105,14 +97,9 @@ public class RivalesFragment extends BaseFragment {
             Equipo equipo = equipoList.get(position);
             Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
             holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
-            holder.binding.background.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //TODO: EQUIPO
-                    equipoViewModel.seleccionar(equipo);
-                    equipoViewModel.setRival(true);
-                    nav.navigate(R.id.action_rivalesFragment_to_resultadoMenuFragment);
-                }
+            holder.binding.background.setOnClickListener(view -> {
+                viewmodel.idEquipoSeleccionado = equipo.idEquipo;
+                nav.navigate(R.id.action_rivalesFragment_to_miEquipoFragment);
             });
 
         }

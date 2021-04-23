@@ -1,24 +1,17 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.mp07_statson.databinding.FragmentLoadBinding;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.mp07_statson.databinding.FragmentMenuBinding;
 
-public class MenuFragment extends Fragment {
+public class MenuFragment extends BaseFragment {
 
-    NavController navController;
     private FragmentMenuBinding binding;
 
     @Override
@@ -31,46 +24,14 @@ public class MenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        navController = Navigation.findNavController(view);
+        binding.botonPartidoNuevo.setOnClickListener(view14 -> nav.navigate(R.id.action_menuFragment_to_rivalFragment));
 
-        //ir a partido nuevo
-        binding.botonPartidoNuevo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_rivalFragment);
-            }
-        });
+        binding.botonResultados.setOnClickListener(view13 -> nav.navigate(R.id.action_menuFragment_to_listaPartidosFragment));
 
-        //ir a resultados
-        binding.botonResultados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_listaPartidosFragment);
-            }
-        });
+//        binding.botonMiEquipo.setOnClickListener(view13 ->  nav.navigate(R.id.action_menuFragment_to_resultadoMenuFragment););
 
-        //ir a mi equipo
-        binding.botonMiEquipo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_resultadoMenuFragment);
-            }
-        });
+        binding.botonRivales.setOnClickListener(view12 -> nav.navigate(R.id.action_menuFragment_to_rivalesFragment));
 
-        //ir a mi equipo
-        binding.botonRivales.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_rivalesFragment);
-            }
-        });
-
-        //ir a opciones
-        binding.botonOpciones.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_optionsFragment);
-            }
-        });
+        binding.botonOpciones.setOnClickListener(view1 -> nav.navigate(R.id.action_menuFragment_to_optionsFragment));
     }
 }

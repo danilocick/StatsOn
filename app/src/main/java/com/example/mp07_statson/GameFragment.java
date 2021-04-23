@@ -1,34 +1,25 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.os.CountDownTimer;
-import android.os.SystemClock;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
-import com.example.mp07_statson.ViewModel.EquipoViewModel;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 
 import java.util.Locale;
 
 import static com.example.mp07_statson.R.layout.popup_asistencia;
 
-public class GameFragment extends Fragment {
+public class GameFragment extends BaseFragment {
 
     private FragmentGameBinding binding;
-    private NavController navController;
     private int marcadorLocal = 0;
     private int marcadorVisitante = 0;
     private int cuarto = 0;
@@ -36,25 +27,16 @@ public class GameFragment extends Fragment {
     private boolean mTimerRunning;
     private static final long START_TIME_IN_MILLIS = 600000;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
-    private EquipoViewModel equipoViewModel;
     /*https://codinginflow.com/tutorials/android/countdowntimer/part-1-countdown-timer*/
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentGameBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
-
-
-        //Load RivalName
-        equipoViewModel = new ViewModelProvider(requireActivity()).get(EquipoViewModel.class);
-        int m = 4;
-//        equipoViewModel.obtenerUnEquipo(m).observe(getViewLifecycleOwner(), nombreEquipo -> binding.equipoB.setText(nombreEquipo.toString()));
 
         //Load PopUps
         View popupViewAsistencia = LayoutInflater.from(getActivity()).inflate(popup_asistencia, null);
@@ -73,10 +55,9 @@ public class GameFragment extends Fragment {
         updateCountDownText();
 
 
-        //AcabarPartido
-        binding.botonAcabarPartido.setOnClickListener(view16 -> navController.navigate(R.id.action_gameFragment_to_menuFragment));
-        //vista previa
-        binding.botonVistaPrevia.setOnClickListener(view15 -> navController.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
+        binding.botonAcabarPartido.setOnClickListener(view16 -> nav.navigate(R.id.action_gameFragment_to_menuFragment));
+
+        binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
 
         binding.jugB1.setOnClickListener(v -> {

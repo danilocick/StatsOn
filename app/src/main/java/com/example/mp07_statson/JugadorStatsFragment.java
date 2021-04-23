@@ -2,21 +2,13 @@ package com.example.mp07_statson;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
-import com.example.mp07_statson.ViewModel.JugadoresViewModel;
-import com.example.mp07_statson.ViewModel.VerJugadorViewModel;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.mp07_statson.databinding.FragmentJugadorStatsBinding;
 
 import org.eazegraph.lib.charts.BarChart;
@@ -24,12 +16,9 @@ import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.BarModel;
 import org.eazegraph.lib.models.PieModel;
 
-public class JugadorStatsFragment extends Fragment {
+public class JugadorStatsFragment extends BaseFragment {
 
-    private NavController navController;
     private FragmentJugadorStatsBinding binding;
-    private JugadoresViewModel jugadoresViewModel;
-    private VerJugadorViewModel verJugadorViewModel;
     int T2F, T2A, T3A, T3F, TLA, TLF;
 
     @Override
@@ -41,37 +30,27 @@ public class JugadorStatsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
 
-        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
-        verJugadorViewModel = new ViewModelProvider(requireActivity()).get(VerJugadorViewModel.class);
+//        viewmodel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
+//            Glide.with(JugadorStatsFragment.this).load(elemento.imagen).into(binding.imagenJugador);
+//            binding.nombreJugador.setText(elemento.nombre);
+//            binding.dorsalJugador.setText(String.valueOf(elemento.dorsal));
+//            T2A = elemento.t2mas;
+//            T2F = elemento.t2menos;
+//            T3A = elemento.t3mas;
+//            T3F = elemento.t3menos;
+//            TLA = elemento.t1mas;
+//            TLF = elemento.t1menos;
+//        });
 
+        binding.botonComeBack.setOnClickListener(view1 -> {nav.popBackStack();});
 
-        jugadoresViewModel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
-            Glide.with(JugadorStatsFragment.this).load(elemento.imagen).into(binding.imagenJugador);
-            binding.nombreJugador.setText(elemento.nombre);
-            binding.dorsalJugador.setText(String.valueOf(elemento.dorsal));
-            T2A = elemento.t2mas;
-            T2F = elemento.t2menos;
-            T3A = elemento.t3mas;
-            T3F = elemento.t3menos;
-            TLA = elemento.t1mas;
-            TLF = elemento.t1menos;
-        });
+        binding.botonEditTM.setOnClickListener(view12 -> {nav.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment);});
 
+        cargarDatosJugador();
+    }
 
-        //ComeBack
-        binding.botonComeBack.setOnClickListener(view1 -> {
-            //para volver atras
-            navController.popBackStack();
-        });
-
-        //IrEditar
-        binding.botonEditTM.setOnClickListener(view12 -> {
-            //para volver atras
-            navController.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment);
-        });
-
+    private void cargarDatosJugador() {
         //STATSBARRAS
         BarChart mBarChart = (BarChart) binding.barchart;
 
