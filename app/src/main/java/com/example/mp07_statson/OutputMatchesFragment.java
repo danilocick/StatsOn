@@ -30,6 +30,4 @@ public class OutputMatchesFragment extends BaseFragment {
         binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
     }
-
-
 }
