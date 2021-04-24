@@ -71,6 +71,7 @@ public class MiEquipoFragment extends BaseFragment {
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
             holder.binding.background.setOnClickListener(v->{
+                viewmodel.jugadorSeleccionado = jugador;
                 nav.navigate(R.id.action_miEquipoFragment_to_jugadorStatsFragment);
             });
         }

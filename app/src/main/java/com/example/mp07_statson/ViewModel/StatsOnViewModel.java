@@ -5,6 +5,8 @@ import android.net.Uri;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mp07_statson.Model.Jugador;
+
 public class StatsOnViewModel extends ViewModel {
 
     //equipos
@@ -13,14 +15,11 @@ public class StatsOnViewModel extends ViewModel {
 
     //jugadores
     public Uri imagenJugadorSeleccionada;
+    public Jugador jugadorSeleccionado;
 
     //Opciones de partido
     public int minutos;
     public int periodos;
     public int minutosPE;
 
-
-    public LiveData<Object> seleccionado() {
-        return null;
-    }
 }

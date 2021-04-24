@@ -9,12 +9,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentJugadorStatsBinding;
 
 import org.eazegraph.lib.charts.BarChart;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.BarModel;
 import org.eazegraph.lib.models.PieModel;
+
+import static java.lang.String.valueOf;
 
 public class JugadorStatsFragment extends BaseFragment {
 
@@ -31,22 +34,13 @@ public class JugadorStatsFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        viewmodel.seleccionado().observe(getViewLifecycleOwner(), elemento -> {
-//            Glide.with(JugadorStatsFragment.this).load(elemento.imagen).into(binding.imagenJugador);
-//            binding.nombreJugador.setText(elemento.nombre);
-//            binding.dorsalJugador.setText(String.valueOf(elemento.dorsal));
-//            T2A = elemento.t2mas;
-//            T2F = elemento.t2menos;
-//            T3A = elemento.t3mas;
-//            T3F = elemento.t3menos;
-//            TLA = elemento.t1mas;
-//            TLF = elemento.t1menos;
-//        });
-
         binding.botonComeBack.setOnClickListener(view1 -> {nav.popBackStack();});
 
         binding.botonEditTM.setOnClickListener(view12 -> {nav.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment);});
 
+        binding.nombreJugador.setText(viewmodel.jugadorSeleccionado.nombre);
+        binding.dorsalJugador.setText(String.valueOf(viewmodel.jugadorSeleccionado.dorsal));
+        Glide.with(requireView()).load(viewmodel.jugadorSeleccionado.imagen).into(binding.imagenJugador);
         cargarDatosJugador();
     }
 
