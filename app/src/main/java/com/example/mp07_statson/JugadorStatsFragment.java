@@ -40,7 +40,7 @@ public class JugadorStatsFragment extends BaseFragment {
 
         binding.nombreJugador.setText(viewmodel.jugadorSeleccionado.nombre);
         binding.dorsalJugador.setText(String.valueOf(viewmodel.jugadorSeleccionado.dorsal));
-        Glide.with(requireView()).load(viewmodel.jugadorSeleccionado.imagen).into(binding.imagenJugador);
+//        Glide.with(requireView()).load(viewmodel.jugadorSeleccionado.imagen).into(binding.imagenJugador);
         cargarDatosJugador();
     }
 
