@@ -29,7 +29,7 @@
     <string name="jugador">Player</string>
     <string name="jugadorNombre">Name</string>
     <string name="jugadorDorsal">Jersey Number</string>
-    <string name="rivales">Opponents</string>
+    <string name="rivales">Opponents teams</string>
     <string name="anyadirjugador">Add player</string>
     <string name="mi_equipo">My Team</string>
     <string name="siguiente">Next</string>
@@ -57,4 +57,6 @@
     <string name="anyadirequipo">Add team</string>
     <string name="singin">Sing in</string>
     <string name="noCuenta">Don\'t have an account?</string>
+    <string name="equipo">Team</string>
+    <string name="nombreEquipo">Team name</string>
 </resources>

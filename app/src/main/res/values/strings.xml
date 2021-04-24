@@ -33,7 +33,7 @@
     <string name="jugadores">Jugadores</string>
     <string name="santaColoma">Santa Coloma</string>
     <string name="anyadirjugador">Añadir Jugador</string>
-    <string name="rivales">Rivales</string>
+    <string name="rivales">Equipos rivales</string>
     <string name="partidos">Partidos</string>
 
     <!--opciones-->
@@ -114,7 +114,7 @@
     <string name="crearCuenta">Crear Cuenta</string>
     <string name="noCuenta">¿Todavía no tienes cuenta?</string>
     <string name="CerrarSesion">Cerrar Sesion</string>
-    <string name="anyadirequipo">Añadir equipo</string>
+    <string name="anyadirequipo">Añadir equipo rival</string>
     <string name="equipo">Equipo</string>
     <string name="nombreEquipo">Nombre equipo</string>
 

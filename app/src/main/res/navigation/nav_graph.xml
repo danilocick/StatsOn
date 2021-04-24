@@ -219,7 +219,7 @@
         android:label="fragment_rivales"
         tools:layout="@layout/fragment_rivales" >
         <action
-            android:id="@+id/action_rivalesFragment_to_resultadoMenuFragment"
+            android:id="@+id/action_rivalesFragment_to_miEquipoFragment"
             app:destination="@id/resultadoMenuFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"

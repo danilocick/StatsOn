@@ -9,22 +9,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import com.example.mp07_statson.databinding.FragmentCreateAccountBinding;
-import com.example.mp07_statson.databinding.FragmentLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 
-public class CreateAccountFragment extends Fragment {
+public class CreateAccountFragment extends BaseFragment {
 
-    NavController navController;
     private FragmentCreateAccountBinding binding;
-    private FirebaseAuth mAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,14 +27,11 @@ public class CreateAccountFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
 
-        mAuth = FirebaseAuth.getInstance();
-
-        binding.login.setOnClickListener(v->{
+        binding.login.setOnClickListener(v -> {
             binding.progressBar.setVisibility(View.VISIBLE);
 
-            mAuth.createUserWithEmailAndPassword(binding.email.getText().toString(), binding.contrasenya.getText().toString())
+            auth.createUserWithEmailAndPassword(binding.email.getText().toString(), binding.contrasenya.getText().toString())
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -51,9 +41,9 @@ public class CreateAccountFragment extends Fragment {
                                 Toast.makeText(requireActivity().getApplicationContext(),
                                         "Registro Completado",
                                         Toast.LENGTH_LONG).show();
-                                navController.popBackStack();
+                                nav.popBackStack();
 
-                            }else {
+                            } else {
                                 Toast.makeText(requireActivity().getApplicationContext(),
                                         task.getException().getMessage(),
                                         Toast.LENGTH_LONG).show();
@@ -64,7 +54,5 @@ public class CreateAccountFragment extends Fragment {
         });
 
 
-
     }
-
 }

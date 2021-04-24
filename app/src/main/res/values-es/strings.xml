@@ -29,7 +29,7 @@
     <string name="jugador">Jugador</string>
     <string name="jugadorNombre">Nombre</string>
     <string name="jugadorDorsal">Dorsal</string>
-    <string name="rivales">Rivales</string>
+    <string name="rivales">Equipos rivales</string>
     <string name="anyadirjugador">Añadir Jugador</string>
     <string name="mi_equipo">Mi Equipo</string>
     <string name="partidos">Partidos</string>
@@ -57,4 +57,6 @@
     <string name="anyadirequipo">Añadir equipo</string>
     <string name="singin">Registrarse</string>
     <string name="noCuenta">¿Todavía no tienes cuenta?</string>
+    <string name="equipo">Equipo</string>
+    <string name="nombreEquipo">Nombre equipo</string>
 </resources>

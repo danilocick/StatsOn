@@ -9,50 +9,28 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.FirebaseAdministrator.EquipoFirebase;
 import com.example.mp07_statson.Model.Jugador;
-import com.example.mp07_statson.ViewModel.JugadoresViewModel;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-public class AddJugadorFragment extends Fragment {
+public class AddJugadorFragment extends BaseFragment {
 
-    private NavController navController;
     private FragmentAddJugadorBinding binding;
-    private JugadoresViewModel jugadoresViewModel;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentAddJugadorBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
-        jugadoresViewModel = new ViewModelProvider(requireActivity()).get(JugadoresViewModel.class);
 
-        //ComeBack
-        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
-        });
+        binding.botonComeBack.setOnClickListener(view1 -> {nav.popBackStack();});
 
-        //para abrir la galeria i seleccionar foto
-        binding.imagenJugador.setOnClickListener(v->{
-            lanzadorGaleria.launch("image/*");
-        });
+        binding.imagenJugador.setOnClickListener(v->{ lanzadorGaleria.launch("image/*"); });
 
         //crearjugador
         binding.botonCrearAddJugador.setOnClickListener(v->{
@@ -61,35 +39,30 @@ public class AddJugadorFragment extends Fragment {
             int dorsal = Integer.parseInt(dorsalString);
 
             String imagen = "file:///android_asset/jugador.png";
-            if(jugadoresViewModel.imagenSeleccionada != null){
-                imagen = jugadoresViewModel.imagenSeleccionada.toString();
-                jugadoresViewModel.imagenSeleccionada = null;
+            if(viewmodel.imagenJugadorSeleccionada != null){
+                imagen = viewmodel.imagenJugadorSeleccionada.toString();
+                viewmodel.imagenJugadorSeleccionada = null;
             }
 
-            int idEquipo = 4;
-            //le pasamos la informacion obtenida al Firebase
-            FirebaseFirestore.getInstance().collection("jugadores").add(new Jugador(nombre, dorsal, imagen, 2))
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            String s = documentReference.getId();
-                            //para volver atras
-                            navController.popBackStack();
-                        }
+            Jugador equipo = new Jugador(nombre, dorsal ,imagen);
+            db.collection("jugadores").add(equipo)
+                    .addOnSuccessListener(documentReference -> {
+                        String id = documentReference.getId();
+                        db.collection("usuarios").document(auth.getUid()).collection("jugadores").document(id).set(equipo);
+                        //document
+                        db.collection("usuarios").document(auth.getUid()).collection("equipos").document(EquipoFirebase.id_equipo_seleccionado).collection("jugadores").document(id).set(equipo);
                     });
 
+            //para volver atras
+            nav.popBackStack();
         });
 
-        if (jugadoresViewModel.imagenSeleccionada != null){
-            //En caso de perdida, insertamos la imagen:
-            Glide.with(this).load(jugadoresViewModel.imagenSeleccionada).into(binding.imagenJugador);
-        }
+        if (viewmodel.imagenJugadorSeleccionada != null){ Glide.with(this).load(viewmodel.imagenJugadorSeleccionada).into(binding.imagenJugador);}
     }
 
     private final ActivityResultLauncher<String> lanzadorGaleria =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
-                //albumsViewModel.establecerImagenSeleccionada(uri);
-                jugadoresViewModel.imagenSeleccionada = uri;
+                viewmodel.imagenJugadorSeleccionada = uri;
                 Glide.with(requireView()).load(uri).into(binding.imagenJugador);
             });
 }

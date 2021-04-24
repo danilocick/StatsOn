@@ -1,84 +1,41 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.mp07_statson.databinding.FragmentOptionsBinding;
-import com.github.florent37.expansionpanel.ExpansionHeader;
-import com.github.florent37.expansionpanel.ExpansionLayout;
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 
-public class OptionsFragment extends Fragment {
-
-    private NavController navController;
+public class OptionsFragment extends BaseFragment {
     private FragmentOptionsBinding binding;
-    private FirebaseAuth mAuth;
-
-
-    //add an ExpansionLayoutCollection to your recycler adapter
-    final ExpansionLayoutCollection expansionsCollection = new ExpansionLayoutCollection();
-
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentOptionsBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
-        mAuth = FirebaseAuth.getInstance();
 
+        final ExpansionLayoutCollection expansionsCollection = new ExpansionLayoutCollection();
 
-        //ComeBack
-        binding.botonComeBackOpc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
-        });
+        binding.botonComeBackOpc.setOnClickListener(view1 -> {nav.popBackStack();});
 
-        //Guardar
-        binding.botonGuardarOpc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                navController.popBackStack();
-            }
-        });
+        binding.botonGuardarOpc.setOnClickListener(view12 -> nav.popBackStack());
 
-        //NEW EXPANSIONSPANEL
-        binding.expansionLayoutMinutos.addListener(new ExpansionLayout.Listener() {
-            @Override
-            public void onExpansionChanged(ExpansionLayout expansionLayout, boolean expanded) {
-
-            }
+        binding.expansionLayoutMinutos.addListener((expansionLayout, expanded) -> {
+            expansionsCollection.openOnlyOne(true);
         });
 
         binding.cerrarSesion.setOnClickListener(v->{
-            binding.progressBar.setVisibility(View.VISIBLE);
-            mAuth.getInstance().signOut();
-
-            navController.navigate(R.id.action_optionsFragment_to_loginFragment);
+            auth.getInstance().signOut();
+            nav.navigate(R.id.action_optionsFragment_to_loginFragment);
         });
 
     }
