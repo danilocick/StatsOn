@@ -49,21 +49,21 @@
             app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_menuFragment_to_resultadoMenuFragment"
-            app:destination="@id/resultadoMenuFragment"
+            app:destination="@id/miEquipoFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_menuFragment_to_rivalFragment"
-            app:destination="@id/rivalFragment"
+            app:destination="@id/equipoRivalFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_menuFragment_to_rivalesFragment"
-            app:destination="@id/rivalesFragment"
+            app:destination="@id/listaEquiposFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -89,12 +89,12 @@
 
     <!--RIVAL FRAGMENT-->
     <fragment
-        android:id="@+id/rivalFragment"
+        android:id="@+id/equipoRivalFragment"
         android:name="com.example.mp07_statson.EquipoRivalFragment"
         android:label="fragment_rival"
         tools:layout="@layout/fragment_equipo_rival" >
         <action
-            android:id="@+id/action_rivalFragment_to_equipoAyBFragment"
+            android:id="@+id/action_equipoRivalFragment_to_equipoAyBFragment"
             app:destination="@id/equipoAyBFragment" />
     </fragment>
 
@@ -138,20 +138,24 @@
 
     <!--LISTA MIEQUIPO FRAGMENT-->
     <fragment
-        android:id="@+id/resultadoMenuFragment"
+        android:id="@+id/miEquipoFragment"
         android:name="com.example.mp07_statson.MiEquipoFragment"
         android:label="fragment_resultado_menu"
         tools:layout="@layout/fragment_mi_equipo" >
         <action
-            android:id="@+id/action_resultadoMenuFragment_to_jugadorStatsFragment"
+            android:id="@+id/action_miEquipoFragment_to_jugadorStatsFragment"
             app:destination="@id/jugadorStatsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
         <action
-            android:id="@+id/action_resultadoMenuFragment_to_addJugadorFragment"
-            app:destination="@id/addJugadorFragment" />
+            android:id="@+id/action_miEquipoFragment_to_addJugadorFragment"
+            app:destination="@id/addJugadorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <!--AÑADIR JUGADOR MITM FRAGMENT-->
     <!--JUGADOR FRAGMENT-->
@@ -214,19 +218,19 @@
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account" />
     <fragment
-        android:id="@+id/rivalesFragment"
-        android:name="com.example.mp07_statson.RivalesFragment"
+        android:id="@+id/listaEquiposFragment"
+        android:name="com.example.mp07_statson.ListaEquiposFragment"
         android:label="fragment_rivales"
         tools:layout="@layout/fragment_rivales" >
         <action
-            android:id="@+id/action_rivalesFragment_to_miEquipoFragment"
-            app:destination="@id/resultadoMenuFragment"
+            android:id="@+id/action_listaEquiposFragment_to_miEquipoFragment"
+            app:destination="@id/miEquipoFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
         <action
-            android:id="@+id/action_rivalesFragment_to_addEquipoFragment"
+            android:id="@+id/action_listaEquiposFragment_to_addEquipoFragment"
             app:destination="@id/addEquipoFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"

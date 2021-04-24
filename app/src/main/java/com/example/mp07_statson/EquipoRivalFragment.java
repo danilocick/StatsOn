@@ -36,7 +36,7 @@ public class EquipoRivalFragment extends BaseFragment {
 
         //insertar nombre rival
         binding.botonSiguienteERival.setOnClickListener(v -> {
-                nav.navigate(R.id.action_rivalFragment_to_equipoAyBFragment);
+                nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
         });
 
 

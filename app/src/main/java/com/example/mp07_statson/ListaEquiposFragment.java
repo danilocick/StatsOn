@@ -20,7 +20,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RivalesFragment extends BaseFragment {
+public class ListaEquiposFragment extends BaseFragment {
 
     private FragmentRivalesBinding binding;
     private StatsOnViewModel statsOnViewModel;
@@ -51,10 +51,10 @@ public class RivalesFragment extends BaseFragment {
         //Ir anyadirjugador
         binding.botonanyadirequipo.setOnClickListener(view1 -> {
             //para volver atras
-            nav.navigate(R.id.action_rivalesFragment_to_addEquipoFragment);
+            nav.navigate(R.id.action_listaEquiposFragment_to_addEquipoFragment);
         });
 
-        db.collection("usuarios").document(auth.getUid()).collection("equipos").addSnapshotListener((value, error) -> {
+        db.collection("usuarios").document(auth.getUid()).collection("equipos").orderBy("nombreEquipo").addSnapshotListener((value, error) -> {
             equipos.clear();
             for(DocumentSnapshot documentSnapshot: value){
                 documentSnapshot.getId();
@@ -82,7 +82,7 @@ public class RivalesFragment extends BaseFragment {
     }
 
     //adaptador bd
-    public class EquiposbdAdapter extends RecyclerView.Adapter<RivalesFragment.EquipoViewHolder>{
+    public class EquiposbdAdapter extends RecyclerView.Adapter<ListaEquiposFragment.EquipoViewHolder>{
 
         List<Equipo> equipoList;
 
@@ -99,7 +99,7 @@ public class RivalesFragment extends BaseFragment {
             holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
             holder.binding.background.setOnClickListener(view -> {
                 viewmodel.idEquipoSeleccionado = equipo.idEquipo;
-                nav.navigate(R.id.action_rivalesFragment_to_miEquipoFragment);
+                nav.navigate(R.id.action_listaEquiposFragment_to_miEquipoFragment);
             });
 
         }

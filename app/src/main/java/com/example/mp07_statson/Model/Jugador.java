@@ -50,7 +50,6 @@ public class Jugador {
         this.faltasCometidas = faltasCometidas;
         this.taponesRealizados = taponesRealizados;
         this.taponesRecibidos = taponesRecibidos;
-        this.idEquipo = idEquipo;
         this.starter = starter;
     }
 

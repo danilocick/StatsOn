@@ -34,7 +34,7 @@ public class MiEquipoFragment extends BaseFragment {
 
         binding.botonComeBack.setOnClickListener(view1 -> { nav.popBackStack(); });
 
-        binding.botonanyadirjugador.setOnClickListener(view12 -> nav.navigate(R.id.action_resultadoMenuFragment_to_addJugadorFragment));
+        binding.botonanyadirjugador.setOnClickListener(view12 -> nav.navigate(R.id.action_miEquipoFragment_to_addJugadorFragment));
 
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
@@ -68,7 +68,7 @@ public class MiEquipoFragment extends BaseFragment {
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
             holder.binding.background.setOnClickListener(v->{
-                nav.navigate(R.id.action_resultadoMenuFragment_to_jugadorStatsFragment);
+                nav.navigate(R.id.action_miEquipoFragment_to_jugadorStatsFragment);
             });
         }
 

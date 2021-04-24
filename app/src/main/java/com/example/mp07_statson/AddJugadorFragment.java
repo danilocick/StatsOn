@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
-import com.example.mp07_statson.FirebaseAdministrator.EquipoFirebase;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 
@@ -50,7 +49,7 @@ public class AddJugadorFragment extends BaseFragment {
                         String id = documentReference.getId();
                         db.collection("usuarios").document(auth.getUid()).collection("jugadores").document(id).set(equipo);
                         //document
-                        db.collection("usuarios").document(auth.getUid()).collection("equipos").document(EquipoFirebase.id_equipo_seleccionado).collection("jugadores").document(id).set(equipo);
+                        db.collection("usuarios").document(auth.getUid()).collection("equipos").document(viewmodel.idEquipoSeleccionado).collection("jugadores").document(id).set(equipo);
                     });
 
             //para volver atras
