@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.ViewModel.StatsOnViewModel;
 import com.example.mp07_statson.databinding.FragmentRivalesBinding;
 import com.example.mp07_statson.databinding.ViewholderEquipoBinding;
@@ -23,24 +24,17 @@ import java.util.List;
 public class ListaEquiposFragment extends BaseFragment {
 
     private FragmentRivalesBinding binding;
-    private StatsOnViewModel statsOnViewModel;
-
-    ArrayList<Equipo> equipos = new ArrayList<>();
     EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
 
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        equipos.clear();
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentRivalesBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        statsOnViewModel = new ViewModelProvider(requireActivity()).get(StatsOnViewModel.class);
 
         //ComeBack
         binding.botonComeBack.setOnClickListener(view12 -> {
@@ -54,28 +48,16 @@ public class ListaEquiposFragment extends BaseFragment {
             nav.navigate(R.id.action_listaEquiposFragment_to_addEquipoFragment);
         });
 
-        db.collection("usuarios").document(auth.getUid()).collection("equipos").orderBy("nombreEquipo").addSnapshotListener((value, error) -> {
-            equipos.clear();
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).orderBy(FirebaseVar.nombreEquipo).addSnapshotListener((value, error) -> {
+            ArrayList<Equipo> equipos = new ArrayList<>();
             for(DocumentSnapshot documentSnapshot: value){
                 documentSnapshot.getId();
-
                 Equipo equipo = documentSnapshot.toObject(Equipo.class);
                 equipo.idEquipo = documentSnapshot.getId();
-
                 equipos.add(equipo);
             }
             equiposbdAdapter.establecerEquipoList(equipos);
         });
-
-
-///*
-//        db.collection("usuarios").document(auth.getUid()).collection("equipos").get().addOnSuccessListener(queryDocumentSnapshots -> {
-//            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
-//                equipos.add(documentSnapshot.toObject(Equipo.class));
-//            }
-//            equiposbdAdapter.establecerEquipoList(equipos);
-//        });
-//*/
 
         //obtener datos de los jugadores de la bd
         binding.listaEquipos.setAdapter(equiposbdAdapter);

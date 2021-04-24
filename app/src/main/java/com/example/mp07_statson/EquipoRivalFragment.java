@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.databinding.FragmentEquipoRivalBinding;
 import com.example.mp07_statson.databinding.ViewholderEquipoBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -49,7 +50,7 @@ public class EquipoRivalFragment extends BaseFragment {
         });
 
         EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
-        db.collection("usuarios").document(auth.getUid()).collection("equipos").get().addOnSuccessListener(queryDocumentSnapshots -> {
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).get().addOnSuccessListener(queryDocumentSnapshots -> {
             ArrayList<Equipo> equipos = new ArrayList<>();
             for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
                 equipos.add(documentSnapshot.toObject(Equipo.class));

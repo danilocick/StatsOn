@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.Equipo;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.databinding.FragmentMiEquipoBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
@@ -38,12 +40,13 @@ public class MiEquipoFragment extends BaseFragment {
 
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
-        db.collection("usuario").document(auth.getUid()).collection("equipos").document(viewmodel.idEquipoSeleccionado).collection("jugadors").get().addOnSuccessListener(queryDocumentSnapshots -> {
+        binding.rostros.setText(viewmodel.idEquipoSeleccionado);
+
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).addSnapshotListener((value, error) -> {
             List<Jugador> jugadors = new ArrayList<>();
-            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+            for(DocumentSnapshot documentSnapshot: value){
                 jugadors.add(documentSnapshot.toObject(Jugador.class));
             }
-
             jugadorAdapter.establecerjugadores(jugadors);
         });
 

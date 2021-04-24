@@ -31,23 +31,18 @@ public class CreateAccountFragment extends BaseFragment {
         binding.login.setOnClickListener(v -> {
             binding.progressBar.setVisibility(View.VISIBLE);
 
-            auth.createUserWithEmailAndPassword(binding.email.getText().toString(), binding.contrasenya.getText().toString())
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            binding.progressBar.setVisibility(View.INVISIBLE);
+            auth.createUserWithEmailAndPassword(binding.email.getText().toString(), binding.contrasenya.getText().toString()).addOnCompleteListener(task -> {
+                        binding.progressBar.setVisibility(View.INVISIBLE);
+                        if (task.isSuccessful()) {
+                            Toast.makeText(requireActivity().getApplicationContext(),
+                                    "Registro Completado",
+                                    Toast.LENGTH_LONG).show();
+                            nav.popBackStack();
 
-                            if (task.isSuccessful()) {
-                                Toast.makeText(requireActivity().getApplicationContext(),
-                                        "Registro Completado",
-                                        Toast.LENGTH_LONG).show();
-                                nav.popBackStack();
-
-                            } else {
-                                Toast.makeText(requireActivity().getApplicationContext(),
-                                        task.getException().getMessage(),
-                                        Toast.LENGTH_LONG).show();
-                            }
+                        } else {
+                            Toast.makeText(requireActivity().getApplicationContext(),
+                                    task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
                         }
                     });
 

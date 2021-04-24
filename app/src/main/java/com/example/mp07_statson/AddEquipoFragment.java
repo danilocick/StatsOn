@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.databinding.FragmentAddEquipoBinding;
 
 import java.util.UUID;
@@ -45,10 +46,10 @@ public class AddEquipoFragment extends BaseFragment {
 
             //guarda el equipo
             Equipo equipo = new Equipo(nombre, imagen);
-            db.collection("equipos").add(equipo)
+            db.collection(FirebaseVar.EQUIPOS).add(equipo)
                     .addOnSuccessListener(documentReference -> {
                         String id = documentReference.getId();
-                        db.collection("usuarios").document(auth.getUid()).collection("equipos").document(id).set(equipo);
+                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(id).set(equipo);
                     });
 
             //para volver atras

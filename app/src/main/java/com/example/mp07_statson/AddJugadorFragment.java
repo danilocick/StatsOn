@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 
@@ -43,16 +44,15 @@ public class AddJugadorFragment extends BaseFragment {
                 viewmodel.imagenJugadorSeleccionada = null;
             }
 
-            Jugador equipo = new Jugador(nombre, dorsal ,imagen);
-            db.collection("jugadores").add(equipo)
+            Jugador jugador = new Jugador(nombre, dorsal ,imagen);
+            db.collection("jugadores").add(jugador)
                     .addOnSuccessListener(documentReference -> {
                         String id = documentReference.getId();
-                        db.collection("usuarios").document(auth.getUid()).collection("jugadores").document(id).set(equipo);
+                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.JUGADORES).document(id).set(jugador);
                         //document
-                        db.collection("usuarios").document(auth.getUid()).collection("equipos").document(viewmodel.idEquipoSeleccionado).collection("jugadores").document(id).set(equipo);
+                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(id).set(jugador);
                     });
 
-            //para volver atras
             nav.popBackStack();
         });
 
