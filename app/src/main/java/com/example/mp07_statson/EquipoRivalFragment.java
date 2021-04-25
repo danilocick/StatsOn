@@ -24,7 +24,6 @@ import java.util.List;
 public class EquipoRivalFragment extends BaseFragment {
 
     private FragmentEquipoRivalBinding binding;
-    boolean seleccionado = false;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,19 +34,7 @@ public class EquipoRivalFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //insertar nombre rival
-        binding.botonSiguienteERival.setOnClickListener(v -> {
-                nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
-        });
-
-
-        binding.botonComeBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //para volver atras
-                nav.popBackStack();
-            }
-        });
+        binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
         EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -81,13 +68,9 @@ public class EquipoRivalFragment extends BaseFragment {
             holder.binding.background.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (!seleccionado){
-                        holder.binding.background.setBackgroundColor(Color.rgb(218,165,32));
-                        seleccionado = true;
-                    }else {
-                            holder.binding.background.setBackgroundColor(Color.rgb(255, 255, 255));
-                            seleccionado = false;
-                    }
+                    viewmodel.idEquipoLocal = FirebaseVar.ID_SANTACOLOMA;
+                    //viewmodel.idEquipoVisitante = equipo.idEquipo;
+                    nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
                 }
 
             });
