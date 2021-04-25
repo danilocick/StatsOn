@@ -33,7 +33,6 @@ public class EquipoAFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //TODO: int m que se coja bien el numero, sin errores.
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
         db.collection(FirebaseVar.JUGADORES).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -44,7 +43,6 @@ public class EquipoAFragment extends BaseFragment {
             }
             jugadorAdapter.establecerjugadores(jugadors);
         });
-//        }
 
         binding.listaJugadores.setAdapter(jugadorAdapter);
     }

@@ -22,4 +22,6 @@ public class StatsOnViewModel extends ViewModel {
     public int periodos;
     public int minutosPE;
 
+
+
 }

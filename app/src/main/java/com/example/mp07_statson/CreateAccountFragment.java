@@ -32,20 +32,18 @@ public class CreateAccountFragment extends BaseFragment {
             binding.progressBar.setVisibility(View.VISIBLE);
 
             auth.createUserWithEmailAndPassword(binding.email.getText().toString(), binding.contrasenya.getText().toString()).addOnCompleteListener(task -> {
-                        binding.progressBar.setVisibility(View.INVISIBLE);
-                        if (task.isSuccessful()) {
-                            Toast.makeText(requireActivity().getApplicationContext(),
-                                    "Registro Completado",
-                                    Toast.LENGTH_LONG).show();
-                            nav.popBackStack();
-
-                        } else {
-                            Toast.makeText(requireActivity().getApplicationContext(),
-                                    task.getException().getMessage(),
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
-
+                binding.progressBar.setVisibility(View.INVISIBLE);
+                if (task.isSuccessful()) {
+                    Toast.makeText(requireActivity().getApplicationContext(),
+                            "Registro Completado",
+                            Toast.LENGTH_LONG).show();
+                    nav.popBackStack();
+                } else {
+                    Toast.makeText(requireActivity().getApplicationContext(),
+                            task.getException().getMessage(),
+                            Toast.LENGTH_LONG).show();
+                }
+            });
         });
 
 

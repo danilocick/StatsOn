@@ -136,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="190dp">
                     <org.eazegraph.lib.charts.PieChart
-                        android:id="@+id/piechart"
+                        android:id="@+id/t2_piechart"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -146,7 +146,7 @@
                         app:egAutoCenter="false"/>
 
                     <org.eazegraph.lib.charts.PieChart
-                        android:id="@+id/piechart2"
+                        android:id="@+id/t3_piechart"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -155,7 +155,7 @@
                         app:egAutoCenter="false"/>
 
                     <org.eazegraph.lib.charts.PieChart
-                        android:id="@+id/piechart3"
+                        android:id="@+id/tl_piechart"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

@@ -46,13 +46,11 @@ public class AddEquipoFragment extends BaseFragment {
 
             //guarda el equipo
             Equipo equipo = new Equipo(nombre, imagen);
-            db.collection(FirebaseVar.EQUIPOS).add(equipo)
-                    .addOnSuccessListener(documentReference -> {
-                        String id = documentReference.getId();
-                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(id).set(equipo);
-                    });
+            db.collection(FirebaseVar.EQUIPOS).add(equipo).addOnSuccessListener(documentReference -> {
+                String id = documentReference.getId();
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(id).set(equipo);
+            });
 
-            //para volver atras
             nav.popBackStack();
         });
 

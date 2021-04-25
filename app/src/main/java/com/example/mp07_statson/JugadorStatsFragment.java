@@ -9,15 +9,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.bumptech.glide.Glide;
 import com.example.mp07_statson.databinding.FragmentJugadorStatsBinding;
 
 import org.eazegraph.lib.charts.BarChart;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.BarModel;
 import org.eazegraph.lib.models.PieModel;
-
-import static java.lang.String.valueOf;
 
 public class JugadorStatsFragment extends BaseFragment {
 
@@ -59,25 +56,23 @@ public class JugadorStatsFragment extends BaseFragment {
 
         mBarChart.startAnimation();
         //STATSQUESO
-        PieChart mPieChart;
-        PieChart mPieChart2;
-        PieChart mPieChart3;
-        mPieChart = (PieChart) binding.piechart;
-        mPieChart2 = (PieChart) binding.piechart2;
-        mPieChart3 = (PieChart) binding.piechart3;
+        PieChart t2pieChart, t3piechart, tlpiechart;
+        t2pieChart = (PieChart) binding.t2Piechart;
+        t3piechart = (PieChart) binding.t3Piechart;
+        tlpiechart = (PieChart) binding.tlPiechart;
 
-        mPieChart.addPieSlice(new PieModel("T2 Fallados", T2F, Color.parseColor("#FF7F7F")));
-        mPieChart.addPieSlice(new PieModel("T2 Anotados", T2A, Color.parseColor("#85182A")));
+        t2pieChart.addPieSlice(new PieModel("T2 Fallados", T2F, Color.parseColor("#FF7F7F")));
+        t2pieChart.addPieSlice(new PieModel("T2 Anotados", T2A, Color.parseColor("#85182A")));
 
-        mPieChart2.addPieSlice(new PieModel("T3 Fallados", T3F, Color.parseColor("#FF7F7F")));
-        mPieChart2.addPieSlice(new PieModel("T3 Anotados", T3A, Color.parseColor("#85182A")));
+        t3piechart.addPieSlice(new PieModel("T3 Fallados", T3F, Color.parseColor("#FF7F7F")));
+        t3piechart.addPieSlice(new PieModel("T3 Anotados", T3A, Color.parseColor("#85182A")));
 
-        mPieChart3.addPieSlice(new PieModel("TL Fallados", TLF, Color.parseColor("#FF7F7F")));
-        mPieChart3.addPieSlice(new PieModel("TL Anotados", TLA, Color.parseColor("#85182A")));
+        tlpiechart.addPieSlice(new PieModel("TL Fallados", TLF, Color.parseColor("#FF7F7F")));
+        tlpiechart.addPieSlice(new PieModel("TL Anotados", TLA, Color.parseColor("#85182A")));
 
-        mPieChart.startAnimation();
-        mPieChart2.startAnimation();
-        mPieChart3.startAnimation();
+        t2pieChart.startAnimation();
+        t3piechart.startAnimation();
+        tlpiechart.startAnimation();
     }
 
 }

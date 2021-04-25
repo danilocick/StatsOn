@@ -15,8 +15,6 @@ import com.example.mp07_statson.databinding.FragmentEditJugadorBinding;
 
 public class EditJugadorFragment extends BaseFragment {
 
-    //TODO:ALL
-
     private FragmentEditJugadorBinding binding;
 
     @Override
@@ -28,14 +26,5 @@ public class EditJugadorFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
     }
-
-    private final ActivityResultLauncher<String> lanzadorGaleria =
-            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
-                viewmodel.imagenJugadorSeleccionada = uri;
-                Glide.with(requireView()).load(uri).into(binding.imagenJugador);
-            });
-
 }
