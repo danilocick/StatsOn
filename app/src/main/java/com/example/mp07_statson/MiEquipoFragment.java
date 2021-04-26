@@ -39,9 +39,9 @@ public class MiEquipoFragment extends BaseFragment {
 
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
-        binding.miEquipo.setText(viewmodel.equipoSeleccionado.nombreEquipo.toString());
+        binding.rostros.setText(viewmodel.idEquipoSeleccionado);
 
-        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.equipoSeleccionado.idEquipo).collection(FirebaseVar.JUGADORES).addSnapshotListener((value, error) -> {
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).addSnapshotListener((value, error) -> {
             List<Jugador> jugadors = new ArrayList<>();
             for(DocumentSnapshot documentSnapshot: value){
                 jugadors.add(documentSnapshot.toObject(Jugador.class));

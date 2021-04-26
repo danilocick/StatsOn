@@ -35,6 +35,7 @@ public class MenuFragment extends BaseFragment {
 
         binding.botonMiEquipo.setOnClickListener(view13 ->{
             createSantaColoma();
+            viewmodel.idEquipoSeleccionado = FirebaseVar.ID_SANTACOLOMA;
             nav.navigate(R.id.action_menuFragment_to_resultadoMenuFragment);
         });
 
@@ -57,10 +58,8 @@ public class MenuFragment extends BaseFragment {
     private void createSantaColoma() {
         String imagen = "file:///android_asset/santacoloma.png";
         Equipo equipo = new Equipo("Santa Coloma",imagen);
-        equipo.idEquipo = FirebaseVar.ID_SANTACOLOMA;
         db.collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).set(equipo).addOnSuccessListener(documentReference -> {
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).set(equipo);
-            viewmodel.equipoSeleccionado = equipo;
         });
     }
 
