@@ -117,6 +117,8 @@
     <string name="anyadirequipo">Añadir equipo rival</string>
     <string name="equipo">Equipo</string>
     <string name="nombreEquipo">Nombre equipo</string>
+    <string name="crearcuernta">Crear cuenta</string>
+    <string name="registrarse">Registrarse</string>
 
     <!--table-->
     <string-array name="header_table">

@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/postnobillsjaffna_extrabold"
-                android:text="@string/santaColoma"
+                android:text="@string/jugadores"
                 android:textSize="33sp"
                 android:gravity="end|bottom"
                 android:paddingTop="72dp"/>
@@ -113,7 +113,8 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"/>
+            app:spanCount="2"
+            tools:listitem="@layout/viewholder_jugador_equipo_a" />
 
         <Button android:id="@+id/botonanyadirjugador"
             android:layout_width="match_parent"
