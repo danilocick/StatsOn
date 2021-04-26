@@ -7,13 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.FirebaseVar;
-import com.example.mp07_statson.ViewModel.StatsOnViewModel;
 import com.example.mp07_statson.databinding.FragmentRivalesBinding;
 import com.example.mp07_statson.databinding.ViewholderEquipoBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -81,6 +79,7 @@ public class ListaEquiposFragment extends BaseFragment {
             holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
             holder.binding.background.setOnClickListener(view -> {
                 viewmodel.idEquipoSeleccionado = equipo.idEquipo;
+                viewmodel.equipoSeleccionado = equipo;
                 nav.navigate(R.id.action_listaEquiposFragment_to_miEquipoFragment);
             });
 
