@@ -1,7 +1,6 @@
 package com.example.mp07_statson;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,6 @@ import androidx.annotation.Nullable;
 import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.databinding.FragmentMenuBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
@@ -38,7 +35,6 @@ public class MenuFragment extends BaseFragment {
 
         binding.botonMiEquipo.setOnClickListener(view13 ->{
             createSantaColoma();
-            viewmodel.idEquipoSeleccionado = FirebaseVar.ID_SANTACOLOMA;
             nav.navigate(R.id.action_menuFragment_to_resultadoMenuFragment);
         });
 
@@ -61,8 +57,10 @@ public class MenuFragment extends BaseFragment {
     private void createSantaColoma() {
         String imagen = "file:///android_asset/santacoloma.png";
         Equipo equipo = new Equipo("Santa Coloma",imagen);
+        equipo.idEquipo = FirebaseVar.ID_SANTACOLOMA;
         db.collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).set(equipo).addOnSuccessListener(documentReference -> {
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).set(equipo);
+            viewmodel.equipoSeleccionado = equipo;
         });
     }
 

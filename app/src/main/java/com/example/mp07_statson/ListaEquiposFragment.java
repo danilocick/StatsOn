@@ -78,7 +78,6 @@ public class ListaEquiposFragment extends BaseFragment {
             Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
             holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
             holder.binding.background.setOnClickListener(view -> {
-                viewmodel.idEquipoSeleccionado = equipo.idEquipo;
                 viewmodel.equipoSeleccionado = equipo;
                 nav.navigate(R.id.action_listaEquiposFragment_to_miEquipoFragment);
             });
