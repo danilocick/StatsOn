@@ -127,7 +127,8 @@
             android:layout_marginHorizontal="15dp"
             android:background="@drawable/boton_sombra_blanco"
             android:fontFamily="@font/postnobillsjaffna_bold"
-            android:textSize="17.5sp"/>
+            android:textSize="17.5sp"
+            android:layout_marginBottom="10dp"/>
     </LinearLayout>
 
     <View
@@ -151,17 +152,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/postnobillsjaffna_regular"
-            android:text="@string/noCuenta"
+            android:text="@string/siCuenta"
             android:textColor="@color/black"
             android:layout_gravity="center"
             android:paddingEnd="2dp"
             tools:ignore="RtlSymmetry" />
 
-        <TextView android:id="@+id/crearCuenta"
+        <TextView android:id="@+id/iniciarSesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/postnobillsjaffna_bold"
-            android:text="@string/crearCuenta"
+            android:text="@string/login"
             android:textColor="@color/bluelink"
             android:layout_gravity="center"/>
 

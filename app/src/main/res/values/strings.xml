@@ -113,6 +113,7 @@
     <string name="singin">Registrarse</string>
     <string name="crearCuenta">Crear Cuenta</string>
     <string name="noCuenta">¿Todavía no tienes cuenta?</string>
+    <string name="siCuenta">¿Ya tienes cuenta?</string>
     <string name="CerrarSesion">Cerrar Sesion</string>
     <string name="anyadirequipo">Añadir equipo rival</string>
     <string name="equipo">Equipo</string>
