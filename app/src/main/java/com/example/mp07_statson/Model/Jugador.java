@@ -1,12 +1,10 @@
 package com.example.mp07_statson.Model;
 
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 public class Jugador {
 
-    public int idJugador;
+    public String idJugador;
 
     public String nombre;
     public int dorsal;
@@ -27,7 +25,7 @@ public class Jugador {
     public Jugador() {
     }
 
-    public Jugador(int idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int recuperaciones, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRealizados, int taponesRecibidos, int idEquipo, boolean starter) {
+    public Jugador(String idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int recuperaciones, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRealizados, int taponesRecibidos, int idEquipo, boolean starter) {
         this.idJugador = idJugador;
         this.nombre = nombre;
         this.dorsal = dorsal;
@@ -54,11 +52,11 @@ public class Jugador {
     }
 
     @NonNull
-    public int getIdJugador() {
+    public String getIdJugador() {
         return idJugador;
     }
 
-    public void setIdJugador(@NonNull int idJugador) {
+    public void setIdJugador(String idJugador) {
         this.idJugador = idJugador;
     }
     public int getDorsal() {
