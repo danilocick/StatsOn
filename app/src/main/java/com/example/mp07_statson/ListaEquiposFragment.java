@@ -75,13 +75,17 @@ public class ListaEquiposFragment extends BaseFragment {
         @Override
         public void onBindViewHolder(@NonNull EquipoViewHolder holder, int position) {
             Equipo equipo = equipoList.get(position);
-            Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
-            holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
-            holder.binding.background.setOnClickListener(view -> {
-                viewmodel.idEquipoSeleccionado = equipo.idEquipo;
-                viewmodel.nombreEquipoSeleccionado = equipo.nombreEquipo;
-                nav.navigate(R.id.action_listaEquiposFragment_to_miEquipoFragment);
-            });
+            if (equipo.idEquipo.equals(FirebaseVar.ID_SANTACOLOMA)){
+
+            }else {
+                Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
+                holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
+                holder.binding.background.setOnClickListener(view -> {
+                    viewmodel.idEquipoSeleccionado = equipo.idEquipo;
+                    viewmodel.nombreEquipoSeleccionado = equipo.nombreEquipo;
+                    nav.navigate(R.id.action_listaEquiposFragment_to_miEquipoFragment);
+                });
+            }
 
         }
 
