@@ -1,5 +1,6 @@
 package com.example.mp07_statson;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import java.util.List;
 public class equipoBFragment extends BaseFragment {
 
     private FragmentEquipoB2Binding binding;
+    int contador = 0;
     JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
 
@@ -62,12 +64,18 @@ public class equipoBFragment extends BaseFragment {
             Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugador);
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
-
-            holder.binding.background.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //TODO:Something
+            holder.binding.background.setOnClickListener(v->{
+                viewmodel.jugadorSeleccionado = jugador;
+                if(!jugador.starter && contador<5) {
+                    holder.binding.background.setBackgroundColor(Color.rgb(200,0,0));
+                    jugador.starter = true;
+                    contador++;
+                }else if(jugador.starter){
+                    holder.binding.background.setBackgroundColor(Color.rgb(255,255,255));
+                    jugador.starter = false;
+                    contador--;
                 }
+
             });
         }
 

@@ -1,5 +1,6 @@
 package com.example.mp07_statson;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +19,13 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class EquipoAFragment extends BaseFragment {
 
     private FragmentEquipoABinding binding;
+    int contador = 0;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +64,19 @@ public class EquipoAFragment extends BaseFragment {
             Glide.with(holder.itemView).load(jugador.imagen).into(holder.binding.imagenJugador);
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
+            holder.binding.background.setOnClickListener(v->{
+                viewmodel.jugadorSeleccionado = jugador;
+                if(!jugador.starter && contador<5) {
+                    holder.binding.background.setBackgroundColor(Color.rgb(200,0,0));
+                    jugador.starter = true;
+                    contador++;
+                }else if(jugador.starter){
+                    holder.binding.background.setBackgroundColor(Color.rgb(255,255,255));
+                    jugador.starter = false;
+                    contador--;
+                }
+
+            });
         }
 
         @Override
