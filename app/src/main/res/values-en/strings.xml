@@ -59,4 +59,9 @@
     <string name="noCuenta">Don\'t have an account?</string>
     <string name="equipo">Team</string>
     <string name="nombreEquipo">Team name</string>
+    <string name="siCuenta">"Already have an account? "</string>
+    <string name="crearcuernta">"Create Account "</string>
+    <string name="registrarse">"Check in "</string>
+    <string name="seleccinaRival">"Select rival team for the match: "</string>
+    <string name="partidoos">Matches</string>
 </resources>

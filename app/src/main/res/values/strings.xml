@@ -35,6 +35,7 @@
     <string name="anyadirjugador">Añadir Jugador</string>
     <string name="rivales">Equipos rivales</string>
     <string name="partidos">Partidos</string>
+    <string name="partidoos">Partidos</string>
 
     <!--opciones-->
     <string name="minutos">Minutos</string>
@@ -120,6 +121,7 @@
     <string name="nombreEquipo">Nombre equipo</string>
     <string name="crearcuernta">Crear cuenta</string>
     <string name="registrarse">Registrarse</string>
+    <string name="seleccinaRival">Selecciona equipo rival para el partido:</string>
 
     <!--table-->
     <string-array name="header_table">
