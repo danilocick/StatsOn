@@ -62,8 +62,12 @@ public class EquipoRivalFragment extends BaseFragment {
         @Override
         public void onBindViewHolder(@NonNull EquipoViewHolder holder, int position) {
             Equipo equipo = equipoList.get(position);
-            Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
-            holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
+            if (equipo.idEquipo.equals(FirebaseVar.ID_SANTACOLOMA)){
+
+            }else {
+                Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
+                holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
+            }
             holder.binding.background.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
