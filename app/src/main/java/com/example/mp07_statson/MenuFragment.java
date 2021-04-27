@@ -60,15 +60,11 @@ public class MenuFragment extends BaseFragment {
         Equipo equipo = new Equipo("Santa Coloma",imagen);
         db.collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).set(equipo).addOnSuccessListener(documentReference -> {
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).set(equipo);
+
+
+            db.collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).update("idEquipo", FirebaseVar.ID_SANTACOLOMA);
+            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).update("idEquipo", FirebaseVar.ID_SANTACOLOMA);
         });
     }
-
-    //            db.collection(FirebaseVar.EQUIPOS).document(FirebaseVar.ID_SANTACOLOMA).get().addOnCompleteListener(task -> {
-//                DocumentSnapshot document = task.getResult();
-//                if (document.exists()) {
-//                    viewmodel.idEquipoSeleccionado = FirebaseVar.ID_SANTACOLOMA;
-//                } else {
-//                }
-//            });
 
 }

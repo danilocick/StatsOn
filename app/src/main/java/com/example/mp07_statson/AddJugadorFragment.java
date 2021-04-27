@@ -45,12 +45,17 @@ public class AddJugadorFragment extends BaseFragment {
             }
 
             Jugador jugador = new Jugador(nombre, dorsal ,imagen);
-            db.collection("jugadores").add(jugador).addOnSuccessListener(documentReference -> {
+            db.collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
                 String id = documentReference.getId();
+                db.collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(id).set(jugador);
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.JUGADORES).document(id).set(jugador);
-
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(id).set(jugador);
-                db.collection(FirebaseVar.JUGADORES).document(id).set(jugador);
+
+
+                db.collection(FirebaseVar.JUGADORES).document(id).update("idJugador",id);
+                db.collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(id).update("idJugador",id);
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.JUGADORES).document(id).update("idJugador",id);
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(id).update("idJugador",id);
             });
 
             nav.popBackStack();
