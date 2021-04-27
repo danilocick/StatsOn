@@ -1,6 +1,5 @@
 package com.example.mp07_statson;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +71,6 @@ public class EquipoRivalFragment extends BaseFragment {
                     //viewmodel.idEquipoVisitante = equipo.idEquipo;
                     nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
                 }
-
             });
 
         }

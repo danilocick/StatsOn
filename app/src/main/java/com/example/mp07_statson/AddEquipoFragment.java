@@ -49,6 +49,8 @@ public class AddEquipoFragment extends BaseFragment {
             db.collection(FirebaseVar.EQUIPOS).add(equipo).addOnSuccessListener(documentReference -> {
                 String id = documentReference.getId();
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(id).set(equipo);
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(id).update("idEquipo",id);
+                db.collection(FirebaseVar.EQUIPOS).document(id).update("idEquipo",id);
             });
 
             nav.popBackStack();
