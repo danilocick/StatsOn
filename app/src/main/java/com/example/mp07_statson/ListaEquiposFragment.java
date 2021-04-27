@@ -52,7 +52,9 @@ public class ListaEquiposFragment extends BaseFragment {
                 documentSnapshot.getId();
                 Equipo equipo = documentSnapshot.toObject(Equipo.class);
                 equipo.idEquipo = documentSnapshot.getId();
-                equipos.add(equipo);
+                if (!equipo.idEquipo.equals(FirebaseVar.ID_SANTACOLOMA)) {
+                    equipos.add(equipo);
+                }
             }
             equiposbdAdapter.establecerEquipoList(equipos);
         });
@@ -75,9 +77,6 @@ public class ListaEquiposFragment extends BaseFragment {
         @Override
         public void onBindViewHolder(@NonNull EquipoViewHolder holder, int position) {
             Equipo equipo = equipoList.get(position);
-            if (equipo.idEquipo.equals(FirebaseVar.ID_SANTACOLOMA)){
-
-            }else {
                 Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
                 holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
                 holder.binding.background.setOnClickListener(view -> {
@@ -85,7 +84,6 @@ public class ListaEquiposFragment extends BaseFragment {
                     viewmodel.nombreEquipoSeleccionado = equipo.nombreEquipo;
                     nav.navigate(R.id.action_listaEquiposFragment_to_miEquipoFragment);
                 });
-            }
 
         }
 

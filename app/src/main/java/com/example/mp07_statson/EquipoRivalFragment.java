@@ -36,10 +36,15 @@ public class EquipoRivalFragment extends BaseFragment {
         binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
         EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
-        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).get().addOnSuccessListener(queryDocumentSnapshots -> {
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).orderBy(FirebaseVar.nombreEquipo).addSnapshotListener((value, error) -> {
             ArrayList<Equipo> equipos = new ArrayList<>();
-            for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
-                equipos.add(documentSnapshot.toObject(Equipo.class));
+            for(DocumentSnapshot documentSnapshot: value){
+                documentSnapshot.getId();
+                Equipo equipo = documentSnapshot.toObject(Equipo.class);
+                equipo.idEquipo = documentSnapshot.getId();
+                if (!equipo.idEquipo.equals(FirebaseVar.ID_SANTACOLOMA)) {
+                    equipos.add(equipo);
+                }
             }
 
             equiposbdAdapter.establecerEquipoList(equipos);
@@ -62,16 +67,13 @@ public class EquipoRivalFragment extends BaseFragment {
         @Override
         public void onBindViewHolder(@NonNull EquipoViewHolder holder, int position) {
             Equipo equipo = equipoList.get(position);
-            if (equipo.idEquipo.equals(FirebaseVar.ID_SANTACOLOMA)){
-
-            }else {
-                Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
-                holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
-            }
+            Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
+            holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
             holder.binding.background.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     viewmodel.idEquipoLocal = FirebaseVar.ID_SANTACOLOMA;
+                    viewmodel.idEquipoSeleccionado = equipo.idEquipo;
                     //viewmodel.idEquipoVisitante = equipo.idEquipo;
                     nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
                 }
