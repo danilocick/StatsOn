@@ -36,6 +36,7 @@ public class MenuFragment extends BaseFragment {
         binding.botonMiEquipo.setOnClickListener(view13 ->{
             createSantaColoma();
             viewmodel.idEquipoSeleccionado = FirebaseVar.ID_SANTACOLOMA;
+            viewmodel.nombreEquipoSeleccionado = "Santa Coloma";
             nav.navigate(R.id.action_menuFragment_to_resultadoMenuFragment);
         });
 

@@ -39,7 +39,7 @@ public class MiEquipoFragment extends BaseFragment {
 
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
-        binding.rostros.setText(viewmodel.idEquipoSeleccionado);
+        binding.miEquipo.setText(viewmodel.nombreEquipoSeleccionado);
 
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).addSnapshotListener((value, error) -> {
             List<Jugador> jugadors = new ArrayList<>();
