@@ -23,10 +23,7 @@ public class GameFragment extends BaseFragment {
     private int marcadorLocal = 0;
     private int marcadorVisitante = 0;
     private int cuarto = 0;
-    private CountDownTimer mCountDownTimer;
-    private boolean mTimerRunning;
-    private static final long START_TIME_IN_MILLIS = 600000;
-    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+
     /*https://codinginflow.com/tutorials/android/countdowntimer/part-1-countdown-timer*/
 
     @Override
@@ -38,15 +35,8 @@ public class GameFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //Load PopUps
-        View popupViewAsistencia = LayoutInflater.from(getActivity()).inflate(popup_asistencia, null);
-        //POPUP
-        final PopupWindow popupWindowAsistencia = new PopupWindow(popupViewAsistencia, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        popupWindowAsistencia.setOutsideTouchable(true);
-        popupWindowAsistencia.setFocusable(true);
-
         binding.start.setOnClickListener(view17 ->{
-                if (mTimerRunning) {
+                if (partidoviewmodel.mTimerRunning) {
                     pauseTimer();
                 } else {
                     startTimer();
@@ -98,27 +88,27 @@ public class GameFragment extends BaseFragment {
     }
 
     private void startTimer() {
-        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+        partidoviewmodel.mCountDownTimer = new CountDownTimer(partidoviewmodel.mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                mTimeLeftInMillis = millisUntilFinished;
+                partidoviewmodel.mTimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
             }
             @Override
             public void onFinish() {
-                mTimerRunning = false;
+                partidoviewmodel.mTimerRunning = false;
                 binding.chronometer.setVisibility(View.INVISIBLE);
             }
         }.start();
-        mTimerRunning = true;
+        partidoviewmodel.mTimerRunning = true;
     }
     private void pauseTimer() {
-        mCountDownTimer.cancel();
-        mTimerRunning = false;
+        partidoviewmodel.mCountDownTimer.cancel();
+        partidoviewmodel.mTimerRunning = false;
     }
     private void updateCountDownText() {
-        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
-        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+        int minutes = (int) (partidoviewmodel.mTimeLeftInMillis / 1000) / 60;
+        int seconds = (int) (partidoviewmodel.mTimeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         binding.chronometer.setText(timeLeftFormatted);
     }

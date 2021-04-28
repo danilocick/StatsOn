@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.mp07_statson.ViewModel.PartidoViewModel;
 import com.example.mp07_statson.ViewModel.StatsOnViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,12 +22,14 @@ public class BaseFragment extends Fragment {
     public FirebaseFirestore db;
     public FirebaseStorage stor;
     public StatsOnViewModel viewmodel;
+    public PartidoViewModel partidoviewmodel;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         viewmodel = new ViewModelProvider(requireActivity()).get(StatsOnViewModel.class);
+        partidoviewmodel = new ViewModelProvider(requireActivity()).get(PartidoViewModel.class);
         if(getParentFragment() != null) {
             nav = Navigation.findNavController(getParentFragment().getView());
         } else {

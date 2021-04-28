@@ -43,6 +43,8 @@ public class equipoBFragment extends BaseFragment {
                 jugadors.add(documentSnapshot.toObject(Jugador.class));
             }
             jugadorAdapter.establecerjugadores(jugadors);
+            partidoviewmodel.jugadoresEquipoVisitante = new ArrayList<>();
+            partidoviewmodel.jugadoresEquipoVisitante = jugadors;
         });
 
         binding.listaJugadoresTeamB.setAdapter(jugadorAdapter);

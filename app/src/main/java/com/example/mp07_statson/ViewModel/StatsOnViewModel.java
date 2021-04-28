@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel;
 import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.Jugador;
 
+import java.util.List;
+
 public class StatsOnViewModel extends ViewModel {
 
     //equipos
@@ -27,9 +29,9 @@ public class StatsOnViewModel extends ViewModel {
     //Seleccion partido nuevo
     public String idEquipoLocal;
     public String idEquipoVisitante;
-    public String idPartido;
-    public boolean local;
     public String nombreEquipoLocal;
     public String nombreEquipoVisitante;
+
+    public String idPartido;
 
 }
