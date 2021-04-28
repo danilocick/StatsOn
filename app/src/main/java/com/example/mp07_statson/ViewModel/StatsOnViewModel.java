@@ -28,4 +28,8 @@ public class StatsOnViewModel extends ViewModel {
     public String idEquipoLocal;
     public String idEquipoVisitante;
     public String idPartido;
+    public boolean local;
+    public String nombreEquipoLocal;
+    public String nombreEquipoVisitante;
+
 }

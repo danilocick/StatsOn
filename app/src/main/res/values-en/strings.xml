@@ -64,4 +64,5 @@
     <string name="registrarse">"Check in "</string>
     <string name="seleccinaRival">"Select rival team for the match: "</string>
     <string name="partidoos">Matches</string>
+    <string name="jugarasComoLocal">Will you play as a local or a visitor?</string>
 </resources>

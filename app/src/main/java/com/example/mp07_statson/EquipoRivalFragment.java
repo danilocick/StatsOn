@@ -69,14 +69,20 @@ public class EquipoRivalFragment extends BaseFragment {
             Equipo equipo = equipoList.get(position);
             Glide.with(holder.itemView).load(equipo.imagen).into(holder.binding.imagenEquipo);
             holder.binding.nombreEquipo.setText(equipo.nombreEquipo);
-            holder.binding.background.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            holder.binding.background.setOnClickListener(view -> {
+
+                if (binding.iconSwitch.isChecked()){
+                    viewmodel.idEquipoLocal = equipo.idEquipo;
+                    viewmodel.nombreEquipoLocal = equipo.nombreEquipo;
+                    viewmodel.idEquipoVisitante = FirebaseVar.ID_SANTACOLOMA;
+                    viewmodel.nombreEquipoVisitante = "Santa Coloma";
+                }else {
                     viewmodel.idEquipoLocal = FirebaseVar.ID_SANTACOLOMA;
-                    viewmodel.idEquipoSeleccionado = equipo.idEquipo;
-                    //viewmodel.idEquipoVisitante = equipo.idEquipo;
-                    nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
+                    viewmodel.nombreEquipoLocal = "Santa Coloma";
+                    viewmodel.idEquipoVisitante = equipo.idEquipo;
+                    viewmodel.nombreEquipoVisitante = equipo.nombreEquipo;
                 }
+                nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
             });
 
         }

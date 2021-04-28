@@ -64,4 +64,5 @@
     <string name="registrarse">Registrarse</string>
     <string name="seleccinaRival">Selecciona equipo rival para el partido:</string>
     <string name="partidoos">Partidos</string>
+    <string name="jugarasComoLocal">Jugarás como local o visitante?</string>
 </resources>

@@ -41,12 +41,25 @@
         android:background="@drawable/title_backgroud"/>
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/jugarasComoLocal"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/postnobillsjaffna_extrabold"
+        android:textSize="18sp"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textColor="@color/black"/>
+
     <LinearLayout android:id="@+id/linearChange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
         android:background="@drawable/recyclerv_round_black"
         android:orientation="horizontal">
         <TextView
@@ -58,20 +71,26 @@
             android:layout_gravity="center"
             android:textSize="16sp"
             android:layout_weight="1"/>
-        <com.polyak.iconswitch.IconSwitch
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/icon_switch"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            app:isw_thumb_color_left="@color/reddark"
-            app:isw_thumb_color_right="@color/redwhite"
-            app:isw_inactive_tint_icon_left="@color/black"
-            app:isw_inactive_tint_icon_right="@color/black"
-            app:isw_background_color="@color/white"
-            app:isw_active_tint_icon_left="@color/white"
-            app:isw_active_tint_icon_right="@color/black_30"
-            app:isw_icon_left="@drawable/home"
-            app:isw_icon_right="@drawable/away" />
+            android:layout_height="wrap_content" />
+<!--        <com.polyak.iconswitch.IconSwitch-->
+<!--            android:id="@+id/icon_switch"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0"-->
+<!--            app:isw_default_selection="left"-->
+<!--            app:isw_thumb_color_left="@color/reddark"-->
+<!--            app:isw_thumb_color_right="@color/redwhite"-->
+<!--            app:isw_inactive_tint_icon_left="@color/black"-->
+<!--            app:isw_inactive_tint_icon_right="@color/black"-->
+<!--            app:isw_background_color="@color/white"-->
+<!--            app:isw_active_tint_icon_left="@color/white"-->
+<!--            app:isw_active_tint_icon_right="@color/black_30"-->
+<!--            app:isw_icon_left="@drawable/home"-->
+<!--            app:isw_icon_right="@drawable/away" />-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,7 +107,7 @@
         android:layout_height="wrap_content"
         android:text="@string/seleccinaRival"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/postnobillsjaffna_extrabold"
         android:textSize="18sp"
         android:textAlignment="textStart"

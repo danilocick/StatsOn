@@ -122,6 +122,7 @@
     <string name="crearcuernta">Crear cuenta</string>
     <string name="registrarse">Registrarse</string>
     <string name="seleccinaRival">Selecciona equipo rival para el partido:</string>
+    <string name="jugarasComoLocal">Jugarás como local o visitante?</string>
 
     <!--table-->
     <string-array name="header_table">

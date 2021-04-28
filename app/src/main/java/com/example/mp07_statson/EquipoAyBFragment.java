@@ -51,10 +51,10 @@ public class EquipoAyBFragment extends BaseFragment {
             switch (position) {
                 case 0:
                 default:
-                    tab.setText("MI EQUIPO");
+                    tab.setText(viewmodel.nombreEquipoLocal);
                     break;
                 case 1:
-                    tab.setText("RIVAL");
+                    tab.setText(viewmodel.nombreEquipoVisitante);
                     break;
             }
         }).attach();
