@@ -12,16 +12,17 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.mp07_statson.Model.FirebaseVar;
+import com.example.mp07_statson.Model.Usuario;
 import com.example.mp07_statson.databinding.FragmentLoginBinding;
-import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.Circle;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.Objects;
 
@@ -40,44 +41,47 @@ public class LoginFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.google.setOnClickListener(view1 -> {
-            signInClient.launch(GoogleSignIn.getClient(requireActivity(), new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).build()).getSignInIntent());
+            signInClientGoogle.launch(GoogleSignIn.getClient(requireActivity(), new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestIdToken(getString(R.string.default_web_client_id)).build()).getSignInIntent());
         });
 
-        binding.facebook.setOnClickListener(view1 -> {});
+        binding.facebook.setOnClickListener(view1 -> {
+        });
 
-        binding.login.setOnClickListener(v->{
+        binding.login.setOnClickListener(v -> {
             binding.progressBar.setVisibility(View.VISIBLE);
 
-            auth.signInWithEmailAndPassword(binding.email.getText().toString(),binding.contrasenya.getText().toString()).addOnCompleteListener(task -> {
-                        binding.progressBar.setVisibility(View.INVISIBLE);
+            auth.signInWithEmailAndPassword(binding.email.getText().toString(), binding.contrasenya.getText().toString()).addOnCompleteListener(task -> {
+                binding.progressBar.setVisibility(View.INVISIBLE);
 
-                        if (task.isSuccessful()){
-                            Toast.makeText(requireActivity().getApplicationContext(), "Access permitted", Toast.LENGTH_LONG).show();
-                            nav.navigate(R.id.action_loginFragment_to_menuFragment);
-
-                        }else {
-                            Toast.makeText(requireActivity().getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    });
+                if (task.isSuccessful()) {
+                    acceder();
+                } else {
+                    Toast.makeText(requireActivity().getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
         });
 
-        binding.crearCuenta.setOnClickListener(v->{nav.navigate(R.id.action_loginFragment_to_createAccountFragment);});
+        binding.crearCuenta.setOnClickListener(v -> nav.navigate(R.id.action_loginFragment_to_createAccountFragment));
 
-        //progressBar
-        Sprite doubleBounce = new Circle();
-        binding.progressBar.setIndeterminateDrawable(doubleBounce);
+        binding.progressBar.setIndeterminateDrawable(new Circle());
     }
 
-    //signInClient GOOGLE
-    ActivityResultLauncher<Intent> signInClient = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+    void acceder() {
+        Toast.makeText(requireActivity().getApplicationContext(), "Access permitted", Toast.LENGTH_LONG).show();
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).set(new Usuario(auth.getCurrentUser().getEmail()), SetOptions.merge());
+        nav.navigate(R.id.action_loginFragment_to_menuFragment);
+    }
+
+    ActivityResultLauncher<Intent> signInClientGoogle = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         try {
-            FirebaseAuth.getInstance().signInWithCredential(GoogleAuthProvider.getCredential(Objects.requireNonNull(GoogleSignIn.getSignedInAccountFromIntent(result.getData()).getResult(ApiException.class)).getIdToken(), null)).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            auth.signInWithCredential(GoogleAuthProvider.getCredential(Objects.requireNonNull(GoogleSignIn.getSignedInAccountFromIntent(result.getData()).getResult(ApiException.class)).getIdToken(), null)).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    nav.navigate(R.id.action_loginFragment_to_menuFragment);
+                    acceder();
                 }
             });
         } catch (ApiException e) {
+
         }
     });
 }

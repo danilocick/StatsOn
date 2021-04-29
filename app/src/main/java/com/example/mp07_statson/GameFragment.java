@@ -5,17 +5,16 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
-
-import static com.example.mp07_statson.R.layout.popup_asistencia;
 
 public class GameFragment extends BaseFragment {
 
@@ -44,6 +43,7 @@ public class GameFragment extends BaseFragment {
         });
         updateCountDownText();
 
+        List<TextView> botonesAbajo = Arrays.asList(binding.dorsalA1, binding.dorsalA2, binding.dorsalA3);
 
         binding.botonAcabarPartido.setOnClickListener(view16 -> nav.navigate(R.id.action_gameFragment_to_menuFragment));
 
