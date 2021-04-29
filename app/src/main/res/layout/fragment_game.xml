@@ -164,7 +164,7 @@
                         android:layout_marginEnd="2dp"
                         android:background="@color/greylight"
                         android:scaleType="centerInside"
-                        android:src="@drawable/tapon" />
+                        android:src="@drawable/taponc" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -185,7 +185,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_f_recibida"
+                        android:id="@+id/imagen_robo"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -195,7 +195,7 @@
                         android:layout_marginEnd="2dp"
                         android:background="@color/greylight"
                         android:scaleType="centerInside"
-                        android:src="@drawable/f_recibida" />
+                        android:src="@drawable/robo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
                         android:text="@string/balonR"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos5"
+                <LinearLayout android:id="@+id/pos3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -215,7 +215,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_f_recibida"
+                        android:id="@+id/imagen_falta_cometida"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -225,7 +225,7 @@
                         android:layout_marginEnd="2dp"
                         android:background="@color/greylight"
                         android:scaleType="centerInside"
-                        android:src="@drawable/f_recibida" />
+                        android:src="@drawable/faltac" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -246,7 +246,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_tapon_ofe"
+                        android:id="@+id/imagen_rebote_ofe"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -286,7 +286,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_f_recibida"
+                        android:id="@+id/imagen_tapon_recibido"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -296,7 +296,7 @@
                         android:layout_marginEnd="2dp"
                         android:background="@color/greylight"
                         android:scaleType="centerInside"
-                        android:src="@drawable/f_recibida" />
+                        android:src="@drawable/taponr" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -307,7 +307,7 @@
                         android:text="@string/taponR"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos5"
+                <LinearLayout android:id="@+id/pos6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -317,7 +317,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_f_recibida"
+                        android:id="@+id/imagen_perdidas"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -327,7 +327,7 @@
                         android:layout_marginEnd="2dp"
                         android:background="@color/greylight"
                         android:scaleType="centerInside"
-                        android:src="@drawable/f_recibida" />
+                        android:src="@drawable/perdida" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -337,7 +337,7 @@
                         android:text="@string/balonP"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos5"
+                <LinearLayout android:id="@+id/pos7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -347,7 +347,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_f_recibida"
+                        android:id="@+id/imagen_falta_recibida"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -357,7 +357,7 @@
                         android:layout_marginEnd="2dp"
                         android:background="@color/greylight"
                         android:scaleType="centerInside"
-                        android:src="@drawable/f_recibida" />
+                        android:src="@drawable/faltar" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -378,7 +378,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_tapon_def"
+                        android:id="@+id/imagen_rebote_def"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
