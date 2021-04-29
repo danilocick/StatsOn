@@ -52,29 +52,37 @@
     <!--game-->
     <string name="teamB">TeamB</string>
     <string name="periodo">Periodo</string>
-
-    <string name="fRecibida">F. Recibida</string>
     <string name="cambio">Cambio</string>
     <string name="tiempoM">Tiempo M.</string>
-    <string name="tapon">Tapón</string>
+
+    <string name="faltaR">Falta recibida</string>
+    <string name="faltaC">Falta cometida</string>
+
+    <string name="taponC">Tapón cometido</string>
+    <string name="taponR">Tapón recibido</string>
+
+    <string name="balonP">Pérdida</string>
+    <string name="balonR">Robo</string>
+
+    <string name="reboteO">Rebote ofensivo</string>
+    <string name="reboteD">Rebote defensivo</string>
 
     <string name="t3mas" translatable="false">T3 +</string>
     <string name="t2mas" translatable="false">T2 +</string>
     <string name="tlmas" translatable="false">TL +</string>
-    <string name="perdida">Pérdida</string>
-
     <string name="t3menos" translatable="false">T3 -</string>
     <string name="t2menos" translatable="false">T2 -</string>
     <string name="tlmenos" translatable="false">TL -</string>
+
+    <string name="asistencia">Asistencia</string>
     <string name="deshacer">Deshacer</string>
 
 
     <!--emergentesGame-->
-    <string name="asistencia">Asistencia</string>
     <string name="robo">Robo</string>
-    <string name="faltaRecibida">F.Recibida</string>
-    <string name="rebote">Rebote</string>
-    <string name="taponRecibido">Tapón Recibido</string>
+    <!-- <string name="faltaRecibida">F.Recibida</string>-->
+    <!-- <string name="rebote">Rebote</string>-->
+    <!-- <string name="taponRecibido">Tapón Recibido</string>-->
 
     <string name="rostro">Rostro</string>
     <string name="iniciarPartido">Iniciar Partido</string>

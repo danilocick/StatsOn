@@ -154,6 +154,37 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/imagen_tapon_cometido"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:background="@color/greylight"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/tapon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/taponC"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/pos2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/recyclerv_round_white_green"
+                    android:orientation="vertical">
+
+                    <ImageButton
                         android:id="@+id/imagen_f_recibida"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -171,20 +202,20 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:layout_gravity="center"
-                        android:text="@string/faltaRecibida"
+                        android:text="@string/balonR"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos2"
+                <LinearLayout android:id="@+id/pos5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:background="@drawable/recyclerv_round_black"
+                    android:background="@drawable/recyclerv_round_white_green"
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_tiempo_m"
+                        android:id="@+id/imagen_f_recibida"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -192,49 +223,18 @@
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="2dp"
-                        android:background="@color/black"
+                        android:background="@color/greylight"
                         android:scaleType="centerInside"
-                        android:src="@drawable/time_out" />
+                        android:src="@drawable/f_recibida" />
 
                     <TextView
-                        android:id="@+id/text_tiempo_m"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:layout_gravity="center"
-                        android:text="@string/tiempoM"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-                <LinearLayout android:id="@+id/pos3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@drawable/recyclerv_round_black"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imagen_cambio"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="2dp"
-                        android:background="@color/black"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/cambio" />
-
-                    <TextView
-                        android:id="@+id/text_cambio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:layout_gravity="center"
-                        android:text="@string/cambio"
-                        android:textColor="@color/white" />
+                        android:gravity="center"
+                        android:text="@string/faltaC"
+                        android:textColor="@color/black" />
                 </LinearLayout>
                 <LinearLayout android:id="@+id/pos4"
                     android:layout_width="match_parent"
@@ -246,7 +246,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_tapon"
+                        android:id="@+id/imagen_tapon_ofe"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -263,7 +263,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:layout_gravity="center"
-                        android:text="@string/tapon"
+                        android:gravity="center"
+                        android:text="@string/reboteO"
                         android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
@@ -274,7 +275,139 @@
                 android:layout_weight="1"
                 android:layout_marginBottom="10dp"
                 android:gravity="center">
+                <!--1a fila-->
                 <LinearLayout android:id="@+id/pos5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/recyclerv_round_white_green"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/imagen_f_recibida"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:background="@color/greylight"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/f_recibida" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/taponR"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/pos5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/recyclerv_round_white_green"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/imagen_f_recibida"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:background="@color/greylight"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/f_recibida" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:layout_gravity="center"
+                        android:text="@string/balonP"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/pos5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/recyclerv_round_white_green"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/imagen_f_recibida"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:background="@color/greylight"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/f_recibida" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/faltaR"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/pos8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/recyclerv_round_white_green"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/imagen_tapon_def"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:background="@color/greylight"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/tapon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/reboteD"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </LinearLayout>
+            <!--3a fila-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="10dp"
+                android:gravity="center">
+                <LinearLayout android:id="@+id/pos9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -304,7 +437,7 @@
                         android:text="@string/t3mas"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos6"
+                <LinearLayout android:id="@+id/pos10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -335,7 +468,7 @@
                         android:text="@string/t2mas"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos7"
+                <LinearLayout android:id="@+id/pos11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -366,7 +499,7 @@
                         android:text="@string/tlmas"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos8"
+                <LinearLayout android:id="@+id/pos12"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -394,17 +527,17 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:layout_gravity="center"
-                        android:text="@string/perdida"
+                        android:text="@string/asistencia"
                         android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
-            <!--3a fila-->
+            <!--4a fila-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center">
-                <LinearLayout android:id="@+id/pos9"
+                <LinearLayout android:id="@+id/pos13"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -435,7 +568,7 @@
                         android:text="@string/t3menos"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos10"
+                <LinearLayout android:id="@+id/pos14"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -466,7 +599,7 @@
                         android:text="@string/t2menos"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos11"
+                <LinearLayout android:id="@+id/pos15"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -496,7 +629,7 @@
                         android:text="@string/tlmenos"
                         android:textColor="@color/black" />
                 </LinearLayout>
-                <LinearLayout android:id="@+id/pos12"
+                <LinearLayout android:id="@+id/pos16"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
