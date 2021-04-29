@@ -15,6 +15,8 @@ import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.databinding.FragmentAddJugadorBinding;
 
+import java.util.UUID;
+
 public class AddJugadorFragment extends BaseFragment {
 
     private FragmentAddJugadorBinding binding;
@@ -45,20 +47,31 @@ public class AddJugadorFragment extends BaseFragment {
             }
 
             Jugador jugador = new Jugador(nombre, dorsal ,imagen);
-            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
+            db.collection(FirebaseVar.USUARIOS).document(auth.getCurrentUser().getEmail()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
                 String id = documentReference.getId();
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(id).update("idJugador",id);
+                db.collection(FirebaseVar.USUARIOS).document(auth.getCurrentUser().getEmail()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(id).update("idJugador",id);
             });
 
             nav.popBackStack();
         });
 
+
+
+
         if (viewmodel.imagenJugadorSeleccionada != null){ Glide.with(this).load(viewmodel.imagenJugadorSeleccionada).into(binding.imagenJugador);}
     }
 
-    private final ActivityResultLauncher<String> lanzadorGaleria =
-            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
-                viewmodel.imagenJugadorSeleccionada = uri;
-                Glide.with(requireView()).load(uri).into(binding.imagenJugador);
-            });
+    ActivityResultLauncher<String> lanzadorGaleria = registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+        Glide.with(requireView()).load(uri).into(binding.imagenJugador);
+        stor.getReference("imagenes/"+ UUID.randomUUID())
+                .putFile(uri)
+                .continueWithTask(task -> task.getResult().getStorage().getDownloadUrl())
+                .addOnSuccessListener(url -> {
+                    viewmodel.imagenJugadorSeleccionada = url;
+
+                });
+
+    });
+
+
 }
