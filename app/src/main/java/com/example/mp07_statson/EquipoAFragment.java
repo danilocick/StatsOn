@@ -67,7 +67,6 @@ public class EquipoAFragment extends BaseFragment {
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
             holder.binding.background.setOnClickListener(v->{
-                viewmodel.jugadorSeleccionado = jugador;
                 if(!jugador.starter && contador<5) {
                     holder.binding.background.setBackgroundColor(Color.rgb(200,0,0));
                     jugador.starter = true;

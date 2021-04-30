@@ -49,6 +49,10 @@ public class GameFragment extends BaseFragment {
 
         binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
+        binding.equipolocal.setText(viewmodel.nombreEquipoLocal);
+        binding.equipovisitante.setText(viewmodel.nombreEquipoVisitante);
+
+        binding.nombreA1.setText(viewmodel.nombreJugadorSeleccionado);
 
         binding.jugB1.setOnClickListener(v -> {
             binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_white_red);

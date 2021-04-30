@@ -19,6 +19,7 @@ public class StatsOnViewModel extends ViewModel {
     //jugadores
     public Uri imagenJugadorSeleccionada;
     public Jugador jugadorSeleccionado;
+    public String nombreJugadorSeleccionado;
 
     //Opciones de partido
     public int minutos;

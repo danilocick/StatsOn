@@ -59,7 +59,7 @@ public class EquipoAyBFragment extends BaseFragment {
             }
         }).attach();
 
-        binding.botonComeBack.setOnClickListener(view1 -> { nav.popBackStack(); });
+        binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
         binding.siguiente.setOnClickListener(view12 -> nav.navigate(R.id.action_equipoAyBFragment_to_gameFragment));
     }
