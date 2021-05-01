@@ -19,6 +19,8 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class EquipoAyBFragment extends BaseFragment {
     private FragmentEquipoAyBBinding binding;
 
+    private int locales, visitantes;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentEquipoAyBBinding.inflate(inflater, container, false)).getRoot();
@@ -63,7 +65,22 @@ public class EquipoAyBFragment extends BaseFragment {
 
         binding.siguiente.setOnClickListener(view12 ->{
 
-            nav.navigate(R.id.action_equipoAyBFragment_to_gameFragment);
+            locales = 0;
+            visitantes = 0;
+
+            for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                if (partidoviewmodel.jugadoresEquipoLocal.get(i).starter) locales++;
+                System.out.println("l: "+locales);
+            }
+
+            for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitante.size(); i++) {
+                if (partidoviewmodel.jugadoresEquipoVisitante.get(i).starter) visitantes++;
+                System.out.println("v: "+visitantes);
+            }
+
+            if (locales==5 && visitantes==5){
+                nav.navigate(R.id.action_equipoAyBFragment_to_gameFragment);
+            }else{} //ERROR MESSAGE
 
         });
     }
