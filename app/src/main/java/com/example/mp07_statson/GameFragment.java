@@ -72,6 +72,14 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.t3masLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).puntos+=3;
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).t3mas+=1;
+                        System.out.println(partidoviewmodel.jugadoresEquipoLocal.get(i).toString());
+                        break;
+                    }
+                }
 
                 binding.marcadorLocal.setText(String.valueOf(partidoviewmodel.partido.puntosLocal));
 
@@ -84,6 +92,13 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.t3menosLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).t3menos+=1;
+                        System.out.println(partidoviewmodel.jugadoresEquipoLocal.get(i).toString());
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -95,6 +110,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.t2masLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).t1menos+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -105,6 +126,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.t2menosLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).contentEquals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).t2menos+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -116,7 +143,13 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.t1masLocal+=1;
 
                 //sumar al jugador
-
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).puntos+=1;
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).t1mas+=1;
+                        break;
+                    }
+                }
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
 
@@ -125,7 +158,15 @@ public class GameFragment extends BaseFragment {
 
             binding.imagenFreeThrowLess.setOnClickListener(view1 -> {
                 partidoviewmodel.partido.t1menosLocal+=1;
+
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).puntos+=3;
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).t3mas+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -136,6 +177,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.asistenciasLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).asistencias+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -146,6 +193,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.taponesRealizadosLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).tapones+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -156,6 +209,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.taponesRecibidosLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).taponesRecibidos+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -166,6 +225,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.robosLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).robos +=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -176,6 +241,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.perdidasLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).perdidas+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -186,6 +257,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.faltasRecibidasLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).faltasRecibidas+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -196,6 +273,12 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.faltasCometidasLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -207,6 +290,13 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.rebotesLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).rebotes+=1;
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesOf+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
@@ -218,6 +308,13 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.partido.rebotesLocal+=1;
 
                 //sumar al jugador
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+                    if (String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal).equals(binding.dorsalA1.getText())){
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).rebotes+=1;
+                        partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesDef+=1;
+                        break;
+                    }
+                }
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 

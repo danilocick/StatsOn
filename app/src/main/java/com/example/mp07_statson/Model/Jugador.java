@@ -9,10 +9,9 @@ public class Jugador {
     public String nombre;
     public int dorsal;
     public String imagen;
-    public int puntos, rebotes, asistencias, recuperaciones, perdidas, tapones,
+    public int puntos, rebotes, asistencias, robos, perdidas, tapones,
             t1mas, t1menos, t2mas, t2menos, t3mas, t3menos,
-            rebotesDef, rebotesOf, faltasRecibidas, faltasCometidas,
-            taponesRealizados, taponesRecibidos;
+            rebotesDef, rebotesOf, faltasRecibidas, faltasCometidas, taponesRecibidos;
 
     public boolean starter;
 
@@ -25,7 +24,7 @@ public class Jugador {
     public Jugador() {
     }
 
-    public Jugador(String idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int recuperaciones, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRealizados, int taponesRecibidos, int idEquipo, boolean starter) {
+    public Jugador(String idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int recuperaciones, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRecibidos, boolean starter) {
         this.idJugador = idJugador;
         this.nombre = nombre;
         this.dorsal = dorsal;
@@ -33,7 +32,7 @@ public class Jugador {
         this.puntos = puntos;
         this.rebotes = rebotes;
         this.asistencias = asistencias;
-        this.recuperaciones = recuperaciones;
+        this.robos = recuperaciones;
         this.perdidas = perdidas;
         this.tapones = tapones;
         this.t1mas = t1mas;
@@ -46,7 +45,6 @@ public class Jugador {
         this.rebotesOf = rebotesOf;
         this.faltasRecibidas = faltasRecibidas;
         this.faltasCometidas = faltasCometidas;
-        this.taponesRealizados = taponesRealizados;
         this.taponesRecibidos = taponesRecibidos;
         this.starter = starter;
     }
@@ -108,11 +106,11 @@ public class Jugador {
         this.asistencias = asistencias;
     }
 
-    public int getRecuperaciones() {
-        return recuperaciones;
+    public int getRobos() {
+        return robos;
     }
-    public void setRecuperaciones(int recuperaciones) {
-        this.recuperaciones = recuperaciones;
+    public void setRobos(int robos) {
+        this.robos = robos;
     }
 
     public int getPerdidas() {
@@ -199,17 +197,38 @@ public class Jugador {
         this.faltasCometidas = faltasCometidas;
     }
 
-    public int getTaponesRealizados() {
-        return taponesRealizados;
-    }
-    public void setTaponesRealizados(int taponesRealizados) {
-        this.taponesRealizados = taponesRealizados;
-    }
-
     public int getTaponesRecibidos() {
         return taponesRecibidos;
     }
     public void setTaponesRecibidos(int taponesRecibidos) {
         this.taponesRecibidos = taponesRecibidos;
+    }
+
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "idJugador='" + idJugador + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", dorsal=" + dorsal +
+                ", imagen='" + imagen + '\'' +
+                ", puntos=" + puntos +
+                ", rebotes=" + rebotes +
+                ", asistencias=" + asistencias +
+                ", robos=" + robos +
+                ", perdidas=" + perdidas +
+                ", tapones=" + tapones +
+                ", t1mas=" + t1mas +
+                ", t1menos=" + t1menos +
+                ", t2mas=" + t2mas +
+                ", t2menos=" + t2menos +
+                ", t3mas=" + t3mas +
+                ", t3menos=" + t3menos +
+                ", rebotesDef=" + rebotesDef +
+                ", rebotesOf=" + rebotesOf +
+                ", faltasRecibidas=" + faltasRecibidas +
+                ", faltasCometidas=" + faltasCometidas +
+                ", taponesRecibidos=" + taponesRecibidos +
+                ", starter=" + starter +
+                '}';
     }
 }
