@@ -319,7 +319,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_perdidas"
+                        android:id="@+id/imagen_perdida"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -511,7 +511,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imagen_perdida"
+                        android:id="@+id/imagen_asistencia"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"

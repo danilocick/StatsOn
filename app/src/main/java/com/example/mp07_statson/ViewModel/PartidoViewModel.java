@@ -5,6 +5,7 @@ import android.os.CountDownTimer;
 import androidx.lifecycle.ViewModel;
 
 import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.Model.Partido;
 
 import java.util.List;
 
@@ -20,6 +21,8 @@ public class PartidoViewModel extends ViewModel {
     public static final long START_TIME_IN_MILLIS = 600000;
     public long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
+
+    public Partido partido;
 
     public int marcadorLocal = 0;
     public int marcadorVisitante = 0;
