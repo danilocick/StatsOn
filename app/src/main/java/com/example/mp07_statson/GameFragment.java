@@ -232,27 +232,162 @@ public class GameFragment extends BaseFragment {
             binding.jugB1.setClickable(true);
             botonesAccionesAdmin(botonesAcciones, true);
 
-//            binding.jugB1.setOnClickListener(v1 -> {
-//                botonesJugadoresAdmin(botonesJugadoresLocales, botonesJugadoresVisitante, true);
-//                botonesAccionesAdmin(botonesAcciones, false);
-//
-//                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
-//            });
-
             binding.imagenThreePointMore.setOnClickListener(view1 -> {
                 partidoviewmodel.partido.puntosVisitante+=3;
+                partidoviewmodel.partido.t3masVisitante+=1;
 
                 //sumar al jugador
 
                 binding.marcadorVisitante.setText(String.valueOf(partidoviewmodel.partido.puntosVisitante));
 
-                botonesJugadoresAdmin(botonesJugadoresLocales, botonesJugadoresVisitante, true);
-                botonesAccionesAdmin(botonesAcciones, false);
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
             });
 
+            binding.imagenThreePointLess.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.t3menosVisitante+=1;
 
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenTwoPointMore.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.puntosVisitante+=2;
+                partidoviewmodel.partido.t2masVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenTwoPointLess.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.t2menosVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenFreeThrowMore.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.puntosVisitante+=1;
+                partidoviewmodel.partido.t1masVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenFreeThrowLess.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.t1menosVisitante+=1;
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenAsistencia.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.asistenciasVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenTaponCometido.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.taponesRealizadosVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenTaponRecibido.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.taponesRecibidosVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenRobo.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.robosVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenPerdida.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.perdidasVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenFaltaRecibida.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.faltasRecibidasVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenFaltaCometida.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.faltasCometidasVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenReboteOfe.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.rebotesOfVisitante+=1;
+                partidoviewmodel.partido.rebotesVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
+
+            binding.imagenReboteDef.setOnClickListener(view1 -> {
+                partidoviewmodel.partido.rebotesDefVisitante+=1;
+                partidoviewmodel.partido.rebotesVisitante+=1;
+
+                //sumar al jugador
+
+                actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
+
+                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+            });
         });
     }
 

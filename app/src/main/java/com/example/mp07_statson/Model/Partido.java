@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey;
 public class Partido {
     @PrimaryKey(autoGenerate = true)
     public int idPartido;
-    public int idLocal;
-    public int idVisitante;
+    public int nombreEquipoLocal;
+    public int nombreEquipoVisitante;
 
     public int puntosLocal, rebotesLocal, asistenciasLocal, robosLocal, perdidasLocal,
             t1masLocal, t1menosLocal, t2masLocal, t2menosLocal, t3masLocal, t3menosLocal,
@@ -21,8 +21,8 @@ public class Partido {
             taponesRealizadosVisitante, taponesRecibidosVisitante;
 
     public Partido(int idLocal, int idVisitante, int puntosLocal, int puntosVisitante) {
-        this.idLocal = idLocal;
-        this.idVisitante = idVisitante;
+        this.nombreEquipoLocal = idLocal;
+        this.nombreEquipoVisitante = idVisitante;
         this.puntosLocal = puntosLocal;
         this.puntosVisitante = puntosVisitante;
     }

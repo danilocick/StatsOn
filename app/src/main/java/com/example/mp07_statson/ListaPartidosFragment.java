@@ -58,7 +58,7 @@ public class ListaPartidosFragment extends BaseFragment {
             Partido partido = partidosList.get(position);
 
             holder.binding.puntosLocal.setText(String.valueOf(partido.puntosLocal));
-            holder.binding.nombreVisitante.setText(String.valueOf(partido.idVisitante));
+            holder.binding.nombreVisitante.setText(String.valueOf(partido.nombreEquipoVisitante));
             holder.binding.puntosVisitante.setText(String.valueOf(partido.puntosVisitante));
 
             holder.binding.recycler.setOnClickListener(view -> nav.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
