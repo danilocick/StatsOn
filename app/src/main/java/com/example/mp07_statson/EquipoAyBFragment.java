@@ -42,7 +42,6 @@ public class EquipoAyBFragment extends BaseFragment {
                         return new equipoBFragment();
                 }
             }
-
             @Override
             public int getItemCount() {
                 return 2;
@@ -64,7 +63,6 @@ public class EquipoAyBFragment extends BaseFragment {
         binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
         binding.siguiente.setOnClickListener(view12 ->{
-
             locales = 0;
             visitantes = 0;
 
