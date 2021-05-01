@@ -14,8 +14,14 @@ public class PartidoViewModel extends ViewModel {
 
 
 
+    //CRONOMETRO
     public CountDownTimer mCountDownTimer;
     public boolean mTimerRunning;
     public static final long START_TIME_IN_MILLIS = 600000;
     public long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+
+
+    public int marcadorLocal = 0;
+    public int marcadorVisitante = 0;
+    public int cuarto = 1;
 }

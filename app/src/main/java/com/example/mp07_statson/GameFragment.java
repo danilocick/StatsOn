@@ -5,7 +5,7 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,9 +19,6 @@ import java.util.Locale;
 public class GameFragment extends BaseFragment {
 
     private FragmentGameBinding binding;
-    private int marcadorLocal = 0;
-    private int marcadorVisitante = 0;
-    private int cuarto = 0;
 
     /*https://codinginflow.com/tutorials/android/countdowntimer/part-1-countdown-timer*/
 
@@ -33,6 +30,9 @@ public class GameFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        List<LinearLayout> botonesJugadoresLocales = Arrays.asList(binding.jugA1, binding.jugA2, binding.jugA3, binding.jugA4, binding.jugA5);
+        List<LinearLayout> botonesJugadoresVisitante = Arrays.asList(binding.jugB1, binding.jugB2, binding.jugB3, binding.jugB4, binding.jugB5);
+
 
         binding.start.setOnClickListener(view17 ->{
                 if (partidoviewmodel.mTimerRunning) {
@@ -43,52 +43,77 @@ public class GameFragment extends BaseFragment {
         });
         updateCountDownText();
 
-        List<TextView> botonesAbajo = Arrays.asList(binding.dorsalA1, binding.dorsalA2, binding.dorsalA3);
-
-        binding.botonAcabarPartido.setOnClickListener(view16 -> nav.navigate(R.id.action_gameFragment_to_menuFragment));
-
-        binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
+        printarJugadoresLocal();
+        printarJugadoresVisitante();
 
         binding.equipolocal.setText(viewmodel.nombreEquipoLocal);
         binding.equipovisitante.setText(viewmodel.nombreEquipoVisitante);
 
-        binding.nombreA1.setText(viewmodel.nombreJugadorSeleccionado);
+        binding.botonAcabarPartido.setOnClickListener(view16 -> nav.navigate(R.id.action_gameFragment_to_menuFragment));
+        binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
+
+
 
         binding.jugB1.setOnClickListener(v -> {
             binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_white_red);
 
             binding.imagenThreePointMore.setOnClickListener(view1 -> {
-                //popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
+                partidoviewmodel.marcadorVisitante+=3;
+                binding.marcadorVisitante.setText(String.valueOf(partidoviewmodel.marcadorVisitante));
 
-                marcadorVisitante+=3;
-                String str = String.valueOf(marcadorVisitante);
-                binding.marcadorVisitante.setText(str);
-                //TODO:ONCLICK JUGADOR, return normal backgound
                 binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenThreePointLess.setOnClickListener(view1 -> {
-                //popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
                 binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
             });
         });
+    }
 
-        binding.jugA1.setOnClickListener(v -> {
-            binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_white_red);
-            binding.imagenThreePointMore.setOnClickListener(view1 -> {
-                //popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
-                marcadorLocal+=3;
-                String str = String.valueOf(marcadorLocal);
-                binding.marcadorLocal.setText(str);
-                //TODO:ONCLICK JUGADOR, return normal backgound
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
-            });
+    private void printarJugadoresLocal() {
+        for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+            if (partidoviewmodel.jugadoresEquipoLocal.get(i).starter){
+                if (binding.nombreA1.getText().equals("Jugador")){
+                    binding.nombreA1.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
+                    binding.dorsalA1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                }else if (binding.nombreA2.getText().equals("Jugador")){
+                    binding.nombreA2.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
+                    binding.dorsalA2.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                }else if (binding.nombreA3.getText().equals("Jugador")){
+                    binding.nombreA3.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
+                    binding.dorsalA3.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                }else if (binding.nombreA4.getText().equals("Jugador")){
+                    binding.nombreA4.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
+                    binding.dorsalA4.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                }else if (binding.nombreA5.getText().equals("Jugador")){
+                    binding.nombreA5.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
+                    binding.dorsalA5.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                }
+            }
+        }
+    }
 
-            binding.imagenThreePointLess.setOnClickListener(view1 -> {
-                //popupWindowAsistencia.showAtLocation(popupViewAsistencia, Gravity.CENTER, 0, 0);
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_greydark_black);
-            });
-        });
+    private void printarJugadoresVisitante() {
+        for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitante.size(); i++) {
+            if (partidoviewmodel.jugadoresEquipoVisitante.get(i).starter){
+                if (binding.nombreB1.getText().equals("Jugador")){
+                    binding.nombreB1.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
+                    binding.dorsalB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                }else if (binding.nombreB2.getText().equals("Jugador")){
+                    binding.nombreB2.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
+                    binding.dorsalB2.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                }else if (binding.nombreB3.getText().equals("Jugador")){
+                    binding.nombreB3.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
+                    binding.dorsalB3.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                }else if (binding.nombreB4.getText().equals("Jugador")){
+                    binding.nombreB4.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
+                    binding.dorsalB4.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                }else if (binding.nombreB5.getText().equals("Jugador")){
+                    binding.nombreB5.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
+                    binding.dorsalB5.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                }
+            }
+        }
     }
 
     private void startTimer() {
