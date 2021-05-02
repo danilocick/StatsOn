@@ -85,6 +85,12 @@ public class ListaEquiposFragment extends BaseFragment {
                     nav.navigate(R.id.action_listaEquiposFragment_to_miEquipoFragment);
                 });
 
+            holder.binding.background.setOnLongClickListener(v -> {
+                //TODO:ventana emergente para preguntar si se quiere eliminar
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(equipo.idEquipo).delete();
+                return false;
+            });
+
         }
 
         @Override

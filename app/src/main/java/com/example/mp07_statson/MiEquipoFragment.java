@@ -73,6 +73,11 @@ public class MiEquipoFragment extends BaseFragment {
                 viewmodel.jugadorSeleccionado = jugador;
                 nav.navigate(R.id.action_miEquipoFragment_to_jugadorStatsFragment);
             });
+            holder.binding.background.setOnLongClickListener(v -> {
+                //TODO:ventana emergente para preguntar si se quiere eliminar
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(jugador.idJugador).delete();
+                return false;
+            });
         }
 
         @Override
