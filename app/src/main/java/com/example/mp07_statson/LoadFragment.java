@@ -30,7 +30,6 @@ public class LoadFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         Shimmer shimmer = new Shimmer();
-
         MutableLiveData<Boolean> finishedLoading = new MutableLiveData<>();
 
         finishedLoading.observe(getViewLifecycleOwner(), aBoolean -> {

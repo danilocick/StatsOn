@@ -37,7 +37,6 @@ public class EquipoAFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
-
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoLocal).collection(FirebaseVar.JUGADORES).orderBy("dorsal").addSnapshotListener((value, error) -> {
             List<Jugador> jugadors = new ArrayList<>();
             for(DocumentSnapshot documentSnapshot: value){
@@ -51,7 +50,6 @@ public class EquipoAFragment extends BaseFragment {
         binding.listaJugadores.setAdapter(jugadorAdapter);
     }
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
-
         List<Jugador> jugadorList;
 
         @NonNull

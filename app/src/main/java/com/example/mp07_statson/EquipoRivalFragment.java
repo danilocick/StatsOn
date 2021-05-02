@@ -55,7 +55,6 @@ public class EquipoRivalFragment extends BaseFragment {
 
 
     public class EquiposbdAdapter extends RecyclerView.Adapter<EquipoViewHolder>{
-
         List<Equipo> equipoList;
 
         @NonNull
@@ -84,12 +83,10 @@ public class EquipoRivalFragment extends BaseFragment {
                 }
                 nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
             });
-
         }
 
         @Override
         public int getItemCount() {
-
             return equipoList == null ? 0 : equipoList.size();
         }
 

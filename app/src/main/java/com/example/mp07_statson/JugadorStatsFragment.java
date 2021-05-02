@@ -31,13 +31,14 @@ public class JugadorStatsFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.botonComeBack.setOnClickListener(view1 -> {nav.popBackStack();});
+        binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
-        binding.botonEditTM.setOnClickListener(view12 -> {nav.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment);});
+        binding.botonEditTM.setOnClickListener(view12 -> nav.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment));
 
         binding.nombreJugador.setText(viewmodel.jugadorSeleccionado.nombre);
         binding.dorsalJugador.setText(String.valueOf(viewmodel.jugadorSeleccionado.dorsal));
 //        Glide.with(requireView()).load(viewmodel.jugadorSeleccionado.imagen).into(binding.imagenJugador);
+
         cargarDatosJugador();
     }
 

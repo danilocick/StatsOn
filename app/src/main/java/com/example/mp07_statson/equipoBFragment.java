@@ -24,9 +24,8 @@ import java.util.List;
 public class equipoBFragment extends BaseFragment {
 
     private FragmentEquipoB2Binding binding;
-    int contador = 0;
+    int contador;
     JugadorAdapter jugadorAdapter = new JugadorAdapter();
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,7 +50,6 @@ public class equipoBFragment extends BaseFragment {
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
-
         List<Jugador> jugadorList;
 
         @NonNull

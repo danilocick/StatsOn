@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 
 import com.example.mp07_statson.databinding.FragmentOptionsBinding;
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 public class OptionsFragment extends BaseFragment {
     private FragmentOptionsBinding binding;

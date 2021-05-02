@@ -33,14 +33,13 @@ public class MiEquipoFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.botonComeBack.setOnClickListener(view1 -> { nav.popBackStack(); });
+        binding.botonComeBack.setOnClickListener(v -> nav.popBackStack());
 
-        binding.botonanyadirjugador.setOnClickListener(view12 -> nav.navigate(R.id.action_miEquipoFragment_to_addJugadorFragment));
-
-        JugadorAdapter jugadorAdapter = new JugadorAdapter();
+        binding.botonanyadirjugador.setOnClickListener(v -> nav.navigate(R.id.action_miEquipoFragment_to_addJugadorFragment));
 
         binding.miEquipo.setText(viewmodel.nombreEquipoSeleccionado);
 
+        JugadorAdapter jugadorAdapter = new JugadorAdapter();
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).addSnapshotListener((value, error) -> {
             List<Jugador> jugadors = new ArrayList<>();
             for(DocumentSnapshot documentSnapshot: value){
@@ -53,7 +52,6 @@ public class MiEquipoFragment extends BaseFragment {
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
-
         List<Jugador> jugadorList;
 
         @NonNull
@@ -91,7 +89,6 @@ public class MiEquipoFragment extends BaseFragment {
         }
     }
 
-    //clase para acceder a los campos de viewholder_jugador_miteam
     public static class JugadorViewHolder extends RecyclerView.ViewHolder{
         ViewholderJugadorEquipoABinding binding;
 

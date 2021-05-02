@@ -34,17 +34,9 @@ public class ListaEquiposFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //ComeBack
-        binding.botonComeBack.setOnClickListener(view12 -> {
-            //para volver atras
-            nav.popBackStack();
-        });
+        binding.botonComeBack.setOnClickListener(view12 -> nav.popBackStack());
 
-        //Ir anyadirjugador
-        binding.botonanyadirequipo.setOnClickListener(view1 -> {
-            //para volver atras
-            nav.navigate(R.id.action_listaEquiposFragment_to_addEquipoFragment);
-        });
+        binding.botonanyadirequipo.setOnClickListener(view1 -> nav.navigate(R.id.action_listaEquiposFragment_to_addEquipoFragment));
 
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).orderBy(FirebaseVar.nombreEquipo).addSnapshotListener((value, error) -> {
             ArrayList<Equipo> equipos = new ArrayList<>();
@@ -59,13 +51,10 @@ public class ListaEquiposFragment extends BaseFragment {
             equiposbdAdapter.establecerEquipoList(equipos);
         });
 
-        //obtener datos de los jugadores de la bd
         binding.listaEquipos.setAdapter(equiposbdAdapter);
     }
 
-    //adaptador bd
     public class EquiposbdAdapter extends RecyclerView.Adapter<ListaEquiposFragment.EquipoViewHolder>{
-
         List<Equipo> equipoList;
 
         @NonNull
@@ -90,12 +79,10 @@ public class ListaEquiposFragment extends BaseFragment {
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(equipo.idEquipo).delete();
                 return false;
             });
-
         }
 
         @Override
         public int getItemCount() {
-
             return equipoList == null ? 0 : equipoList.size();
         }
 
@@ -103,18 +90,13 @@ public class ListaEquiposFragment extends BaseFragment {
             this.equipoList =equipoList;
             notifyDataSetChanged();
         }
-
         public Equipo obtenerEquipo(int posicion){
             return equipoList.get(posicion);
         }
-
     }
 
-
-    //clase para acceder a los campos de viewholder_jugador_miteam
     public static class EquipoViewHolder extends RecyclerView.ViewHolder{
         ViewholderEquipoBinding binding;
-
         public EquipoViewHolder(@NonNull ViewholderEquipoBinding binding, ViewGroup parent, boolean b){
             super(binding.getRoot());
             this.binding=binding;

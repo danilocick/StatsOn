@@ -26,7 +26,6 @@ public class OutputMatchesFragment extends BaseFragment {
 
         binding.tableInvoices.setStretchAllColumns(true);
 
-        //ComeBack
         binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
     }

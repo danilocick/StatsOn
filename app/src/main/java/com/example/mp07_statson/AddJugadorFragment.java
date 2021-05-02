@@ -30,9 +30,9 @@ public class AddJugadorFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.botonComeBack.setOnClickListener(view1 -> {nav.popBackStack();});
+        binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
-        binding.imagenJugador.setOnClickListener(v->{ lanzadorGaleria.launch("image/*"); });
+        binding.imagenJugador.setOnClickListener(v-> lanzadorGaleria.launch("image/*"));
 
         //crearjugador
         binding.botonCrearAddJugador.setOnClickListener(v->{
@@ -54,9 +54,6 @@ public class AddJugadorFragment extends BaseFragment {
 
             nav.popBackStack();
         });
-
-
-
 
         if (viewmodel.imagenJugadorSeleccionada != null){ Glide.with(this).load(viewmodel.imagenJugadorSeleccionada).into(binding.imagenJugador);}
     }

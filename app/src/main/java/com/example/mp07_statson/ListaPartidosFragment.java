@@ -30,31 +30,23 @@ public class ListaPartidosFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //obtener datos de los partidos de la bd
         PartidosbdAdapter partidosbdAdapter = new PartidosbdAdapter();
         binding.listaPartidos.setAdapter(partidosbdAdapter);
 
-        //        partidosViewModel.obtener().observe(getViewLifecycleOwner(), partidosbdAdapter::establecerPartidoList);
-
-
-        binding.botonComeBackPartidos.setOnClickListener(view1 -> {nav.popBackStack();});
+        binding.botonComeBackPartidos.setOnClickListener(view1 -> nav.popBackStack());
     }
 
-    //adaptador bd
     public class PartidosbdAdapter extends RecyclerView.Adapter<PartidoViewHolder>{
-
         List<Partido> partidosList;
 
         @NonNull
         @Override
         public PartidoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new PartidoViewHolder(ViewholderPartidoBinding.inflate(getLayoutInflater()), parent, false);
-
         }
 
         @Override
         public void onBindViewHolder(@NonNull PartidoViewHolder holder, int position) {
-
             Partido partido = partidosList.get(position);
 
             holder.binding.puntosLocal.setText(String.valueOf(partido.puntosLocal));
@@ -66,7 +58,6 @@ public class ListaPartidosFragment extends BaseFragment {
 
         @Override
         public int getItemCount() {
-
             return partidosList == null ? 0 : partidosList.size();
         }
 
@@ -80,7 +71,6 @@ public class ListaPartidosFragment extends BaseFragment {
         }
     }
 
-    //accederPartidos
     static class PartidoViewHolder extends RecyclerView.ViewHolder {
         private final ViewholderPartidoBinding binding;
 

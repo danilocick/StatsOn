@@ -31,12 +31,10 @@ public class AddEquipoFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.botonComeBack.setOnClickListener(view1 -> { nav.popBackStack();});
-
-        binding.imagenEquipo.setOnClickListener(v -> { lanzadorGaleria.launch("image/*"); });
+        binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
+        binding.imagenEquipo.setOnClickListener(v -> lanzadorGaleria.launch("image/*"));
 
         binding.botonCrearAddEquipo.setOnClickListener(v -> {
-
             String nombre = binding.nombreEquipo.getText().toString();
             String imagen = "file:///android_asset/equipo.png";
             if (viewmodel.imagenEquipoSeleccionada != null) {
@@ -44,7 +42,6 @@ public class AddEquipoFragment extends BaseFragment {
                 viewmodel.imagenEquipoSeleccionada = null;
             }
 
-            //guarda el equipo
             Equipo equipo = new Equipo(nombre, imagen);
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).add(equipo).addOnSuccessListener(documentReference -> {
                 String id = documentReference.getId();
@@ -65,8 +62,6 @@ public class AddEquipoFragment extends BaseFragment {
                 .continueWithTask(task -> task.getResult().getStorage().getDownloadUrl())
                 .addOnSuccessListener(url -> {
                     viewmodel.imagenEquipoSeleccionada = url;
-
                 });
-
     });
 }

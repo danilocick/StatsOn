@@ -40,12 +40,9 @@ public class LoginFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.google.setOnClickListener(view1 -> {
-            signInClientGoogle.launch(GoogleSignIn.getClient(requireActivity(), new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestIdToken(getString(R.string.default_web_client_id)).build()).getSignInIntent());
-        });
+        binding.google.setOnClickListener(view1 -> signInClientGoogle.launch(GoogleSignIn.getClient(requireActivity(), new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestIdToken(getString(R.string.default_web_client_id)).build()).getSignInIntent()));
 
-        binding.facebook.setOnClickListener(view1 -> {
-        });
+        binding.facebook.setOnClickListener(view1 -> {});
 
         binding.login.setOnClickListener(v -> {
             binding.progressBar.setVisibility(View.VISIBLE);

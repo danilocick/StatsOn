@@ -27,4 +27,5 @@ public class PartidoViewModel extends ViewModel {
     public int marcadorLocal = 0;
     public int marcadorVisitante = 0;
     public int cuarto = 1;
+
 }
