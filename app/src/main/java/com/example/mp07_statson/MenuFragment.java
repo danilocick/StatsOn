@@ -56,6 +56,8 @@ public class MenuFragment extends BaseFragment {
 
     }
 
+
+
     private void createSantaColoma() {
         String imagen = "file:///android_asset/santacoloma.png";
         Equipo equipo = new Equipo("Santa Coloma",imagen);

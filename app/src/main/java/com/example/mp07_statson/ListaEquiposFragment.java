@@ -1,5 +1,6 @@
 package com.example.mp07_statson;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.FirebaseVar;
+import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.databinding.FragmentRivalesBinding;
 import com.example.mp07_statson.databinding.ViewholderEquipoBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -75,8 +77,7 @@ public class ListaEquiposFragment extends BaseFragment {
                 });
 
             holder.binding.background.setOnLongClickListener(v -> {
-                //TODO:ventana emergente para preguntar si se quiere eliminar
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(equipo.idEquipo).delete();
+                createDialog(equipo);
                 return false;
             });
         }
@@ -93,6 +94,18 @@ public class ListaEquiposFragment extends BaseFragment {
         public Equipo obtenerEquipo(int posicion){
             return equipoList.get(posicion);
         }
+    }
+
+    private void createDialog(Equipo equipo) {
+        AlertDialog.Builder alertDlg = new AlertDialog.Builder(requireActivity());
+        alertDlg.setMessage("Are you sure you want to delete?");
+        alertDlg.setCancelable(false);
+
+        alertDlg.setPositiveButton("Yes", (dialog, which) -> db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(equipo.idEquipo).delete());
+
+        alertDlg.setNegativeButton("No", (dialog, which) -> {});
+
+        alertDlg.show();
     }
 
     public static class EquipoViewHolder extends RecyclerView.ViewHolder{
