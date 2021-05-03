@@ -22,11 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import tyrantgit.explosionfield.ExplosionField;
+
 
 public class MiEquipoFragment extends BaseFragment {
 
     private FragmentMiEquipoBinding binding;
-
+    private ExplosionField mExplosionField;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentMiEquipoBinding.inflate(inflater, container, false)).getRoot();
@@ -36,6 +38,8 @@ public class MiEquipoFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mExplosionField = ExplosionField.attach2Window(requireActivity());
+
         binding.botonComeBack.setOnClickListener(v -> nav.popBackStack());
 
         binding.botonanyadirjugador.setOnClickListener(v -> nav.navigate(R.id.action_miEquipoFragment_to_addJugadorFragment));
@@ -43,7 +47,9 @@ public class MiEquipoFragment extends BaseFragment {
         binding.miEquipo.setText(viewmodel.nombreEquipoSeleccionado);
 
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
-        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).addSnapshotListener((value, error) -> {
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES)
+                .orderBy(FirebaseVar.DORSAL)
+                .addSnapshotListener((value, error) -> {
             List<Jugador> jugadors = new ArrayList<>();
             for(DocumentSnapshot documentSnapshot: value){
                 jugadors.add(documentSnapshot.toObject(Jugador.class));
@@ -75,8 +81,7 @@ public class MiEquipoFragment extends BaseFragment {
                 nav.navigate(R.id.action_miEquipoFragment_to_jugadorStatsFragment);
             });
             holder.binding.background.setOnLongClickListener(v -> {
-                //TODO:ventana emergente para preguntar si se quiere eliminar
-                createDialog(jugador);
+                createDialog(jugador,v);
                 return false;
             });
         }
@@ -92,12 +97,15 @@ public class MiEquipoFragment extends BaseFragment {
         }
     }
 
-    private void createDialog(Jugador jugador) {
+    private void createDialog(Jugador jugador, View v) {
         AlertDialog.Builder alertDlg = new AlertDialog.Builder(requireActivity());
         alertDlg.setMessage("Are you sure you want to delete?");
         alertDlg.setCancelable(false);
 
-        alertDlg.setPositiveButton("Yes", (dialog, which) -> db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(jugador.idJugador).delete());
+        alertDlg.setPositiveButton("Yes", (dialog, which) -> {
+            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(jugador.idJugador).delete();
+            mExplosionField.explode(v);
+        });
 
         alertDlg.setNegativeButton("No", (dialog, which) -> {});
 

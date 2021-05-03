@@ -40,7 +40,9 @@ public class ListaEquiposFragment extends BaseFragment {
 
         binding.botonanyadirequipo.setOnClickListener(view1 -> nav.navigate(R.id.action_listaEquiposFragment_to_addEquipoFragment));
 
-        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).orderBy(FirebaseVar.nombreEquipo).addSnapshotListener((value, error) -> {
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS)
+                .orderBy(FirebaseVar.nombreEquipo)
+                .addSnapshotListener((value, error) -> {
             ArrayList<Equipo> equipos = new ArrayList<>();
             for(DocumentSnapshot documentSnapshot: value){
                 documentSnapshot.getId();

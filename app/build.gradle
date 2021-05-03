@@ -88,6 +88,9 @@ dependencies {
     implementation 'com.shaishavgandhi:login-buttons:1.0.0'
     //shimmer
     implementation 'com.romainpiel.shimmer:library:1.4.0@aar'
+    //https://github.com/tyrantgit/ExplosionField
+    //https://github.com/Anler2015/ExplosionAnimation
+    implementation 'tyrantgit:explosionfield:1.0.1'
 
 }
 

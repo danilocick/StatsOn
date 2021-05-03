@@ -6,4 +6,6 @@ public class FirebaseVar {
     public static String EQUIPOS = "equipos";
     public static String nombreEquipo = "nombreEquipo";
     public static String ID_SANTACOLOMA = "santaColoma";
+    public static String DORSAL= "dorsal";
+
 }
