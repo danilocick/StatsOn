@@ -35,43 +35,57 @@ public class OptionsFragment extends BaseFragment {
         binding.expansionMinutosLayout.addListener((expansionLayout, expanded) -> {
             binding.minutosCinco.setOnClickListener(v -> {
                 binding.minutosInt.setText("5");
+                expansionLayout.collapse(true);
             });
             binding.minutosSeis.setOnClickListener(v -> {
                 binding.minutosInt.setText("6");
+                expansionLayout.collapse(true);
             });
             binding.minutosDiez.setOnClickListener(v -> {
                 binding.minutosInt.setText("10");
+                expansionLayout.collapse(true);
             });
         });
 
         binding.expansionPeriodosLayout.addListener((expansionLayout, expanded) -> {
             binding.periodosCuatro.setOnClickListener(v -> {
                 binding.periodosInt.setText("4");
+                expansionLayout.collapse(true);
             });
             binding.periodosSeis.setOnClickListener(v -> {
                 binding.periodosInt.setText("6");
+                expansionLayout.collapse(true);
             });
             binding.periodosOcho.setOnClickListener(v -> {
                 binding.periodosInt.setText("8");
+                expansionLayout.collapse(true);
             });
         });
 
         binding.expansionMinPELayout.addListener((expansionLayout, expanded) -> {
             binding.minPETres.setOnClickListener(v -> {
                 binding.minPEInt.setText("3");
+                expansionLayout.collapse(true);
             });
             binding.minPECinco.setOnClickListener(v -> {
                 binding.minPEInt.setText("5");
+                expansionLayout.collapse(true);
             });
             binding.minPESeis.setOnClickListener(v -> {
                 binding.minPEInt.setText("6");
+                expansionLayout.collapse(true);
             });
         });
 
         binding.botonComeBackOpc.setOnClickListener(view1 -> {nav.popBackStack();});
 
         binding.cerrarSesion.setOnClickListener(v->{
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .build();
+            GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
+
             auth.signOut();
+            mGoogleSignInClient.revokeAccess();
             nav.navigate(R.id.action_optionsFragment_to_loginFragment);
         });
 

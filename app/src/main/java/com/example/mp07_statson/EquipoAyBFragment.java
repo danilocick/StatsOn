@@ -1,18 +1,17 @@
 package com.example.mp07_statson;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.mp07_statson.databinding.FragmentEquipoAyBBinding;
-import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 
@@ -66,20 +65,40 @@ public class EquipoAyBFragment extends BaseFragment {
             locales = 0;
             visitantes = 0;
 
+            if (partidoviewmodel.jugadoresEquipoLocal != null) {
             for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
                 if (partidoviewmodel.jugadoresEquipoLocal.get(i).starter) locales++;
                 System.out.println("l: "+locales);
             }
+            }else {
+                createDialog();
+            }
 
-            for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitante.size(); i++) {
-                if (partidoviewmodel.jugadoresEquipoVisitante.get(i).starter) visitantes++;
-                System.out.println("v: "+visitantes);
+            if (partidoviewmodel.jugadoresEquipoVisitante != null) {
+                for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitante.size(); i++) {
+                    if (partidoviewmodel.jugadoresEquipoVisitante.get(i).starter) visitantes++;
+                    System.out.println("v: "+visitantes);
+                }
+            }else {
+                createDialog();
             }
 
             if (locales==5 && visitantes==5){
                 nav.navigate(R.id.action_equipoAyBFragment_to_gameFragment);
-            }else{} //ERROR MESSAGE
+            }else{
+                createDialog();
+            }
 
         });
+    }
+
+    private void createDialog() {
+        AlertDialog.Builder alertDlg = new AlertDialog.Builder(requireActivity());
+        alertDlg.setMessage("Selecciona el 5 titular de cada equipo");
+        alertDlg.setCancelable(false);
+
+        alertDlg.setNegativeButton("Ok", (dialog, which) -> {});
+
+        alertDlg.show();
     }
 }
