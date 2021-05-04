@@ -78,7 +78,7 @@ public class LoginFragment extends BaseFragment {
                 }
             });
         } catch (ApiException e) {
-
+            Toast.makeText(requireActivity().getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
     });
 }

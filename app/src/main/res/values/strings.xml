@@ -106,7 +106,7 @@
     <string name="rebotesTotales" translatable="false">R T</string>
     <string name="asist" translatable="false">AST</string>
     <string name="recuperadas" translatable="false">REC</string>
-    <string name="tapones" translatable="false">TAP</string>
+    <string name="tapones" translatable="false">Tapones</string>
     <string name="taponesrecibidos" translatable="false">TAP R</string>
     <string name="faltas">Fa</string>
     <string name="faltasrecibidas" translatable="false">F R</string>
@@ -131,6 +131,16 @@
     <string name="registrarse">Registrarse</string>
     <string name="seleccinaRival">Selecciona equipo rival para el partido:</string>
     <string name="jugarasComoLocal">Jugarás como local o visitante?</string>
+    <string name="tl">TL</string>
+    <string name="t2">T2</string>
+    <string name="t3">T3</string>
+    <string name="rebotes">Rebotes</string>
+    <string name="balones">Balones</string>
+    <string name="pasos">Pasos</string>
+    <string name="dobles">Dobles</string>
+    <string name="violaciontecnica">V.T.</string>
+    <string name="asis">As</string>
+    <string name="valoracion">Val</string>
 
     <!--table-->
     <string-array name="header_table">
