@@ -61,7 +61,7 @@ public class GameFragment extends BaseFragment {
         botonesAccionesAdmin(botonesAcciones,false);
 
         binding.jugA1.setOnClickListener(v -> {
-            binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_white_red);
+            setBackground(binding.jugA1, R.drawable.recyclerv_round_white_red);
 
             botonesJugadoresAdmin(botonesJugadoresLocales, botonesJugadoresVisitante, false);
             binding.jugA1.setClickable(true);
@@ -85,7 +85,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenThreePointLess.setOnClickListener(view1 -> {
@@ -102,7 +102,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenTwoPointMore.setOnClickListener(view1 -> {
@@ -119,7 +119,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenTwoPointLess.setOnClickListener(view1 -> {
@@ -135,7 +135,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenFreeThrowMore.setOnClickListener(view1 -> {
@@ -153,7 +153,7 @@ public class GameFragment extends BaseFragment {
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenFreeThrowLess.setOnClickListener(view1 -> {
@@ -170,7 +170,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenAsistencia.setOnClickListener(view1 -> {
@@ -186,7 +186,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenTaponCometido.setOnClickListener(view1 -> {
@@ -202,7 +202,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenTaponRecibido.setOnClickListener(view1 -> {
@@ -218,7 +218,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenRobo.setOnClickListener(view1 -> {
@@ -234,7 +234,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenPerdida.setOnClickListener(view1 -> {
@@ -250,7 +250,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenFaltaRecibida.setOnClickListener(view1 -> {
@@ -266,7 +266,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenFaltaCometida.setOnClickListener(view1 -> {
@@ -282,7 +282,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenReboteOfe.setOnClickListener(view1 -> {
@@ -300,7 +300,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
 
             binding.imagenReboteDef.setOnClickListener(view1 -> {
@@ -318,12 +318,12 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_grey_black);
             });
         });
 
         binding.jugB1.setOnClickListener(v -> {
-            binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_white_red);
+            setBackground(binding.jugB1, R.drawable.recyclerv_round_white_red);
 
             botonesJugadoresAdmin(botonesJugadoresLocales, botonesJugadoresVisitante, false);
             binding.jugB1.setClickable(true);
@@ -339,7 +339,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenThreePointLess.setOnClickListener(view1 -> {
@@ -349,7 +349,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenTwoPointMore.setOnClickListener(view1 -> {
@@ -360,7 +360,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenTwoPointLess.setOnClickListener(view1 -> {
@@ -370,7 +370,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenFreeThrowMore.setOnClickListener(view1 -> {
@@ -382,7 +382,7 @@ public class GameFragment extends BaseFragment {
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenFreeThrowLess.setOnClickListener(view1 -> {
@@ -391,7 +391,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenAsistencia.setOnClickListener(view1 -> {
@@ -401,7 +401,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenTaponCometido.setOnClickListener(view1 -> {
@@ -411,7 +411,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenTaponRecibido.setOnClickListener(view1 -> {
@@ -421,7 +421,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenRobo.setOnClickListener(view1 -> {
@@ -431,7 +431,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenPerdida.setOnClickListener(view1 -> {
@@ -441,7 +441,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenFaltaRecibida.setOnClickListener(view1 -> {
@@ -451,7 +451,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenFaltaCometida.setOnClickListener(view1 -> {
@@ -461,7 +461,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenReboteOfe.setOnClickListener(view1 -> {
@@ -472,7 +472,7 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugA1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugA1, R.drawable.recyclerv_round_greydark_black);
             });
 
             binding.imagenReboteDef.setOnClickListener(view1 -> {
@@ -483,9 +483,13 @@ public class GameFragment extends BaseFragment {
 
                 actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitante, botonesAcciones);
 
-                binding.jugB1.setBackgroundResource(R.drawable.recyclerv_round_grey_black);
+                setBackground(binding.jugB1, R.drawable.recyclerv_round_greydark_black);
             });
         });
+    }
+
+    private void setBackground(LinearLayout p, int p2) {
+        p.setBackgroundResource(p2);
     }
 
     private void actualizarResultado(List<LinearLayout> botonesJugadoresLocales, List<LinearLayout> botonesJugadoresVisitante, List<ImageButton> botonesAcciones) {
