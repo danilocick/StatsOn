@@ -27,6 +27,8 @@ public class GameFragment extends BaseFragment {
     private List<LinearLayout> botonesJugadoresVisitantes;
     private List<TextView> dorsalesJugadoresLocales;
     private List<TextView> dorsalesJugadoresVisitantes;
+    private List<TextView> puntosJugadoresLocales;
+    private List<TextView> puntosJugadoresVisitantes;
 
     /*https://codinginflow.com/tutorials/android/countdowntimer/part-1-countdown-timer*/
 
@@ -40,9 +42,12 @@ public class GameFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         botonesJugadoresLocales = Arrays.asList(binding.jugA1, binding.jugA2, binding.jugA3, binding.jugA4, binding.jugA5);
         dorsalesJugadoresLocales = Arrays.asList(binding.dorsalA1, binding.dorsalA2, binding.dorsalA3, binding.dorsalA4, binding.dorsalA5);
+        puntosJugadoresLocales = Arrays.asList(binding.puntosA1, binding.puntosA2, binding.puntosA3, binding.puntosA4, binding.puntosA5);
 
         botonesJugadoresVisitantes = Arrays.asList(binding.jugB1, binding.jugB2, binding.jugB3, binding.jugB4, binding.jugB5);
         dorsalesJugadoresVisitantes = Arrays.asList(binding.dorsalB1, binding.dorsalB2, binding.dorsalB3, binding.dorsalB4, binding.dorsalB5);
+        puntosJugadoresVisitantes = Arrays.asList(binding.puntosB1, binding.puntosB2, binding.puntosB3, binding.puntosB4, binding.puntosB5);
+
         botonesAcciones = Arrays.asList(binding.imagenThreePointMore, binding.imagenThreePointLess, binding.imagenTwoPointMore, binding.imagenTwoPointLess, binding.imagenFreeThrowMore,
                 binding.imagenFreeThrowLess, binding.imagenAsistencia, binding.imagenTaponCometido, binding.imagenTaponRecibido, binding.imagenRobo, binding.imagenPerdida,
                 binding.imagenFaltaRecibida, binding.imagenFaltaCometida, binding.imagenReboteOfe, binding.imagenReboteDef);
@@ -220,6 +225,8 @@ public class GameFragment extends BaseFragment {
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).t3mas += 1;
 
                     binding.marcadorVisitante.setText(String.valueOf(partidoviewmodel.partido.puntosVisitante));
+                    puntosJugadoresVisitantes.get(jj).setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).puntos).toString());
+
 
                     desSeleccionarJugador(jugador, R.drawable.recyclerv_round_greydark_black);
                 });
