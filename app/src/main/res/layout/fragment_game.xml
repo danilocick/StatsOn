@@ -777,7 +777,7 @@
                             android:textColor="@color/white"
                             android:textSize="28sp" />
 
-                        <TextView
+                        <TextView android:id="@+id/puntos_a1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
