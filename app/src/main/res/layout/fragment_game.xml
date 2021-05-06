@@ -761,7 +761,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_a1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -809,7 +809,8 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
-                        <TextView
+
+                        <TextView android:id="@id/faltas_a2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -856,7 +857,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_a3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -905,7 +906,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_a4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -954,7 +955,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_a5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1013,7 +1014,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_b1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1063,7 +1064,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_b2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1113,7 +1114,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_b3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1163,7 +1164,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_b4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1213,7 +1214,7 @@
                         android:layout_marginBottom="1dp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <TextView android:id="@id/faltas_b5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
