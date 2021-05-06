@@ -33,7 +33,7 @@ public class ListaPartidosFragment extends BaseFragment {
         PartidosbdAdapter partidosbdAdapter = new PartidosbdAdapter();
         binding.listaPartidos.setAdapter(partidosbdAdapter);
 
-        binding.botonComeBackPartidos.setOnClickListener(view1 -> nav.popBackStack());
+        binding.botonComeBackPartidos.setOnClickListener(view1 -> nav.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
     }
 
     public class PartidosbdAdapter extends RecyclerView.Adapter<PartidoViewHolder>{

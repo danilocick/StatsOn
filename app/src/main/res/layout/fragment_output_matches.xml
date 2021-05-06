@@ -31,7 +31,7 @@
         android:id="@+id/scrll"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#3d455b"
+        android:background="@color/red"
         android:layout_alignParentLeft="true" >
 
         <HorizontalScrollView
@@ -49,99 +49,231 @@
                         android:layout_column="1"
                         android:text="@string/dorsal"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
                         android:layout_column="2"
                         android:text="@string/nombre"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
                         android:layout_column="3"
                         android:text="@string/min"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="4"
                         android:text="@string/pts"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="5"
                         android:text="@string/tl"
                         android:layout_weight="1"
+                        android:layout_span="3"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="6"
                         android:text="@string/t2"
                         android:layout_weight="1"
+                        android:layout_span="3"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="7"
                         android:text="@string/t3"
                         android:layout_weight="1"
+                        android:layout_span="3"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="8"
                         android:text="@string/rebotes"
                         android:layout_weight="1"
+                        android:layout_span="3"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="9"
                         android:text="@string/faltas"
                         android:layout_weight="1"
+                        android:layout_span="2"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="10"
                         android:text="@string/balones"
                         android:layout_weight="1"
+                        android:layout_span="2"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="11"
                         android:text="@string/tapones"
                         android:layout_weight="1"
+                        android:layout_span="2"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="12"
                         android:text="@string/pasos"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="13"
                         android:text="@string/dobles"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="14"
                         android:text="@string/violaciontecnica"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="15"
                         android:text="@string/asis"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
                     <TextView
-                        android:layout_column="3"
+                        android:layout_column="16"
                         android:text="@string/valoracion"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:padding="3dip" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView/>
+                    <TextView/>
+                    <TextView/>
+                    <TextView/>
+
+                    <TextView
+                        android:layout_column="5"
+                        android:text="@string/tla"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="5"
+                        android:text="@string/tli"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="5"
+                        android:text="@string/TLporcentaje"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="6"
+                        android:text="@string/t2a"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="6"
+                        android:text="@string/t2i"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="6"
+                        android:text="@string/T2porcentaje"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="7"
+                        android:text="@string/t3a"
+                        android:layout_weight="8"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="7"
+                        android:text="@string/t3i"
+                        android:layout_weight="8"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="7"
+                        android:text="@string/T3porcentaje"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="8"
+                        android:text="@string/tot"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="8"
+                        android:text="@string/def"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="8"
+                        android:text="@string/of"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="9"
+                        android:text="@string/cometidas"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="9"
+                        android:text="@string/recibidas"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="10"
+                        android:text="@string/recuperadas"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="10"
+                        android:text="@string/perdidas"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="11"
+                        android:text="@string/recuperadas"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:layout_column="11"
+                        android:text="@string/com"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView />
+                    <TextView/>
+                    <TextView/>
+                    <TextView/>
+                    <TextView/>
                 </TableRow>
 
                 <View
                     android:layout_height="2dip"
                     android:background="#FF909090" />
 
-                <TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
                     <TextView
-                        android:text="X"
-                        android:padding="3dip" />
+                        android:padding="3dip"
+                        android:text="X" />
+
                     <TextView
-                        android:text="Export..."
-                        android:padding="3dip" />
+                        android:padding="3dip"
+                        android:text="Export..." />
+
                     <TextView
-                        android:text="Ctrl-E"
                         android:gravity="right"
-                        android:padding="3dip" />
+                        android:padding="3dip"
+                        android:text="Ctrl-E" />
                 </TableRow>
             </TableLayout>
 

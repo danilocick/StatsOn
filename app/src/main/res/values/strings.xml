@@ -108,7 +108,7 @@
     <string name="recuperadas" translatable="false">REC</string>
     <string name="tapones" translatable="false">Tapones</string>
     <string name="taponesrecibidos" translatable="false">TAP R</string>
-    <string name="faltas">Fa</string>
+    <string name="faltas">Faltas</string>
     <string name="faltasrecibidas" translatable="false">F R</string>
     <string name="perdidas" translatable="false">PER</string>
     <string name="vs" translatable="false">VS</string>
@@ -141,6 +141,21 @@
     <string name="violaciontecnica">V.T.</string>
     <string name="asis">As</string>
     <string name="valoracion">Val</string>
+    <string name="totales">Tot</string>
+    <string name="acertados">Ac</string>
+    <string name="fallados">Fa</string>
+    <string name="tla">TLA</string>
+    <string name="tli">TLI</string>
+    <string name="t2a">T2A</string>
+    <string name="t2i">T2I</string>
+    <string name="t3a">t3A</string>
+    <string name="t3i">T3I</string>
+    <string name="tot">TOT</string>
+    <string name="of">OF</string>
+    <string name="def">DEF</string>
+    <string name="cometidas">COM</string>
+    <string name="recibidas">REC</string>
+    <string name="com">COM</string>
 
     <!--table-->
     <string-array name="header_table">
