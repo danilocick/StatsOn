@@ -111,7 +111,10 @@
             android:layout_weight="1"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+            app:spanCount="2"
+            tools:listitem="@layout/viewholder_jugador_equipo_a"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            />
 
         <Button android:id="@+id/botonanyadirjugador"
             android:layout_width="match_parent"

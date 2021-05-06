@@ -12,15 +12,37 @@
     <color name="redwhite">#EE8190</color>
     <color name="red">#F02E3A</color>
     <color name="button">#742A2A</color>
-    <color name="background">#8f0100</color>
+    <!--<color name="background">#8f0100</color>-->
+    <color name="background">#BA181B</color>
     <color name="green">#4FCA54</color>
     <color name="tucolor">#921E9A</color>
     <color name="black_80">#66000000</color>
     <color name="black_20">#B3000000</color>
     <color name="white_30" >#4DD3D3D3</color>
     <color name="gold">#FFD700</color>
-    <color name="crema">#D8FFFFFF</color>
-    <color name="negropuro">#000000</color>
     <color name="bluelink">#0588BC</color>
     <color name="otrqcosa">#4D0588BC</color>
+
+    <color name="negro">#333333</color>
+    <color name="negropuro">#000000</color>
+    <color name="naranja">#F1A431</color>
+    <color name="naranjapuro">#FF8000</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="crema">#D8FFFFFF</color>
+
+
+    <color name="eerieblack">#161A1D</color>
+    <color name="silver">#B1A7A6</color>
+    <color name="gray">#D3D3D3</color>
+
+    <color name="black1">#0B090A</color>
+    <color name="black2">#161A1D</color>
+
+    <color name="redblood">#660708</color>
+    <color name="redimperial">#E5383B</color>
+
+    <color name="white2">#F5F3F4</color>
+
+
+
 </resources>
