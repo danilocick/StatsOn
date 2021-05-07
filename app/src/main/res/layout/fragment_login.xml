@@ -128,7 +128,7 @@
             android:layout_height="wrap_content"
             android:text="@string/login"
             android:layout_marginHorizontal="15dp"
-            android:background="@drawable/boton_sombra_blanco"
+            android:background="@drawable/boton_blanco"
             android:fontFamily="@font/postnobillsjaffna_bold"
             android:textSize="17.5sp"/>
 

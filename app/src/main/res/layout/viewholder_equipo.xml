@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardUseCompatPadding="true"
-    android:layout_margin="3dp">
-
-    <LinearLayout android:id="@+id/background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:layout_gravity="center">
+    android:layout_margin="10dp"
+    android:id="@+id/background"
+    android:orientation="vertical"
+    android:background="@drawable/boton_blanco">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imagen_equipo"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/add_equipo"
-            android:layout_marginStart="5dp"
             android:layout_weight="0"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="start|center"
+            android:layout_gravity="center"
             app:civ_border_width="2dp"
             app:civ_border_color="@color/black"/>
 
@@ -32,11 +24,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:text="Espaguetis"
+            android:fontFamily="@font/postnobillsjaffna_bold"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textColor="@color/black"
-            android:padding="8dp"
-            android:layout_marginStart="16dp"/>
+            android:textColor="@color/black" />
     </LinearLayout>
-
-</androidx.cardview.widget.CardView>

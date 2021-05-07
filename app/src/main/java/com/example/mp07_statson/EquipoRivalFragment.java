@@ -1,5 +1,6 @@
 package com.example.mp07_statson;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +52,23 @@ public class EquipoRivalFragment extends BaseFragment {
         });
 
         binding.listaEquipos.setAdapter(equiposbdAdapter);
+
+        binding.listaEquipos.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+                if (parent != null && view != null) {
+
+                    int itemPosition = parent.getChildAdapterPosition(view);
+                    int totalCount = parent.getAdapter().getItemCount();
+
+                    if (itemPosition >= 0) {
+                        outRect.bottom = 15;
+                        outRect.right = 15;
+                    }
+                }
+            }
+        });
      }
 
 

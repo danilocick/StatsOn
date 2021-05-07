@@ -6,48 +6,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
     android:id="@+id/background"
-    android:background="@drawable/boton_sombra_naranja">
+    android:background="@drawable/boton_blanco">
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imagen_jugador"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/add_jugador"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             app:civ_border_width="1dp"
             app:civ_border_color="@color/black2"/>
 
-    <LinearLayout
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
-
-
-            <TextView
-                android:id="@+id/dorsalJugador"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:fontFamily="@font/postnobillsjaffna_regular"
-                android:text="11"
-                android:textColor="@color/black2"
-                android:textSize="27sp" />
-
-
-                <TextView
-                    android:id="@+id/nombreJugador"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="Frida"
-                    android:fontFamily="@font/postnobillsjaffna_regular"
-                    android:textColor="@color/black2"
-                    android:textSize="18sp" />
+        <TextView
+            android:id="@+id/nombreJugador"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Frida"
+            android:fontFamily="@font/postnobillsjaffna_bold"
+            android:textColor="@color/black2"
+            android:textSize="18sp" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/dorsalJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:fontFamily="@font/postnobillsjaffna_bold"
+        android:text="11"
+        android:textColor="@color/black2"
+        android:textSize="50sp" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 </LinearLayout>
