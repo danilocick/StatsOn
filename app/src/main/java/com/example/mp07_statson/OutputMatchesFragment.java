@@ -24,7 +24,7 @@ public class OutputMatchesFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        binding.tableInvoices.setStretchAllColumns(true);
+
 
         binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
