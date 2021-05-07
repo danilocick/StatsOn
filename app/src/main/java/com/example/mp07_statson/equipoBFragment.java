@@ -1,6 +1,8 @@
 package com.example.mp07_statson;
 
 import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -47,6 +50,23 @@ public class equipoBFragment extends BaseFragment {
         });
 
         binding.listaJugadoresTeamB.setAdapter(jugadorAdapter);
+
+        binding.listaJugadoresTeamB.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+                if (parent != null && view != null) {
+
+                    int itemPosition = parent.getChildAdapterPosition(view);
+                    int totalCount = parent.getAdapter().getItemCount();
+
+                    if (itemPosition >= 0) {
+                        outRect.bottom = 24;
+                        outRect.right = 24;
+                    }
+                }
+            }
+        });
     }
 
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
@@ -65,13 +85,21 @@ public class equipoBFragment extends BaseFragment {
             holder.binding.nombreJugador.setText(jugador.nombre);
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
             holder.binding.background.setOnClickListener(v->{
-                viewmodel.jugadorSeleccionado = jugador;
                 if(!jugador.starter && contador<5) {
-                    holder.binding.background.setBackgroundColor(Color.rgb(200,0,0));
+                    //holder.binding.background.setBackgroundColor(Color.rgb(200,0,0));
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.boton_negro);
+                    holder.binding.background.setBackground(drawable);
+                    holder.binding.dorsalJugador.setTextColor(Color.WHITE);
+                    holder.binding.nombreJugador.setTextColor(Color.WHITE);
+                    holder.binding.imagenJugador.setBorderColor(Color.WHITE);
                     jugador.starter = true;
                     contador++;
                 }else if(jugador.starter){
-                    holder.binding.background.setBackgroundColor(Color.rgb(255,255,255));
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.boton_blanco);
+                    holder.binding.background.setBackground(drawable);
+                    holder.binding.dorsalJugador.setTextColor(Color.BLACK);
+                    holder.binding.nombreJugador.setTextColor(Color.BLACK);
+                    holder.binding.imagenJugador.setBorderColor(Color.BLACK);
                     jugador.starter = false;
                     contador--;
                 }

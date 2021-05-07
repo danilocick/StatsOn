@@ -2,6 +2,7 @@ package com.example.mp07_statson;
 
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -21,7 +22,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 public class EquipoAFragment extends BaseFragment {
@@ -60,8 +60,9 @@ public class EquipoAFragment extends BaseFragment {
                     int itemPosition = parent.getChildAdapterPosition(view);
                     int totalCount = parent.getAdapter().getItemCount();
 
-                    if (itemPosition >= 0 && itemPosition < totalCount - 1) {
+                    if (itemPosition >= 0) {
                         outRect.bottom = 24;
+                        outRect.right = 24;
                     }
                 }
             }
@@ -84,11 +85,20 @@ public class EquipoAFragment extends BaseFragment {
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
             holder.binding.background.setOnClickListener(v->{
                 if(!jugador.starter && contador<5) {
-                    holder.binding.background.setBackgroundColor(Color.rgb(200,0,0));
+                    //holder.binding.background.setBackgroundColor(Color.rgb(200,0,0));
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.boton_negro);
+                    holder.binding.background.setBackground(drawable);
+                    holder.binding.dorsalJugador.setTextColor(Color.WHITE);
+                    holder.binding.nombreJugador.setTextColor(Color.WHITE);
+                    holder.binding.imagenJugador.setBorderColor(Color.WHITE);
                     jugador.starter = true;
                     contador++;
                 }else if(jugador.starter){
-                    holder.binding.background.setBackgroundColor(Color.rgb(255,255,255));
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.boton_blanco);
+                    holder.binding.background.setBackground(drawable);
+                    holder.binding.dorsalJugador.setTextColor(Color.BLACK);
+                    holder.binding.nombreJugador.setTextColor(Color.BLACK);
+                    holder.binding.imagenJugador.setBorderColor(Color.BLACK);
                     jugador.starter = false;
                     contador--;
                 }
