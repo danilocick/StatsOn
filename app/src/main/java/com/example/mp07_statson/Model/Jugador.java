@@ -49,6 +49,9 @@ public class Jugador {
         this.starter = starter;
     }
 
+    public Jugador(Jugador jugador) {
+    }
+
     @NonNull
     public String getIdJugador() {
         return idJugador;

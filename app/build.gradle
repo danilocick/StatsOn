@@ -92,5 +92,8 @@ dependencies {
     //https://github.com/Anler2015/ExplosionAnimation
     implementation 'tyrantgit:explosionfield:1.0.1'
 
+    //Datato CSV
+    implementation 'com.opencsv:opencsv:4.6'
+
 }
 

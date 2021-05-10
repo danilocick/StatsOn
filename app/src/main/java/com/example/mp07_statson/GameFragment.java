@@ -71,7 +71,11 @@ public class GameFragment extends BaseFragment {
 
         cargarPantalla();
 
-        binding.botonAcabarPartido.setOnClickListener(view16 -> nav.navigate(R.id.action_gameFragment_to_menuFragment));
+        binding.botonAcabarPartido.setOnClickListener(view16 -> {
+            GenerarCSV generarCSV = new GenerarCSV();
+            generarCSV.generarCSV();
+            nav.navigate(R.id.action_gameFragment_to_menuFragment);
+        });
         binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
         binding.siguienteCuarto.setOnClickListener(v->{
