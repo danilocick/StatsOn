@@ -74,6 +74,18 @@ public class GameFragment extends BaseFragment {
         binding.botonAcabarPartido.setOnClickListener(view16 -> nav.navigate(R.id.action_gameFragment_to_menuFragment));
         binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
+        binding.siguienteCuarto.setOnClickListener(v->{
+            if (partidoviewmodel.cuarto <4){
+                partidoviewmodel.cuarto++;
+                pasarcuarto();
+            }else{} //TODO:lanzar toast
+        });
+        binding.cuartoAnterior.setOnClickListener(v->{
+            if (partidoviewmodel.cuarto >1){
+                partidoviewmodel.cuarto--;
+                pasarcuarto();
+            }else{}//TODO:lanzar toast
+        });
 
         int i = 0;
         for (LinearLayout jugadorLocal : botonesJugadoresLocales) {
@@ -92,6 +104,12 @@ public class GameFragment extends BaseFragment {
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos += 3;
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t3mas += 1;
 
+                    switch (partidoviewmodel.cuarto){
+                        case 1: partidoviewmodel.partido.puntosLocalPrimerCuarto+=3; break;
+                        case 2: partidoviewmodel.partido.puntosLocalSegundoCuarto+=3; break;
+                        case 3: partidoviewmodel.partido.puntosLocalTercerCuarto+=3; break;
+                        case 4: partidoviewmodel.partido.puntosLocalQuartoCuarto+=3; break;
+                    }
 
                     binding.marcadorLocal.setText(String.valueOf(partidoviewmodel.partido.puntosLocal));
                     puntosJugadoresLocales.get(ii).setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos));
@@ -114,6 +132,13 @@ public class GameFragment extends BaseFragment {
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos += 2;
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t2mas += 1;
 
+                    switch (partidoviewmodel.cuarto){
+                        case 1: partidoviewmodel.partido.puntosLocalPrimerCuarto+=2; break;
+                        case 2: partidoviewmodel.partido.puntosLocalSegundoCuarto+=2; break;
+                        case 3: partidoviewmodel.partido.puntosLocalTercerCuarto+=2; break;
+                        case 4: partidoviewmodel.partido.puntosLocalQuartoCuarto+=2; break;
+                    }
+
                     puntosJugadoresLocales.get(ii).setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos));
 
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
@@ -133,6 +158,13 @@ public class GameFragment extends BaseFragment {
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos += 1;
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t1mas += 1;
+
+                    switch (partidoviewmodel.cuarto){
+                        case 1: partidoviewmodel.partido.puntosLocalPrimerCuarto+=1; break;
+                        case 2: partidoviewmodel.partido.puntosLocalSegundoCuarto+=1; break;
+                        case 3: partidoviewmodel.partido.puntosLocalTercerCuarto+=1; break;
+                        case 4: partidoviewmodel.partido.puntosLocalQuartoCuarto+=1; break;
+                    }
 
                     puntosJugadoresLocales.get(ii).setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos));
 
@@ -244,6 +276,13 @@ public class GameFragment extends BaseFragment {
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).puntos += 3;
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).t3mas += 1;
 
+                    switch (partidoviewmodel.cuarto){
+                        case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto+=3; break;
+                        case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto+=3; break;
+                        case 3: partidoviewmodel.partido.puntosVisitenteTercerCuarto+=3; break;
+                        case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto+=3; break;
+                    }
+
                     binding.marcadorVisitante.setText(String.valueOf(partidoviewmodel.partido.puntosVisitante));
                     puntosJugadoresVisitantes.get(jj).setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).puntos));
 
@@ -266,6 +305,13 @@ public class GameFragment extends BaseFragment {
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).puntos += 2;
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).t2mas += 1;
 
+                    switch (partidoviewmodel.cuarto){
+                        case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto+=2; break;
+                        case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto+=3; break;
+                        case 3: partidoviewmodel.partido.puntosVisitenteTercerCuarto+=2; break;
+                        case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto+=2; break;
+                    }
+
                     puntosJugadoresVisitantes.get(jj).setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).puntos));
 
                     desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
@@ -285,6 +331,13 @@ public class GameFragment extends BaseFragment {
 
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).puntos += 1;
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).t1mas += 1;
+
+                    switch (partidoviewmodel.cuarto){
+                        case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto+=1; break;
+                        case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto+=1; break;
+                        case 3: partidoviewmodel.partido.puntosVisitenteTercerCuarto+=1; break;
+                        case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto+=1; break;
+                    }
 
                     puntosJugadoresVisitantes.get(jj).setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).puntos));
 
@@ -380,6 +433,17 @@ public class GameFragment extends BaseFragment {
             });
             j++;
         }
+
+
+    }
+
+    private void pasarcuarto() {
+        //restartcrono
+        partidoviewmodel.partido.faltasCometidasLocal = 0;
+        partidoviewmodel.partido.faltasCometidasVisitante = 0;
+        binding.cuarto.setText(String.valueOf(partidoviewmodel.cuarto));
+        binding.faltasEquipoLocal.setText(String.valueOf(partidoviewmodel.partido.faltasCometidasLocal));
+        binding.faltasEquipoVisitante.setText(String.valueOf(partidoviewmodel.partido.faltasCometidasVisitante));
     }
 
     private void cargarPantalla() {
@@ -388,6 +452,7 @@ public class GameFragment extends BaseFragment {
 
         binding.equipolocal.setText(viewmodel.nombreEquipoLocal);
         binding.equipovisitante.setText(viewmodel.nombreEquipoVisitante);
+
         botonesAccionesAdmin(botonesAcciones,false);
     }
 
@@ -427,7 +492,6 @@ public class GameFragment extends BaseFragment {
             botonesAcciones.get(i).setClickable(b);
         }
     }
-
 
     private void printarJugadoresLocal() {
         for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {

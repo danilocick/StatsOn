@@ -20,6 +20,9 @@ public class Partido {
             rebotesDefVisitante, rebotesOfVisitante, faltasRecibidasVisitante, faltasCometidasVisitante,
             taponesRealizadosVisitante, taponesRecibidosVisitante;
 
+    public int puntosLocalPrimerCuarto,puntosLocalSegundoCuarto,puntosLocalTercerCuarto,puntosLocalQuartoCuarto;
+    public int puntosVisitantePrimerCuarto,puntosVisitanteSegundoCuarto,puntosVisitenteTercerCuarto,puntosVisitanteQuartoCuarto;
+
     public Partido(int idLocal, int idVisitante, int puntosLocal, int puntosVisitante) {
         this.nombreEquipoLocal = idLocal;
         this.nombreEquipoVisitante = idVisitante;

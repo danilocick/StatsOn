@@ -10,4 +10,6 @@
     <item name="faltas_b3" type="id" />
     <item name="faltas_b4" type="id" />
     <item name="faltas_b5" type="id" />
+    <item name="siguiente_cuarto" type="id"/>
+    <item name="cuarto_anterior" type="id"/>
 </resources>

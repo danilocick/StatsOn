@@ -132,7 +132,7 @@
                     android:layout_weight="1"
                     android:layout_margin="5dp"
                     android:orientation="horizontal">
-                    <ImageView
+                    <ImageView android:id="@id/cuarto_anterior"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_weight="1"
@@ -169,7 +169,7 @@
                             android:text="1"/>
                     </LinearLayout>
 
-                    <ImageView
+                    <ImageView android:id="@id/siguiente_cuarto"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_weight="1"
