@@ -73,7 +73,7 @@ public class GameFragment extends BaseFragment {
 
         binding.botonAcabarPartido.setOnClickListener(view16 -> {
             GenerarCSV generarCSV = new GenerarCSV();
-            generarCSV.generarCSV();
+            generarCSV.generarCSV(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
             nav.navigate(R.id.action_gameFragment_to_menuFragment);
         });
         binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));

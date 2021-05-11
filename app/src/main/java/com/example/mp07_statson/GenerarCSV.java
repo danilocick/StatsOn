@@ -1,7 +1,12 @@
 package com.example.mp07_statson;
 
+import android.os.Environment;
+
+import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.Model.Partido;
 import com.opencsv.CSVWriter;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +14,7 @@ import java.util.List;
 
 public class GenerarCSV extends BaseFragment {
 
-    public void generarCSV(){
+    public void generarCSV(Partido partido, List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante){
 
         String[] header = {"Dorsal", "Nombre", "Min", "PTS", "TL", "T2", "T3", "Rebotes", "Faltas", "Tapones", "Balones", "Tapones",
                 "Pasos", "Dobles", "V.T", "As", "Val"};
@@ -21,46 +26,48 @@ public class GenerarCSV extends BaseFragment {
         list.add(header);
         list.add(header2);
 
-        for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
-//            int tli=partidoviewmodel.jugadoresEquipoLocal.get(i).t1mas+partidoviewmodel.jugadoresEquipoLocal.get(i).t1menos;
-//            int t2i=partidoviewmodel.jugadoresEquipoLocal.get(i).t2mas+partidoviewmodel.jugadoresEquipoLocal.get(i).t2menos;
-//            int t3i=partidoviewmodel.jugadoresEquipoLocal.get(i).t3mas+partidoviewmodel.jugadoresEquipoLocal.get(i).t2menos;
+        for (int i = 0; i < jugadoresEquipoLocal.size(); i++) {
+//            int tli=jugadoresEquipoLocal.get(i).t1mas+jugadoresEquipoLocal.get(i).t1menos;
+//            int t2i=jugadoresEquipoLocal.get(i).t2mas+jugadoresEquipoLocal.get(i).t2menos;
+//            int t3i=jugadoresEquipoLocal.get(i).t3mas+jugadoresEquipoLocal.get(i).t2menos;
 //
-//            int tlpor = tli / partidoviewmodel.jugadoresEquipoLocal.get(i).t1mas;
-//            int t2por = t2i / partidoviewmodel.jugadoresEquipoLocal.get(i).t2mas;
-//            int t3por = t3i / partidoviewmodel.jugadoresEquipoLocal.get(i).t3mas;
+//            int tlpor = tli / jugadoresEquipoLocal.get(i).t1mas;
+//            int t2por = t2i / jugadoresEquipoLocal.get(i).t2mas;
+//            int t3por = t3i / jugadoresEquipoLocal.get(i).t3mas;
 
 
-            String[] jugador = {partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal+"",
-                    partidoviewmodel.jugadoresEquipoLocal.get(i).nombre+"", "",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).puntos+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).t1mas+"",
+            String[] jugador = {
+                    jugadoresEquipoLocal.get(i).dorsal+"",
+                    jugadoresEquipoLocal.get(i).nombre+"", "",
+//                    jugadoresEquipoLocal.get(i).puntos+"",
+//                    jugadoresEquipoLocal.get(i).t1mas+"",
 //                    tli+"",
 //                    tlpor+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).t2mas+"",
+//                    jugadoresEquipoLocal.get(i).t2mas+"",
 //                    t2i+"",
 //                    t2por+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).t3mas+"",
+//                    jugadoresEquipoLocal.get(i).t3mas+"",
 //                    t3i+"",
 //                    t3por+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).rebotes+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesDef+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesOf+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).faltasRecibidas+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).robos+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).perdidas+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).taponesRecibidos+"",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).tapones+"",
+//                    jugadoresEquipoLocal.get(i).rebotes+"",
+//                    jugadoresEquipoLocal.get(i).rebotesDef+"",
+//                    jugadoresEquipoLocal.get(i).rebotesOf+"",
+//                    jugadoresEquipoLocal.get(i).faltasCometidas+"",
+//                    jugadoresEquipoLocal.get(i).faltasRecibidas+"",
+//                    jugadoresEquipoLocal.get(i).robos+"",
+//                    jugadoresEquipoLocal.get(i).perdidas+"",
+//                    jugadoresEquipoLocal.get(i).taponesRecibidos+"",
+//                    jugadoresEquipoLocal.get(i).tapones+"",
 //                    "","","",
-//                    partidoviewmodel.jugadoresEquipoLocal.get(i).asistencias+"",
+//                    jugadoresEquipoLocal.get(i).asistencias+"",
                     ""};
             list.add(jugador);
         }
 
         // default all fields are enclosed in double quotes
         // default separator is a comma
-        try (CSVWriter writer = new CSVWriter(new FileWriter("partido.csv"))) {
+        File s = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        try (CSVWriter writer = new CSVWriter(new FileWriter(s+"/partido.csv"))) {
             writer.writeAll(list);
         } catch (IOException e) {
             e.printStackTrace();
