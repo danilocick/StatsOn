@@ -91,6 +91,7 @@ public class EquipoAFragment extends BaseFragment {
                     holder.binding.dorsalJugador.setTextColor(Color.WHITE);
                     holder.binding.nombreJugador.setTextColor(Color.WHITE);
                     holder.binding.imagenJugador.setBorderColor(Color.WHITE);
+
                     jugador.starter = true;
                     contador++;
                 }else if(jugador.starter){
