@@ -39,27 +39,27 @@ public class GenerarCSV extends BaseFragment {
             String[] jugador = {
                     jugadoresEquipoLocal.get(i).dorsal+"",
                     jugadoresEquipoLocal.get(i).nombre+"", "",
-//                    jugadoresEquipoLocal.get(i).puntos+"",
-//                    jugadoresEquipoLocal.get(i).t1mas+"",
+                    jugadoresEquipoLocal.get(i).puntos+"",
+                    jugadoresEquipoLocal.get(i).t1mas+"","","",
 //                    tli+"",
 //                    tlpor+"",
-//                    jugadoresEquipoLocal.get(i).t2mas+"",
+                    jugadoresEquipoLocal.get(i).t2mas+"","","",
 //                    t2i+"",
 //                    t2por+"",
-//                    jugadoresEquipoLocal.get(i).t3mas+"",
+                    jugadoresEquipoLocal.get(i).t3mas+"","","",
 //                    t3i+"",
 //                    t3por+"",
-//                    jugadoresEquipoLocal.get(i).rebotes+"",
-//                    jugadoresEquipoLocal.get(i).rebotesDef+"",
-//                    jugadoresEquipoLocal.get(i).rebotesOf+"",
-//                    jugadoresEquipoLocal.get(i).faltasCometidas+"",
-//                    jugadoresEquipoLocal.get(i).faltasRecibidas+"",
-//                    jugadoresEquipoLocal.get(i).robos+"",
-//                    jugadoresEquipoLocal.get(i).perdidas+"",
-//                    jugadoresEquipoLocal.get(i).taponesRecibidos+"",
-//                    jugadoresEquipoLocal.get(i).tapones+"",
-//                    "","","",
-//                    jugadoresEquipoLocal.get(i).asistencias+"",
+                    jugadoresEquipoLocal.get(i).rebotes+"",
+                    jugadoresEquipoLocal.get(i).rebotesDef+"",
+                    jugadoresEquipoLocal.get(i).rebotesOf+"",
+                    jugadoresEquipoLocal.get(i).faltasCometidas+"",
+                    jugadoresEquipoLocal.get(i).faltasRecibidas+"",
+                    jugadoresEquipoLocal.get(i).robos+"",
+                    jugadoresEquipoLocal.get(i).perdidas+"",
+                    jugadoresEquipoLocal.get(i).taponesRecibidos+"",
+                    jugadoresEquipoLocal.get(i).tapones+"",
+                    "","","",
+                    jugadoresEquipoLocal.get(i).asistencias+"",
                     ""};
             list.add(jugador);
         }
@@ -67,7 +67,7 @@ public class GenerarCSV extends BaseFragment {
         // default all fields are enclosed in double quotes
         // default separator is a comma
         File s = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        try (CSVWriter writer = new CSVWriter(new FileWriter(s+"/partido.csv"))) {
+        try (CSVWriter writer = new CSVWriter(new FileWriter(s+"/partido_"+partido.nombreEquipoLocal+"_"+partido.nombreEquipoVisitante+".csv"))) {
             writer.writeAll(list);
         } catch (IOException e) {
             e.printStackTrace();
