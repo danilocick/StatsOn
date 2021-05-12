@@ -91,13 +91,17 @@ public class EquipoRivalFragment extends BaseFragment {
                 if (binding.iconSwitch.isChecked()){
                     viewmodel.idEquipoLocal = equipo.idEquipo;
                     viewmodel.nombreEquipoLocal = equipo.nombreEquipo;
+                    viewmodel.imagenEquipoLocal = equipo.imagen;
                     viewmodel.idEquipoVisitante = FirebaseVar.ID_SANTACOLOMA;
                     viewmodel.nombreEquipoVisitante = "Santa Coloma";
+                    viewmodel.imagenEquipoVisitante = "file:///android_asset/santacoloma.png";
                 }else {
                     viewmodel.idEquipoLocal = FirebaseVar.ID_SANTACOLOMA;
                     viewmodel.nombreEquipoLocal = "Santa Coloma";
+                    viewmodel.imagenEquipoLocal = "file:///android_asset/santacoloma.png";
                     viewmodel.idEquipoVisitante = equipo.idEquipo;
                     viewmodel.nombreEquipoVisitante = equipo.nombreEquipo;
+                    viewmodel.imagenEquipoVisitante = equipo.imagen;
                 }
                 nav.navigate(R.id.action_equipoRivalFragment_to_equipoAyBFragment);
             });

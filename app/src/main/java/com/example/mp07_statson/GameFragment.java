@@ -17,6 +17,9 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -62,7 +65,9 @@ public class GameFragment extends BaseFragment {
 
         partidoviewmodel.partido = new Partido();
         partidoviewmodel.partido.nombreEquipoLocal = viewmodel.nombreEquipoLocal;
+        partidoviewmodel.partido.imagenEquipoLocal = viewmodel.imagenEquipoLocal;
         partidoviewmodel.partido.nombreEquipoVisitante = viewmodel.nombreEquipoVisitante;
+        partidoviewmodel.partido.imagenEquipoVisitante = viewmodel.imagenEquipoVisitante;
 
         binding.start.setOnClickListener(view17 -> {
             if (partidoviewmodel.mTimerRunning) {
@@ -437,11 +442,23 @@ public class GameFragment extends BaseFragment {
         }
 
         binding.botonAcabarPartido.setOnClickListener(view16 -> {
-//            GenerarCSV generarCSV = new GenerarCSV();
-//            generarCSV.generarCSV(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
+            try {
+                File f = new GenerarCSV().generarCSV(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
 
-            //subir a firebase
-            subirPartidoFirebase(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
+                System.out.println(f.length());
+
+                stor.getReference("partidos/"+ f.getName())
+                        .putStream(new FileInputStream(f))
+                        .continueWithTask(task -> task.getResult().getStorage().getDownloadUrl())
+                        .addOnSuccessListener(url -> {
+                        });
+                //subir a firebase
+                subirPartidoFirebase(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+
             nav.navigate(R.id.action_gameFragment_to_menuFragment);
         });
     }

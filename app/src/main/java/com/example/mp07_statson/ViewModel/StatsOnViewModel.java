@@ -4,10 +4,7 @@ import android.net.Uri;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.Jugador;
-
-import java.util.List;
 
 public class StatsOnViewModel extends ViewModel {
 
@@ -35,4 +32,6 @@ public class StatsOnViewModel extends ViewModel {
 
     public String idPartido;
 
+    public String imagenEquipoVisitante;
+    public String imagenEquipoLocal;
 }
