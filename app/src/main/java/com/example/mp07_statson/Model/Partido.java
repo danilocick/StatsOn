@@ -1,14 +1,20 @@
 package com.example.mp07_statson.Model;
 
+import android.net.Uri;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
 public class Partido {
     @PrimaryKey(autoGenerate = true)
-    public int idPartido;
+    public String idPartido;
     public String nombreEquipoLocal;
     public String nombreEquipoVisitante;
+
+    public String imagenEquipoLocal;
+    public String imagenEquipoVisitante;
+
 
     public int puntosLocal, rebotesLocal, asistenciasLocal, robosLocal, perdidasLocal,
             t1masLocal, t1menosLocal, t2masLocal, t2menosLocal, t3masLocal, t3menosLocal,

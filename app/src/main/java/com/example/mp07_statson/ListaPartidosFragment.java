@@ -9,10 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.FirebaseVar;
+import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.databinding.FragmentListaPartidosBinding;
 import com.example.mp07_statson.databinding.ViewholderPartidoBinding;
+import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,6 +36,14 @@ public class ListaPartidosFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         PartidosbdAdapter partidosbdAdapter = new PartidosbdAdapter();
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS)
+                .addSnapshotListener((value, error) -> {
+                    List<Partido> partidos = new ArrayList<>();
+                    for(DocumentSnapshot documentSnapshot: value){
+                        partidos.add(documentSnapshot.toObject(Partido.class));
+                    }
+                    partidosbdAdapter.establecerPartidoList(partidos);
+                });
         binding.listaPartidos.setAdapter(partidosbdAdapter);
 
         binding.botonComeBackPartidos.setOnClickListener(view1 -> nav.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
@@ -50,8 +63,12 @@ public class ListaPartidosFragment extends BaseFragment {
             Partido partido = partidosList.get(position);
 
             holder.binding.puntosLocal.setText(String.valueOf(partido.puntosLocal));
-            holder.binding.nombreVisitante.setText(String.valueOf(partido.nombreEquipoVisitante));
+            holder.binding.nombreLocal.setText(partido.nombreEquipoLocal);
+            holder.binding.nombreVisitante.setText(partido.nombreEquipoVisitante);
             holder.binding.puntosVisitante.setText(String.valueOf(partido.puntosVisitante));
+            Glide.with(requireView()).load(partido.imagenEquipoLocal).into(holder.binding.fotoLocal);
+            Glide.with(requireView()).load(partido.imagenEquipoVisitante).into(holder.binding.fotoVisitante);
+
 
             holder.binding.recycler.setOnClickListener(view -> nav.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
         }

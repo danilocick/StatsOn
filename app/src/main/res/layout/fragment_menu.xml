@@ -44,7 +44,7 @@
             android:textAllCaps="true"
             android:textAlignment="center"
             android:textColor="@color/redmiddle"
-            android:text="@string/resultados"
+            android:text="@string/partidoos"
             android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@id/botonPartidoNuevo"
             app:layout_constraintBottom_toTopOf="@id/botonMiEquipo"
