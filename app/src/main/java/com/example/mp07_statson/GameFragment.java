@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.mp07_statson.Model.FirebaseVar;
+import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 
@@ -59,6 +61,8 @@ public class GameFragment extends BaseFragment {
                 binding.imagenFaltaRecibida, binding.imagenFaltaCometida, binding.imagenReboteOfe, binding.imagenReboteDef);
 
         partidoviewmodel.partido = new Partido();
+        partidoviewmodel.partido.nombreEquipoLocal = viewmodel.nombreEquipoLocal;
+        partidoviewmodel.partido.nombreEquipoVisitante = viewmodel.nombreEquipoVisitante;
 
         binding.start.setOnClickListener(view17 -> {
             if (partidoviewmodel.mTimerRunning) {
@@ -71,11 +75,6 @@ public class GameFragment extends BaseFragment {
 
         cargarPantalla();
 
-        binding.botonAcabarPartido.setOnClickListener(view16 -> {
-            GenerarCSV generarCSV = new GenerarCSV();
-            generarCSV.generarCSV(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
-            nav.navigate(R.id.action_gameFragment_to_menuFragment);
-        });
         binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
         binding.siguienteCuarto.setOnClickListener(v->{
@@ -178,8 +177,7 @@ public class GameFragment extends BaseFragment {
                 binding.imagenFreeThrowLess.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.t1menosLocal += 1;
 
-                    partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos += 3;
-                    partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t3mas += 1;
+                    partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t1menos += 1;
 
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
                 });
@@ -437,6 +435,25 @@ public class GameFragment extends BaseFragment {
             });
             j++;
         }
+
+        binding.botonAcabarPartido.setOnClickListener(view16 -> {
+//            GenerarCSV generarCSV = new GenerarCSV();
+//            generarCSV.generarCSV(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
+
+            //subir a firebase
+            subirPartidoFirebase(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
+            nav.navigate(R.id.action_gameFragment_to_menuFragment);
+        });
+    }
+
+    private void subirPartidoFirebase(Partido partido, List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante) {
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).add(partido).addOnSuccessListener(documentReference -> {
+            String idPartido = documentReference.getId();
+            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).update("idPartido",idPartido);
+
+
+//            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESLOCALES).add(juga)
+        });
 
 
     }
