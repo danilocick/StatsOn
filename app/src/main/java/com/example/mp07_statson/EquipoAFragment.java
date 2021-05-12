@@ -86,7 +86,7 @@ public class EquipoAFragment extends BaseFragment {
             holder.binding.background.setOnClickListener(v->{
                 if(!jugador.starter && contador<5) {
                     //holder.binding.background.setBackgroundColor(Color.rgb(200,0,0));
-                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.boton_negro);
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.boton_rojo);
                     holder.binding.background.setBackground(drawable);
                     holder.binding.dorsalJugador.setTextColor(Color.WHITE);
                     holder.binding.nombreJugador.setTextColor(Color.WHITE);

@@ -6,6 +6,7 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.opencsv.CSVWriter;
 
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,13 +28,13 @@ public class GenerarCSV extends BaseFragment {
         list.add(header2);
 
         for (int i = 0; i < jugadoresEquipoLocal.size(); i++) {
-//            int tli=jugadoresEquipoLocal.get(i).t1mas+jugadoresEquipoLocal.get(i).t1menos;
-//            int t2i=jugadoresEquipoLocal.get(i).t2mas+jugadoresEquipoLocal.get(i).t2menos;
-//            int t3i=jugadoresEquipoLocal.get(i).t3mas+jugadoresEquipoLocal.get(i).t2menos;
-//
-//            int tlpor = tli / jugadoresEquipoLocal.get(i).t1mas;
-//            int t2por = t2i / jugadoresEquipoLocal.get(i).t2mas;
-//            int t3por = t3i / jugadoresEquipoLocal.get(i).t3mas;
+            int tli=jugadoresEquipoLocal.get(i).t1mas+jugadoresEquipoLocal.get(i).t1menos;
+            int t2i=jugadoresEquipoLocal.get(i).t2mas+jugadoresEquipoLocal.get(i).t2menos;
+            int t3i=jugadoresEquipoLocal.get(i).t3mas+jugadoresEquipoLocal.get(i).t2menos;
+
+            int tlpor = tli / jugadoresEquipoLocal.get(i).t1mas;
+            int t2por = t2i / jugadoresEquipoLocal.get(i).t2mas;
+            int t3por = t3i / jugadoresEquipoLocal.get(i).t3mas;
 
 
             String[] jugador = {
@@ -41,14 +42,14 @@ public class GenerarCSV extends BaseFragment {
                     jugadoresEquipoLocal.get(i).nombre+"", "",
                     jugadoresEquipoLocal.get(i).puntos+"",
                     jugadoresEquipoLocal.get(i).t1mas+"","","",
-//                    tli+"",
-//                    tlpor+"",
+                    tli+"",
+                    tlpor+"",
                     jugadoresEquipoLocal.get(i).t2mas+"","","",
-//                    t2i+"",
-//                    t2por+"",
+                    t2i+"",
+                    t2por+"",
                     jugadoresEquipoLocal.get(i).t3mas+"","","",
-//                    t3i+"",
-//                    t3por+"",
+                    t3i+"",
+                    t3por+"",
                     jugadoresEquipoLocal.get(i).rebotes+"",
                     jugadoresEquipoLocal.get(i).rebotesDef+"",
                     jugadoresEquipoLocal.get(i).rebotesOf+"",

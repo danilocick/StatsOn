@@ -117,6 +117,7 @@
             tools:listitem="@layout/viewholder_jugador_equipo_a" />
 
         <Button android:id="@+id/botonanyadirjugador"
+            android:background="@drawable/boton_anyadir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
