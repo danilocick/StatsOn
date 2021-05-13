@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
+import java.util.UUID;
 
 public class GameFragment extends BaseFragment {
 
@@ -68,6 +70,8 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.partido.imagenEquipoLocal = viewmodel.imagenEquipoLocal;
         partidoviewmodel.partido.nombreEquipoVisitante = viewmodel.nombreEquipoVisitante;
         partidoviewmodel.partido.imagenEquipoVisitante = viewmodel.imagenEquipoVisitante;
+        partidoviewmodel.partido.idEquipoLocal = viewmodel.idEquipoLocal;
+        partidoviewmodel.partido.idEquipoVisitante = viewmodel.idEquipoVisitante;
 
         binding.start.setOnClickListener(view17 -> {
             if (partidoviewmodel.mTimerRunning) {
@@ -268,8 +272,6 @@ public class GameFragment extends BaseFragment {
             });
             i++;
         }
-
-
         int j = 0;
         for (LinearLayout jugadorvisitante : botonesJugadoresVisitantes) {
             final int jj = j;
@@ -445,19 +447,35 @@ public class GameFragment extends BaseFragment {
             try {
                 File f = new GenerarCSV().generarCSV(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
 
-                System.out.println(f.length());
-
                 stor.getReference("partidos/"+ f.getName())
                         .putStream(new FileInputStream(f))
-                        .continueWithTask(task -> task.getResult().getStorage().getDownloadUrl())
+                        .continueWithTask(task -> Objects.requireNonNull(task.getResult()).getStorage().getDownloadUrl())
                         .addOnSuccessListener(url -> {
+                            partidoviewmodel.partido.archivoCSV = url.toString();
+                            subirPartidoFirebase(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
                         });
-                //subir a firebase
-                subirPartidoFirebase(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
             } catch (IOException e) {
                 e.printStackTrace();
 
             }
+            for (int k = 0; k < partidoviewmodel.jugadoresEquipoLocal.size(); k++) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
+                        .collection(FirebaseVar.JUGADORES).document(partidoviewmodel.jugadoresEquipoLocal.get(k).idJugador).collection(FirebaseVar.PPP)
+                        .document(FirebaseVar.PPP)
+                        .update(partidoviewmodel.partido.nombreEquipoVisitante+","+ UUID.randomUUID(), partidoviewmodel.jugadoresEquipoLocal.get(k).puntos)
+                        .addOnSuccessListener(documentReference -> {
+
+                });
+            }
+            for (int k = 0; k < partidoviewmodel.jugadoresEquipoVisitante.size(); k++) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
+                        .collection(FirebaseVar.JUGADORES).document(partidoviewmodel.jugadoresEquipoVisitante.get(k).idJugador).collection(FirebaseVar.PPP)
+                        .document(FirebaseVar.PPP)
+                        .update(partidoviewmodel.partido.nombreEquipoLocal+","+ UUID.randomUUID(), partidoviewmodel.jugadoresEquipoVisitante.get(k).puntos)
+                        .addOnSuccessListener(documentReference -> {
+                });
+            }
+
 
             nav.navigate(R.id.action_gameFragment_to_menuFragment);
         });
@@ -466,7 +484,7 @@ public class GameFragment extends BaseFragment {
     private void subirPartidoFirebase(Partido partido, List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante) {
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).add(partido).addOnSuccessListener(documentReference -> {
             String idPartido = documentReference.getId();
-            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).update("idPartido",idPartido);
+            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).update("idPartido", idPartido);
 
 
 //            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESLOCALES).add(juga)
