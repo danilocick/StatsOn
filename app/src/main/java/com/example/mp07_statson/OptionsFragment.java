@@ -90,11 +90,11 @@ public class OptionsFragment extends BaseFragment {
         });
 
         binding.botonGuardarOpc.setOnClickListener(v -> {
-            String minutos = String.valueOf(binding.minutosInt);
+            String minutos = String.valueOf(binding.minutosInt.getText());
             viewmodel.minutos = Integer.parseInt(minutos);
-            String periodos = String.valueOf(binding.periodosInt);
+            String periodos = String.valueOf(binding.periodosInt.getText());
             viewmodel.periodos = Integer.parseInt(periodos);
-            String minPE = String.valueOf(binding.minPEInt);
+            String minPE = String.valueOf(binding.minPEInt.getText());
             viewmodel.minutosPE = Integer.parseInt(minPE);
 
             nav.popBackStack();

@@ -102,6 +102,12 @@ public class GameFragment extends BaseFragment {
         int i = 0;
         for (LinearLayout jugadorLocal : botonesJugadoresLocales) {
             final int ii = i;
+
+//            jugadorLocal.setOnLongClickListener(v->{
+//                nav.navigate(R.id.NAVIGATE TO CHANGE USER);
+//            });
+
+
             jugadorLocal.setOnClickListener(v -> {
                 seleccionaJugador(jugadorLocal);
 
