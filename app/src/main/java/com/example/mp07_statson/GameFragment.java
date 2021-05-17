@@ -24,7 +24,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.UUID;
 
 public class GameFragment extends BaseFragment {
 
@@ -66,6 +65,7 @@ public class GameFragment extends BaseFragment {
                 binding.imagenFaltaRecibida, binding.imagenFaltaCometida, binding.imagenReboteOfe, binding.imagenReboteDef);
 
         partidoviewmodel.partido = new Partido();
+        iniciarPartido();
         partidoviewmodel.partido.nombreEquipoLocal = viewmodel.nombreEquipoLocal;
         partidoviewmodel.partido.imagenEquipoLocal = viewmodel.imagenEquipoLocal;
         partidoviewmodel.partido.nombreEquipoVisitante = viewmodel.nombreEquipoVisitante;
@@ -90,13 +90,13 @@ public class GameFragment extends BaseFragment {
             if (partidoviewmodel.cuarto <4){
                 partidoviewmodel.cuarto++;
                 pasarcuarto();
-            }else{} //TODO:lanzar toast
+            }
         });
         binding.cuartoAnterior.setOnClickListener(v->{
             if (partidoviewmodel.cuarto >1){
                 partidoviewmodel.cuarto--;
                 pasarcuarto();
-            }else{}//TODO:lanzar toast
+            }
         });
 
         int i = 0;
@@ -458,27 +458,68 @@ public class GameFragment extends BaseFragment {
                 e.printStackTrace();
 
             }
-            for (int k = 0; k < partidoviewmodel.jugadoresEquipoLocal.size(); k++) {
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
-                        .collection(FirebaseVar.JUGADORES).document(partidoviewmodel.jugadoresEquipoLocal.get(k).idJugador).collection(FirebaseVar.PPP)
-                        .document(FirebaseVar.PPP)
-                        .update(partidoviewmodel.partido.nombreEquipoVisitante+","+ UUID.randomUUID(), partidoviewmodel.jugadoresEquipoLocal.get(k).puntos)
-                        .addOnSuccessListener(documentReference -> {
-
-                });
-            }
-            for (int k = 0; k < partidoviewmodel.jugadoresEquipoVisitante.size(); k++) {
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
-                        .collection(FirebaseVar.JUGADORES).document(partidoviewmodel.jugadoresEquipoVisitante.get(k).idJugador).collection(FirebaseVar.PPP)
-                        .document(FirebaseVar.PPP)
-                        .update(partidoviewmodel.partido.nombreEquipoLocal+","+ UUID.randomUUID(), partidoviewmodel.jugadoresEquipoVisitante.get(k).puntos)
-                        .addOnSuccessListener(documentReference -> {
-                });
-            }
+//            for (int k = 0; k < partidoviewmodel.jugadoresEquipoLocal.size(); k++) {
+//                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
+//                        .collection(FirebaseVar.JUGADORES).document(partidoviewmodel.jugadoresEquipoLocal.get(k).idJugador).collection(FirebaseVar.PPP)
+//                        .document(FirebaseVar.PPP)
+//                        .update(partidoviewmodel.partido.nombreEquipoVisitante+","+ UUID.randomUUID(), partidoviewmodel.jugadoresEquipoLocal.get(k).puntos)
+//                        .addOnSuccessListener(documentReference -> {
+//
+//                });
+//            }
+//            for (int k = 0; k < partidoviewmodel.jugadoresEquipoVisitante.size(); k++) {
+//                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
+//                        .collection(FirebaseVar.JUGADORES).document(partidoviewmodel.jugadoresEquipoVisitante.get(k).idJugador).collection(FirebaseVar.PPP)
+//                        .document(FirebaseVar.PPP)
+//                        .update(partidoviewmodel.partido.nombreEquipoLocal+","+ UUID.randomUUID(), partidoviewmodel.jugadoresEquipoVisitante.get(k).puntos)
+//                        .addOnSuccessListener(documentReference -> {
+//                });
+//            }
 
 
             nav.navigate(R.id.action_gameFragment_to_menuFragment);
         });
+    }
+
+    private void iniciarPartido() {
+        for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
+            partidoviewmodel.jugadoresEquipoLocal.get(i).puntos = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotes = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).asistencias = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).robos = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).perdidas = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).tapones = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).t1mas = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).t1menos = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).t2mas = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).t2menos = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).t3mas = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).t3menos = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesDef = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesOf = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).faltasRecibidas = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas = 0;
+            partidoviewmodel.jugadoresEquipoLocal.get(i).tapones = 0;
+        }
+        for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitante.size(); i++) {
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).puntos = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotes = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).asistencias = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).robos = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).perdidas = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).tapones = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).t1mas = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).t1menos = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).t2mas = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).t2menos = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).t3mas = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).t3menos = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotesDef = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotesOf = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).faltasRecibidas = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).faltasCometidas = 0;
+            partidoviewmodel.jugadoresEquipoVisitante.get(i).tapones = 0;
+        }
     }
 
     private void subirPartidoFirebase(Partido partido, List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante) {
