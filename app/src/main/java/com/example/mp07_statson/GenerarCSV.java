@@ -80,6 +80,8 @@ public class GenerarCSV {
                     ""};
             list.add(jugador);
         }
+        String[] equipoLocal = {};
+        list.add(equipoLocal);
         list.add(s);
         list.add(s);
 
@@ -122,6 +124,8 @@ public class GenerarCSV {
                     ""};
             list.add(jugador);
         }
+        String[] equipoVisitante = {};
+        list.add(equipoVisitante);
 
         list.add(s);
         list.add(s);
