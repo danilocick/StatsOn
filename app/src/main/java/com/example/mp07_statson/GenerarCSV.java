@@ -16,7 +16,7 @@ public class GenerarCSV {
 
     public File generarCSV(Partido partido, List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante) throws IOException {
 
-        List<String[]> list = getContent(jugadoresEquipoLocal, jugadoresEquipoVisitante);
+        List<String[]> list = getContent(jugadoresEquipoLocal, jugadoresEquipoVisitante, partido);
 
         // default all fields are enclosed in double quotes
         // default separator is a comma
@@ -32,7 +32,7 @@ public class GenerarCSV {
         return file;
     }
 
-    private List<String[]> getContent(List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante) {
+    private List<String[]> getContent(List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante, Partido partido) {
         String[] header = {"Dorsal", "Nombre", "Min", "PTS", "TL", "","","T2", "","","T3","","", "Rebotes","","", "Faltas","", "Balones","", "Tapones","",
                 "Pasos", "Dobles", "V.T", "As", "Val"};
 
@@ -42,6 +42,7 @@ public class GenerarCSV {
         List<String[]> list = new ArrayList<>();
         list.add(header);
         list.add(header2);
+        String[] s = {"",""};
         for (int i = 0; i < jugadoresEquipoLocal.size(); i++) {
 //            int tli= jugadoresEquipoLocal.get(i).t1mas+ jugadoresEquipoLocal.get(i).t1menos;
 //            int t2i= jugadoresEquipoLocal.get(i).t2mas+ jugadoresEquipoLocal.get(i).t2menos;
@@ -79,6 +80,8 @@ public class GenerarCSV {
                     ""};
             list.add(jugador);
         }
+        list.add(s);
+        list.add(s);
 
         list.add(header);
         list.add(header2);
@@ -119,6 +122,18 @@ public class GenerarCSV {
                     ""};
             list.add(jugador);
         }
+
+        list.add(s);
+        list.add(s);
+
+        String[] cuartos = { "1 periodo", "2 periodo", "3 periodo", "4 periodo"};
+        list.add(cuartos);
+
+        String[] puntosLocal = {String.valueOf(partido.puntosLocalPrimerCuarto), String.valueOf(partido.puntosLocalSegundoCuarto),String.valueOf(partido.puntosLocalTercerCuarto), String.valueOf(partido.puntosLocalQuartoCuarto)};
+        String[] puntosVisitante = {String.valueOf(partido.puntosVisitantePrimerCuarto), String.valueOf(partido.puntosVisitanteSegundoCuarto),String.valueOf(partido.puntosVisitenteTercerCuarto), String.valueOf(partido.puntosVisitanteQuartoCuarto)};
+        list.add(puntosLocal);
+        list.add(puntosVisitante);
+
         return list;
     }
 }
