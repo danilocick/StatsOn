@@ -54,34 +54,61 @@ public class GenerarCSV {
 
 
             String[] jugador = {
-                    jugadoresEquipoLocal.get(i).dorsal+"",
-                    jugadoresEquipoLocal.get(i).nombre+"", "",
-                    jugadoresEquipoLocal.get(i).puntos+"",
-                    jugadoresEquipoLocal.get(i).t1mas+"","","",
+                    String.valueOf(jugadoresEquipoLocal.get(i).dorsal),
+                    jugadoresEquipoLocal.get(i).nombre, "",
+                    String.valueOf(jugadoresEquipoLocal.get(i).puntos),
+                    String.valueOf(jugadoresEquipoLocal.get(i).t1mas),"","",
 //                    tli+"",
 //                    tlpor+"",
-                    jugadoresEquipoLocal.get(i).t2mas+"","","",
+                    String.valueOf(jugadoresEquipoLocal.get(i).t2mas),"","",
 //                    t2i+"",
 //                    t2por+"",
-                    jugadoresEquipoLocal.get(i).t3mas+"","","",
+                    String.valueOf(jugadoresEquipoLocal.get(i).t3mas),"","",
 //                    t3i+"",
 //                    t3por+"",
-                    jugadoresEquipoLocal.get(i).rebotes+"",
-                    jugadoresEquipoLocal.get(i).rebotesDef+"",
-                    jugadoresEquipoLocal.get(i).rebotesOf+"",
-                    jugadoresEquipoLocal.get(i).faltasCometidas+"",
-                    jugadoresEquipoLocal.get(i).faltasRecibidas+"",
-                    jugadoresEquipoLocal.get(i).robos+"",
-                    jugadoresEquipoLocal.get(i).perdidas+"",
-                    jugadoresEquipoLocal.get(i).taponesRecibidos+"",
-                    jugadoresEquipoLocal.get(i).tapones+"",
+                    String.valueOf(jugadoresEquipoLocal.get(i).rebotes),
+                    String.valueOf(jugadoresEquipoLocal.get(i).rebotesDef),
+                    String.valueOf(jugadoresEquipoLocal.get(i).rebotesOf),
+                    String.valueOf(jugadoresEquipoLocal.get(i).faltasCometidas),
+                    String.valueOf(jugadoresEquipoLocal.get(i).faltasRecibidas),
+                    String.valueOf(jugadoresEquipoLocal.get(i).robos),
+                    String.valueOf(jugadoresEquipoLocal.get(i).perdidas),
+                    String.valueOf(jugadoresEquipoLocal.get(i).taponesRecibidos),
+                    String.valueOf(jugadoresEquipoLocal.get(i).tapones),
                     "","","",
-                    jugadoresEquipoLocal.get(i).asistencias+"",
+                    String.valueOf(jugadoresEquipoLocal.get(i).asistencias),
                     ""};
             list.add(jugador);
         }
-        String[] equipoLocal = {};
+        String[] equipoLocal = {
+                "","Equipo",
+                String.valueOf(partido.puntosLocal),
+                String.valueOf(partido.t1masLocal), "","",
+                String.valueOf(partido.t2masLocal),"","",
+                String.valueOf(partido.t3masLocal),"","",
+                String.valueOf(partido.rebotesLocal),
+                String.valueOf(partido.rebotesDefLocal),
+                String.valueOf(partido.rebotesOfLocal),
+                String.valueOf(partido.faltasCometidasLocal),
+                String.valueOf(partido.faltasRecibidasLocal),
+                String.valueOf(partido.robosLocal),
+                String.valueOf(partido.perdidasLocal),
+                String.valueOf(partido.taponesRecibidosLocal),
+                String.valueOf(partido.taponesLocal), "","","",
+                String.valueOf(partido.asistenciasLocal),"" };
+
         list.add(equipoLocal);
+        list.add(s);
+        list.add(s);
+
+        String[] cuartos = { "1 periodo", "2 periodo", "3 periodo", "4 periodo"};
+        list.add(cuartos);
+
+        String[] puntosLocal = {String.valueOf(partido.puntosLocalPrimerCuarto), String.valueOf(partido.puntosLocalSegundoCuarto),String.valueOf(partido.puntosLocalTercerCuarto), String.valueOf(partido.puntosLocalQuartoCuarto)};
+        String[] puntosVisitante = {String.valueOf(partido.puntosVisitantePrimerCuarto), String.valueOf(partido.puntosVisitanteSegundoCuarto),String.valueOf(partido.puntosVisitenteTercerCuarto), String.valueOf(partido.puntosVisitanteQuartoCuarto)};
+        list.add(puntosLocal);
+        list.add(puntosVisitante);
+
         list.add(s);
         list.add(s);
 
@@ -98,45 +125,49 @@ public class GenerarCSV {
 
 
             String[] jugador = {
-                    jugadoresEquipoVisitante.get(i).dorsal+"",
-                    jugadoresEquipoVisitante.get(i).nombre+"", "",
-                    jugadoresEquipoVisitante.get(i).puntos+"",
-                    jugadoresEquipoVisitante.get(i).t1mas+"","","",
+                    String.valueOf(jugadoresEquipoVisitante.get(i).dorsal),
+                    jugadoresEquipoVisitante.get(i).nombre, "",
+                    String.valueOf(jugadoresEquipoVisitante.get(i).puntos),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).t1mas),"","",
 //                    tli+"",
 //                    tlpor+"",
-                    jugadoresEquipoVisitante.get(i).t2mas+"","","",
+                    String.valueOf(jugadoresEquipoVisitante.get(i).t2mas),"","",
 //                    t2i+"",
 //                    t2por+"",
-                    jugadoresEquipoVisitante.get(i).t3mas+"","","",
+                    String.valueOf(jugadoresEquipoVisitante.get(i).t3mas),"","",
 //                    t3i+"",
 //                    t3por+"",
-                    jugadoresEquipoVisitante.get(i).rebotes+"",
-                    jugadoresEquipoVisitante.get(i).rebotesDef+"",
-                    jugadoresEquipoVisitante.get(i).rebotesOf+"",
-                    jugadoresEquipoVisitante.get(i).faltasCometidas+"",
-                    jugadoresEquipoVisitante.get(i).faltasRecibidas+"",
-                    jugadoresEquipoVisitante.get(i).robos+"",
-                    jugadoresEquipoVisitante.get(i).perdidas+"",
-                    jugadoresEquipoVisitante.get(i).taponesRecibidos+"",
-                    jugadoresEquipoVisitante.get(i).tapones+"",
+                    String.valueOf(jugadoresEquipoVisitante.get(i).rebotes),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).rebotesDef),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).rebotesOf),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).faltasCometidas),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).faltasRecibidas),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).robos),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).perdidas),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).taponesRecibidos),
+                    String.valueOf(jugadoresEquipoVisitante.get(i).tapones),
                     "","","",
-                    jugadoresEquipoVisitante.get(i).asistencias+"",
+                    String.valueOf(jugadoresEquipoVisitante.get(i).asistencias),
                     ""};
             list.add(jugador);
         }
-        String[] equipoVisitante = {};
+        String[] equipoVisitante = {
+                "","Equipo",
+                String.valueOf(partido.puntosVisitante),
+                String.valueOf(partido.t1masVisitante), "","",
+                String.valueOf(partido.t2masVisitante),"","",
+                String.valueOf(partido.t3masVisitante),"","",
+                String.valueOf(partido.rebotesVisitante),
+                String.valueOf(partido.rebotesDefVisitante),
+                String.valueOf(partido.rebotesOfVisitante),
+                String.valueOf(partido.faltasCometidasVisitante),
+                String.valueOf(partido.faltasRecibidasVisitante),
+                String.valueOf(partido.robosVisitante),
+                String.valueOf(partido.perdidasVisitante),
+                String.valueOf(partido.taponesRecibidosVisitante),
+                String.valueOf(partido.taponesVisitante), "","","",
+                String.valueOf(partido.asistenciasVisitante),"" };
         list.add(equipoVisitante);
-
-        list.add(s);
-        list.add(s);
-
-        String[] cuartos = { "1 periodo", "2 periodo", "3 periodo", "4 periodo"};
-        list.add(cuartos);
-
-        String[] puntosLocal = {String.valueOf(partido.puntosLocalPrimerCuarto), String.valueOf(partido.puntosLocalSegundoCuarto),String.valueOf(partido.puntosLocalTercerCuarto), String.valueOf(partido.puntosLocalQuartoCuarto)};
-        String[] puntosVisitante = {String.valueOf(partido.puntosVisitantePrimerCuarto), String.valueOf(partido.puntosVisitanteSegundoCuarto),String.valueOf(partido.puntosVisitenteTercerCuarto), String.valueOf(partido.puntosVisitanteQuartoCuarto)};
-        list.add(puntosLocal);
-        list.add(puntosVisitante);
 
         return list;
     }

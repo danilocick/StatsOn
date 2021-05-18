@@ -20,12 +20,12 @@ public class Partido {
     public int puntosLocal, rebotesLocal, asistenciasLocal, robosLocal, perdidasLocal,
             t1masLocal, t1menosLocal, t2masLocal, t2menosLocal, t3masLocal, t3menosLocal,
             rebotesDefLocal, rebotesOfLocal, faltasRecibidasLocal, faltasCometidasLocal,
-            taponesRealizadosLocal, taponesRecibidosLocal;
+            taponesLocal, taponesRecibidosLocal;
 
     public int puntosVisitante, rebotesVisitante, asistenciasVisitante, robosVisitante, perdidasVisitante,
             t1masVisitante, t1menosVisitante, t2masVisitante, t2menosVisitante, t3masVisitante, t3menosVisitante,
             rebotesDefVisitante, rebotesOfVisitante, faltasRecibidasVisitante, faltasCometidasVisitante,
-            taponesRealizadosVisitante, taponesRecibidosVisitante;
+            taponesVisitante, taponesRecibidosVisitante;
 
     public int puntosLocalPrimerCuarto,puntosLocalSegundoCuarto,puntosLocalTercerCuarto,puntosLocalQuartoCuarto;
     public int puntosVisitantePrimerCuarto,puntosVisitanteSegundoCuarto,puntosVisitenteTercerCuarto,puntosVisitanteQuartoCuarto;
