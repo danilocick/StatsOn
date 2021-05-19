@@ -545,12 +545,8 @@ public class GameFragment extends BaseFragment {
     }
 
     private void iniciarPartido() {
-        for (Jugador j :partidoviewmodel.jugadoresEquipoLocal) {
-            partidoviewmodel.jugadoresEquipoLocalGeneral.add(j);
-        }
-        for (Jugador j :partidoviewmodel.jugadoresEquipoVisitante) {
-            partidoviewmodel.jugadoresEquipoVisitanteGeneral.add(j);
-        }
+        partidoviewmodel.jugadoresEquipoLocalGeneral.addAll(partidoviewmodel.jugadoresEquipoLocal);
+        partidoviewmodel.jugadoresEquipoVisitanteGeneral.addAll(partidoviewmodel.jugadoresEquipoVisitante);
 
         partidoviewmodel.jugadoresEquipoLocal.forEach(Jugador::reiniciar);
         partidoviewmodel.jugadoresEquipoVisitante.forEach(Jugador::reiniciar);
