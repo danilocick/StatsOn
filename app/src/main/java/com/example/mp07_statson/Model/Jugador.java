@@ -2,6 +2,9 @@ package com.example.mp07_statson.Model;
 
 import androidx.annotation.NonNull;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Jugador {
 
     public String idJugador;
@@ -15,6 +18,47 @@ public class Jugador {
 
     public boolean starter;
 
+    public void reiniciar(){
+        puntos = 0;
+        rebotes = 0;
+        asistencias = 0;
+        robos = 0;
+        perdidas = 0;
+        tapones = 0;
+        t1mas = 0;
+        t1menos = 0;
+        t2mas = 0;
+        t2menos = 0;
+        t3mas = 0;
+        t3menos = 0;
+        rebotesDef = 0;
+        rebotesOf = 0;
+        faltasRecibidas = 0;
+        faltasCometidas = 0;
+        tapones = 0;
+    }
+    public Map<String, Object> toHashMap(Jugador j){
+        Map<String, Object> hash = new HashMap<>();
+
+        hash.put("puntos",j.puntos);
+        hash.put("rebotes",j.rebotes);
+        hash.put("asistencias",j.asistencias);
+        hash.put("robos",j.robos);
+        hash.put("perdidas",j.perdidas);
+        hash.put("tapones",j.tapones);
+        hash.put("t1mas",j.t1mas);
+        hash.put("t1menos",j.t1menos);
+        hash.put("t2mas",j.t2mas);
+        hash.put("t2menos",j.t2menos);
+        hash.put("t3mas",j.t3mas);
+        hash.put("t3menos",j.t3menos);
+        hash.put("rebotesDef",j.rebotesDef);
+        hash.put("rebotesOf",j.rebotesOf);
+        hash.put("faltasRecibidas",j.faltasRecibidas);
+        hash.put("faltasCometidas",j.faltasCometidas);
+        hash.put("taponesRecibidos",j.taponesRecibidos);
+        return hash;
+    }
     public Jugador(String nombre, int dorsal, String imagen) {
         this.nombre = nombre;
         this.dorsal = dorsal;
@@ -234,4 +278,6 @@ public class Jugador {
                 ", starter=" + starter +
                 '}';
     }
+
+
 }

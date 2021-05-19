@@ -20,6 +20,7 @@ import com.example.mp07_statson.databinding.FragmentGameBinding;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -65,13 +66,9 @@ public class GameFragment extends BaseFragment {
                 binding.imagenFaltaRecibida, binding.imagenFaltaCometida, binding.imagenReboteOfe, binding.imagenReboteDef);
 
         partidoviewmodel.partido = new Partido();
+        partidoviewmodel.jugadoresEquipoLocalGeneral = new ArrayList<>();
+        partidoviewmodel.jugadoresEquipoVisitanteGeneral = new ArrayList<>();
         iniciarPartido();
-        partidoviewmodel.partido.nombreEquipoLocal = viewmodel.nombreEquipoLocal;
-        partidoviewmodel.partido.imagenEquipoLocal = viewmodel.imagenEquipoLocal;
-        partidoviewmodel.partido.nombreEquipoVisitante = viewmodel.nombreEquipoVisitante;
-        partidoviewmodel.partido.imagenEquipoVisitante = viewmodel.imagenEquipoVisitante;
-        partidoviewmodel.partido.idEquipoLocal = viewmodel.idEquipoLocal;
-        partidoviewmodel.partido.idEquipoVisitante = viewmodel.idEquipoVisitante;
 
         binding.start.setOnClickListener(view17 -> {
             if (partidoviewmodel.mTimerRunning) {
@@ -110,9 +107,9 @@ public class GameFragment extends BaseFragment {
             jugadorLocal.setOnClickListener(v -> {
                 seleccionaJugador(jugadorLocal);
 
-//                jugador.setOnClickListener(v1 -> {
-//                    desSeleccionarJugador(jugador, R.drawable.recyclerv_round_grey_black);
-//                });
+                binding.deshacer.setOnClickListener(v1 -> {
+                    desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
+                });
 
                 binding.imagenThreePointMore.setOnClickListener(v1 -> {
                     partidoviewmodel.partido.puntosLocal += 3;
@@ -533,63 +530,45 @@ public class GameFragment extends BaseFragment {
                 e.printStackTrace();
             }
 
-            for (Jugador jugador:partidoviewmodel.jugadoresEquipoLocalGeneral) {
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoLocal)
-                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador).addOnSuccessListener(documentReference -> {
+            for (Jugador jugador: partidoviewmodel.jugadoresEquipoLocalGeneral) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
+                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador)).addOnSuccessListener(documentReference -> {
                 });
             }
-            for (Jugador jugador:partidoviewmodel.jugadoresEquipoVisitanteGeneral) {
-                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoVisitante)
-                            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador).addOnSuccessListener(documentReference -> {
-//                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoVisitante)
-//                                .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).add(partidoviewmodel.partido.nombreEquipoLocal, jugador.puntos);
-                    });
+            for (Jugador jugador: partidoviewmodel.jugadoresEquipoVisitanteGeneral) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
+                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador)).addOnSuccessListener(documentReference -> {
+                });
             }
             nav.navigate(R.id.action_gameFragment_to_menuFragment);
         });
     }
 
     private void iniciarPartido() {
-        partidoviewmodel.jugadoresEquipoLocalGeneral = partidoviewmodel.jugadoresEquipoLocal;
-        partidoviewmodel.jugadoresEquipoVisitanteGeneral = partidoviewmodel.jugadoresEquipoVisitante;
-        for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
-            partidoviewmodel.jugadoresEquipoLocal.get(i).puntos = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotes = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).asistencias = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).robos = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).perdidas = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).tapones = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).t1mas = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).t1menos = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).t2mas = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).t2menos = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).t3mas = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).t3menos = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesDef = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesOf = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).faltasRecibidas = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas = 0;
-            partidoviewmodel.jugadoresEquipoLocal.get(i).tapones = 0;
+        for (Jugador j :partidoviewmodel.jugadoresEquipoLocal) {
+            partidoviewmodel.jugadoresEquipoLocalGeneral.add(j);
         }
-        for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitante.size(); i++) {
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).puntos = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotes = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).asistencias = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).robos = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).perdidas = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).tapones = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).t1mas = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).t1menos = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).t2mas = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).t2menos = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).t3mas = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).t3menos = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotesDef = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotesOf = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).faltasRecibidas = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).faltasCometidas = 0;
-            partidoviewmodel.jugadoresEquipoVisitante.get(i).tapones = 0;
+        for (Jugador j :partidoviewmodel.jugadoresEquipoVisitante) {
+            partidoviewmodel.jugadoresEquipoVisitanteGeneral.add(j);
         }
+
+        partidoviewmodel.jugadoresEquipoLocal.forEach(Jugador::reiniciar);
+        partidoviewmodel.jugadoresEquipoVisitante.forEach(Jugador::reiniciar);
+
+        partidoviewmodel.partido.nombreEquipoLocal = viewmodel.nombreEquipoLocal;
+        partidoviewmodel.partido.imagenEquipoLocal = viewmodel.imagenEquipoLocal;
+        partidoviewmodel.partido.nombreEquipoVisitante = viewmodel.nombreEquipoVisitante;
+        partidoviewmodel.partido.imagenEquipoVisitante = viewmodel.imagenEquipoVisitante;
+        partidoviewmodel.partido.idEquipoLocal = viewmodel.idEquipoLocal;
+        partidoviewmodel.partido.idEquipoVisitante = viewmodel.idEquipoVisitante;
+
+        viewmodel.nombreEquipoLocal =null;
+        viewmodel.imagenEquipoLocal =null;
+        viewmodel.nombreEquipoVisitante =null;
+        viewmodel.imagenEquipoVisitante =null;
+        viewmodel.idEquipoLocal =null;
+        viewmodel.idEquipoVisitante =null;
+
     }
 
     private void subirPartidoFirebase(Partido partido, List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante) {
