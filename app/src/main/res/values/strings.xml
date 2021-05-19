@@ -61,11 +61,11 @@
     <string name="taponC">Tapón cometido</string>
     <string name="taponR">Tapón recibido</string>
 
-    <string name="balonP">Pérdida</string>
-    <string name="balonR">Robo</string>
+    <string name="balonP">Pérdida de balón</string>
+    <string name="balonR">Robo de balón</string>
 
-    <string name="reboteO">Rebote ofensivo</string>
-    <string name="reboteD">Rebote defensivo</string>
+    <string name="reboteO">Rebote ataque</string>
+    <string name="reboteD">Rebote defensa</string>
 
     <string name="t3mas" translatable="false">T3 +</string>
     <string name="t2mas" translatable="false">T2 +</string>

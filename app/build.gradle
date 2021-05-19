@@ -95,5 +95,8 @@ dependencies {
     //Datato CSV
     implementation 'com.opencsv:opencsv:4.6'
 
+    implementation 'com.google.android:flexbox:2.0.1'
+
+
 }
 
