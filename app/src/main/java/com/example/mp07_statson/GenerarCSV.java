@@ -81,7 +81,7 @@ public class GenerarCSV {
             list.add(jugador);
         }
         String[] equipoLocal = {
-                "","Equipo",
+                "","Equipo","",
                 String.valueOf(partido.puntosLocal),
                 String.valueOf(partido.t1masLocal), "","",
                 String.valueOf(partido.t2masLocal),"","",
@@ -101,11 +101,11 @@ public class GenerarCSV {
         list.add(s);
         list.add(s);
 
-        String[] cuartos = { "1 periodo", "2 periodo", "3 periodo", "4 periodo"};
+        String[] cuartos = { "","1 periodo", "2 periodo", "3 periodo", "4 periodo"};
         list.add(cuartos);
 
-        String[] puntosLocal = {String.valueOf(partido.puntosLocalPrimerCuarto), String.valueOf(partido.puntosLocalSegundoCuarto),String.valueOf(partido.puntosLocalTercerCuarto), String.valueOf(partido.puntosLocalQuartoCuarto)};
-        String[] puntosVisitante = {String.valueOf(partido.puntosVisitantePrimerCuarto), String.valueOf(partido.puntosVisitanteSegundoCuarto),String.valueOf(partido.puntosVisitenteTercerCuarto), String.valueOf(partido.puntosVisitanteQuartoCuarto)};
+        String[] puntosLocal = {String.valueOf(partido.nombreEquipoLocal),String.valueOf(partido.puntosLocalPrimerCuarto), String.valueOf(partido.puntosLocalSegundoCuarto),String.valueOf(partido.puntosLocalTercerCuarto), String.valueOf(partido.puntosLocalQuartoCuarto)};
+        String[] puntosVisitante = {String.valueOf(partido.nombreEquipoVisitante),String.valueOf(partido.puntosVisitantePrimerCuarto), String.valueOf(partido.puntosVisitanteSegundoCuarto),String.valueOf(partido.puntosVisitenteTercerCuarto), String.valueOf(partido.puntosVisitanteQuartoCuarto)};
         list.add(puntosLocal);
         list.add(puntosVisitante);
 
@@ -152,7 +152,7 @@ public class GenerarCSV {
             list.add(jugador);
         }
         String[] equipoVisitante = {
-                "","Equipo",
+                "","Equipo","",
                 String.valueOf(partido.puntosVisitante),
                 String.valueOf(partido.t1masVisitante), "","",
                 String.valueOf(partido.t2masVisitante),"","",

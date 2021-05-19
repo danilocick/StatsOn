@@ -1,7 +1,6 @@
 package com.example.mp07_statson;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,7 +20,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import tyrantgit.explosionfield.ExplosionField;
 
@@ -119,10 +117,10 @@ public class MiEquipoFragment extends BaseFragment {
 
     private void createDialog(Jugador jugador, View v) {
         AlertDialog.Builder alertDlg = new AlertDialog.Builder(requireActivity());
-        alertDlg.setMessage("Are you sure you want to delete?");
+        alertDlg.setMessage("¿Estás seguro que deseas eliminar al jugador?");
         alertDlg.setCancelable(false);
 
-        alertDlg.setPositiveButton("Yes", (dialog, which) -> {
+        alertDlg.setPositiveButton("Si", (dialog, which) -> {
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(jugador.idJugador).delete();
             mExplosionField.explode(v);
         });

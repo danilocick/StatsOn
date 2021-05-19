@@ -12,6 +12,7 @@ import java.util.List;
 public class PartidoViewModel extends ViewModel {
     public List<Jugador> jugadoresEquipoLocal;
     public List<Jugador> jugadoresEquipoVisitante;
+
     public List<Jugador> jugadoresEquipoLocalGeneral;
     public List<Jugador> jugadoresEquipoVisitanteGeneral;
 

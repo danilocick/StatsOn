@@ -107,7 +107,6 @@ public class GameFragment extends BaseFragment {
 //                nav.navigate(R.id.NAVIGATE TO CHANGE USER);
 //            });
 
-
             jugadorLocal.setOnClickListener(v -> {
                 seleccionaJugador(jugadorLocal);
 
@@ -118,6 +117,9 @@ public class GameFragment extends BaseFragment {
                 binding.imagenThreePointMore.setOnClickListener(v1 -> {
                     partidoviewmodel.partido.puntosLocal += 3;
                     partidoviewmodel.partido.t3masLocal += 1;
+
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).puntos += 3;
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).t3mas += 1;
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos += 3;
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t3mas += 1;
@@ -138,6 +140,8 @@ public class GameFragment extends BaseFragment {
                 binding.imagenThreePointLess.setOnClickListener(v1 -> {
                     partidoviewmodel.partido.t3menosLocal += 1;
 
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).t3menos += 1;
+
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t3menos += 1;
 
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
@@ -146,6 +150,9 @@ public class GameFragment extends BaseFragment {
                 binding.imagenTwoPointMore.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.puntosLocal += 2;
                     partidoviewmodel.partido.t2masLocal += 1;
+
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).puntos += 2;
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).t2mas += 1;
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos += 2;
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t2mas += 1;
@@ -165,6 +172,8 @@ public class GameFragment extends BaseFragment {
                 binding.imagenTwoPointLess.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.t2menosLocal += 1;
 
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).t2menos += 1;
+
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t2menos += 1;
 
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
@@ -173,6 +182,9 @@ public class GameFragment extends BaseFragment {
                 binding.imagenFreeThrowMore.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.puntosLocal += 1;
                     partidoviewmodel.partido.t1masLocal += 1;
+
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).puntos += 1;
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).t1mas += 1;
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).puntos += 1;
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t1mas += 1;
@@ -192,6 +204,8 @@ public class GameFragment extends BaseFragment {
                 binding.imagenFreeThrowLess.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.t1menosLocal += 1;
 
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).t1menos += 1;
+
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).t1menos += 1;
 
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
@@ -199,6 +213,8 @@ public class GameFragment extends BaseFragment {
 
                 binding.imagenAsistencia.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.asistenciasLocal += 1;
+
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).asistencias += 1;
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).asistencias += 1;
 
@@ -208,6 +224,8 @@ public class GameFragment extends BaseFragment {
                 binding.imagenTaponCometido.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.taponesLocal += 1;
 
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).tapones += 1;
+
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).tapones += 1;
 
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
@@ -215,6 +233,8 @@ public class GameFragment extends BaseFragment {
 
                 binding.imagenTaponRecibido.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.taponesRecibidosLocal += 1;
+
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).taponesRecibidos += 1;
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).taponesRecibidos += 1;
 
@@ -224,6 +244,8 @@ public class GameFragment extends BaseFragment {
                 binding.imagenRobo.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.robosLocal += 1;
 
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).robos += 1;
+
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).robos += 1;
 
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
@@ -231,6 +253,8 @@ public class GameFragment extends BaseFragment {
 
                 binding.imagenPerdida.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.perdidasLocal += 1;
+
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).perdidas += 1;
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).perdidas += 1;
 
@@ -240,6 +264,8 @@ public class GameFragment extends BaseFragment {
                 binding.imagenFaltaRecibida.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.faltasRecibidasLocal += 1;
 
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).faltasRecibidas += 1;
+
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).faltasRecibidas += 1;
 
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
@@ -247,6 +273,8 @@ public class GameFragment extends BaseFragment {
 
                 binding.imagenFaltaCometida.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.faltasCometidasLocal += 1;
+
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).faltasCometidas += 1;
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).faltasCometidas += 1;
 
@@ -260,6 +288,9 @@ public class GameFragment extends BaseFragment {
                     partidoviewmodel.partido.rebotesOfLocal += 1;
                     partidoviewmodel.partido.rebotesLocal += 1;
 
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).rebotes += 1;
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).rebotesOf += 1;
+
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).rebotes += 1;
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).rebotesOf += 1;
 
@@ -269,6 +300,9 @@ public class GameFragment extends BaseFragment {
                 binding.imagenReboteDef.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.rebotesDefLocal += 1;
                     partidoviewmodel.partido.rebotesLocal += 1;
+
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).rebotes += 1;
+                    partidoviewmodel.jugadoresEquipoLocalGeneral.get(buscarPosicionJugadorLocal(ii)).rebotesDef += 1;
 
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).rebotes += 1;
                     partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).rebotesDef += 1;
@@ -287,7 +321,6 @@ public class GameFragment extends BaseFragment {
                 binding.imagenThreePointMore.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.puntosVisitante += 3;
                     partidoviewmodel.partido.t3masVisitante += 1;
-
 
                     partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(buscarPosicionJugadorVisitante(jj)).puntos += 3;
                     partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(buscarPosicionJugadorVisitante(jj)).t3mas += 1;
@@ -436,6 +469,8 @@ public class GameFragment extends BaseFragment {
                 binding.imagenFaltaRecibida.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.faltasRecibidasVisitante+=1;
 
+                    partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(buscarPosicionJugadorVisitante(jj)).faltasRecibidas += 1;
+
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).faltasRecibidas += 1;
 
                     desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
@@ -443,6 +478,8 @@ public class GameFragment extends BaseFragment {
 
                 binding.imagenFaltaCometida.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.faltasCometidasVisitante+=1;
+
+                    partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(buscarPosicionJugadorVisitante(jj)).faltasCometidas += 1;
 
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).faltasCometidas += 1;
 
@@ -456,6 +493,9 @@ public class GameFragment extends BaseFragment {
                     partidoviewmodel.partido.rebotesVisitante+=1;
                     partidoviewmodel.partido.rebotesOfVisitante+=1;
 
+                    partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(buscarPosicionJugadorVisitante(jj)).rebotes += 1;
+                    partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(buscarPosicionJugadorVisitante(jj)).rebotesOf += 1;
+
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).rebotes += 1;
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).rebotesOf += 1;
 
@@ -465,6 +505,9 @@ public class GameFragment extends BaseFragment {
                 binding.imagenReboteDef.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.rebotesVisitante+=1;
                     partidoviewmodel.partido.rebotesDefVisitante+=1;
+
+                    partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(buscarPosicionJugadorVisitante(jj)).rebotes += 1;
+                    partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(buscarPosicionJugadorVisitante(jj)).rebotesDef += 1;
 
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).rebotes += 1;
                     partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).rebotesDef += 1;
@@ -488,27 +531,20 @@ public class GameFragment extends BaseFragment {
                         });
             } catch (IOException e) {
                 e.printStackTrace();
-
             }
-//            for (int k = 0; k < partidoviewmodel.jugadoresEquipoLocal.size(); k++) {
-//                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
-//                        .collection(FirebaseVar.JUGADORES).document(partidoviewmodel.jugadoresEquipoLocal.get(k).idJugador).collection(FirebaseVar.PPP)
-//                        .document(FirebaseVar.PPP)
-//                        .update(partidoviewmodel.partido.nombreEquipoVisitante+","+ UUID.randomUUID(), partidoviewmodel.jugadoresEquipoLocal.get(k).puntos)
-//                        .addOnSuccessListener(documentReference -> {
-//
-//                });
-//            }
-//            for (int k = 0; k < partidoviewmodel.jugadoresEquipoVisitante.size(); k++) {
-//                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
-//                        .collection(FirebaseVar.JUGADORES).document(partidoviewmodel.jugadoresEquipoVisitante.get(k).idJugador).collection(FirebaseVar.PPP)
-//                        .document(FirebaseVar.PPP)
-//                        .update(partidoviewmodel.partido.nombreEquipoLocal+","+ UUID.randomUUID(), partidoviewmodel.jugadoresEquipoVisitante.get(k).puntos)
-//                        .addOnSuccessListener(documentReference -> {
-//                });
-//            }
 
-
+            for (Jugador jugador:partidoviewmodel.jugadoresEquipoLocalGeneral) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoLocal)
+                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update().addOnSuccessListener(documentReference -> {
+                });
+            }
+            for (Jugador jugador:partidoviewmodel.jugadoresEquipoVisitanteGeneral) {
+                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoVisitante)
+                            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update().addOnSuccessListener(documentReference -> {
+//                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoVisitante)
+//                                .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).add(partidoviewmodel.partido.nombreEquipoLocal, jugador.puntos);
+                    });
+            }
             nav.navigate(R.id.action_gameFragment_to_menuFragment);
         });
     }
@@ -561,11 +597,13 @@ public class GameFragment extends BaseFragment {
             String idPartido = documentReference.getId();
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).update("idPartido", idPartido);
 
-
-//            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESLOCALES).add(juga)
+            for (Jugador jugador: jugadoresEquipoLocal) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESLOCALES).add(jugador);
+            }
+            for (Jugador jugador: jugadoresEquipoVisitante) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESVISITANTES).add(jugador);
+            }
         });
-
-
     }
 
     private void pasarcuarto() {
