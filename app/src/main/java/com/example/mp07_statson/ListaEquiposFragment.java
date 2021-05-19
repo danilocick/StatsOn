@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.mp07_statson.Model.Equipo;
 import com.example.mp07_statson.Model.FirebaseVar;
-import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.databinding.FragmentRivalesBinding;
 import com.example.mp07_statson.databinding.ViewholderEquipoBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -22,10 +21,13 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+import tyrantgit.explosionfield.ExplosionField;
+
 public class ListaEquiposFragment extends BaseFragment {
 
     private FragmentRivalesBinding binding;
     EquiposbdAdapter equiposbdAdapter = new EquiposbdAdapter();
+    private ExplosionField mExplosionField;
 
 
     @Override
@@ -36,6 +38,8 @@ public class ListaEquiposFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mExplosionField = ExplosionField.attach2Window(requireActivity());
+
 
         binding.botonComeBack.setOnClickListener(view12 -> nav.popBackStack());
 
@@ -63,7 +67,6 @@ public class ListaEquiposFragment extends BaseFragment {
             public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
                 if (parent != null && view != null) {
-
                     int itemPosition = parent.getChildAdapterPosition(view);
                     int totalCount = parent.getAdapter().getItemCount();
 
@@ -97,7 +100,7 @@ public class ListaEquiposFragment extends BaseFragment {
                 });
 
             holder.binding.background.setOnLongClickListener(v -> {
-                createDialog(equipo);
+                createDialog(equipo, v);
                 return false;
             });
         }
@@ -116,12 +119,15 @@ public class ListaEquiposFragment extends BaseFragment {
         }
     }
 
-    private void createDialog(Equipo equipo) {
+    private void createDialog(Equipo equipo, View v) {
         AlertDialog.Builder alertDlg = new AlertDialog.Builder(requireActivity());
-        alertDlg.setMessage("Are you sure you want to delete?");
+        alertDlg.setMessage("¿Estás seguro que deseas eliminar al jugador?");
         alertDlg.setCancelable(false);
 
-        alertDlg.setPositiveButton("Yes", (dialog, which) -> db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(equipo.idEquipo).delete());
+        alertDlg.setPositiveButton("Si", (dialog, which) ->{
+            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(equipo.idEquipo).delete();
+            mExplosionField.explode(v);
+        });
 
         alertDlg.setNegativeButton("No", (dialog, which) -> {});
 

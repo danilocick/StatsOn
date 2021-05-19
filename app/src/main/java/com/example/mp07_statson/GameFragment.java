@@ -535,12 +535,12 @@ public class GameFragment extends BaseFragment {
 
             for (Jugador jugador:partidoviewmodel.jugadoresEquipoLocalGeneral) {
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoLocal)
-                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update().addOnSuccessListener(documentReference -> {
+                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador).addOnSuccessListener(documentReference -> {
                 });
             }
             for (Jugador jugador:partidoviewmodel.jugadoresEquipoVisitanteGeneral) {
                     db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoVisitante)
-                            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update().addOnSuccessListener(documentReference -> {
+                            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador).addOnSuccessListener(documentReference -> {
 //                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.nombreEquipoVisitante)
 //                                .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).add(partidoviewmodel.partido.nombreEquipoLocal, jugador.puntos);
                     });
