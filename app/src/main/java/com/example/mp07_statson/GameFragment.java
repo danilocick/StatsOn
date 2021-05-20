@@ -102,6 +102,7 @@ public class GameFragment extends BaseFragment {
             final int ii = i;
 
             jugadorLocal.setOnLongClickListener(v1->{
+                partidoviewmodel.seleccionEquipo = true;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
                 return false;
             });
@@ -316,10 +317,12 @@ public class GameFragment extends BaseFragment {
         for (LinearLayout jugadorvisitante : botonesJugadoresVisitantes) {
             final int jj = j;
 
-            jugadorvisitante.setOnLongClickListener(v->{
+            jugadorvisitante.setOnLongClickListener(v1->{
+                partidoviewmodel.seleccionEquipo = false;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
                 return false;
             });
+
 
             jugadorvisitante.setOnClickListener(v1 -> {
                 seleccionaJugador(jugadorvisitante);

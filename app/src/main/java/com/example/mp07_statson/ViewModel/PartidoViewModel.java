@@ -15,6 +15,7 @@ public class PartidoViewModel extends ViewModel {
 
     public List<Jugador> jugadoresEquipoLocalGeneral;
     public List<Jugador> jugadoresEquipoVisitanteGeneral;
+    public boolean seleccionEquipo;
 
 
     //CRONOMETRO

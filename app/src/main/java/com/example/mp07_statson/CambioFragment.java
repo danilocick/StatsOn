@@ -57,14 +57,26 @@ public class CambioFragment extends DialogFragment {
         List<Jugador> listJ = new ArrayList<>();
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
 
-                    for(Jugador j : partidoviewmodel.jugadoresEquipoLocal){
-                        if (j.starter) {
+        if (partidoviewmodel.seleccionEquipo){
+            for(Jugador j : partidoviewmodel.jugadoresEquipoLocal){
+                if (j.starter) {
 
-                        }else {
-                            listJ.add(j);
-                        }
-                    }
-                    jugadorAdapter.establecerjugadores(listJ);
+                }else {
+                    listJ.add(j);
+                }
+            }
+            jugadorAdapter.establecerjugadores(listJ);
+        }else {
+            for(Jugador j : partidoviewmodel.jugadoresEquipoVisitante){
+                if (j.starter) {
+
+                }else {
+                    listJ.add(j);
+                }
+            }
+            jugadorAdapter.establecerjugadores(listJ);
+
+        }
 
 
         binding.listaJugadores.setAdapter(jugadorAdapter);
@@ -107,9 +119,9 @@ public class CambioFragment extends DialogFragment {
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
             holder.binding.background.setOnClickListener(v->{
-                viewmodel.jugadorSeleccionado = jugador;
+//                viewmodel.jugadorSeleccionado = jugador;
                 viewmodel.jugadorSeleccionado.starter = true;
-                nav.popBackStack();
+                dismiss();
             });
 
         }
