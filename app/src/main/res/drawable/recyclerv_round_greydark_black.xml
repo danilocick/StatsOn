@@ -4,8 +4,8 @@
         android:color="@color/greydark"/>
 
     <stroke
-        android:width="2dp"
-        android:color="@color/black"/>
+        android:width="1dp"
+        android:color="@color/silver"/>
 
     <padding
         android:left="1dp"
