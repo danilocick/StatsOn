@@ -134,6 +134,9 @@
             app:exitAnim="@anim/slide_out_down"
             app:popEnterAnim="@anim/slide_in_down"
             app:popExitAnim="@anim/slide_out_up"/>
+        <action
+            android:id="@+id/action_gameFragment_to_cambioFragment"
+            app:destination="@id/cambioFragment" />
     </fragment>
 
     <!--LISTA MIEQUIPO FRAGMENT-->
@@ -256,5 +259,10 @@
             android:id="@+id/action_equipoAyBFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/cambioFragment"
+        android:name="com.example.mp07_statson.CambioFragment"
+        android:label="fragment_cambio"
+        tools:layout="@layout/fragment_cambio" />
 
 </navigation>

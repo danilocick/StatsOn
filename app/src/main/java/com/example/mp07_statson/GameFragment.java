@@ -101,14 +101,16 @@ public class GameFragment extends BaseFragment {
         for (LinearLayout jugadorLocal : botonesJugadoresLocales) {
             final int ii = i;
 
-//            jugadorLocal.setOnLongClickListener(v->{
-//                nav.navigate(R.id.NAVIGATE TO CHANGE USER);
-//            });
+            jugadorLocal.setOnLongClickListener(v1->{
+                nav.navigate(R.id.action_gameFragment_to_cambioFragment);
+                return false;
+            });
 
             jugadorLocal.setOnClickListener(v -> {
                 seleccionaJugador(jugadorLocal);
 
-                binding.deshacer.setOnClickListener(v1 -> {
+
+                binding.imagenDeshacer.setOnClickListener(v1 -> {
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
                 });
 
@@ -313,8 +315,20 @@ public class GameFragment extends BaseFragment {
         int j = 0;
         for (LinearLayout jugadorvisitante : botonesJugadoresVisitantes) {
             final int jj = j;
+
+            jugadorvisitante.setOnLongClickListener(v->{
+                nav.navigate(R.id.action_gameFragment_to_cambioFragment);
+                return false;
+            });
+
             jugadorvisitante.setOnClickListener(v1 -> {
                 seleccionaJugador(jugadorvisitante);
+
+                binding.imagenDeshacer.setOnClickListener(v -> {
+                    partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).starter = false;
+                    desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
+                });
+
 
                 binding.imagenThreePointMore.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.puntosVisitante += 3;
