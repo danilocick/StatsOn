@@ -1,38 +1,29 @@
 package com.example.mp07_statson;
 
-import android.app.AlertDialog;
 import android.graphics.Rect;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
-import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.PartidoViewModel;
 import com.example.mp07_statson.ViewModel.StatsOnViewModel;
 import com.example.mp07_statson.databinding.FragmentCambioBinding;
 import com.example.mp07_statson.databinding.ViewholderJugadorEquipoABinding;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import tyrantgit.explosionfield.ExplosionField;
 
 public class CambioFragment extends DialogFragment {
 
@@ -59,25 +50,19 @@ public class CambioFragment extends DialogFragment {
 
         if (partidoviewmodel.seleccionEquipo){
             for(Jugador j : partidoviewmodel.jugadoresEquipoLocal){
-                if (j.starter) {
-
-                }else {
+                if (!j.starter) {
                     listJ.add(j);
                 }
             }
             jugadorAdapter.establecerjugadores(listJ);
         }else {
             for(Jugador j : partidoviewmodel.jugadoresEquipoVisitante){
-                if (j.starter) {
-
-                }else {
+                if (!j.starter) {
                     listJ.add(j);
                 }
             }
             jugadorAdapter.establecerjugadores(listJ);
-
         }
-
 
         binding.listaJugadores.setAdapter(jugadorAdapter);
 
@@ -99,8 +84,6 @@ public class CambioFragment extends DialogFragment {
         });
     }
 
-
-
     class JugadorAdapter extends RecyclerView.Adapter<JugadorViewHolder>{
         List<Jugador> jugadorList;
 
@@ -109,7 +92,6 @@ public class CambioFragment extends DialogFragment {
         public JugadorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new JugadorViewHolder(ViewholderJugadorEquipoABinding.inflate(getLayoutInflater()), parent, false);
         }
-
 
         @Override
         public void onBindViewHolder(@NonNull JugadorViewHolder holder, int position) {
@@ -120,10 +102,9 @@ public class CambioFragment extends DialogFragment {
 
             holder.binding.background.setOnClickListener(v->{
 //                viewmodel.jugadorSeleccionado = jugador;
-                viewmodel.jugadorSeleccionado.starter = true;
+                jugador.starter = true;
                 dismiss();
             });
-
         }
 
         @Override
@@ -136,7 +117,6 @@ public class CambioFragment extends DialogFragment {
             notifyDataSetChanged();
         }
     }
-
 
     public static class JugadorViewHolder extends RecyclerView.ViewHolder{
         ViewholderJugadorEquipoABinding binding;

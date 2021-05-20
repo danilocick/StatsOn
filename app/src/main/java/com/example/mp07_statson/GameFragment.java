@@ -2,7 +2,6 @@ package com.example.mp07_statson;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +40,8 @@ public class GameFragment extends BaseFragment {
     private List<TextView> puntosJugadoresVisitantes;
     private List<TextView> faltasJugadoresLocales;
     private List<TextView> faltasJugadoresVisitantes;
+    private List<TextView> nombresJugadoresLocales;
+    private List<TextView> nombresJugadoresVisitantes;
 
     /*https://codinginflow.com/tutorials/android/countdowntimer/part-1-countdown-timer*/
 
@@ -56,11 +57,13 @@ public class GameFragment extends BaseFragment {
         dorsalesJugadoresLocales = Arrays.asList(binding.dorsalA1, binding.dorsalA2, binding.dorsalA3, binding.dorsalA4, binding.dorsalA5);
         puntosJugadoresLocales = Arrays.asList(binding.puntosA1, binding.puntosA2, binding.puntosA3, binding.puntosA4, binding.puntosA5);
         faltasJugadoresLocales = Arrays.asList(binding.faltasA1, binding.faltasA2, binding.faltasA3, binding.faltasA4, binding.faltasA5);
+        nombresJugadoresLocales = Arrays.asList(binding.nombreA1,binding.nombreA2,binding.nombreA3,binding.nombreA4,binding.nombreA5);
 
         botonesJugadoresVisitantes = Arrays.asList(binding.jugB1, binding.jugB2, binding.jugB3, binding.jugB4, binding.jugB5);
         dorsalesJugadoresVisitantes = Arrays.asList(binding.dorsalB1, binding.dorsalB2, binding.dorsalB3, binding.dorsalB4, binding.dorsalB5);
         puntosJugadoresVisitantes = Arrays.asList(binding.puntosB1, binding.puntosB2, binding.puntosB3, binding.puntosB4, binding.puntosB5);
         faltasJugadoresVisitantes = Arrays.asList(binding.faltasB1, binding.faltasB2, binding.faltasB3, binding.faltasB4, binding.faltasB5);
+        nombresJugadoresVisitantes = Arrays.asList(binding.nombreB1,binding.nombreB2,binding.nombreB3,binding.nombreB4,binding.nombreB5);
 
         botonesAcciones = Arrays.asList(binding.imagenThreePointMore, binding.imagenThreePointLess, binding.imagenTwoPointMore, binding.imagenTwoPointLess, binding.imagenFreeThrowMore,
                 binding.imagenFreeThrowLess, binding.imagenAsistencia, binding.imagenTaponCometido, binding.imagenTaponRecibido, binding.imagenRobo, binding.imagenPerdida,
@@ -319,7 +322,9 @@ public class GameFragment extends BaseFragment {
 
             jugadorvisitante.setOnLongClickListener(v1->{
                 partidoviewmodel.seleccionEquipo = false;
+                nombresJugadoresVisitantes.get(buscarPosicionJugadorVisitante(jj)).setText("Jugador");
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
+//                printarJugadoresVisitante();
                 return false;
             });
 
@@ -549,13 +554,11 @@ public class GameFragment extends BaseFragment {
             }
 
             for (Jugador jugador: partidoviewmodel.jugadoresEquipoLocalGeneral) {
-                Log.e("ABCD", partidoviewmodel.partido.idEquipoLocal);
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
                         .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador)).addOnSuccessListener(documentReference -> {
                 });
             }
             for (Jugador jugador: partidoviewmodel.jugadoresEquipoVisitanteGeneral) {
-                Log.e("ABCD", partidoviewmodel.partido.idEquipoVisitante);
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
                         .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador)).addOnSuccessListener(documentReference -> {
                 });
