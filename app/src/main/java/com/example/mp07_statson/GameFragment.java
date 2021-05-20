@@ -571,14 +571,6 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.partido.imagenEquipoVisitante = viewmodel.imagenEquipoVisitante;
         partidoviewmodel.partido.idEquipoLocal = viewmodel.idEquipoLocal;
         partidoviewmodel.partido.idEquipoVisitante = viewmodel.idEquipoVisitante;
-
-        viewmodel.nombreEquipoLocal =null;
-        viewmodel.imagenEquipoLocal =null;
-        viewmodel.nombreEquipoVisitante =null;
-        viewmodel.imagenEquipoVisitante =null;
-        viewmodel.idEquipoLocal =null;
-        viewmodel.idEquipoVisitante =null;
-
     }
 
     private void subirPartidoFirebase(Partido partido, List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante) {
