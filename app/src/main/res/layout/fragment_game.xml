@@ -216,11 +216,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
             <!--1a fila-->
             <com.google.android.flexbox.FlexboxLayout
                 android:layout_width="match_parent"
@@ -233,7 +228,7 @@
                 <!--1a fila-->
                 <LinearLayout android:id="@+id/tapon_cometido"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="5dp"
@@ -242,8 +237,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_tapon_cometido"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -258,12 +254,13 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="@string/taponC"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
                 <LinearLayout android:id="@+id/robo"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="5dp"
@@ -272,8 +269,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_robo"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -288,13 +286,14 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="@string/balonR"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout android:id="@+id/falta_recibida"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="5dp"
@@ -303,8 +302,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_falta_recibida"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -319,13 +319,14 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="@string/faltaR"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
 
                 </LinearLayout>
                 <LinearLayout android:id="@+id/rebote_ofensivo"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="5dp"
@@ -334,8 +335,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_rebote_ofe"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -350,6 +352,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="@string/reboteO"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -374,8 +377,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_tapon_recibido"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -390,6 +394,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="@string/taponR"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
 
                         android:textColor="@color/black" />
@@ -406,8 +411,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_perdida"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -422,6 +428,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="@string/balonP"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -436,8 +443,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_falta_cometida"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -452,6 +460,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="@string/faltaC"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -466,8 +475,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_rebote_def"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -482,6 +492,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="@string/reboteD"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -505,8 +516,9 @@
                     android:orientation="vertical">
 
                     <ImageButton android:id="@+id/imagen_three_point_more"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -521,6 +533,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/t3mas"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -535,8 +548,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_two_point_more"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -551,6 +565,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/t2mas"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
 
                         android:textColor="@color/black" />
@@ -566,8 +581,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_free_throw_more"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -582,6 +598,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/tlmas"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
 
                         android:textColor="@color/black" />
@@ -597,8 +614,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_asistencia"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -613,6 +631,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/asistencia"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -638,7 +657,7 @@
 
                     <ImageButton
                         android:id="@+id/imagen_three_point_less"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:layout_gravity="center"
@@ -655,6 +674,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/t3menos"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -669,8 +689,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_two_point_less"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -685,6 +706,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/t2menos"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -699,8 +721,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_free_throw_less"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -715,6 +738,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/tlmenos"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -729,8 +753,9 @@
 
                     <ImageButton
                         android:id="@+id/imagen_deshacer"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="2dp"
@@ -745,12 +770,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/deshacer"
+                        android:textSize="12sp"
                         android:fontFamily="@font/postnobillsjaffna_regular"
 
                         android:textColor="@color/white" />
                 </LinearLayout>
             </com.google.android.flexbox.FlexboxLayout>
-        </LinearLayout>
+
             <!--equipos local-->
             <com.google.android.flexbox.FlexboxLayout
                 android:layout_width="match_parent"
