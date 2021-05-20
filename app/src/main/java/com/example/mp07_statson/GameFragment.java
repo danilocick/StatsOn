@@ -2,6 +2,7 @@ package com.example.mp07_statson;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -531,11 +532,13 @@ public class GameFragment extends BaseFragment {
             }
 
             for (Jugador jugador: partidoviewmodel.jugadoresEquipoLocalGeneral) {
+                Log.e("ABCD", partidoviewmodel.partido.idEquipoLocal);
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
                         .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador)).addOnSuccessListener(documentReference -> {
                 });
             }
             for (Jugador jugador: partidoviewmodel.jugadoresEquipoVisitanteGeneral) {
+                Log.e("ABCD", partidoviewmodel.partido.idEquipoVisitante);
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
                         .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador)).addOnSuccessListener(documentReference -> {
                 });
@@ -545,8 +548,15 @@ public class GameFragment extends BaseFragment {
     }
 
     private void iniciarPartido() {
-        partidoviewmodel.jugadoresEquipoLocalGeneral.addAll(partidoviewmodel.jugadoresEquipoLocal);
-        partidoviewmodel.jugadoresEquipoVisitanteGeneral.addAll(partidoviewmodel.jugadoresEquipoVisitante);
+        for (Jugador j:partidoviewmodel.jugadoresEquipoLocal) {
+            Jugador jugador = new Jugador(j);
+            partidoviewmodel.jugadoresEquipoLocalGeneral.add(j);
+        }
+
+        for (Jugador j:partidoviewmodel.jugadoresEquipoVisitante) {
+//            Jugador jugador = new Jugador(j);
+            partidoviewmodel.jugadoresEquipoVisitanteGeneral.add(j);
+        }
 
         partidoviewmodel.jugadoresEquipoLocal.forEach(Jugador::reiniciar);
         partidoviewmodel.jugadoresEquipoVisitante.forEach(Jugador::reiniciar);
@@ -594,8 +604,8 @@ public class GameFragment extends BaseFragment {
         printarJugadoresLocal();
         printarJugadoresVisitante();
 
-        binding.equipolocal.setText(viewmodel.nombreEquipoLocal);
-        binding.equipovisitante.setText(viewmodel.nombreEquipoVisitante);
+        binding.equipoLocal.setText(partidoviewmodel.partido.nombreEquipoLocal);
+        binding.equipovisitante.setText(partidoviewmodel.partido.nombreEquipoVisitante);
 
         botonesAccionesAdmin(botonesAcciones,false);
     }

@@ -18,6 +18,44 @@ public class Jugador {
 
     public boolean starter;
 
+
+    public Jugador(String nombre, int dorsal, String imagen) {
+        this.nombre = nombre;
+        this.dorsal = dorsal;
+        this.imagen = imagen;
+    }
+
+    public Jugador() {
+    }
+
+    public Jugador(String idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int recuperaciones, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRecibidos, boolean starter) {
+        this.idJugador = idJugador;
+        this.nombre = nombre;
+        this.dorsal = dorsal;
+        this.imagen = imagen;
+        this.puntos = puntos;
+        this.rebotes = rebotes;
+        this.asistencias = asistencias;
+        this.robos = recuperaciones;
+        this.perdidas = perdidas;
+        this.tapones = tapones;
+        this.t1mas = t1mas;
+        this.t1menos = t1menos;
+        this.t2mas = t2mas;
+        this.t2menos = t2menos;
+        this.t3mas = t3mas;
+        this.t3menos = t3menos;
+        this.rebotesDef = rebotesDef;
+        this.rebotesOf = rebotesOf;
+        this.faltasRecibidas = faltasRecibidas;
+        this.faltasCometidas = faltasCometidas;
+        this.taponesRecibidos = taponesRecibidos;
+        this.starter = starter;
+    }
+
+    public Jugador(Jugador jugador) {
+    }
+
     public void reiniciar(){
         puntos = 0;
         rebotes = 0;
@@ -58,42 +96,6 @@ public class Jugador {
         hash.put("faltasCometidas",j.faltasCometidas);
         hash.put("taponesRecibidos",j.taponesRecibidos);
         return hash;
-    }
-    public Jugador(String nombre, int dorsal, String imagen) {
-        this.nombre = nombre;
-        this.dorsal = dorsal;
-        this.imagen = imagen;
-    }
-
-    public Jugador() {
-    }
-
-    public Jugador(String idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int recuperaciones, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRecibidos, boolean starter) {
-        this.idJugador = idJugador;
-        this.nombre = nombre;
-        this.dorsal = dorsal;
-        this.imagen = imagen;
-        this.puntos = puntos;
-        this.rebotes = rebotes;
-        this.asistencias = asistencias;
-        this.robos = recuperaciones;
-        this.perdidas = perdidas;
-        this.tapones = tapones;
-        this.t1mas = t1mas;
-        this.t1menos = t1menos;
-        this.t2mas = t2mas;
-        this.t2menos = t2menos;
-        this.t3mas = t3mas;
-        this.t3menos = t3menos;
-        this.rebotesDef = rebotesDef;
-        this.rebotesOf = rebotesOf;
-        this.faltasRecibidas = faltasRecibidas;
-        this.faltasCometidas = faltasCometidas;
-        this.taponesRecibidos = taponesRecibidos;
-        this.starter = starter;
-    }
-
-    public Jugador(Jugador jugador) {
     }
 
     @NonNull
@@ -278,6 +280,4 @@ public class Jugador {
                 ", starter=" + starter +
                 '}';
     }
-
-
 }
