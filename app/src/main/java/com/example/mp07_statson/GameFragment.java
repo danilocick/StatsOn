@@ -549,13 +549,17 @@ public class GameFragment extends BaseFragment {
 
     private void iniciarPartido() {
         for (Jugador j:partidoviewmodel.jugadoresEquipoLocal) {
-            Jugador jugador = new Jugador(j);
-            partidoviewmodel.jugadoresEquipoLocalGeneral.add(j);
+            Jugador jugador = new Jugador(j.idJugador,j.nombre,j.dorsal,j.imagen,j.puntos,j.rebotes,j.asistencias,j.robos,j.perdidas,j.tapones,
+                    j.t1mas,j.t1menos,j.t2mas,j.t2menos,j.t3mas,j.t3menos,j.rebotesDef,j.rebotesOf,j.faltasRecibidas,
+                    j.faltasCometidas,j.taponesRecibidos,j.starter);
+            partidoviewmodel.jugadoresEquipoLocalGeneral.add(jugador);
         }
 
         for (Jugador j:partidoviewmodel.jugadoresEquipoVisitante) {
-//            Jugador jugador = new Jugador(j);
-            partidoviewmodel.jugadoresEquipoVisitanteGeneral.add(j);
+            Jugador jugador = new Jugador(j.idJugador,j.nombre,j.dorsal,j.imagen,j.puntos,j.rebotes,j.asistencias,j.robos,j.perdidas,j.tapones,
+                    j.t1mas,j.t1menos,j.t2mas,j.t2menos,j.t3mas,j.t3menos,j.rebotesDef,j.rebotesOf,j.faltasRecibidas,
+                    j.faltasCometidas,j.taponesRecibidos,j.starter);
+            partidoviewmodel.jugadoresEquipoVisitanteGeneral.add(jugador);
         }
 
         partidoviewmodel.jugadoresEquipoLocal.forEach(Jugador::reiniciar);

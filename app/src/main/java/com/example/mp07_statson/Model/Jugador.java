@@ -28,7 +28,7 @@ public class Jugador {
     public Jugador() {
     }
 
-    public Jugador(String idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int recuperaciones, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRecibidos, boolean starter) {
+    public Jugador(String idJugador, String nombre, int dorsal, String imagen, int puntos, int rebotes, int asistencias, int robos, int perdidas, int tapones, int t1mas, int t1menos, int t2mas, int t2menos, int t3mas, int t3menos, int rebotesDef, int rebotesOf, int faltasRecibidas, int faltasCometidas, int taponesRecibidos, boolean starter) {
         this.idJugador = idJugador;
         this.nombre = nombre;
         this.dorsal = dorsal;
@@ -36,7 +36,7 @@ public class Jugador {
         this.puntos = puntos;
         this.rebotes = rebotes;
         this.asistencias = asistencias;
-        this.robos = recuperaciones;
+        this.robos = robos;
         this.perdidas = perdidas;
         this.tapones = tapones;
         this.t1mas = t1mas;
