@@ -57,25 +57,14 @@ public class AddJugadorFragment extends BaseFragment {
                 for(DocumentSnapshot documentSnapshot: value){
                     jugadors.add(documentSnapshot.toObject(Jugador.class));
                 }
-                boolean exist = false;
-                for (int i = 0; i <jugadors.size(); i++) {
-                    if (jugador.dorsal == jugadors.get(i).dorsal){
-                        exist = true;
-                    }
-                }
-                if (!exist){
-                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
-                        String idJugador = documentReference.getId();
-                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).update("idJugador",idJugador);
-                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).collection(FirebaseVar.PPP).add(new Ppp(0));
-                    });
-                    nav.popBackStack();
-                }else {
-                    Toast.makeText(requireActivity().getApplicationContext(), "El dorsal ya existe", Toast.LENGTH_LONG).show();
-                }
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
+                    String idJugador = documentReference.getId();
+                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).update("idJugador",idJugador);
+                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).collection(FirebaseVar.PPP).add(new Ppp(0));
+                });
+                nav.popBackStack();
             });
         });
-
         if (viewmodel.imagenJugadorSeleccionada != null){ Glide.with(this).load(viewmodel.imagenJugadorSeleccionada).into(binding.imagenJugador);}
     }
 
@@ -86,8 +75,6 @@ public class AddJugadorFragment extends BaseFragment {
                 .continueWithTask(task -> task.getResult().getStorage().getDownloadUrl())
                 .addOnSuccessListener(url -> {
                     viewmodel.imagenJugadorSeleccionada = url;
-
                 });
-
     });
 }

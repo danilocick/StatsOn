@@ -189,7 +189,7 @@
     </fragment>
     <!--OUTPUT RESULTADOS FRAGMENT-->
 
-    <fragment
+    <dialog
     android:id="@+id/outputMatchesFragment"
     android:name="com.example.mp07_statson.OutputMatchesFragment"
     android:label="fragment_output_matches"

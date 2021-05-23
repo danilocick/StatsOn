@@ -47,10 +47,8 @@ public class AddEquipoFragment extends BaseFragment {
                 String id = documentReference.getId();
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(id).update("idEquipo",id);
             });
-
             nav.popBackStack();
         });
-
         if (viewmodel.imagenEquipoSeleccionada != null) { Glide.with(this).load(viewmodel.imagenEquipoSeleccionada).into(binding.imagenEquipo); }
     }
 

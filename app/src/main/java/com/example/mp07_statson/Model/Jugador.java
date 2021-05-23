@@ -63,6 +63,7 @@ public class Jugador {
         robos = 0;
         perdidas = 0;
         tapones = 0;
+        taponesRecibidos = 0;
         t1mas = 0;
         t1menos = 0;
         t2mas = 0;
@@ -73,7 +74,6 @@ public class Jugador {
         rebotesOf = 0;
         faltasRecibidas = 0;
         faltasCometidas = 0;
-        tapones = 0;
     }
     public Map<String, Object> toHashMap(Jugador j){
         Map<String, Object> hash = new HashMap<>();
