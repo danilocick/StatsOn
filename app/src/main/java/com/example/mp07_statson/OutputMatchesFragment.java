@@ -245,7 +245,7 @@ public class OutputMatchesFragment extends DialogFragment {
             binding.table.addView(row);
         }
 
-        binding.botonComeBack.setOnClickListener(view1 -> dismiss());
+//        binding.botonComeBack.setOnClickListener(view1 -> dismiss());
 
     }
 

@@ -187,8 +187,8 @@
         app:popEnterAnim="@anim/slide_in_left"
         app:popExitAnim="@anim/slide_out_right" />
     </fragment>
-    <!--OUTPUT RESULTADOS FRAGMENT-->
 
+    <!--OUTPUT RESULTADOS FRAGMENT-->
     <dialog
     android:id="@+id/outputMatchesFragment"
     android:name="com.example.mp07_statson.OutputMatchesFragment"
