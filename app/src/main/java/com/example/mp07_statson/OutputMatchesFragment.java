@@ -137,7 +137,7 @@ public class OutputMatchesFragment extends DialogFragment {
             TextView tv27 = setTextToView(valoraciónLocal);
 
             addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv23, tv24, tv25, tv26, tv27);
-
+            row.setBackgroundResource(R.drawable.borde_graella);
             binding.table.addView(row);
         }
 
@@ -241,11 +241,13 @@ public class OutputMatchesFragment extends DialogFragment {
             TextView tv27 = setTextToView(valoraciónLocal);
 
             addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv23, tv24, tv25, tv26, tv27);
+            row.setBackgroundResource(R.drawable.borde_graella);
 
             binding.table.addView(row);
         }
 
 //        binding.botonComeBack.setOnClickListener(view1 -> dismiss());
+
 
     }
 
