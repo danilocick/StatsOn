@@ -333,7 +333,6 @@ public class GameFragment extends BaseFragment {
                 seleccionaJugador(jugadorvisitante);
 
                 binding.imagenDeshacer.setOnClickListener(v -> {
-                    partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).starter = false;
                     desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
                 });
 

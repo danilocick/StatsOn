@@ -17,6 +17,8 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.PartidoViewModel;
 import com.example.mp07_statson.databinding.FragmentOutputMatchesBinding;
 
+import java.util.List;
+
 public class OutputMatchesFragment extends DialogFragment {
 
     private FragmentOutputMatchesBinding binding;
@@ -58,96 +60,7 @@ public class OutputMatchesFragment extends DialogFragment {
         binding.table.addView(rowHeaderLocal);
         binding.table.addView(rowHeader2Local);
 
-        for (Jugador j : partidoviewmodel.jugadoresEquipoLocal) {
-
-            TableRow row=new TableRow(requireActivity());
-            String dorsalLocal = String.valueOf(j.dorsal);
-            String nombreLocal = String.valueOf(j.nombre);
-            String minLocal = "";
-            String puntosLocal = String.valueOf(j.puntos);
-
-            String tlaLocal = String.valueOf(j.t1mas);
-            int tli = j.t1mas+j.t1menos;
-            String tliLocal = String.valueOf(tli);
-            String tlporcentajeLocal;
-            if(tli == 0){
-                tlporcentajeLocal ="";
-            }else {
-                Long tlporcentaje = (long) (j.t1mas / tli);
-                tlporcentajeLocal = String.valueOf(tlporcentaje);
-            }
-
-            String t2aLocal = String.valueOf(j.t2mas);
-            int t2i = j.t2mas+j.t2menos;
-            String t2iLocal = String.valueOf(t2i);
-            String t2porcentajeLocal;
-            if(t2i == 0){
-                t2porcentajeLocal ="";
-            }else {
-                Long t2porcentaje = (long) (j.t2mas / t2i);
-                t2porcentajeLocal = String.valueOf(t2porcentaje);
-            }
-
-
-            String t3aLocal = String.valueOf(j.t3mas);
-            int t3i = j.t3mas+j.t3menos;
-            String t3iLocal = String.valueOf(t3i);
-            String t3porcentajeLocal;
-            if (t3i==0){
-                t3porcentajeLocal ="";
-            }else{
-                Long t3porcentaje = (long) (j.t3mas / t3i);
-                t3porcentajeLocal = String.valueOf(t3porcentaje);
-            }
-
-
-            String rebotesTotalLocal = String.valueOf(j.rebotes);
-            String rebotesDefLocal = String.valueOf(j.rebotesDef);
-            String rebotesOfLocal = String.valueOf(j.rebotesOf);
-
-            String faltasCometidasLocal = String.valueOf(j.faltasCometidas);
-            String faltasRecibidasLocal = String.valueOf(j.faltasRecibidas);
-
-            String robosLocal = String.valueOf(j.robos);
-            String perdidasLocal = String.valueOf(j.perdidas);
-
-            String taponesRecibidosLocal = String.valueOf(j.taponesRecibidos);
-            String taponesLocal = String.valueOf(j.tapones);
-
-            String asistenciasLocal = String.valueOf(j.asistencias);
-
-            String valoraciónLocal = "";
-
-
-            TextView tv1 = setTextToView(dorsalLocal);
-            TextView tv2 = setTextToView(nombreLocal);
-            TextView tv3 = setTextToView(minLocal);
-            TextView tv4 = setTextToView(puntosLocal);
-            TextView tv5 = setTextToView(tlaLocal);
-            TextView tv6 = setTextToView(tliLocal);
-            TextView tv7 = setTextToView(tlporcentajeLocal);
-            TextView tv8 = setTextToView(t2aLocal);
-            TextView tv9 = setTextToView(t2iLocal);
-            TextView tv10 = setTextToView(t2porcentajeLocal);
-            TextView tv11 = setTextToView(t3aLocal);
-            TextView tv12 = setTextToView(t3iLocal);
-            TextView tv13 = setTextToView(t3porcentajeLocal);
-            TextView tv14 = setTextToView(rebotesTotalLocal);
-            TextView tv15 = setTextToView(rebotesDefLocal);
-            TextView tv16 = setTextToView(rebotesOfLocal);
-            TextView tv17 = setTextToView(faltasCometidasLocal);
-            TextView tv18 = setTextToView(faltasRecibidasLocal);
-            TextView tv19 = setTextToView(robosLocal);
-            TextView tv20 = setTextToView(perdidasLocal);
-            TextView tv21 = setTextToView(taponesRecibidosLocal);
-            TextView tv22 = setTextToView(taponesLocal);
-            TextView tv26 = setTextToView(asistenciasLocal);
-            TextView tv27 = setTextToView(valoraciónLocal);
-
-            addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
-            row.setBackgroundResource(R.drawable.borde_graella);
-            binding.table.addView(row);
-        }
+        llenarInforme(partidoviewmodel.jugadoresEquipoLocal);
 
         //visitante
         TableRow rowHeaderVisitante=new TableRow(requireActivity());
@@ -170,87 +83,101 @@ public class OutputMatchesFragment extends DialogFragment {
         binding.table.addView(rowHeaderVisitante);
         binding.table.addView(rowHeader2Visitante);
 
-        for (Jugador j : partidoviewmodel.jugadoresEquipoVisitante) {
+        llenarInforme(partidoviewmodel.jugadoresEquipoVisitante);
+    }
 
-            TableRow row=new TableRow(requireActivity());
-            String dorsalLocal = String.valueOf(j.dorsal);
-            String nombreLocal = String.valueOf(j.nombre);
-            String minLocal = "";
-            String puntosLocal = String.valueOf(j.puntos);
+    private void llenarInforme(List<Jugador> jugadors) {
+        for (Jugador j : jugadors) {
 
-            String tlaLocal = String.valueOf(j.t1mas);
-            int tli = j.t1mas+j.t1menos;
-            String tliLocal = String.valueOf(tli);
-//            Long tlporcentaje = (long) (j.t1mas / tli);
-//            String tlporcentajeLocal = String.valueOf(tlporcentaje);
-            String tlporcentajeLocal ="";
+            TableRow row = new TableRow(requireActivity());
+            String dorsal = String.valueOf(j.dorsal);
+            String nombre = String.valueOf(j.nombre);
+            String min = "";
+            String puntos = String.valueOf(j.puntos);
 
-            String t2aLocal = String.valueOf(j.t2mas);
-            int t2i = j.t2mas+j.t2menos;
+            String tla = String.valueOf(j.t1mas);
+            int tli = j.t1mas + j.t1menos;
+            String tliJugador = String.valueOf(tli);
+            String tlporcentaje;
+            if (tli == 0) {
+                tlporcentaje = "";
+            } else {
+                Long tlporcentajeL = (long) (j.t1mas / tli);
+                tlporcentaje = String.valueOf(tlporcentajeL);
+            }
+
+            String t2aJugador = String.valueOf(j.t2mas);
+            int t2i = j.t2mas + j.t2menos;
             String t2iLocal = String.valueOf(t2i);
-//            Long tlporcentaje = (long) (j.t1mas / tli);
-//            String tlporcentajeLocal = String.valueOf(tlporcentaje);
-            String t2porcentajeLocal ="";
-
-            String t3aLocal = String.valueOf(j.t3mas);
-            int t3i = j.t3mas+j.t3menos;
-            String t3iLocal = String.valueOf(tli);
-//            Long t3porcentaje = (long) (j.t1mas / tli);
-//            String t3porcentajeLocal = String.valueOf(tlporcentaje);
-            String t3porcentajeLocal ="";
-
-            String rebotesTotalLocal = String.valueOf(j.rebotes);
-            String rebotesDefLocal = String.valueOf(j.rebotesDef);
-            String rebotesOfLocal = String.valueOf(j.rebotesOf);
-
-            String faltasCometidasLocal = String.valueOf(j.faltasCometidas);
-            String faltasRecibidasLocal = String.valueOf(j.faltasRecibidas);
-
-            String robosLocal = String.valueOf(j.robos);
-            String perdidasLocal = String.valueOf(j.perdidas);
-
-            String taponesRecibidosLocal = String.valueOf(j.taponesRecibidos);
-            String taponesLocal = String.valueOf(j.tapones);
-
-            String asistenciasLocal = String.valueOf(j.asistencias);
-
-            String valoraciónLocal = "";
+            String t2porcentajeLocal;
+            if (t2i == 0) {
+                t2porcentajeLocal = "";
+            } else {
+                Long t2porcentaje = (long) (j.t2mas / t2i);
+                t2porcentajeLocal = String.valueOf(t2porcentaje);
+            }
 
 
-            TextView tv1 = setTextToView(dorsalLocal);
-            TextView tv2 = setTextToView(nombreLocal);
-            TextView tv3 = setTextToView(minLocal);
-            TextView tv4 = setTextToView(puntosLocal);
-            TextView tv5 = setTextToView(tlaLocal);
-            TextView tv6 = setTextToView(tliLocal);
-            TextView tv7 = setTextToView(tlporcentajeLocal);
-            TextView tv8 = setTextToView(t2aLocal);
+            String t3aJugador = String.valueOf(j.t3mas);
+            int t3i = j.t3mas + j.t3menos;
+            String t3iJugador = String.valueOf(t3i);
+            String t3porcentaje;
+            if (t3i == 0) {
+                t3porcentaje = "";
+            } else {
+                Long t3porcentajej = (long) (j.t3mas / t3i);
+                t3porcentaje = String.valueOf(t3porcentajej);
+            }
+
+
+            String rebotesTotal = String.valueOf(j.rebotes);
+            String rebotesDef = String.valueOf(j.rebotesDef);
+            String rebotesOf = String.valueOf(j.rebotesOf);
+
+            String faltasCometidas = String.valueOf(j.faltasCometidas);
+            String faltasRecibidas = String.valueOf(j.faltasRecibidas);
+
+            String robos = String.valueOf(j.robos);
+            String perdidas = String.valueOf(j.perdidas);
+
+            String taponesRecibidos = String.valueOf(j.taponesRecibidos);
+            String tapones = String.valueOf(j.tapones);
+
+            String asistencias = String.valueOf(j.asistencias);
+
+            int valoracionRecuento = j.puntos + j.rebotes + j.faltasRecibidas + j.robos + j.tapones + j.asistencias - j.t1menos - j.t2menos - j.t3menos -
+                    j.faltasCometidas - j.perdidas - j.taponesRecibidos;
+            String valoracion = String.valueOf(valoracionRecuento);
+
+            TextView tv1 = setTextToView(dorsal);
+            TextView tv2 = setTextToView(nombre);
+            TextView tv3 = setTextToView(min);
+            TextView tv4 = setTextToView(puntos);
+            TextView tv5 = setTextToView(tla);
+            TextView tv6 = setTextToView(tliJugador);
+            TextView tv7 = setTextToView(tlporcentaje);
+            TextView tv8 = setTextToView(t2aJugador);
             TextView tv9 = setTextToView(t2iLocal);
             TextView tv10 = setTextToView(t2porcentajeLocal);
-            TextView tv11 = setTextToView(t3aLocal);
-            TextView tv12 = setTextToView(t3iLocal);
-            TextView tv13 = setTextToView(t3porcentajeLocal);
-            TextView tv14 = setTextToView(rebotesTotalLocal);
-            TextView tv15 = setTextToView(rebotesDefLocal);
-            TextView tv16 = setTextToView(rebotesOfLocal);
-            TextView tv17 = setTextToView(faltasCometidasLocal);
-            TextView tv18 = setTextToView(faltasRecibidasLocal);
-            TextView tv19 = setTextToView(robosLocal);
-            TextView tv20 = setTextToView(perdidasLocal);
-            TextView tv21 = setTextToView(taponesRecibidosLocal);
-            TextView tv22 = setTextToView(taponesLocal);
-            TextView tv26 = setTextToView(asistenciasLocal);
-            TextView tv27 = setTextToView(valoraciónLocal);
+            TextView tv11 = setTextToView(t3aJugador);
+            TextView tv12 = setTextToView(t3iJugador);
+            TextView tv13 = setTextToView(t3porcentaje);
+            TextView tv14 = setTextToView(rebotesTotal);
+            TextView tv15 = setTextToView(rebotesDef);
+            TextView tv16 = setTextToView(rebotesOf);
+            TextView tv17 = setTextToView(faltasCometidas);
+            TextView tv18 = setTextToView(faltasRecibidas);
+            TextView tv19 = setTextToView(robos);
+            TextView tv20 = setTextToView(perdidas);
+            TextView tv21 = setTextToView(taponesRecibidos);
+            TextView tv22 = setTextToView(tapones);
+            TextView tv26 = setTextToView(asistencias);
+            TextView tv27 = setTextToView(valoracion);
 
             addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
             row.setBackgroundResource(R.drawable.borde_graella);
-
             binding.table.addView(row);
         }
-
-//        binding.botonComeBack.setOnClickListener(view1 -> dismiss());
-
-
     }
 
     private TextView setTextToView(String dorsalLocal) {

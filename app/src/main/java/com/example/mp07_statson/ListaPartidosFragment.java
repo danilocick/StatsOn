@@ -46,7 +46,7 @@ public class ListaPartidosFragment extends BaseFragment {
                 });
         binding.listaPartidos.setAdapter(partidosbdAdapter);
 
-        binding.botonComeBackPartidos.setOnClickListener(view1 -> nav.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
+        binding.botonComeBackPartidos.setOnClickListener(view1 -> nav.popBackStack());
     }
 
     public class PartidosbdAdapter extends RecyclerView.Adapter<PartidoViewHolder>{
@@ -70,7 +70,7 @@ public class ListaPartidosFragment extends BaseFragment {
             Glide.with(requireView()).load(partido.imagenEquipoVisitante).into(holder.binding.fotoVisitante);
 
 
-            holder.binding.recycler.setOnClickListener(view -> nav.navigate(R.id.action_listaPartidosFragment_to_outputMatchesFragment));
+            holder.binding.recycler.setOnClickListener(view -> nav.navigate(R.id.action_listaPartidosFragment_to_partidoFragment));
         }
 
         @Override
