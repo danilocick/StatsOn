@@ -60,7 +60,7 @@ public class AddJugadorFragment extends BaseFragment {
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
                     String idJugador = documentReference.getId();
                     db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).update("idJugador",idJugador);
-                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).collection(FirebaseVar.PPP).add(new Ppp(0));
+//                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).collection(FirebaseVar.PPP).add(new Ppp(0));
                 });
                 nav.popBackStack();
             });
