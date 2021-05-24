@@ -11,18 +11,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.ViewModel.PartidoViewModel;
+import com.example.mp07_statson.ViewModel.StatsOnViewModel;
 import com.example.mp07_statson.databinding.FragmentOutputMatchesBinding;
 
 import java.util.List;
+
+import static android.view.View.TEXT_ALIGNMENT_CENTER;
 
 public class OutputMatchesFragment extends DialogFragment {
 
     private FragmentOutputMatchesBinding binding;
     private PartidoViewModel partidoviewmodel;
+    private StatsOnViewModel viewmodel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -35,16 +40,28 @@ public class OutputMatchesFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
         partidoviewmodel = new ViewModelProvider(requireActivity()).get(PartidoViewModel.class);
+        viewmodel = new ViewModelProvider(requireActivity()).get(StatsOnViewModel.class);
 
         String[] header = {"Dorsal ", " Nombre ", " Min ", " PTS ", " TL ", " "," "," T2 ", " "," "," T3 "," "," ", " Rebotes"," "," ", " Faltas ","", " Balones "," ", " Tapones "," ",
                 " As ", " Val "};
         String[] header2 = {" ", " ", " ", " ", " TLA ", " TLI ", " TL% ", " T2A ", " T2I ", " T2% ", " T3A ", " T3I ", " T3% ", " TOT ", " DEF ", " OF ", " COM ", " REC ",
                 " REC ", " PER ", " REC ", " COM ", " ", " "};
+
+        TableRow nombreLocal=new TableRow(requireActivity());
+        TextView ts1=new TextView(requireActivity());
+        ts1.setTextColor(Color.WHITE);
+        ts1.setText(viewmodel.nombreEquipoLocal);
+        ts1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
+        nombreLocal.addView(ts1);
+        nombreLocal.setBackgroundColor(Color.DKGRAY);
+        binding.table.addView(nombreLocal);
+
         TableRow rowHeaderLocal=new TableRow(requireActivity());
         for (String s:header){
             TextView tv1=new TextView(requireActivity());
             tv1.setTextColor(Color.WHITE);
             tv1.setText(s);
+            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
             rowHeaderLocal.addView(tv1);
         }
         rowHeaderLocal.setBackgroundColor(Color.BLACK);
@@ -53,6 +70,7 @@ public class OutputMatchesFragment extends DialogFragment {
         for (String s:header2){
             TextView tv1 = setTextToView(s);
             tv1.setTextColor(Color.WHITE);
+            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
             rowHeader2Local.addView(tv1);
         }
         rowHeader2Local.setBackgroundColor(Color.BLACK);
@@ -63,11 +81,22 @@ public class OutputMatchesFragment extends DialogFragment {
         llenarInforme(partidoviewmodel.jugadoresEquipoLocal);
 
         //visitante
+        TableRow nombreVisitante=new TableRow(requireActivity());
+        TextView ts2=new TextView(requireActivity());
+        ts2.setTextColor(Color.WHITE);
+        ts2.setText(viewmodel.nombreEquipoVisitante);
+        ts2.setTextAlignment(TEXT_ALIGNMENT_CENTER);
+        nombreVisitante.addView(ts2);
+        nombreVisitante.setBackgroundColor(Color.DKGRAY);
+        binding.table.addView(nombreVisitante);
+
+
         TableRow rowHeaderVisitante=new TableRow(requireActivity());
         for (String s:header){
             TextView tv1=new TextView(requireActivity());
             tv1.setTextColor(Color.WHITE);
             tv1.setText(s);
+            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
             rowHeaderVisitante.addView(tv1);
         }
         rowHeaderVisitante.setBackgroundColor(Color.BLACK);
@@ -76,6 +105,7 @@ public class OutputMatchesFragment extends DialogFragment {
         for (String s:header2){
             TextView tv1 = setTextToView(s);
             tv1.setTextColor(Color.WHITE);
+            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
             rowHeader2Visitante.addView(tv1);
         }
         rowHeader2Visitante.setBackgroundColor(Color.BLACK);
@@ -87,10 +117,12 @@ public class OutputMatchesFragment extends DialogFragment {
     }
 
     private void llenarInforme(List<Jugador> jugadors) {
+        int m = 0;
         for (Jugador j : jugadors) {
 
             TableRow row = new TableRow(requireActivity());
-            String dorsal = String.valueOf(j.dorsal);
+
+            String dorsal = String.valueOf(j.dorsal)+" " ;
             String nombre = String.valueOf(j.nombre);
             String min = "";
             String puntos = String.valueOf(j.puntos);
@@ -150,7 +182,9 @@ public class OutputMatchesFragment extends DialogFragment {
             String valoracion = String.valueOf(valoracionRecuento);
 
             TextView tv1 = setTextToView(dorsal);
+            tv1.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
             TextView tv2 = setTextToView(nombre);
+            tv2.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             TextView tv3 = setTextToView(min);
             TextView tv4 = setTextToView(puntos);
             TextView tv5 = setTextToView(tla);
@@ -183,6 +217,7 @@ public class OutputMatchesFragment extends DialogFragment {
     private TextView setTextToView(String dorsalLocal) {
         TextView tv1 = new TextView(requireActivity());
         tv1.setText(dorsalLocal);
+        tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
         return tv1;
     }
 
