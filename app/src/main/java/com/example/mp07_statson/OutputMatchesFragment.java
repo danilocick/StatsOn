@@ -35,9 +35,9 @@ public class OutputMatchesFragment extends DialogFragment {
         partidoviewmodel = new ViewModelProvider(requireActivity()).get(PartidoViewModel.class);
 
         String[] header = {"Dorsal ", " Nombre ", " Min ", " PTS ", " TL ", " "," "," T2 ", " "," "," T3 "," "," ", " Rebotes"," "," ", " Faltas ","", " Balones "," ", " Tapones "," ",
-                " Pasos ", " Dobles ", " V.T ", " As ", " Val "};
+                " As ", " Val "};
         String[] header2 = {" ", " ", " ", " ", " TLA ", " TLI ", " TL% ", " T2A ", " T2I ", " T2% ", " T3A ", " T3I ", " T3% ", " TOT ", " DEF ", " OF ", " COM ", " REC ",
-                " REC ", " PER ", " REC ", " COM ", " ", " ", " ", " ", " "};
+                " REC ", " PER ", " REC ", " COM ", " ", " "};
         TableRow rowHeaderLocal=new TableRow(requireActivity());
         for (String s:header){
             TextView tv1=new TextView(requireActivity());
@@ -69,23 +69,37 @@ public class OutputMatchesFragment extends DialogFragment {
             String tlaLocal = String.valueOf(j.t1mas);
             int tli = j.t1mas+j.t1menos;
             String tliLocal = String.valueOf(tli);
-//            Long tlporcentaje = (long) (j.t1mas / tli);
-//            String tlporcentajeLocal = String.valueOf(tlporcentaje);
-            String tlporcentajeLocal ="";
+            String tlporcentajeLocal;
+            if(tli == 0){
+                tlporcentajeLocal ="";
+            }else {
+                Long tlporcentaje = (long) (j.t1mas / tli);
+                tlporcentajeLocal = String.valueOf(tlporcentaje);
+            }
 
             String t2aLocal = String.valueOf(j.t2mas);
             int t2i = j.t2mas+j.t2menos;
             String t2iLocal = String.valueOf(t2i);
-//            Long tlporcentaje = (long) (j.t1mas / tli);
-//            String tlporcentajeLocal = String.valueOf(tlporcentaje);
-            String t2porcentajeLocal ="";
+            String t2porcentajeLocal;
+            if(t2i == 0){
+                t2porcentajeLocal ="";
+            }else {
+                Long t2porcentaje = (long) (j.t2mas / t2i);
+                t2porcentajeLocal = String.valueOf(t2porcentaje);
+            }
+
 
             String t3aLocal = String.valueOf(j.t3mas);
             int t3i = j.t3mas+j.t3menos;
-            String t3iLocal = String.valueOf(tli);
-//            Long t3porcentaje = (long) (j.t1mas / tli);
-//            String t3porcentajeLocal = String.valueOf(tlporcentaje);
-            String t3porcentajeLocal ="";
+            String t3iLocal = String.valueOf(t3i);
+            String t3porcentajeLocal;
+            if (t3i==0){
+                t3porcentajeLocal ="";
+            }else{
+                Long t3porcentaje = (long) (j.t3mas / t3i);
+                t3porcentajeLocal = String.valueOf(t3porcentaje);
+            }
+
 
             String rebotesTotalLocal = String.valueOf(j.rebotes);
             String rebotesDefLocal = String.valueOf(j.rebotesDef);
@@ -100,9 +114,6 @@ public class OutputMatchesFragment extends DialogFragment {
             String taponesRecibidosLocal = String.valueOf(j.taponesRecibidos);
             String taponesLocal = String.valueOf(j.tapones);
 
-            String pasosLocal = "";
-            String doblesLocal = "";
-            String vTLocal = "";
             String asistenciasLocal = String.valueOf(j.asistencias);
 
             String valoraciónLocal = "";
@@ -130,13 +141,10 @@ public class OutputMatchesFragment extends DialogFragment {
             TextView tv20 = setTextToView(perdidasLocal);
             TextView tv21 = setTextToView(taponesRecibidosLocal);
             TextView tv22 = setTextToView(taponesLocal);
-            TextView tv23 = setTextToView(pasosLocal);
-            TextView tv24 = setTextToView(doblesLocal);
-            TextView tv25 = setTextToView(vTLocal);
             TextView tv26 = setTextToView(asistenciasLocal);
             TextView tv27 = setTextToView(valoraciónLocal);
 
-            addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv23, tv24, tv25, tv26, tv27);
+            addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
             row.setBackgroundResource(R.drawable.borde_graella);
             binding.table.addView(row);
         }
@@ -204,9 +212,6 @@ public class OutputMatchesFragment extends DialogFragment {
             String taponesRecibidosLocal = String.valueOf(j.taponesRecibidos);
             String taponesLocal = String.valueOf(j.tapones);
 
-            String pasosLocal = "";
-            String doblesLocal = "";
-            String vTLocal = "";
             String asistenciasLocal = String.valueOf(j.asistencias);
 
             String valoraciónLocal = "";
@@ -234,13 +239,10 @@ public class OutputMatchesFragment extends DialogFragment {
             TextView tv20 = setTextToView(perdidasLocal);
             TextView tv21 = setTextToView(taponesRecibidosLocal);
             TextView tv22 = setTextToView(taponesLocal);
-            TextView tv23 = setTextToView(pasosLocal);
-            TextView tv24 = setTextToView(doblesLocal);
-            TextView tv25 = setTextToView(vTLocal);
             TextView tv26 = setTextToView(asistenciasLocal);
             TextView tv27 = setTextToView(valoraciónLocal);
 
-            addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv23, tv24, tv25, tv26, tv27);
+            addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
             row.setBackgroundResource(R.drawable.borde_graella);
 
             binding.table.addView(row);
@@ -257,7 +259,7 @@ public class OutputMatchesFragment extends DialogFragment {
         return tv1;
     }
 
-    private void addViewsToRow(TableRow row, TextView tv1, TextView tv2, TextView tv3, TextView tv4, TextView tv5, TextView tv6, TextView tv7, TextView tv8, TextView tv9, TextView tv10, TextView tv11, TextView tv12, TextView tv13, TextView tv14, TextView tv15, TextView tv16, TextView tv17, TextView tv18, TextView tv19, TextView tv20, TextView tv21, TextView tv22, TextView tv23, TextView tv24, TextView tv25, TextView tv26, TextView tv27) {
+    private void addViewsToRow(TableRow row, TextView tv1, TextView tv2, TextView tv3, TextView tv4, TextView tv5, TextView tv6, TextView tv7, TextView tv8, TextView tv9, TextView tv10, TextView tv11, TextView tv12, TextView tv13, TextView tv14, TextView tv15, TextView tv16, TextView tv17, TextView tv18, TextView tv19, TextView tv20, TextView tv21, TextView tv22, TextView tv26, TextView tv27) {
         row.addView(tv1);
         row.addView(tv2);
         row.addView(tv3);
@@ -280,9 +282,6 @@ public class OutputMatchesFragment extends DialogFragment {
         row.addView(tv20);
         row.addView(tv21);
         row.addView(tv22);
-        row.addView(tv23);
-        row.addView(tv24);
-        row.addView(tv25);
         row.addView(tv26);
         row.addView(tv27);
     }

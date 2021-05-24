@@ -180,12 +180,12 @@
     android:label="fragment_lista_partidos"
     tools:layout="@layout/fragment_lista_partidos" >
         <action
-        android:id="@+id/action_listaPartidosFragment_to_outputMatchesFragment"
-        app:destination="@id/outputMatchesFragment"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right" />
+            android:id="@+id/action_listaPartidosFragment_to_partidoFragment"
+            app:destination="@id/partidoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <!--OUTPUT RESULTADOS FRAGMENT-->
@@ -264,5 +264,10 @@
         android:name="com.example.mp07_statson.CambioFragment"
         android:label="fragment_cambio"
         tools:layout="@layout/fragment_cambio" />
+    <fragment
+        android:id="@+id/partidoFragment"
+        android:name="com.example.mp07_statson.PartidoFragment"
+        android:label="fragment_partido"
+        tools:layout="@layout/fragment_partido" />
 
 </navigation>
