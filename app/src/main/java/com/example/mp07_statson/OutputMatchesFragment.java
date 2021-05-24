@@ -47,6 +47,7 @@ public class OutputMatchesFragment extends DialogFragment {
         String[] header2 = {" ", " ", " ", " ", " TLA ", " TLI ", " TL% ", " T2A ", " T2I ", " T2% ", " T3A ", " T3I ", " T3% ", " TOT ", " DEF ", " OF ", " COM ", " REC ",
                 " REC ", " PER ", " REC ", " COM ", " ", " "};
 
+        //locales
         TableRow nombreLocal=new TableRow(requireActivity());
         TextView ts1=new TextView(requireActivity());
         ts1.setTextColor(Color.WHITE);
@@ -61,7 +62,6 @@ public class OutputMatchesFragment extends DialogFragment {
 
         TableRow rowHeader2Local = getTableRow(header2);
         rowHeader2Local.setBackgroundColor(Color.BLACK);
-        //locales
         binding.table.addView(rowHeaderLocal);
         binding.table.addView(rowHeader2Local);
 

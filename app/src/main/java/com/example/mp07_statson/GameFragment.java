@@ -16,14 +16,19 @@ import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
+import com.google.firebase.firestore.SetOptions;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 
 public class GameFragment extends BaseFragment {
@@ -597,11 +602,25 @@ public class GameFragment extends BaseFragment {
             String idPartido = documentReference.getId();
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).update("idPartido", idPartido);
 
+            String timeStamp = new SimpleDateFormat("dd-MM").format(Calendar.getInstance().getTime());
+
             for (Jugador jugador: jugadoresEquipoLocal) {
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESLOCALES).add(jugador);
+                Map<String, Integer> data = new HashMap<>();
+                data.put(partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp, jugador.puntos);
+
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESLOCALES).add(jugador).addOnSuccessListener(v->{
+                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
+                            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
+                });
             }
             for (Jugador jugador: jugadoresEquipoVisitante) {
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESVISITANTES).add(jugador);
+                Map<String, Integer> data = new HashMap<>();
+                data.put(partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp, jugador.puntos);
+
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESVISITANTES).add(jugador).addOnSuccessListener(v->{
+                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
+                            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
+                });
             }
         });
     }

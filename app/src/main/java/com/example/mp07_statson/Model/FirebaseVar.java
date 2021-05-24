@@ -1,6 +1,7 @@
 package com.example.mp07_statson.Model;
 
 public class FirebaseVar {
+    public static final String PUNTOS = "puntos";
     public static String USUARIOS = "usuarios" ;
     public static String PARTIDOS = "partidos";
     public static String JUGADORESLOCALES = "jugadoresLocales";
