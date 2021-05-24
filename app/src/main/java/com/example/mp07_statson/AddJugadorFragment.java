@@ -52,19 +52,13 @@ public class AddJugadorFragment extends BaseFragment {
             }
 
             Jugador jugador = new Jugador(nombre, dorsal ,imagen);
-            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).orderBy("dorsal").addSnapshotListener((value, error) -> {
-                List<Jugador> jugadors = new ArrayList<>();
-                for(DocumentSnapshot documentSnapshot: value){
-                    jugadors.add(documentSnapshot.toObject(Jugador.class));
-                }
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
-                    String idJugador = documentReference.getId();
-                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).update("idJugador",idJugador);
+            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
+                String idJugador = documentReference.getId();
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).update("idJugador",idJugador);
 //                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(idJugador).collection(FirebaseVar.PPP).add(new Ppp(0));
-                });
-                nav.popBackStack();
             });
-        });
+            nav.popBackStack();
+            });
         if (viewmodel.imagenJugadorSeleccionada != null){ Glide.with(this).load(viewmodel.imagenJugadorSeleccionada).into(binding.imagenJugador);}
     }
 
