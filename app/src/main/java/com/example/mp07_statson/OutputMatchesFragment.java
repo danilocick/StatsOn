@@ -56,23 +56,10 @@ public class OutputMatchesFragment extends DialogFragment {
         nombreLocal.setBackgroundColor(Color.DKGRAY);
         binding.table.addView(nombreLocal);
 
-        TableRow rowHeaderLocal=new TableRow(requireActivity());
-        for (String s:header){
-            TextView tv1=new TextView(requireActivity());
-            tv1.setTextColor(Color.WHITE);
-            tv1.setText(s);
-            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-            rowHeaderLocal.addView(tv1);
-        }
+        TableRow rowHeaderLocal = getTableRow2(header);
         rowHeaderLocal.setBackgroundColor(Color.BLACK);
 
-        TableRow rowHeader2Local=new TableRow(requireActivity());
-        for (String s:header2){
-            TextView tv1 = setTextToView(s);
-            tv1.setTextColor(Color.WHITE);
-            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-            rowHeader2Local.addView(tv1);
-        }
+        TableRow rowHeader2Local = getTableRow(header2);
         rowHeader2Local.setBackgroundColor(Color.BLACK);
         //locales
         binding.table.addView(rowHeaderLocal);
@@ -91,23 +78,10 @@ public class OutputMatchesFragment extends DialogFragment {
         binding.table.addView(nombreVisitante);
 
 
-        TableRow rowHeaderVisitante=new TableRow(requireActivity());
-        for (String s:header){
-            TextView tv1=new TextView(requireActivity());
-            tv1.setTextColor(Color.WHITE);
-            tv1.setText(s);
-            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-            rowHeaderVisitante.addView(tv1);
-        }
+        TableRow rowHeaderVisitante = getTableRow2(header);
         rowHeaderVisitante.setBackgroundColor(Color.BLACK);
 
-        TableRow rowHeader2Visitante=new TableRow(requireActivity());
-        for (String s:header2){
-            TextView tv1 = setTextToView(s);
-            tv1.setTextColor(Color.WHITE);
-            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-            rowHeader2Visitante.addView(tv1);
-        }
+        TableRow rowHeader2Visitante = getTableRow(header2);
         rowHeader2Visitante.setBackgroundColor(Color.BLACK);
 
         binding.table.addView(rowHeaderVisitante);
@@ -116,8 +90,30 @@ public class OutputMatchesFragment extends DialogFragment {
         llenarInforme(partidoviewmodel.jugadoresEquipoVisitante);
     }
 
+    private TableRow getTableRow2(String[] header) {
+        TableRow rowHeaderVisitante = new TableRow(requireActivity());
+        for (String s : header) {
+            TextView tv1 = new TextView(requireActivity());
+            tv1.setTextColor(Color.WHITE);
+            tv1.setText(s);
+            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
+            rowHeaderVisitante.addView(tv1);
+        }
+        return rowHeaderVisitante;
+    }
+
+    private TableRow getTableRow(String[] header2) {
+        TableRow rowHeader2Visitante = new TableRow(requireActivity());
+        for (String s : header2) {
+            TextView tv1 = setTextToView(s);
+            tv1.setTextColor(Color.WHITE);
+            tv1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
+            rowHeader2Visitante.addView(tv1);
+        }
+        return rowHeader2Visitante;
+    }
+
     private void llenarInforme(List<Jugador> jugadors) {
-        int m = 0;
         for (Jugador j : jugadors) {
 
             TableRow row = new TableRow(requireActivity());
