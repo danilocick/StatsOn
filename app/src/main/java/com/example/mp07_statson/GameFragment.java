@@ -17,12 +17,10 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 import com.google.firebase.firestore.SetOptions;
-import com.google.protobuf.StringValue;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -629,7 +627,7 @@ public class GameFragment extends BaseFragment {
     }
 
     private void pasarcuarto() {
-        partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_IN_MILLIS;
+        partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_10_IN_MILLIS;
         updateCountDownText();
 
         partidoviewmodel.partido.faltasCometidasLocal = 0;

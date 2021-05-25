@@ -121,8 +121,9 @@ public class MiEquipoFragment extends BaseFragment {
         alertDlg.setCancelable(false);
 
         alertDlg.setPositiveButton("Si", (dialog, which) -> {
-            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).document(jugador.idJugador).delete().addOnSuccessListener(vm->{
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado)
+            db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado)
+            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).delete().addOnSuccessListener(vm->{
+                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado)
                         .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).delete();
             });
             mExplosionField.explode(v);
