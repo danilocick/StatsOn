@@ -117,7 +117,7 @@ public class GameFragment extends BaseFragment {
             });
 
             jugadorLocal.setOnClickListener(v -> {
-                seleccionaJugador(jugadorLocal);
+                seleccionaJugador(jugadorLocal, botonesJugadoresLocales, botonesJugadoresVisitantes);
 
 
                 binding.imagenDeshacer.setOnClickListener(v1 -> {
@@ -335,7 +335,7 @@ public class GameFragment extends BaseFragment {
 
 
             jugadorvisitante.setOnClickListener(v1 -> {
-                seleccionaJugador(jugadorvisitante);
+                seleccionaJugador(jugadorvisitante,botonesJugadoresLocales,botonesJugadoresVisitantes);
 
                 binding.imagenDeshacer.setOnClickListener(v -> {
                     desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
@@ -644,6 +644,7 @@ public class GameFragment extends BaseFragment {
         binding.equipovisitante.setText(partidoviewmodel.partido.nombreEquipoVisitante);
 
         botonesAccionesAdmin(botonesAcciones,false);
+        botonesJugadoresAdmin(false);
     }
 
     private void desSeleccionarJugador(LinearLayout p, int p2) {
@@ -651,9 +652,9 @@ public class GameFragment extends BaseFragment {
         setBackground(p, p2);
     }
 
-    private void seleccionaJugador(LinearLayout jugador) {
+    private void seleccionaJugador(LinearLayout jugador,List<LinearLayout> botonesJugadoresLocales,List<LinearLayout> botonesJugadoresVisitantes) {
         setBackground(jugador, R.drawable.recyclerv_round_white_red);
-        botonesJugadoresAdmin(botonesJugadoresLocales, botonesJugadoresVisitantes, false);
+        botonesJugadoresAdmin(false);
         botonesAccionesAdmin(botonesAcciones, true);
     }
 
@@ -665,22 +666,22 @@ public class GameFragment extends BaseFragment {
         binding.marcadorLocal.setText(String.valueOf(partidoviewmodel.partido.puntosLocal));
         binding.marcadorVisitante.setText(String.valueOf(partidoviewmodel.partido.puntosVisitante));
 
-        botonesJugadoresAdmin(botonesJugadoresLocales, botonesJugadoresVisitante, true);
+        botonesJugadoresAdmin(true);
         botonesAccionesAdmin(botonesAcciones, false);
     }
 
-    private void botonesJugadoresAdmin(List<LinearLayout> botonesJugadoresLocales, List<LinearLayout> botonesJugadoresVisitante, boolean b) {
-        for (int i = 0; i < botonesJugadoresLocales.size(); i++) {
-            botonesJugadoresLocales.get(i).setClickable(b);
+    private void botonesJugadoresAdmin(boolean b) {
+        for (LinearLayout l: botonesJugadoresLocales) {
+            l.setClickable(b);
         }
-        for (int i = 0; i < botonesJugadoresVisitante.size(); i++) {
-            botonesJugadoresVisitante.get(i).setClickable(b);
+        for (LinearLayout l: botonesJugadoresVisitantes) {
+            l.setClickable(b);
         }
     }
 
     private void botonesAccionesAdmin(List<ImageButton> botonesAcciones, boolean b) {
-        for (int i = 0; i < botonesAcciones.size(); i++) {
-            botonesAcciones.get(i).setClickable(b);
+        for (ImageButton i: botonesAcciones) {
+            i.setClickable(b);
         }
     }
 
