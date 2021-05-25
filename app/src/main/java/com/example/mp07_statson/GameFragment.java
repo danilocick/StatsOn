@@ -113,6 +113,8 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.seleccionEquipo = true;
                 partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).starter = false;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
+                printarJugadoresEnNombreLocal();
+                printarJugadoresLocal();
                 return false;
             });
 
@@ -327,9 +329,11 @@ public class GameFragment extends BaseFragment {
             final int jj = j;
 
             jugadorvisitante.setOnLongClickListener(v1->{
-                partidoviewmodel.seleccionEquipo = false;
-                partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).starter = false;
+                partidoviewmodel.seleccionEquipo = true;
+                partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorLocal(jj)).starter = false;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
+                printarJugadoresEnNombreVisitante();
+                printarJugadoresVisitante();
                 return false;
             });
 
@@ -685,24 +689,63 @@ public class GameFragment extends BaseFragment {
         }
     }
 
+    private void printarJugadoresEnNombreLocal() {
+        for (TextView s: nombresJugadoresLocales){
+            s.setText("Jugador");
+        }
+        for (TextView s: dorsalesJugadoresLocales){
+            s.setText(String.valueOf(0));
+        }
+        for (TextView s: puntosJugadoresLocales){
+            s.setText(String.valueOf(0));
+        }
+        for (TextView s: faltasJugadoresLocales){
+            s.setText(String.valueOf(0));
+        }
+    }
+    private void printarJugadoresEnNombreVisitante() {
+        for (TextView s: nombresJugadoresLocales){
+            s.setText("Jugador");
+        }
+        for (TextView s: dorsalesJugadoresLocales){
+            s.setText(String.valueOf(0));
+        }
+        for (TextView s: puntosJugadoresLocales){
+            s.setText(String.valueOf(0));
+        }
+        for (TextView s: faltasJugadoresLocales){
+            s.setText(String.valueOf(0));
+        }
+    }
+
     private void printarJugadoresLocal() {
         for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocal.size(); i++) {
             if (partidoviewmodel.jugadoresEquipoLocal.get(i).starter){
                 if (binding.nombreA1.getText().equals("Jugador")){
                     binding.nombreA1.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
                     binding.dorsalA1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                    binding.puntosA1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasA1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }else if (binding.nombreA2.getText().equals("Jugador")){
                     binding.nombreA2.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
                     binding.dorsalA2.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                    binding.puntosA2.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasA2.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }else if (binding.nombreA3.getText().equals("Jugador")){
                     binding.nombreA3.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
                     binding.dorsalA3.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                    binding.puntosA3.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasA3.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }else if (binding.nombreA4.getText().equals("Jugador")){
                     binding.nombreA4.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
                     binding.dorsalA4.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                    binding.puntosA4.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasA4.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }else if (binding.nombreA5.getText().equals("Jugador")){
                     binding.nombreA5.setText(partidoviewmodel.jugadoresEquipoLocal.get(i).nombre);
                     binding.dorsalA5.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).dorsal));
+                    binding.puntosA5.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasA5.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }
             }
         }
@@ -714,18 +757,28 @@ public class GameFragment extends BaseFragment {
                 if (binding.nombreB1.getText().equals("Jugador")){
                     binding.nombreB1.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
                     binding.dorsalB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                    binding.puntosB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }else if (binding.nombreB2.getText().equals("Jugador")){
                     binding.nombreB2.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
                     binding.dorsalB2.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                    binding.puntosB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }else if (binding.nombreB3.getText().equals("Jugador")){
                     binding.nombreB3.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
                     binding.dorsalB3.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                    binding.puntosB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }else if (binding.nombreB4.getText().equals("Jugador")){
                     binding.nombreB4.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
                     binding.dorsalB4.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                    binding.puntosB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }else if (binding.nombreB5.getText().equals("Jugador")){
                     binding.nombreB5.setText(partidoviewmodel.jugadoresEquipoVisitante.get(i).nombre);
                     binding.dorsalB5.setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).dorsal));
+                    binding.puntosB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                    binding.faltasB1.setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
                 }
             }
         }
