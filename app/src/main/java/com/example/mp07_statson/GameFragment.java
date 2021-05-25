@@ -328,9 +328,8 @@ public class GameFragment extends BaseFragment {
 
             jugadorvisitante.setOnLongClickListener(v1->{
                 partidoviewmodel.seleccionEquipo = false;
-                nombresJugadoresVisitantes.get(buscarPosicionJugadorVisitante(jj)).setText("Jugador");
+                partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).starter = false;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
-//                printarJugadoresVisitante();
                 return false;
             });
 
