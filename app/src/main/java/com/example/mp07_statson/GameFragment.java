@@ -329,7 +329,7 @@ public class GameFragment extends BaseFragment {
             final int jj = j;
 
             jugadorvisitante.setOnLongClickListener(v1->{
-                partidoviewmodel.seleccionEquipo = true;
+                partidoviewmodel.seleccionEquipo = false;
                 partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorLocal(jj)).starter = false;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
                 printarJugadoresEnNombreVisitante();

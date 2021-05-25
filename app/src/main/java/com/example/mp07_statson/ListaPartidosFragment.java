@@ -70,7 +70,13 @@ public class ListaPartidosFragment extends BaseFragment {
             Glide.with(requireView()).load(partido.imagenEquipoVisitante).into(holder.binding.fotoVisitante);
 
 
-            holder.binding.recycler.setOnClickListener(view -> nav.navigate(R.id.action_listaPartidosFragment_to_partidoFragment));
+            holder.binding.recycler.setOnClickListener(view ->{
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES)
+                        .get().addOnSuccessListener(documentReference -> {
+
+                    nav.navigate(R.id.action_listaPartidosFragment_to_partidoFragment);
+                });
+            });
         }
 
         @Override
