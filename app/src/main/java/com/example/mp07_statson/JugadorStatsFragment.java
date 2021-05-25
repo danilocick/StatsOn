@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.databinding.FragmentJugadorStatsBinding;
 
 import org.eazegraph.lib.charts.BarChart;
@@ -40,12 +41,17 @@ public class JugadorStatsFragment extends BaseFragment {
         binding.dorsalJugador.setText(String.valueOf(viewmodel.jugadorSeleccionado.dorsal));
         Glide.with(requireView()).load(viewmodel.jugadorSeleccionado.imagen).into(binding.imagenJugador);
 
-        cargarDatosJugador();
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.jugadorSeleccionado.idJugador)
+                .collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).get()
+                .addOnSuccessListener(documentReference -> {
+                    cargarDatosJugador();
+                });
     }
 
     private void cargarDatosJugador() {
         //STATSBARRAS
         BarChart mBarChart = (BarChart) binding.barchart;
+
 
         mBarChart.addBar(new BarModel("Mina",7, 0xFF123456 ));
         mBarChart.addBar(new BarModel("Neus",7,  0xFF343456));
