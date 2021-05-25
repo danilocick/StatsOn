@@ -17,10 +17,12 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 import com.google.firebase.firestore.SetOptions;
+import com.google.protobuf.StringValue;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -111,6 +113,7 @@ public class GameFragment extends BaseFragment {
 
             jugadorLocal.setOnLongClickListener(v1->{
                 partidoviewmodel.seleccionEquipo = true;
+                partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).starter = false;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
                 return false;
             });
@@ -626,7 +629,9 @@ public class GameFragment extends BaseFragment {
     }
 
     private void pasarcuarto() {
-        //restartcrono
+        partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_IN_MILLIS;
+        updateCountDownText();
+
         partidoviewmodel.partido.faltasCometidasLocal = 0;
         partidoviewmodel.partido.faltasCometidasVisitante = 0;
         binding.cuarto.setText(String.valueOf(partidoviewmodel.cuarto));
@@ -652,7 +657,6 @@ public class GameFragment extends BaseFragment {
     private void seleccionaJugador(LinearLayout jugador) {
         setBackground(jugador, R.drawable.recyclerv_round_white_red);
         botonesJugadoresAdmin(botonesJugadoresLocales, botonesJugadoresVisitantes, false);
-        jugador.setClickable(true);
         botonesAccionesAdmin(botonesAcciones, true);
     }
 
@@ -671,6 +675,8 @@ public class GameFragment extends BaseFragment {
     private void botonesJugadoresAdmin(List<LinearLayout> botonesJugadoresLocales, List<LinearLayout> botonesJugadoresVisitante, boolean b) {
         for (int i = 0; i < botonesJugadoresLocales.size(); i++) {
             botonesJugadoresLocales.get(i).setClickable(b);
+        }
+        for (int i = 0; i < botonesJugadoresVisitante.size(); i++) {
             botonesJugadoresVisitante.get(i).setClickable(b);
         }
     }
