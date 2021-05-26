@@ -622,7 +622,7 @@ public class GameFragment extends BaseFragment {
                 data.put(partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp, jugador.puntos);
 
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESVISITANTES).add(jugador).addOnSuccessListener(v->{
-                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
+                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
                             .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
                 });
             }

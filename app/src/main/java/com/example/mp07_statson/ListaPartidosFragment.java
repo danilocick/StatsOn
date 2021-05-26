@@ -16,9 +16,14 @@ import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.databinding.FragmentListaPartidosBinding;
 import com.example.mp07_statson.databinding.ViewholderPartidoBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.SetOptions;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class ListaPartidosFragment extends BaseFragment {
@@ -71,11 +76,29 @@ public class ListaPartidosFragment extends BaseFragment {
 
 
             holder.binding.recycler.setOnClickListener(view ->{
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES)
-                        .get().addOnSuccessListener(documentReference -> {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(partido.idPartido).collection(FirebaseVar.JUGADORESLOCALES)
+                    .orderBy("dorsal").addSnapshotListener((value, error) -> {
+                    List<Jugador> jugadors = new ArrayList<>();
+                        for(DocumentSnapshot documentSnapshot: value){
+                            jugadors.add(documentSnapshot.toObject(Jugador.class));
+                        }
+                        partidoviewmodel.jugadoresEquipoLocal = new ArrayList<>();
+                        partidoviewmodel.jugadoresEquipoLocal = jugadors;
 
-                    nav.navigate(R.id.action_listaPartidosFragment_to_partidoFragment);
-                });
+                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(partido.idPartido).collection(FirebaseVar.JUGADORESVISITANTES)
+                            .orderBy("dorsal").addSnapshotListener((value2, error2) -> {
+                        List<Jugador> jugadorsV = new ArrayList<>();
+                        for(DocumentSnapshot documentSnapshot: value){
+                            jugadorsV.add(documentSnapshot.toObject(Jugador.class));
+                        }
+                        partidoviewmodel.jugadoresEquipoVisitante = new ArrayList<>();
+                        partidoviewmodel.jugadoresEquipoVisitante = jugadorsV;
+                        nav.navigate(R.id.action_listaPartidosFragment_to_partidoFragment);
+                    });
+
+                    });
+
+
             });
         }
 
