@@ -565,22 +565,11 @@ public class GameFragment extends BaseFragment {
                         .addOnSuccessListener(url -> {
                             partidoviewmodel.partido.archivoCSV = url.toString();
                             subirPartidoFirebase(partidoviewmodel.partido);
+                            nav.navigate(R.id.action_gameFragment_to_menuFragment);
                         });
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            for (Jugador jugador: partidoviewmodel.jugadoresEquipoLocalGeneral) {
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
-                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador)).addOnSuccessListener(documentReference -> {
-                });
-            }
-            for (Jugador jugador: partidoviewmodel.jugadoresEquipoVisitanteGeneral) {
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
-                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador)).addOnSuccessListener(documentReference -> {
-                });
-            }
-            nav.navigate(R.id.action_gameFragment_to_menuFragment);
         });
     }
 
@@ -636,6 +625,15 @@ public class GameFragment extends BaseFragment {
 
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).
                         collection(FirebaseVar.JUGADORESVISITANTES).add(jugador);
+            }
+
+            for (Jugador jugador: partidoviewmodel.jugadoresEquipoLocalGeneral) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
+                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador));
+            }
+            for (Jugador jugador: partidoviewmodel.jugadoresEquipoVisitanteGeneral) {
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
+                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).update(jugador.toHashMap(jugador));
             }
         });
     }
