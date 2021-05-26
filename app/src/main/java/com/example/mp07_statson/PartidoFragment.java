@@ -174,7 +174,7 @@ public class PartidoFragment extends BaseFragment {
             String valoracion = String.valueOf(valoracionRecuento);
 
             TextView tv1 = setTextToView(dorsal);
-            tv1.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             TextView tv2 = setTextToView(nombre);
             tv2.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             TextView tv3 = setTextToView(min);

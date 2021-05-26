@@ -84,20 +84,20 @@ public class ListaPartidosFragment extends BaseFragment {
                         }
                         partidoviewmodel.jugadoresEquipoLocal = new ArrayList<>();
                         partidoviewmodel.jugadoresEquipoLocal = jugadors;
+                        viewmodel.nombreEquipoLocal = partido.nombreEquipoLocal;
+                    viewmodel.nombreEquipoVisitante = partido.nombreEquipoVisitante;
 
-                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(partido.idPartido).collection(FirebaseVar.JUGADORESVISITANTES)
+                        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(partido.idPartido).collection(FirebaseVar.JUGADORESVISITANTES)
                             .orderBy("dorsal").addSnapshotListener((value2, error2) -> {
                         List<Jugador> jugadorsV = new ArrayList<>();
-                        for(DocumentSnapshot documentSnapshot: value){
+                        for(DocumentSnapshot documentSnapshot: value2){
                             jugadorsV.add(documentSnapshot.toObject(Jugador.class));
                         }
                         partidoviewmodel.jugadoresEquipoVisitante = new ArrayList<>();
                         partidoviewmodel.jugadoresEquipoVisitante = jugadorsV;
                         nav.navigate(R.id.action_listaPartidosFragment_to_partidoFragment);
+                        });
                     });
-
-                    });
-
 
             });
         }
