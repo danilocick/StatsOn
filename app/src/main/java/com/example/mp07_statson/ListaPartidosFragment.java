@@ -15,6 +15,7 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.databinding.FragmentListaPartidosBinding;
 import com.example.mp07_statson.databinding.ViewholderPartidoBinding;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.SetOptions;
 
@@ -93,8 +94,10 @@ public class ListaPartidosFragment extends BaseFragment {
                         }
                         partidoviewmodel.jugadoresEquipoVisitante = new ArrayList<>();
                         partidoviewmodel.jugadoresEquipoVisitante = jugadorsV;
+                        viewmodel.partido = partido;
                         nav.navigate(R.id.action_listaPartidosFragment_to_partidoFragment);
                     });
+
                 });
             });
         }

@@ -5,6 +5,7 @@ import android.net.Uri;
 import androidx.lifecycle.ViewModel;
 
 import com.example.mp07_statson.Model.Jugador;
+import com.example.mp07_statson.Model.Partido;
 
 public class StatsOnViewModel extends ViewModel {
 
@@ -29,7 +30,7 @@ public class StatsOnViewModel extends ViewModel {
     public String nombreEquipoLocal;
     public String nombreEquipoVisitante;
 
-    public String idPartido;
+    public Partido partido;
 
     public String imagenEquipoVisitante;
     public String imagenEquipoLocal;
