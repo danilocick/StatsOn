@@ -101,8 +101,10 @@ public class CambioFragment extends DialogFragment {
             holder.binding.dorsalJugador.setText(String.valueOf(jugador.dorsal));
 
             holder.binding.background.setOnClickListener(v->{
-//                viewmodel.jugadorSeleccionado = jugador;
                 jugador.starter = true;
+                if (partidoviewmodel.seleccionEquipo) {
+                    partidoviewmodel.repintarEquipoLocal.setValue(true);
+                }else partidoviewmodel.repintarEquipoVisitante.setValue(true);
                 dismiss();
             });
         }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
 
 import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
@@ -105,6 +106,16 @@ public class GameFragment extends BaseFragment {
             }
         });
 
+        partidoviewmodel.repintarEquipoLocal.observe(getViewLifecycleOwner(), aBoolean -> {
+            printarJugadoresEnNombreLocal();
+            printarJugadoresLocal();
+        });
+
+        partidoviewmodel.repintarEquipoVisitante.observe(getViewLifecycleOwner(), aBoolean -> {
+            printarJugadoresEnNombreVisitante();
+            printarJugadoresVisitante();
+        });
+
         int i = 0;
         for (LinearLayout jugadorLocal : botonesJugadoresLocales) {
             final int ii = i;
@@ -113,8 +124,6 @@ public class GameFragment extends BaseFragment {
                 partidoviewmodel.seleccionEquipo = true;
                 partidoviewmodel.jugadoresEquipoLocal.get(buscarPosicionJugadorLocal(ii)).starter = false;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
-                printarJugadoresEnNombreLocal();
-                printarJugadoresLocal();
                 return false;
             });
 
@@ -555,7 +564,7 @@ public class GameFragment extends BaseFragment {
                         .continueWithTask(task -> Objects.requireNonNull(task.getResult()).getStorage().getDownloadUrl())
                         .addOnSuccessListener(url -> {
                             partidoviewmodel.partido.archivoCSV = url.toString();
-                            subirPartidoFirebase(partidoviewmodel.partido, partidoviewmodel.jugadoresEquipoLocal, partidoviewmodel.jugadoresEquipoVisitante);
+                            subirPartidoFirebase(partidoviewmodel.partido);
                         });
             } catch (IOException e) {
                 e.printStackTrace();
@@ -601,30 +610,32 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.partido.idEquipoVisitante = viewmodel.idEquipoVisitante;
     }
 
-    private void subirPartidoFirebase(Partido partido, List<Jugador> jugadoresEquipoLocal, List<Jugador> jugadoresEquipoVisitante) {
+    private void subirPartidoFirebase(Partido partido) {
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).add(partido).addOnSuccessListener(documentReference -> {
             String idPartido = documentReference.getId();
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).update("idPartido", idPartido);
 
             String timeStamp = new SimpleDateFormat("dd-MM").format(Calendar.getInstance().getTime());
 
-            for (Jugador jugador: jugadoresEquipoLocal) {
+            for (Jugador j: partidoviewmodel.jugadoresEquipoLocal) {
                 Map<String, Integer> data = new HashMap<>();
-                data.put(partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp, jugador.puntos);
+                data.put(partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp, j.puntos);
 
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESLOCALES).add(jugador).addOnSuccessListener(v->{
-                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
-                            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
-                });
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
+                        .collection(FirebaseVar.JUGADORES).document(j.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
+
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido)
+                        .collection(FirebaseVar.JUGADORESLOCALES).add(j);
             }
-            for (Jugador jugador: jugadoresEquipoVisitante) {
+            for (Jugador jugador: partidoviewmodel.jugadoresEquipoVisitante) {
                 Map<String, Integer> data = new HashMap<>();
                 data.put(partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp, jugador.puntos);
 
-                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).collection(FirebaseVar.JUGADORESVISITANTES).add(jugador).addOnSuccessListener(v->{
-                    db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
-                            .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
-                });
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
+                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
+
+                db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).
+                        collection(FirebaseVar.JUGADORESVISITANTES).add(jugador);
             }
         });
     }
@@ -704,16 +715,16 @@ public class GameFragment extends BaseFragment {
         }
     }
     private void printarJugadoresEnNombreVisitante() {
-        for (TextView s: nombresJugadoresLocales){
+        for (TextView s: nombresJugadoresVisitantes){
             s.setText("Jugador");
         }
-        for (TextView s: dorsalesJugadoresLocales){
+        for (TextView s: dorsalesJugadoresVisitantes){
             s.setText(String.valueOf(0));
         }
-        for (TextView s: puntosJugadoresLocales){
+        for (TextView s: puntosJugadoresVisitantes){
             s.setText(String.valueOf(0));
         }
-        for (TextView s: faltasJugadoresLocales){
+        for (TextView s: faltasJugadoresVisitantes){
             s.setText(String.valueOf(0));
         }
     }

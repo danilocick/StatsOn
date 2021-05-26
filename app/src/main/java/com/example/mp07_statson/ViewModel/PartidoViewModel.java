@@ -2,6 +2,7 @@ package com.example.mp07_statson.ViewModel;
 
 import android.os.CountDownTimer;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.mp07_statson.Model.Jugador;
@@ -17,6 +18,8 @@ public class PartidoViewModel extends ViewModel {
     public List<Jugador> jugadoresEquipoVisitanteGeneral;
     public boolean seleccionEquipo;
 
+    public MutableLiveData<Boolean> repintarEquipoLocal = new MutableLiveData<>();
+    public MutableLiveData<Boolean> repintarEquipoVisitante = new MutableLiveData<>();
 
     //CRONOMETRO
     public CountDownTimer mCountDownTimer;

@@ -53,9 +53,7 @@ public class MenuFragment extends BaseFragment {
                 equipos.add(equipo);
             }
         });
-
     }
-
 
 
     private void createSantaColoma() {

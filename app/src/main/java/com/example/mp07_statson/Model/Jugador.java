@@ -75,6 +75,7 @@ public class Jugador {
         faltasRecibidas = 0;
         faltasCometidas = 0;
     }
+
     public Map<String, Object> toHashMap(Jugador j){
         Map<String, Object> hash = new HashMap<>();
 

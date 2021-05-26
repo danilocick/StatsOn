@@ -58,7 +58,6 @@ public class EquipoAFragment extends BaseFragment {
                 if (parent != null && view != null) {
 
                     int itemPosition = parent.getChildAdapterPosition(view);
-                    int totalCount = parent.getAdapter().getItemCount();
 
                     if (itemPosition >= 0) {
                         outRect.bottom = 24;
