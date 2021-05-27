@@ -18,11 +18,6 @@ public class GenerarCSV {
 
         List<String[]> list = getContent(jugadoresEquipoLocal, jugadoresEquipoVisitante, partido);
 
-        // default all fields are enclosed in double quotes
-        // default separator is a comma
-        File s = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-
-
         File file = File.createTempFile("partido_"+partido.nombreEquipoLocal+"_"+partido.nombreEquipoVisitante, ".csv");
         FileWriter fw = new FileWriter(file);
         CSVWriter writer = new CSVWriter(fw);
