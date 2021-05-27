@@ -1,6 +1,8 @@
 package com.example.mp07_statson;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +10,10 @@ import android.view.ViewGroup;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
@@ -41,6 +45,20 @@ public class PartidoFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
+
+        binding.botoncompartir.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent compartir = new Intent(android.content.Intent.ACTION_SEND);
+                compartir.setType("text/plain");
+                String mensaje = viewmodel.partido.archivoCSV;
+                compartir.putExtra(android.content.Intent.EXTRA_SUBJECT, "Empleos Baja App");
+                compartir.putExtra(android.content.Intent.EXTRA_TEXT, mensaje);
+                startActivity(Intent.createChooser(compartir, "Compartir vía"));
+            }
+        });
+
         //locales
         TableRow nombreLocal=new TableRow(requireActivity());
         TextView ts1=new TextView(requireActivity());
@@ -49,7 +67,8 @@ public class PartidoFragment extends BaseFragment {
         ts1.setTextAlignment(TEXT_ALIGNMENT_CENTER);
         ts1.setPadding(0, 25, 0, 25);
         nombreLocal.addView(ts1);
-        nombreLocal.setBackgroundColor(Color.DKGRAY);
+        int drawable = ContextCompat.getColor(getContext(),R.color.greydark);
+        nombreLocal.setBackgroundColor(drawable);
         binding.table.addView(nombreLocal);
 
         TableRow rowHeaderLocal = getTableRow2(header);
@@ -72,9 +91,9 @@ public class PartidoFragment extends BaseFragment {
         ts2.setTextAlignment(TEXT_ALIGNMENT_CENTER);
         ts2.setPadding(0, 25, 0, 25);
         nombreVisitante.addView(ts2);
-        nombreVisitante.setBackgroundColor(Color.DKGRAY);
+        int drawable2 = ContextCompat.getColor(getContext(),R.color.greydark);
+        nombreVisitante.setBackgroundColor(drawable2);
         binding.table.addView(nombreVisitante);
-
 
         TableRow rowHeaderVisitante = getTableRow2(header);
         rowHeaderVisitante.setBackgroundColor(Color.BLACK);
@@ -115,6 +134,12 @@ public class PartidoFragment extends BaseFragment {
         TextView tv5 = setTextToView(periodo4L);
         tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
+        tv1.setTextColor(Color.BLACK);
+        tv2.setTextColor(Color.BLACK);
+        tv3.setTextColor(Color.BLACK);
+        tv4.setTextColor(Color.BLACK);
+        tv5.setTextColor(Color.BLACK);
+
         rowEquipoLocal.addView(tv1);
         rowEquipoLocal.addView(tv2);
         rowEquipoLocal.addView(tv3);
@@ -142,6 +167,12 @@ public class PartidoFragment extends BaseFragment {
         tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         TextView tv10 = setTextToView(periodo4V);
         tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        tv6.setTextColor(Color.BLACK);
+        tv7.setTextColor(Color.BLACK);
+        tv8.setTextColor(Color.BLACK);
+        tv9.setTextColor(Color.BLACK);
+        tv10.setTextColor(Color.BLACK);
 
         rowEquipoVisitante.addView(tv6);
         rowEquipoVisitante.addView(tv7);
@@ -241,6 +272,30 @@ public class PartidoFragment extends BaseFragment {
         TextView tv22 = setTextToView(tapones);
         TextView tv26 = setTextToView(asistencias);
         TextView tv27 = setTextToView(valoracion);
+        tv1.setTextColor(Color.BLACK);
+        tv2.setTextColor(Color.BLACK);
+        tv3.setTextColor(Color.BLACK);
+        tv4.setTextColor(Color.BLACK);
+        tv5.setTextColor(Color.BLACK);
+        tv6.setTextColor(Color.BLACK);
+        tv7.setTextColor(Color.BLACK);
+        tv8.setTextColor(Color.BLACK);
+        tv9.setTextColor(Color.BLACK);
+        tv10.setTextColor(Color.BLACK);
+        tv11.setTextColor(Color.BLACK);
+        tv12.setTextColor(Color.BLACK);
+        tv13.setTextColor(Color.BLACK);
+        tv14.setTextColor(Color.BLACK);
+        tv15.setTextColor(Color.BLACK);
+        tv16.setTextColor(Color.BLACK);
+        tv17.setTextColor(Color.BLACK);
+        tv18.setTextColor(Color.BLACK);
+        tv19.setTextColor(Color.BLACK);
+        tv20.setTextColor(Color.BLACK);
+        tv21.setTextColor(Color.BLACK);
+        tv22.setTextColor(Color.BLACK);
+        tv26.setTextColor(Color.BLACK);
+        tv27.setTextColor(Color.BLACK);
 
         addViewsToRow(rowEquipo, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
         rowEquipo.setBackgroundResource(R.drawable.borde_graella);
@@ -336,6 +391,30 @@ public class PartidoFragment extends BaseFragment {
         TextView tv22 = setTextToView(tapones);
         TextView tv26 = setTextToView(asistencias);
         TextView tv27 = setTextToView(valoracion);
+        tv1.setTextColor(Color.BLACK);
+        tv2.setTextColor(Color.BLACK);
+        tv3.setTextColor(Color.BLACK);
+        tv4.setTextColor(Color.BLACK);
+        tv5.setTextColor(Color.BLACK);
+        tv6.setTextColor(Color.BLACK);
+        tv7.setTextColor(Color.BLACK);
+        tv8.setTextColor(Color.BLACK);
+        tv9.setTextColor(Color.BLACK);
+        tv10.setTextColor(Color.BLACK);
+        tv11.setTextColor(Color.BLACK);
+        tv12.setTextColor(Color.BLACK);
+        tv13.setTextColor(Color.BLACK);
+        tv14.setTextColor(Color.BLACK);
+        tv15.setTextColor(Color.BLACK);
+        tv16.setTextColor(Color.BLACK);
+        tv17.setTextColor(Color.BLACK);
+        tv18.setTextColor(Color.BLACK);
+        tv19.setTextColor(Color.BLACK);
+        tv20.setTextColor(Color.BLACK);
+        tv21.setTextColor(Color.BLACK);
+        tv22.setTextColor(Color.BLACK);
+        tv26.setTextColor(Color.BLACK);
+        tv27.setTextColor(Color.BLACK);
 
         addViewsToRow(rowEquipo, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
         rowEquipo.setBackgroundResource(R.drawable.borde_graella);
@@ -432,6 +511,7 @@ public class PartidoFragment extends BaseFragment {
 
             TextView tv1 = setTextToView(dorsal);
             tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tv1.setTextColor(Color.BLACK);
             TextView tv2 = setTextToView(nombre);
             tv2.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             TextView tv3 = setTextToView(min);
@@ -456,6 +536,30 @@ public class PartidoFragment extends BaseFragment {
             TextView tv22 = setTextToView(tapones);
             TextView tv26 = setTextToView(asistencias);
             TextView tv27 = setTextToView(valoracion);
+            tv2.setTextColor(Color.BLACK);
+            tv3.setTextColor(Color.BLACK);
+            tv4.setTextColor(Color.BLACK);
+            tv5.setTextColor(Color.BLACK);
+            tv6.setTextColor(Color.BLACK);
+            tv7.setTextColor(Color.BLACK);
+            tv8.setTextColor(Color.BLACK);
+            tv9.setTextColor(Color.BLACK);
+            tv10.setTextColor(Color.BLACK);
+            tv11.setTextColor(Color.BLACK);
+            tv12.setTextColor(Color.BLACK);
+            tv13.setTextColor(Color.BLACK);
+            tv14.setTextColor(Color.BLACK);
+            tv15.setTextColor(Color.BLACK);
+            tv16.setTextColor(Color.BLACK);
+            tv17.setTextColor(Color.BLACK);
+            tv18.setTextColor(Color.BLACK);
+            tv19.setTextColor(Color.BLACK);
+            tv20.setTextColor(Color.BLACK);
+            tv21.setTextColor(Color.BLACK);
+            tv22.setTextColor(Color.BLACK);
+            tv26.setTextColor(Color.BLACK);
+            tv27.setTextColor(Color.BLACK);
+
 
             addViewsToRow(row, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
 
