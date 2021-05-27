@@ -2,10 +2,14 @@ package com.example.mp07_statson.ViewModel;
 
 import android.net.Uri;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
+import com.example.mp07_statson.Model.Ppp;
+
+import java.util.List;
 
 public class StatsOnViewModel extends ViewModel {
 
@@ -17,6 +21,9 @@ public class StatsOnViewModel extends ViewModel {
     //jugadores
     public Uri imagenJugadorSeleccionada;
     public Jugador jugadorSeleccionado;
+    public MutableLiveData<Boolean> actualizarStatsIndividuales = new MutableLiveData<>();
+    public List<Ppp> pppJugador;
+
 
     //Opciones de partido
     public int minutos;

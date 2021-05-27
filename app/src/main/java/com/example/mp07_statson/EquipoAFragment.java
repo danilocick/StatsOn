@@ -39,7 +39,8 @@ public class EquipoAFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         JugadorAdapter jugadorAdapter = new JugadorAdapter();
-        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoLocal).collection(FirebaseVar.JUGADORES).orderBy("dorsal").addSnapshotListener((value, error) -> {
+        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoLocal).collection(FirebaseVar.JUGADORES)
+                .orderBy(FirebaseVar.DORSAL).addSnapshotListener((value, error) -> {
             List<Jugador> jugadors = new ArrayList<>();
             for(DocumentSnapshot documentSnapshot: value){
                 jugadors.add(documentSnapshot.toObject(Jugador.class));

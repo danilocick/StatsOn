@@ -17,12 +17,14 @@ import androidx.annotation.Nullable;
 import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
+import com.example.mp07_statson.Model.Ppp;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
 import com.google.firebase.firestore.SetOptions;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -612,24 +614,22 @@ public class GameFragment extends BaseFragment {
             String timeStamp = new SimpleDateFormat("dd-MM").format(Calendar.getInstance().getTime());
 
             for (Jugador j: partidoviewmodel.jugadoresEquipoLocal) {
-                Map<String, Integer> data = new HashMap<>();
-                data.put(partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp, j.puntos);
+                Ppp ppp = new Ppp(j.puntos, partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp);
 
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoLocal)
-                        .collection(FirebaseVar.JUGADORES).document(j.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
+                        .collection(FirebaseVar.JUGADORES).document(j.idJugador).collection(FirebaseVar.PPP).add(ppp);
 
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido)
                         .collection(FirebaseVar.JUGADORESLOCALES).add(j);
             }
-            for (Jugador jugador: partidoviewmodel.jugadoresEquipoVisitante) {
-                Map<String, Integer> data = new HashMap<>();
-                data.put(partidoviewmodel.partido.nombreEquipoVisitante+" "+timeStamp, jugador.puntos);
+             for (Jugador j: partidoviewmodel.jugadoresEquipoVisitante) {
+                Ppp ppp = new Ppp(j.puntos, partidoviewmodel.partido.nombreEquipoLocal+" "+timeStamp);
 
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(partidoviewmodel.partido.idEquipoVisitante)
-                        .collection(FirebaseVar.JUGADORES).document(jugador.idJugador).collection(FirebaseVar.PPP).document(FirebaseVar.PUNTOS).set(data, SetOptions.merge());
+                        .collection(FirebaseVar.JUGADORES).document(j.idJugador).collection(FirebaseVar.PPP).add(ppp);
 
                 db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS).document(idPartido).
-                        collection(FirebaseVar.JUGADORESVISITANTES).add(jugador);
+                        collection(FirebaseVar.JUGADORESVISITANTES).add(j);
             }
 
             for (Jugador jugador: partidoviewmodel.jugadoresEquipoLocalGeneral) {
