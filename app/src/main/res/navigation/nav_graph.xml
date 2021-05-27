@@ -168,8 +168,12 @@
         android:label="fragment_jugador_stats"
         tools:layout="@layout/fragment_jugador_stats" >
         <action
-            android:id="@+id/action_jugadorStatsFragment_to_editJugadorFragment"
-            app:destination="@id/editJugadorFragment" />
+            android:id="@+id/action_jugadorStatsFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
 

@@ -1,5 +1,7 @@
 package com.example.mp07_statson;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -56,6 +58,7 @@ public class GameFragment extends BaseFragment {
         return (binding = FragmentGameBinding.inflate(inflater, container, false)).getRoot();
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -80,11 +83,15 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.jugadoresEquipoVisitanteGeneral = new ArrayList<>();
         iniciarPartido();
 
-        binding.start.setOnClickListener(view17 -> {
+        binding.botonSP.setOnClickListener(view17 -> {
             if (partidoviewmodel.mTimerRunning) {
+                binding.botonSP.setImageResource(R.drawable.boton_pause);
+                binding.chronometer.setTextColor(Color.RED);
                 pauseTimer();
             } else {
                 startTimer();
+                binding.botonSP.setImageResource(R.drawable.boton_play);
+                binding.chronometer.setTextColor(Color.GREEN);
             }
         });
         updateCountDownText();

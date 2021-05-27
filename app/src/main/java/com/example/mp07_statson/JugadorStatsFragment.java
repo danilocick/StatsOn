@@ -35,7 +35,7 @@ public class JugadorStatsFragment extends BaseFragment {
 
         binding.botonComeBack.setOnClickListener(view1 -> nav.popBackStack());
 
-        binding.botonEditTM.setOnClickListener(view12 -> nav.navigate(R.id.action_jugadorStatsFragment_to_editJugadorFragment));
+        binding.botonEditTM.setOnClickListener(view12 -> nav.navigate(R.id.action_jugadorStatsFragment_to_menuFragment));
 
         binding.nombreJugador.setText(viewmodel.jugadorSeleccionado.nombre);
         binding.dorsalJugador.setText(String.valueOf(viewmodel.jugadorSeleccionado.dorsal));
