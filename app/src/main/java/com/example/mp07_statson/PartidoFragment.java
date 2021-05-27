@@ -10,12 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
-import com.example.mp07_statson.ViewModel.PartidoViewModel;
-import com.example.mp07_statson.ViewModel.StatsOnViewModel;
 import com.example.mp07_statson.databinding.FragmentPartidoBinding;
 
 import java.util.List;
@@ -31,6 +28,8 @@ public class PartidoFragment extends BaseFragment {
             " As ", " Val "};
     String[] header2 = {" ", " ", " ", " ", " TLA ", " TLI ", " TL% ", " T2A ", " T2I ", " T2% ", " T3A ", " T3I ", " T3% ", " TOT ", " DEF ", " OF ", " COM ", " REC ",
             " REC ", " PER ", " REC ", " COM ", " ", " "};
+
+    String[] headerCuartos = {" Equipo ", " Periodo 1 ", " Periodo 2 ", " Periodo 3 ", " Periodo 4 "};
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -55,10 +54,10 @@ public class PartidoFragment extends BaseFragment {
 
         TableRow rowHeaderLocal = getTableRow2(header);
         rowHeaderLocal.setBackgroundColor(Color.BLACK);
+        binding.table.addView(rowHeaderLocal);
 
         TableRow rowHeader2Local = getTableRow(header2);
         rowHeader2Local.setBackgroundColor(Color.BLACK);
-        binding.table.addView(rowHeaderLocal);
         binding.table.addView(rowHeader2Local);
 
         llenarInforme(partidoviewmodel.jugadoresEquipoLocal,contador);
@@ -88,6 +87,70 @@ public class PartidoFragment extends BaseFragment {
 
         llenarInforme(partidoviewmodel.jugadoresEquipoVisitante, contador);
         llenarEquipoVisitante(viewmodel.partido);
+
+        TableRow rowHeaderCuartos = getTableRow2(headerCuartos);
+        rowHeaderCuartos.setBackgroundColor(Color.BLACK);
+        binding.table.addView(rowHeaderCuartos);
+
+        llenarCuartos(viewmodel.partido);
+    }
+
+    private void llenarCuartos(Partido p) {
+        TableRow rowEquipoLocal = new TableRow(requireActivity());
+
+        String nombreL =  p.nombreEquipoLocal;
+        String periodo1L = String.valueOf(p.puntosLocalPrimerCuarto);
+        String periodo2L = String.valueOf(p.puntosLocalSegundoCuarto);
+        String periodo3L = String.valueOf(p.puntosLocalTercerCuarto);
+        String periodo4L = String.valueOf(p.puntosLocalQuartoCuarto);
+
+        TextView tv1 = setTextToView(nombreL);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        TextView tv2 = setTextToView(periodo1L);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        TextView tv3 = setTextToView(periodo2L);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        TextView tv4 = setTextToView(periodo3L);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        TextView tv5 = setTextToView(periodo4L);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        rowEquipoLocal.addView(tv1);
+        rowEquipoLocal.addView(tv2);
+        rowEquipoLocal.addView(tv3);
+        rowEquipoLocal.addView(tv4);
+        rowEquipoLocal.addView(tv5);
+
+        rowEquipoLocal.setBackgroundResource(R.drawable.borde_graella);
+        binding.table.addView(rowEquipoLocal);
+
+        TableRow rowEquipoVisitante = new TableRow(requireActivity());
+
+        String nombreV =  p.nombreEquipoVisitante;
+        String periodo1V = String.valueOf(p.puntosVisitantePrimerCuarto);
+        String periodo2V = String.valueOf(p.puntosVisitanteSegundoCuarto);
+        String periodo3V = String.valueOf(p.puntosVisitanteTercerCuarto);
+        String periodo4V = String.valueOf(p.puntosVisitanteQuartoCuarto);
+
+        TextView tv6 = setTextToView(nombreV);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        TextView tv7 = setTextToView(periodo1V);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        TextView tv8 = setTextToView(periodo2V);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        TextView tv9 = setTextToView(periodo3V);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        TextView tv10 = setTextToView(periodo4V);
+        tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        rowEquipoVisitante.addView(tv6);
+        rowEquipoVisitante.addView(tv7);
+        rowEquipoVisitante.addView(tv8);
+        rowEquipoVisitante.addView(tv9);
+        rowEquipoVisitante.addView(tv10);
+
+        rowEquipoVisitante.setBackgroundResource(R.drawable.borde_graella_2);
+        binding.table.addView(rowEquipoVisitante);
     }
 
     private void llenarEquipoLocal(Partido p) {

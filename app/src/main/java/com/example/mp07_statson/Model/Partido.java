@@ -28,7 +28,7 @@ public class Partido {
             taponesVisitante, taponesRecibidosVisitante;
 
     public int puntosLocalPrimerCuarto,puntosLocalSegundoCuarto,puntosLocalTercerCuarto,puntosLocalQuartoCuarto;
-    public int puntosVisitantePrimerCuarto,puntosVisitanteSegundoCuarto,puntosVisitenteTercerCuarto,puntosVisitanteQuartoCuarto;
+    public int puntosVisitantePrimerCuarto,puntosVisitanteSegundoCuarto, puntosVisitanteTercerCuarto,puntosVisitanteQuartoCuarto;
 
     public Partido(String idLocal, String idVisitante, int puntosLocal, int puntosVisitante) {
         this.nombreEquipoLocal = idLocal;

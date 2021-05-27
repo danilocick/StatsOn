@@ -105,7 +105,7 @@ public class GenerarCSV {
         list.add(cuartos);
 
         String[] puntosLocal = {String.valueOf(partido.nombreEquipoLocal),String.valueOf(partido.puntosLocalPrimerCuarto), String.valueOf(partido.puntosLocalSegundoCuarto),String.valueOf(partido.puntosLocalTercerCuarto), String.valueOf(partido.puntosLocalQuartoCuarto)};
-        String[] puntosVisitante = {String.valueOf(partido.nombreEquipoVisitante),String.valueOf(partido.puntosVisitantePrimerCuarto), String.valueOf(partido.puntosVisitanteSegundoCuarto),String.valueOf(partido.puntosVisitenteTercerCuarto), String.valueOf(partido.puntosVisitanteQuartoCuarto)};
+        String[] puntosVisitante = {String.valueOf(partido.nombreEquipoVisitante),String.valueOf(partido.puntosVisitantePrimerCuarto), String.valueOf(partido.puntosVisitanteSegundoCuarto),String.valueOf(partido.puntosVisitanteTercerCuarto), String.valueOf(partido.puntosVisitanteQuartoCuarto)};
         list.add(puntosLocal);
         list.add(puntosVisitante);
 

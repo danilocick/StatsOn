@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 
 import com.example.mp07_statson.Model.FirebaseVar;
 import com.example.mp07_statson.Model.Jugador;
@@ -338,11 +337,9 @@ public class GameFragment extends BaseFragment {
             final int jj = j;
 
             jugadorvisitante.setOnLongClickListener(v1->{
-                partidoviewmodel.seleccionEquipo = false;
-                partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorLocal(jj)).starter = false;
+                partidoviewmodel.seleccionEquipo = true;
+                partidoviewmodel.jugadoresEquipoVisitante.get(buscarPosicionJugadorVisitante(jj)).starter = false;
                 nav.navigate(R.id.action_gameFragment_to_cambioFragment);
-                printarJugadoresEnNombreVisitante();
-                printarJugadoresVisitante();
                 return false;
             });
 
@@ -368,7 +365,7 @@ public class GameFragment extends BaseFragment {
                     switch (partidoviewmodel.cuarto){
                         case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto+=3; break;
                         case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto+=3; break;
-                        case 3: partidoviewmodel.partido.puntosVisitenteTercerCuarto+=3; break;
+                        case 3: partidoviewmodel.partido.puntosVisitanteTercerCuarto +=3; break;
                         case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto+=3; break;
                     }
 
@@ -402,7 +399,7 @@ public class GameFragment extends BaseFragment {
                     switch (partidoviewmodel.cuarto){
                         case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto+=2; break;
                         case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto+=3; break;
-                        case 3: partidoviewmodel.partido.puntosVisitenteTercerCuarto+=2; break;
+                        case 3: partidoviewmodel.partido.puntosVisitanteTercerCuarto +=2; break;
                         case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto+=2; break;
                     }
 
@@ -434,7 +431,7 @@ public class GameFragment extends BaseFragment {
                     switch (partidoviewmodel.cuarto){
                         case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto+=1; break;
                         case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto+=1; break;
-                        case 3: partidoviewmodel.partido.puntosVisitenteTercerCuarto+=1; break;
+                        case 3: partidoviewmodel.partido.puntosVisitanteTercerCuarto +=1; break;
                         case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto+=1; break;
                     }
 
