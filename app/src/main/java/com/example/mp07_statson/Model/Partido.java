@@ -3,6 +3,8 @@ package com.example.mp07_statson.Model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity
 public class Partido {
     @PrimaryKey(autoGenerate = true)
@@ -16,6 +18,7 @@ public class Partido {
 
     public String idEquipoLocal;
     public String idEquipoVisitante;
+    public Date fecha;
 
     public int puntosLocal, rebotesLocal, asistenciasLocal, robosLocal, perdidasLocal,
             t1masLocal, t1menosLocal, t2masLocal, t2menosLocal, t3masLocal, t3menosLocal,

@@ -17,6 +17,7 @@ import com.example.mp07_statson.databinding.FragmentListaPartidosBinding;
 import com.example.mp07_statson.databinding.ViewholderPartidoBinding;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.SetOptions;
 
 import java.text.SimpleDateFormat;
@@ -43,7 +44,7 @@ public class ListaPartidosFragment extends BaseFragment {
 
         PartidosbdAdapter partidosbdAdapter = new PartidosbdAdapter();
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.PARTIDOS)
-                .addSnapshotListener((value, error) -> {
+                .orderBy("fecha",Query.Direction.DESCENDING).addSnapshotListener((value, error) -> {
                     List<Partido> partidos = new ArrayList<>();
                     for(DocumentSnapshot documentSnapshot: value){
                         partidos.add(documentSnapshot.toObject(Partido.class));

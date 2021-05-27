@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -561,6 +562,7 @@ public class GameFragment extends BaseFragment {
                         .continueWithTask(task -> Objects.requireNonNull(task.getResult()).getStorage().getDownloadUrl())
                         .addOnSuccessListener(url -> {
                             partidoviewmodel.partido.archivoCSV = url.toString();
+                            partidoviewmodel.partido.fecha = new Date();
                             subirPartidoFirebase(partidoviewmodel.partido);
                             nav.navigate(R.id.action_gameFragment_to_menuFragment);
                         });
