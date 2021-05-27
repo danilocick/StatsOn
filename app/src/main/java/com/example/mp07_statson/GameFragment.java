@@ -110,7 +110,6 @@ public class GameFragment extends BaseFragment {
             printarJugadoresEnNombreLocal();
             printarJugadoresLocal();
         });
-
         partidoviewmodel.repintarEquipoVisitante.observe(getViewLifecycleOwner(), aBoolean -> {
             printarJugadoresEnNombreVisitante();
             printarJugadoresVisitante();
@@ -128,7 +127,7 @@ public class GameFragment extends BaseFragment {
             });
 
             jugadorLocal.setOnClickListener(v -> {
-                seleccionaJugador(jugadorLocal, botonesJugadoresLocales, botonesJugadoresVisitantes);
+                seleccionaJugador(jugadorLocal);
 
 
                 binding.imagenDeshacer.setOnClickListener(v1 -> {
@@ -346,11 +345,11 @@ public class GameFragment extends BaseFragment {
 
 
             jugadorvisitante.setOnClickListener(v1 -> {
-                seleccionaJugador(jugadorvisitante,botonesJugadoresLocales,botonesJugadoresVisitantes);
+                seleccionaJugador(jugadorvisitante);
 
-                binding.imagenDeshacer.setOnClickListener(v -> {
-                    desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
-                });
+//                binding.imagenDeshacer.setOnClickListener(v -> {
+//                    desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
+//                });
 
 
                 binding.imagenThreePointMore.setOnClickListener(view1 -> {
@@ -656,15 +655,15 @@ public class GameFragment extends BaseFragment {
         binding.equipovisitante.setText(partidoviewmodel.partido.nombreEquipoVisitante);
 
         botonesAccionesAdmin(botonesAcciones,false);
-        botonesJugadoresAdmin(false);
+        botonesJugadoresAdmin(true);
     }
 
     private void desSeleccionarJugador(LinearLayout p, int p2) {
-        actualizarResultado(botonesJugadoresLocales, botonesJugadoresVisitantes, botonesAcciones);
+        actualizarResultado(botonesAcciones);
         setBackground(p, p2);
     }
 
-    private void seleccionaJugador(LinearLayout jugador,List<LinearLayout> botonesJugadoresLocales,List<LinearLayout> botonesJugadoresVisitantes) {
+    private void seleccionaJugador(LinearLayout jugador) {
         setBackground(jugador, R.drawable.recyclerv_round_white_red);
         botonesJugadoresAdmin(false);
         botonesAccionesAdmin(botonesAcciones, true);
@@ -674,7 +673,7 @@ public class GameFragment extends BaseFragment {
         p.setBackgroundResource(p2);
     }
 
-    private void actualizarResultado(List<LinearLayout> botonesJugadoresLocales, List<LinearLayout> botonesJugadoresVisitante, List<ImageButton> botonesAcciones) {
+    private void actualizarResultado(List<ImageButton> botonesAcciones) {
         binding.marcadorLocal.setText(String.valueOf(partidoviewmodel.partido.puntosLocal));
         binding.marcadorVisitante.setText(String.valueOf(partidoviewmodel.partido.puntosVisitante));
 
@@ -683,11 +682,11 @@ public class GameFragment extends BaseFragment {
     }
 
     private void botonesJugadoresAdmin(boolean b) {
-        for (LinearLayout l: botonesJugadoresLocales) {
-            l.setClickable(b);
+        for (int i = 0; i <botonesJugadoresLocales.size(); i++) {
+            botonesJugadoresLocales.get(i).setEnabled(b);
         }
-        for (LinearLayout l: botonesJugadoresVisitantes) {
-            l.setClickable(b);
+        for (int i = 0; i <botonesJugadoresVisitantes.size(); i++) {
+            botonesJugadoresVisitantes.get(i).setEnabled(b);
         }
     }
 
