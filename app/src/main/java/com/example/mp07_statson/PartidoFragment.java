@@ -22,14 +22,14 @@ import static android.view.View.TEXT_ALIGNMENT_CENTER;
 public class PartidoFragment extends BaseFragment {
 
     private FragmentPartidoBinding binding;
-    int contador = 0;
+    private int contador = 0;
 
-    String[] header = {"Dorsal ", " Nombre ", " Min ", " PTS ", " TL ", " "," "," T2 ", " "," "," T3 "," "," ", " Rebotes"," "," ", " Faltas ","", " Balones "," ", " Tapones "," ",
+    private String[] header = {"Dorsal ", " Nombre ", " Min ", " PTS ", " TL ", " "," "," T2 ", " "," "," T3 "," "," ", " Rebotes"," "," ", " Faltas ","", " Balones "," ", " Tapones "," ",
             " As ", " Val "};
-    String[] header2 = {" ", " ", " ", " ", " TLA ", " TLI ", " TL% ", " T2A ", " T2I ", " T2% ", " T3A ", " T3I ", " T3% ", " TOT ", " DEF ", " OF ", " COM ", " REC ",
+    private String[] header2 = {" ", " ", " ", " ", " TLA ", " TLI ", " TL% ", " T2A ", " T2I ", " T2% ", " T3A ", " T3I ", " T3% ", " TOT ", " DEF ", " OF ", " COM ", " REC ",
             " REC ", " PER ", " REC ", " COM ", " ", " "};
 
-    String[] headerCuartos = {" Equipo ", " Periodo 1 ", " Periodo 2 ", " Periodo 3 ", " Periodo 4 "};
+    private String[] headerCuartos = {" Equipo ", " Periodo 1 ", " Periodo 2 ", " Periodo 3 ", " Periodo 4 "};
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

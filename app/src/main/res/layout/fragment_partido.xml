@@ -41,5 +41,4 @@
                 android:stretchColumns="1"/>
         </HorizontalScrollView>
     </ScrollView>
-
 </LinearLayout>
