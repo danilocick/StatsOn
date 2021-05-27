@@ -17,6 +17,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 public class OptionsFragment extends BaseFragment {
     private FragmentOptionsBinding binding;
 
+    int min;
+    int periodos;
+    int minPE;
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentOptionsBinding.inflate(inflater, container, false)).getRoot();
@@ -36,14 +41,17 @@ public class OptionsFragment extends BaseFragment {
             binding.minutosCinco.setOnClickListener(v -> {
                 binding.minutosInt.setText("5");
                 expansionLayout.collapse(true);
+                min = 5;
             });
             binding.minutosSeis.setOnClickListener(v -> {
                 binding.minutosInt.setText("6");
                 expansionLayout.collapse(true);
+                min = 6;
             });
             binding.minutosDiez.setOnClickListener(v -> {
                 binding.minutosInt.setText("10");
                 expansionLayout.collapse(true);
+                min = 10;
             });
         });
 
@@ -51,14 +59,17 @@ public class OptionsFragment extends BaseFragment {
             binding.periodosCuatro.setOnClickListener(v -> {
                 binding.periodosInt.setText("4");
                 expansionLayout.collapse(true);
+                periodos = 4;
             });
             binding.periodosSeis.setOnClickListener(v -> {
                 binding.periodosInt.setText("6");
                 expansionLayout.collapse(true);
+                periodos = 6;
             });
             binding.periodosOcho.setOnClickListener(v -> {
                 binding.periodosInt.setText("8");
                 expansionLayout.collapse(true);
+                periodos = 8;
             });
         });
 
@@ -66,14 +77,12 @@ public class OptionsFragment extends BaseFragment {
             binding.minPETres.setOnClickListener(v -> {
                 binding.minPEInt.setText("3");
                 expansionLayout.collapse(true);
+                minPE = 3;
             });
             binding.minPECinco.setOnClickListener(v -> {
                 binding.minPEInt.setText("5");
                 expansionLayout.collapse(true);
-            });
-            binding.minPESeis.setOnClickListener(v -> {
-                binding.minPEInt.setText("6");
-                expansionLayout.collapse(true);
+                minPE = 5;
             });
         });
 
@@ -90,12 +99,9 @@ public class OptionsFragment extends BaseFragment {
         });
 
         binding.botonGuardarOpc.setOnClickListener(v -> {
-            String minutos = String.valueOf(binding.minutosInt.getText());
-            viewmodel.minutos = Integer.parseInt(minutos);
-            String periodos = String.valueOf(binding.periodosInt.getText());
-            viewmodel.periodos = Integer.parseInt(periodos);
-            String minPE = String.valueOf(binding.minPEInt.getText());
-            viewmodel.minutosPE = Integer.parseInt(minPE);
+            viewmodel.minutos = min;
+            viewmodel.periodos = periodos;
+            viewmodel.minutosPE = minPE;
 
             nav.popBackStack();
         });

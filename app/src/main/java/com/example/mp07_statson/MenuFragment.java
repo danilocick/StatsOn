@@ -43,16 +43,6 @@ public class MenuFragment extends BaseFragment {
         binding.botonRivales.setOnClickListener(view12 -> nav.navigate(R.id.action_menuFragment_to_rivalesFragment));
 
         binding.botonOpciones.setOnClickListener(view1 -> nav.navigate(R.id.action_menuFragment_to_optionsFragment));
-        
-        db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).orderBy(FirebaseVar.nombreEquipo).addSnapshotListener((value, error) -> {
-            ArrayList<Equipo> equipos = new ArrayList<>();
-            for(DocumentSnapshot documentSnapshot: value){
-                documentSnapshot.getId();
-                Equipo equipo = documentSnapshot.toObject(Equipo.class);
-                equipo.idEquipo = documentSnapshot.getId();
-                equipos.add(equipo);
-            }
-        });
     }
 
 

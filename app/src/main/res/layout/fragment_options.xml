@@ -291,14 +291,6 @@
                         android:textColor="@color/white"
                         android:layout_marginBottom="5dp"
                         />
-                    <TextView android:id="@+id/minPESeis"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/_6"
-                        android:padding="8dp"
-                        android:textColor="@color/white"
-                        android:layout_marginBottom="5dp"
-                        />
                 </LinearLayout>
             </com.github.florent37.expansionpanel.ExpansionLayout>
         </LinearLayout>
