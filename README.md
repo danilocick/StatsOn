@@ -14,15 +14,15 @@ y a mano siempre que los necesites.
     Hecho esto presiona sobre el boton "Crear" que lo devolverá a la pantalla de los equipos rivales con su nuevo equipo ya creado.
 
     <div align="center">
-    <img src="imagenes/menu_equipo.jpg" alt="Menu equipos" width="200" margin="10px auto"/>
-    <img src="imagenes/crear_equipo.jpg" alt="Crear equipo" width="200"margin="10px auto"/>
+        <img src="imagenes/menu_equipo.jpg" alt="Menu equipos" width="200" margin="10px auto"/>
+        <img src="imagenes/crear_equipo.jpg" alt="Crear equipo" width="200"margin="10px auto"/>
     </div>
 
    Para **eliminar equipos** deberá ir a la pantalla de equipos rivales y matener pulsado sobre ese equipo. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese equipo
    y confirmará para eliminarlo.
 
     <div align="center">
-    <img src="imagenes/borrar_equipo.jpg" alt="Borrar equipo" width="200"/>
+        <img src="imagenes/borrar_equipo.jpg" alt="Borrar equipo" width="200"/>
     </div>
 
 - **Crear y borrar jugadores**
@@ -49,10 +49,10 @@ y a mano siempre que los necesites.
     Para **crear un partido** desde el menú pricipal debe ir a "Partido nuevo". En la siguiente panta deberá elegir el equipo rival y si es local o visitante.
     A continuación elegirá los 5 jugadores titurales de su equipo y del equipo rival.
 
-        <div align="center">
+    <div align="center">
         <img src="imagenes/elegir_rival.jpg" alt="Elegir rival" width="200" margin="10px auto"/>
         <img src="imagenes/elegir_titular.jpg" alt="Elegir titular" width="200"margin="10px auto"/>
-        </div>
+    </div>
 
     Hecho esto llegaremos a la pantalla con la que interactuará para rellenar las estadistícas del partido. Para empezar el partido deberá presionar el boton play/pause que esta ubicado
     debajo de tiempo este botón iniciará y parará el tiempo para cuando comienze el partido y los tiempo muertos.
@@ -63,7 +63,7 @@ y a mano siempre que los necesites.
 
     <div align="center">
         <img src="imagenes/menu_partido.jpg" alt="Menú partido" width="200" margin="10px auto"/>
-        <img src="imagenes/cambiar_jugardor.jpg" alt="Cambiar jugador" width="200"margin="10px auto"/>
+        <img src="imagenes/cambiar_jugador.jpg" alt="Cambiar jugador" width="200"margin="10px auto"/>
         <img src="imagenes/vista_previa.jpg" alt="Vista previa" width="200"margin="10px auto"/>
     </div>
 
