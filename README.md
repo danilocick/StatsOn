@@ -33,8 +33,8 @@ y a mano siempre que los necesites.
     a la pantalla del equipo con su nuevo jugador ya creado.
 
     <div align="center">
-    <img src="imagenes/menu_jugador.jpg" alt="Menu jugador" width="200" margin="10px auto"/>
-    <img src="imagenes/crear_jugador.jpg" alt="Crear jugador" width="200"margin="10px auto"/>
+        <img src="imagenes/menu_jugador.jpg" alt="Menu jugador" width="200" margin="10px auto"/>
+        <img src="imagenes/crear_jugador.jpg" alt="Crear jugador" width="200"margin="10px auto"/>
     </div>
 
    Para **eliminar jugadores** deberá ir al equipo del jugador que quiera eliminar y matener pulsado sobre ese jugador. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese jugador
@@ -61,11 +61,11 @@ y a mano siempre que los necesites.
     de manter presionar sobre el jugar que desea cambiar. Si hace esto aparecera una pantalla y deberá elegir el jugador que quiera que salga a jugar. Por último en esta pantalla tenemos
     el boton de "Vista previa" que mostrará una tabla con las estadísticas del partido a tiempo real.
 
-           <div align="center">
-            <img src="imagenes/menu_partido.jpg" alt="Menú partido" width="200" margin="10px auto"/>
-            <img src="imagenes/cambiar_jugar.jpg" alt="Cambiar jugador" width="200"margin="10px auto"/>
-            <img src="imagenes/vista_previa.jpg" alt="Vista previa" width="200"margin="10px auto"/>
-            </div>
+    <div align="center">
+        <img src="imagenes/menu_partido.jpg" alt="Menú partido" width="200" margin="10px auto"/>
+        <img src="imagenes/cambiar_jugar.jpg" alt="Cambiar jugador" width="200"margin="10px auto"/>
+        <img src="imagenes/vista_previa.jpg" alt="Vista previa" width="200"margin="10px auto"/>
+    </div>
 
 
 Al texto en Markdown puedes añadirle formato como **negrita** o *cursiva* de una manera muy sencilla.
