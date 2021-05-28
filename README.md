@@ -77,7 +77,8 @@ y a mano siempre que los necesites.
      </div>
 
     Para **consultar los datos de lo partidos** desde el menú pricipal debe ir a "Partidos". Lo llevará a una pantalla con el listado de todos los partidos realizados.
-    Seleccionaremos el partido deseado y esto lo llevará a un pantalla con una tabla de las estadísticas del partido seleccionado.
+    Seleccionaremos el partido deseado y esto lo llevará a un pantalla con una tabla de las estadísticas del partido seleccionado donde también puede compartir un archivo csv
+    con los datos del partido o descargarlo através del enlance.
 
     <div align="center">
         <img src="imagenes/lista_partido.jpg" alt="Lista partidos" width="200" margin="10px auto"/>
