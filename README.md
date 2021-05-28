@@ -9,6 +9,7 @@ y a mano siempre que los necesites.
 ## Manual de usuario
 
 - **Crear y borrar equipos**
+
     Para **crear equipos** deberas de acceder desde el menú principal a "Equipos rivales" por defecto mi equipo ya viene creado siendo el Santa Coloma de Gramenet.
     Una en la pantalla de equipos rivales deberas de presionar sobre "Añadir ". Esto le llevará a un pantalla donde se elegiria una imagen y un bombre para el nuevo equipo.
     Hecho esto presiona sobre el boton "Crear" que lo devolverá a la pantalla de los equipos rivales con su nuevo equipo ya creado.
@@ -54,7 +55,7 @@ y a mano siempre que los necesites.
         <img src="imagenes/elegir_titular.jpg" alt="Elegir titular" width="200"margin="10px auto"/>
     </div>
 
-    Hecho esto llegaremos a la pantalla con la que interactuará para rellenar las estadistícas del partido. Para empezar el partido deberá presionar el boton play/pause que esta ubicado
+    Hecho esto llegará a la pantalla con la que interactuará para rellenar las estadistícas del partido. Para empezar el partido deberá presionar el boton play/pause que esta ubicado
     debajo de tiempo este botón iniciará y parará el tiempo para cuando comienze el partido y los tiempo muertos.
     Para que un jugar haga una de las 16 acciones disponibles se deberaá seleccionar a ese jugardor y luego la acción deseada. Los botones de las acciones son intuitivos ya que hacen lo que
     su nombre indica exepto el botón "Deshacer" que se utilizará para deseleccionar un jugar presionador por error para poder seleccionar otro. Para realizar un cambio de jugadores deberá
