@@ -41,7 +41,7 @@ y a mano siempre que los necesites.
    y confirmara para eliminarlo.
 
     <div align="center">
-    <img src="imagenes/borrar_jugador.jpg" alt="Borrar jugador" width="200"/>
+        <img src="imagenes/borrar_jugador.jpg" alt="Borrar jugador" width="200"/>
     </div>
 
 - Crear partido
