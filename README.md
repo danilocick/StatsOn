@@ -105,8 +105,8 @@ y a mano siempre que los necesites.
 - **Opciones y cerrar sesión**
 
     <p align="justify">
-    Para <b>cambiar las opciones</b> y <b>cerrar sesión</b> desde el menú pricipal debe ir a "Opciones". Lo llevará a una pantalla donde podrá **cambiar los minutos del partido, el número de periodos y los minutos
-    de la porroga**. También podra cerrar sesión con el boton "Cerrar sesión".
+    Para <b>cambiar las opciones</b> y <b>cerrar sesión</b> desde el menú pricipal debe ir a "Opciones". Lo llevará a una pantalla donde podrá <b>cambiar los minutos del partido, el número de periodos y los minutos
+    de la porroga</b>. También podra cerrar sesión con el boton "Cerrar sesión".
     </p>
 
     <div align="center">
