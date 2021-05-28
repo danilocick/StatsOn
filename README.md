@@ -44,7 +44,7 @@ y a mano siempre que los necesites.
         <img src="imagenes/crear_jugador.jpg" alt="Crear jugador" width="200" margin="10px auto"/>
     </div>
 
-    <p align="justify">
+   <p align="justify">
    Para **eliminar jugadores** deberá ir al equipo del jugador que quiera eliminar y matener pulsado sobre ese jugador. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese jugador
    y confirmara para eliminarlo.
    </p>
