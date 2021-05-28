@@ -9,7 +9,7 @@ y a mano siempre que los necesites.
 
 - **Crear y borrar equipos**
 
-    Para **crear equipos** deberas de acceder desde el menú principal a "Equipos rivales" por defecto mi equipo ya viene creado siendo el Santa Coloma de Gramenet.
+    >Para **crear equipos** deberas de acceder desde el menú principal a "Equipos rivales" por defecto mi equipo ya viene creado siendo el Santa Coloma de Gramenet.
     Una en la pantalla de equipos rivales deberas de presionar sobre "Añadir ". Esto le llevará a un pantalla donde se elegiria una imagen y un bombre para el nuevo equipo.
     Hecho esto presiona sobre el boton "Crear" que lo devolverá a la pantalla de los equipos rivales con su nuevo equipo ya creado.
 
@@ -69,7 +69,8 @@ y a mano siempre que los necesites.
 
 - **Consulta de datos**
 
-    Para **consultar los datos de lo jugadores** desde el menú pricipal debe ir a "Mi equipo" o "Equipos rivales". Seleccionaremos el equipo deseado y seguidamente al jugador deseado. Esto lo llevará
+
+    >Para **consultar los datos de lo jugadores** desde el menú pricipal debe ir a "Mi equipo" o "Equipos rivales". Seleccionaremos el equipo deseado y seguidamente al jugador deseado. Esto lo llevará
     a un pantalla con las estadísticas del jugador seleccionado.
 
      <div align="center">
