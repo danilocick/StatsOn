@@ -44,7 +44,7 @@ y a mano siempre que los necesites.
         <img src="imagenes/borrar_jugador.jpg" alt="Borrar jugador" width="200"/>
     </div>
 
-- Crear partido
+- **Crear partido**
 
     Para **crear un partido** desde el menú pricipal debe ir a "Partido nuevo". En la siguiente panta deberá elegir el equipo rival y si es local o visitante.
     A continuación elegirá los 5 jugadores titurales de su equipo y del equipo rival.
