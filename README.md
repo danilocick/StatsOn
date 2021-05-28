@@ -1,4 +1,5 @@
 ## Descripción
+
     <p align="justify">
     Stats On es un aplicación que recopila las estádisticas de un partido de baloncesto.
     Esta enfocada para el club Santa Coloma de Gramanet pero se puede usar con cualquier equipo ya que se pueden crear
