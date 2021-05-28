@@ -63,7 +63,7 @@ y a mano siempre que los necesites.
 
     <div align="center">
         <img src="imagenes/menu_partido.jpg" alt="Menú partido" width="200" margin="10px auto"/>
-        <img src="imagenes/cambiar_jugar.jpg" alt="Cambiar jugador" width="200"margin="10px auto"/>
+        <img src="imagenes/cambiar_jugardor.jpg" alt="Cambiar jugador" width="200"margin="10px auto"/>
         <img src="imagenes/vista_previa.jpg" alt="Vista previa" width="200"margin="10px auto"/>
     </div>
 
