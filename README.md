@@ -9,9 +9,11 @@ y a mano siempre que los necesites.
 
 - **Crear y borrar equipos**
 
-    >Para **crear equipos** deberas de acceder desde el menú principal a "Equipos rivales" por defecto mi equipo ya viene creado siendo el Santa Coloma de Gramenet.
+    <div style="text-align: justify">
+    Para **crear equipos** deberas de acceder desde el menú principal a "Equipos rivales" por defecto mi equipo ya viene creado siendo el Santa Coloma de Gramenet.
     Una en la pantalla de equipos rivales deberas de presionar sobre "Añadir ". Esto le llevará a un pantalla donde se elegiria una imagen y un bombre para el nuevo equipo.
     Hecho esto presiona sobre el boton "Crear" que lo devolverá a la pantalla de los equipos rivales con su nuevo equipo ya creado.
+    </div>
 
     <div align="center">
         <img src="imagenes/menu_equipo.jpg" alt="Menu equipos" width="200" margin="10px auto"/>
