@@ -16,7 +16,7 @@ y a mano siempre que los necesites.
 
     <div align="center">
         <img src="imagenes/menu_equipo.jpg" alt="Menu equipos" width="200" margin="10px auto"/>
-        <img src="imagenes/crear_equipo.jpg" alt="Crear equipo" width="200"margin="10px auto"/>
+        <img src="imagenes/crear_equipo.jpg" alt="Crear equipo" width="200" margin="10px auto"/>
     </div>
 
    Para **eliminar equipos** deberá ir a la pantalla de equipos rivales y matener pulsado sobre ese equipo. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese equipo
@@ -35,14 +35,14 @@ y a mano siempre que los necesites.
 
     <div align="center">
         <img src="imagenes/menu_jugador.jpg" alt="Menu jugador" width="200" margin="10px auto"/>
-        <img src="imagenes/crear_jugador.jpg" alt="Crear jugador" width="200"margin="10px auto"/>
+        <img src="imagenes/crear_jugador.jpg" alt="Crear jugador" width="200" margin="10px auto"/>
     </div>
 
    Para **eliminar jugadores** deberá ir al equipo del jugador que quiera eliminar y matener pulsado sobre ese jugador. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese jugador
    y confirmara para eliminarlo.
 
     <div align="center">
-        <img src="imagenes/borrar_jugador.jpg" alt="Borrar jugador" width="200"/>
+        <img src="imagenes/borrar_jugador.jpg" alt="Borrar jugador" width="200" margin="10px auto"/>
     </div>
 
 - **Crear partido**
