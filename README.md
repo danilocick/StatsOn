@@ -95,4 +95,4 @@ y a mano siempre que los necesites.
     </div>
 
 ## Descarga la aplicación
-[Descarg directa](statson.apk)
+[Descarga directa](statson.apk)
