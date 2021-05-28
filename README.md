@@ -1,4 +1,4 @@
-## Descripción
+## **Descripción**
 
 <p align="justify">
 Stats On es un aplicación que recopila las estádisticas de un partido de baloncesto.
@@ -8,12 +8,12 @@ Con una interfaz simple e intuitiva podrás crear tus equipos, jugadores y parti
 y a mano siempre que los necesites.
 </p>
 
-## Manual de usuario
+## **Manual de usuario**
 
 - **Crear y borrar equipos**
 
     <p align="justify">
-    Para **crear equipos** deberas de acceder desde el menú principal a "Equipos rivales" por defecto mi equipo ya viene creado siendo el Santa Coloma de Gramenet.
+    Para <b>crear equipos</b> deberas de acceder desde el menú principal a "Equipos rivales" por defecto mi equipo ya viene creado siendo el Santa Coloma de Gramenet.
     Una en la pantalla de equipos rivales deberas de presionar sobre "Añadir ". Esto le llevará a un pantalla donde se elegiria una imagen y un bombre para el nuevo equipo.
     Hecho esto presiona sobre el boton "Crear" que lo devolverá a la pantalla de los equipos rivales con su nuevo equipo ya creado.
     </p>
@@ -33,7 +33,7 @@ y a mano siempre que los necesites.
 - **Crear y borrar jugadores**
 
     <p align="justify">
-    Para **crear jugadores** en tu equipo o en el equipo rival deberas de acceder desde el menú principal a "Mi equipo" o ir a "Equipos rivales" y seleccionar un equipo rival ya creado.
+    Para <b>crear jugadores</b> en tu equipo o en el equipo rival deberas de acceder desde el menú principal a "Mi equipo" o ir a "Equipos rivales" y seleccionar un equipo rival ya creado.
     Una vez haya seleccionado su equipo o uno rival se verán los jugadores del equipo seleccionado si es que se han añadido algunos anteriormente. Una vez aquí para añadir un jugador presionara
     sobre el boton "Añadir jugador" que le llevara a un pantalla donde se elegiria una imagen, un nombre y un dorsal para el nuevo jugador. Hecho esto presiona sobre el boton "Crear" que lo devolverá
     a la pantalla del equipo con su nuevo jugador ya creado.
@@ -45,7 +45,7 @@ y a mano siempre que los necesites.
     </div>
 
    <p align="justify">
-   Para **eliminar jugadores** deberá ir al equipo del jugador que quiera eliminar y matener pulsado sobre ese jugador. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese jugador
+   Para <b>eliminar jugadores</b> deberá ir al equipo del jugador que quiera eliminar y matener pulsado sobre ese jugador. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese jugador
    y confirmara para eliminarlo.
    </p>
 
@@ -56,7 +56,7 @@ y a mano siempre que los necesites.
 - **Crear partido**
 
     <p align="justify">
-    Para **crear un partido** desde el menú pricipal debe ir a "Partido nuevo". En la siguiente panta deberá elegir el equipo rival y si es local o visitante.
+    Para <b>crear un partido</b> desde el menú pricipal debe ir a "Partido nuevo". En la siguiente panta deberá elegir el equipo rival y si es local o visitante.
     A continuación elegirá los 5 jugadores titurales de su equipo y del equipo rival.
     </p>
 
@@ -83,7 +83,7 @@ y a mano siempre que los necesites.
 - **Consulta de datos**
 
     <p align="justify">
-    Para **consultar los datos de lo jugadores** desde el menú pricipal debe ir a "Mi equipo" o "Equipos rivales". Seleccionaremos el equipo deseado y seguidamente al jugador deseado. Esto lo llevará
+    Para <b>consultar los datos de lo jugadores</b> desde el menú pricipal debe ir a "Mi equipo" o "Equipos rivales". Seleccionaremos el equipo deseado y seguidamente al jugador deseado. Esto lo llevará
     a un pantalla con las estadísticas del jugador seleccionado.
     </p>
 
@@ -92,7 +92,7 @@ y a mano siempre que los necesites.
      </div>
 
     <p align="justify">
-    Para **consultar los datos de lo partidos** desde el menú pricipal debe ir a "Partidos". Lo llevará a una pantalla con el listado de todos los partidos realizados.
+    Para <b>consultar los datos de lo partidos</b> desde el menú pricipal debe ir a "Partidos". Lo llevará a una pantalla con el listado de todos los partidos realizados.
     Seleccionaremos el partido deseado y esto lo llevará a un pantalla con una tabla de las estadísticas del partido seleccionado donde también puede compartir un archivo csv
     con los datos del partido o descargarlo através del enlance.
     </p>
@@ -105,7 +105,7 @@ y a mano siempre que los necesites.
 - **Opciones y cerrar sesión**
 
     <p align="justify">
-    Para **cambiar las opciones** y *cerrar sesión* desde el menú pricipal debe ir a "Opciones". Lo llevará a una pantalla donde podrá **cambiar los minutos del partido, el número de periodos y los minutos
+    Para <b>cambiar las opciones</b> y <b>cerrar sesión</b> desde el menú pricipal debe ir a "Opciones". Lo llevará a una pantalla donde podrá **cambiar los minutos del partido, el número de periodos y los minutos
     de la porroga**. También podra cerrar sesión con el boton "Cerrar sesión".
     </p>
 
