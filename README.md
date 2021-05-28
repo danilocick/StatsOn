@@ -16,6 +16,7 @@ y a mano siempre que los necesites.
 
     <div align="center">
         <img src="imagenes/menu_equipo.jpg" alt="Menu equipos" width="200" margin="10px auto"/>
+
         <img src="imagenes/crear_equipo.jpg" alt="Crear equipo" width="200"margin="10px auto"/>
     </div>
 
