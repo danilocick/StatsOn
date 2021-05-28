@@ -68,7 +68,7 @@ y a mano siempre que los necesites.
         <img src="imagenes/vista_previa.jpg" alt="Vista previa" width="200"margin="10px auto"/>
     </div>
 
-    - **Consulta de datos**
+- **Consulta de datos**
 
     Para **consultar los datos de lo jugadores** desde el menú pricipal debe ir a "Mi equipo" o "Equipos rivales". Seleccionaremos el equipo deseado y seguidamente al jugador deseado. Esto lo llevará
     a un pantalla con las estadísticas del jugador seleccionado.
@@ -85,7 +85,7 @@ y a mano siempre que los necesites.
         <img src="imagenes/datos_partido.jpg" alt="Datos partido" width="200" margin="10px auto"/>
     </div>
 
-    - **Opciones y cerrar sesión**
+- **Opciones y cerrar sesión**
 
     Para **cambiar las opciones** y *cerrar sesión* desde el menú pricipal debe ir a "Opciones". Lo llevará a una pantalla donde podrá **cambiar los minutos del partido, el número de periodos y los minutos
     de la porroga**. También podra cerrar sesión con el boton "Cerrar sesión".
