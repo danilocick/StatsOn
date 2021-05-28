@@ -9,6 +9,8 @@ y a mano siempre que los necesites.
 ## Manual de usuario
 
 - Crear y borrar jugadores
+
+
     Para crear jugadores en tu equipo o en el equipo rival deberas de acceder desde el Menú principal a Mi equipo o ir a Equipos rivales seleccionar un equipo rival ya creado
     y una vez dentro se verán los jugadores del equipo seleccionado si es que se ha añadido alguno anteriormente. Una vez aquí para añadir un jugador presionara sobre el boton "Añadir jugador"
     que le llevara a un pantalla donde se elegiria una imagen, un nombre y dorsal para el nuevo jugador. Hecho esto presiona sobre el boton "Crear" que lo devolvera a la pantalla del equipo con
