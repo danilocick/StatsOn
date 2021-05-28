@@ -15,14 +15,17 @@ y a mano siempre que los necesites.
     sobre el boton "Añadir jugador" que le llevara a un pantalla donde se elegiria una imagen, un nombre y un dorsal para el nuevo jugador. Hecho esto presiona sobre el boton "Crear" que lo devolverá
     a la pantalla del equipo con su nuevo jugador ya creado.
 
+    <div align="center">
     <img src="imagenes/menu_jugador.jpg" alt="drawing" width="200" align="center"/>
-    <img src="imagenes/crear_jugador.jpg" alt="drawing" width="200" align="center"/>
+    <img src="imagenes/crear_jugador.jpg" alt="drawing" width="200"/>
+    </div>
 
    Para **eliminar jugadores** deberemos ir al equipo del jugador que queramos eliminar y matener pulsado sobre ese jugador. Aparece un mensaje de si esta seguro de querer eliminar a ese jugador
    y confirmara para eliminarlo.
 
-    <img src="imagenes/borrar_jugador.jpg" alt="drawing" width="200" align="center"/>
-
+    <div align="center">
+    <img src="imagenes/borrar_jugador.jpg" alt="drawing" width="200"/>
+    </div>
 
 - Elemento 2
 - Elemento 3
