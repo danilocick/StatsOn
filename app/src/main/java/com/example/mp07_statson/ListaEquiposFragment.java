@@ -121,7 +121,7 @@ public class ListaEquiposFragment extends BaseFragment {
 
     private void createDialog(Equipo equipo, View v) {
         AlertDialog.Builder alertDlg = new AlertDialog.Builder(requireActivity());
-        alertDlg.setMessage("¿Estás seguro que deseas eliminar al jugador?");
+        alertDlg.setMessage("¿Estás seguro que deseas eliminar al equipo?");
         alertDlg.setCancelable(false);
 
         alertDlg.setPositiveButton("Si", (dialog, which) ->{

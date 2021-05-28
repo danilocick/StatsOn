@@ -10,14 +10,18 @@ y a mano siempre que los necesites.
 
 - Crear y borrar jugadores
 
+    Para **crear jugadores** en tu equipo o en el equipo rival deberas de acceder desde el menú principal a "Mi equipo" o ir a "Equipos rivales" y seleccionar un equipo rival ya creado.
+    Una vez haya seleccionado su equipo o uno rival se verán los jugadores del equipo seleccionado si es que se han añadido algunos anteriormente. Una vez aquí para añadir un jugador presionara
+    sobre el boton "Añadir jugador" que le llevara a un pantalla donde se elegiria una imagen, un nombre y un dorsal para el nuevo jugador. Hecho esto presiona sobre el boton "Crear" que lo devolverá
+    a la pantalla del equipo con su nuevo jugador ya creado.
 
-    Para crear jugadores en tu equipo o en el equipo rival deberas de acceder desde el Menú principal a Mi equipo o ir a Equipos rivales seleccionar un equipo rival ya creado
-    y una vez dentro se verán los jugadores del equipo seleccionado si es que se ha añadido alguno anteriormente. Una vez aquí para añadir un jugador presionara sobre el boton "Añadir jugador"
-    que le llevara a un pantalla donde se elegiria una imagen, un nombre y dorsal para el nuevo jugador. Hecho esto presiona sobre el boton "Crear" que lo devolvera a la pantalla del equipo con
-    su nuevo jugador ya creado.
+    ![Haga click aquí para descarga directa](imagenes/menu_jugador.jpg)
+    ![Haga click aquí para descarga directa](imagenes/crear_jugador.jpg)
 
-   Para eliminar un jugador deberemos ir al equipo del jugador que queramos eliminar y matener pulsado sobre ese jugador. Aparece un mensaje de si esta seguro de querer eliminar a ese jugador
+   Para **eliminar jugadores** deberemos ir al equipo del jugador que queramos eliminar y matener pulsado sobre ese jugador. Aparece un mensaje de si esta seguro de querer eliminar a ese jugador
    y confirmara para eliminarlo.
+
+    ![Haga click aquí para descarga directa](imagenes/borrar_jugador.jpg)
 
 - Elemento 2
 - Elemento 3
