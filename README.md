@@ -16,13 +16,13 @@ y a mano siempre que los necesites.
     a la pantalla del equipo con su nuevo jugador ya creado.
 
     <img src="imagenes/menu_jugador.jpg" alt="drawing" width="200"/>
-    ![](imagenes/menu_jugador.jpg)
-    ![Haga click aquí para descarga directa](imagenes/crear_jugador.jpg)
+    <img src="imagenes/crear_jugador.jpg" alt="drawing" width="200"/>
 
    Para **eliminar jugadores** deberemos ir al equipo del jugador que queramos eliminar y matener pulsado sobre ese jugador. Aparece un mensaje de si esta seguro de querer eliminar a ese jugador
    y confirmara para eliminarlo.
 
-    ![Haga click aquí para descarga directa](imagenes/borrar_jugador.jpg)
+    <img src="imagenes/borrar_jugador.jpg" alt="drawing" width="200"/>
+
 
 - Elemento 2
 - Elemento 3
