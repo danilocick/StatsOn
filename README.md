@@ -52,7 +52,7 @@ y a mano siempre que los necesites.
 
     <div align="center">
         <img src="imagenes/elegir_rival.jpg" alt="Elegir rival" width="200" margin="10px auto"/>
-        <img src="imagenes/elegir_titular.jpg" alt="Elegir titular" width="200"margin="10px auto"/>
+        <img src="imagenes/elegir_titular.jpg" alt="Elegir titular" width="200" margin="10px auto"/>
     </div>
 
     Hecho esto llegará a la pantalla con la que interactuará para rellenar las estadistícas del partido. Para empezar el partido deberá presionar el boton play/pause que esta ubicado
