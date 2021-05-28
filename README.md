@@ -23,8 +23,10 @@ y a mano siempre que los necesites.
         <img src="imagenes/crear_equipo.jpg" alt="Crear equipo" width="200" margin="10px auto"/>
     </div>
 
-   Para **eliminar equipos** deberá ir a la pantalla de equipos rivales y matener pulsado sobre ese equipo. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese equipo
-   y confirmará para eliminarlo.
+    <p align="justify">
+    Para <b>eliminar equipos</b> deberá ir a la pantalla de equipos rivales y matener pulsado sobre ese equipo. Aparecerá un mensaje que dirá si está seguro de querer eliminar a ese equipo
+    y confirmará para eliminarlo.
+    </p>
 
     <div align="center">
         <img src="imagenes/borrar_equipo.jpg" alt="Borrar equipo" width="200"/>
