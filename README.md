@@ -68,7 +68,31 @@ y a mano siempre que los necesites.
         <img src="imagenes/vista_previa.jpg" alt="Vista previa" width="200"margin="10px auto"/>
     </div>
 
+    - **Consulta de datos**
 
-Al texto en Markdown puedes añadirle formato como **negrita** o *cursiva* de una manera muy sencilla.
+    Para **consultar los datos de lo jugadores** desde el menú pricipal debe ir a "Mi equipo" o "Equipos rivales". Seleccionaremos el equipo deseado y seguidamente al jugador deseado. Esto lo llevará
+    a un pantalla con las estadísticas del jugador seleccionado.
+
+     <div align="center">
+        <img src="imagenes/datos_jugador.jpg" alt="Datos jugador" width="200" margin="10px auto"/>
+     </div>
+
+    Para **consultar los datos de lo partidos** desde el menú pricipal debe ir a "Partidos". Lo llevará a una pantalla con el listado de todos los partidos realizados.
+    Seleccionaremos el partido deseado y esto lo llevará a un pantalla con una tabla de las estadísticas del partido seleccionado.
+
+    <div align="center">
+        <img src="imagenes/lista_partido.jpg" alt="Lista partidos" width="200" margin="10px auto"/>
+        <img src="imagenes/datos_partido.jpg" alt="Datos partido" width="200" margin="10px auto"/>
+    </div>
+
+    - **Opciones y cerrar sesión**
+
+    Para **cambiar las opciones** y *cerrar sesión* desde el menú pricipal debe ir a "Opciones". Lo llevará a una pantalla donde podrá **cambiar los minutos del partido, el número de periodos y los minutos
+    de la porroga**. También podra cerrar sesión con el boton "Cerrar sesión".
+
+    <div align="center">
+        <img src="imagenes/menu_opciones.jpg" alt="Menu opciones" width="200" margin="10px auto"/>
+    </div>
+
 ## Descarga la aplicación
 [Haga click aquí para descarga directa](statson.apk)
