@@ -125,7 +125,7 @@ public class OutputMatchesFragment extends DialogFragment {
 
             String dorsal = j.dorsal+" " ;
             String nombre = String.valueOf(j.nombre);
-            String min = "";
+            String min = j.minutos_jugados+":"+j.segundos_jugados;
             String puntos = String.valueOf(j.puntos);
 
             String tla = String.valueOf(j.t1mas);

@@ -11,7 +11,8 @@ public class Jugador {
 
     public String nombre;
     public int segundos_jugados;
-    public String minutos_jugados;
+    public int minutos_jugados;
+    public String min;
     public int dorsal;
     public String imagen;
     public int puntos, rebotes, asistencias, robos, perdidas, tapones,

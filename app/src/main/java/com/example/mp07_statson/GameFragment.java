@@ -82,9 +82,6 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.jugadoresEquipoVisitanteGeneral = new ArrayList<>();
         iniciarPartido();
 
-        Log.d("ABCD",""+viewmodel.minutosPE);
-        Log.d("ABCD","min"+viewmodel.minutos);
-        Log.d("ABCD","periodos"+viewmodel.periodos);
 
         binding.botonSP.setOnClickListener(view17 -> {
             if (partidoviewmodel.mTimerRunning) {
@@ -128,9 +125,23 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.anyadir_segundos.observe(getViewLifecycleOwner(), aBoolean -> {
             for (Jugador j : partidoviewmodel.jugadoresEquipoLocal){
                 if (j.starter){
-                    j.segundos_jugados+=10;
+                    if(j.segundos_jugados+10 == 60){
+                        j.segundos_jugados = 0;
+                        j.minutos_jugados++;
+                    }else {
+                        j.segundos_jugados+=10;
+                    }
                 }
-                Log.d("ABCD",j.toString());
+            }
+            for (Jugador j : partidoviewmodel.jugadoresEquipoVisitante){
+                if (j.starter){
+                    if(j.segundos_jugados+10 == 60){
+                        j.segundos_jugados = 0;
+                        j.minutos_jugados++;
+                    }else {
+                        j.segundos_jugados+=10;
+                    }
+                }
             }
         });
 
@@ -147,7 +158,6 @@ public class GameFragment extends BaseFragment {
 
             jugadorLocal.setOnClickListener(v -> {
                 seleccionaJugador(jugadorLocal);
-
 
                 binding.imagenDeshacer.setOnClickListener(v1 -> {
                     desSeleccionarJugador(jugadorLocal, R.drawable.recyclerv_round_grey_black);
@@ -831,8 +841,10 @@ public class GameFragment extends BaseFragment {
         int seconds = (int) (partidoviewmodel.mTimeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         binding.chronometer.setText(timeLeftFormatted);
-        if(seconds%10==0){
-            partidoviewmodel.anyadir_segundos.setValue(true);
+        if(minutes != 0 && seconds != 0 ){
+            if(seconds%10==0){
+                partidoviewmodel.anyadir_segundos.setValue(true);
+            }
         }
     }
 
