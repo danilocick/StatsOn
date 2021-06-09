@@ -2,7 +2,6 @@ package com.example.mp07_statson;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -53,7 +51,7 @@ public class PartidoFragment extends BaseFragment {
                 Intent compartir = new Intent(android.content.Intent.ACTION_SEND);
                 compartir.setType("text/plain");
                 String mensaje = viewmodel.partido.archivoCSV;
-                compartir.putExtra(android.content.Intent.EXTRA_SUBJECT, "Empleos Baja App");
+                compartir.putExtra(android.content.Intent.EXTRA_SUBJECT, viewmodel.partido.nombreEquipoLocal+" VS "+viewmodel.partido.nombreEquipoVisitante);
                 compartir.putExtra(android.content.Intent.EXTRA_TEXT, mensaje);
                 startActivity(Intent.createChooser(compartir, "Compartir vía"));
             }
@@ -79,7 +77,7 @@ public class PartidoFragment extends BaseFragment {
         rowHeader2Local.setBackgroundColor(Color.BLACK);
         binding.table.addView(rowHeader2Local);
 
-        llenarInforme(partidoviewmodel.jugadoresEquipoLocal,contador);
+        contador = llenarInforme(partidoviewmodel.jugadoresEquipoLocal,contador);
 
         llenarEquipoLocal(viewmodel.partido);
 
@@ -104,7 +102,7 @@ public class PartidoFragment extends BaseFragment {
         binding.table.addView(rowHeaderVisitante);
         binding.table.addView(rowHeader2Visitante);
 
-        llenarInforme(partidoviewmodel.jugadoresEquipoVisitante, contador);
+        contador = llenarInforme(partidoviewmodel.jugadoresEquipoVisitante, contador);
         llenarEquipoVisitante(viewmodel.partido);
 
         TableRow rowHeaderCuartos = getTableRow2(headerCuartos);
@@ -298,7 +296,9 @@ public class PartidoFragment extends BaseFragment {
         tv27.setTextColor(Color.BLACK);
 
         addViewsToRow(rowEquipo, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
-        rowEquipo.setBackgroundResource(R.drawable.borde_graella);
+        if (contador % 2 == 0){
+            rowEquipo.setBackgroundResource(R.drawable.borde_graella);
+        } else rowEquipo.setBackgroundResource(R.drawable.borde_graella_2);
         binding.table.addView(rowEquipo);
 
     }
@@ -417,7 +417,9 @@ public class PartidoFragment extends BaseFragment {
         tv27.setTextColor(Color.BLACK);
 
         addViewsToRow(rowEquipo, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16, tv17, tv18, tv19, tv20, tv21, tv22, tv26, tv27);
-        rowEquipo.setBackgroundResource(R.drawable.borde_graella);
+        if (contador % 2 == 0){
+            rowEquipo.setBackgroundResource(R.drawable.borde_graella);
+        } else rowEquipo.setBackgroundResource(R.drawable.borde_graella_2);
         binding.table.addView(rowEquipo);
 
     }
@@ -445,7 +447,7 @@ public class PartidoFragment extends BaseFragment {
         return rowHeader2Visitante;
     }
 
-    private void llenarInforme(List<Jugador> jugadors, int contador) {
+    private int llenarInforme(List<Jugador> jugadors, int contador) {
         for (Jugador j : jugadors) {
 
             TableRow row = new TableRow(requireActivity());
@@ -570,6 +572,7 @@ public class PartidoFragment extends BaseFragment {
             binding.table.addView(row);
             contador++;
         }
+        return contador;
     }
 
     private TextView setTextToView(String dorsalLocal) {

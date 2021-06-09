@@ -123,6 +123,44 @@
             app:met_primaryColor="@color/white"
             app:met_singleLineEllipsis="true" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp">
+            <View
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="NestedWeights">
+            </View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/postnobillsjaffna_regular"
+                android:text="@string/resetPasswd"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:paddingEnd="2dp"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView android:id="@+id/resetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/postnobillsjaffna_bold"
+                android:text="@string/recuperar_Contrasenya"
+                android:textColor="@color/bluelink"
+                android:layout_gravity="center"/>
+
+            <View
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </View>
+
+        </LinearLayout>
+
         <Button android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -132,45 +170,20 @@
             android:fontFamily="@font/postnobillsjaffna_bold"
             android:textSize="17.5sp"/>
 
-        <!--    TODO: Acceso con correo normal-->
-        <LinearLayout
+        <com.shaishavgandhi.loginbuttons.GoogleButton
             android:layout_width="match_parent"
+            android:textAlignment="center"
+            app:iconSize="30dp"
+            android:text="@string/iniciar_sesi_n_con_google"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal">
-            <com.shaishavgandhi.loginbuttons.GoogleButton android:id="@+id/google"
-                android:layout_width="75dp"
-                android:layout_weight="0"
-                android:layout_marginEnd="10dp"
-                app:roundedCorner="true"
-                app:transparentBackground="false"
-                app:roundedCornerRadius="10dp"
-                app:iconSize="30dp"
-                android:layout_height="75dp"
-                android:layout_marginBottom="5dp" />
-            <com.shaishavgandhi.loginbuttons.FacebookButton android:id="@+id/facebook"
-                android:layout_width="75dp"
-                android:layout_weight="0"
-                app:roundedCorner="true"
-                app:transparentBackground="false"
-                app:roundedCornerRadius="10dp"
-                app:iconSize="30dp"
-                android:layout_height="75dp"
-                android:layout_marginBottom="5dp" />
-            <com.shaishavgandhi.loginbuttons.TwitterButton android:id="@+id/twitter"
-                android:layout_width="75dp"
-                android:layout_weight="0"
-                app:roundedCorner="true"
-                android:layout_marginStart="10dp"
-                app:transparentBackground="false"
-                app:roundedCornerRadius="10dp"
-                app:iconSize="30dp"
-                android:layout_height="75dp"
-                android:layout_marginBottom="5dp" />
-        </LinearLayout>
+            app:roundedCorner="true"
+            app:roundedCornerRadius="15dp"
+            app:transparentBackground="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="10dp"/>
         </LinearLayout>
     <View
         android:layout_weight="1"
@@ -215,7 +228,6 @@
         </View>
 
     </LinearLayout>
-
 
     <View
         android:layout_weight="1"

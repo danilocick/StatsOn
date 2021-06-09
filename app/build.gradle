@@ -91,12 +91,10 @@ dependencies {
     //https://github.com/tyrantgit/ExplosionField
     //https://github.com/Anler2015/ExplosionAnimation
     implementation 'tyrantgit:explosionfield:1.0.1'
-
-    //Datato CSV
+    //Dato CSV
     implementation 'com.opencsv:opencsv:4.6'
-
+    //flexbox
     implementation 'com.google.android:flexbox:2.0.1'
-
 
 }
 

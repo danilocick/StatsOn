@@ -156,6 +156,9 @@
     <string name="cometidas">COM</string>
     <string name="recibidas">REC</string>
     <string name="com">COM</string>
+    <string name="resetPasswd">¿Has olvidado la contraseña?</string>
+    <string name="recuperar_Contrasenya">Recuperar Contraseña</string>
+    <string name="iniciar_sesi_n_con_google">Iniciar sesion con Google</string>
 
     <!--table-->
     <string-array name="header_table">

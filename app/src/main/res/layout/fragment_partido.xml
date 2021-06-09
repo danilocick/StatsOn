@@ -5,20 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".PartidoFragment"
     android:orientation="vertical"
-    android:background="@color/greydark">
+    android:background="@color/silver">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:minHeight="35dp"
-        android:background="@color/background">
+        android:background="@color/silver">
         <ImageButton
             android:id="@+id/boton_come_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/black"
+            android:background="@color/silver"
             android:src="@drawable/ic_baseline_arrow_back_24" />
         <ImageButton
             android:id="@+id/botoncompartir"

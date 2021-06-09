@@ -218,6 +218,9 @@
         <action
             android:id="@+id/action_loginFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -273,5 +276,10 @@
         android:name="com.example.mp07_statson.PartidoFragment"
         android:label="fragment_partido"
         tools:layout="@layout/fragment_partido" />
+    <dialog
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.example.mp07_statson.ResetPasswordFragment"
+        android:label="fragment_reset_password"
+        tools:layout="@layout/fragment_reset_password" />
 
 </navigation>
