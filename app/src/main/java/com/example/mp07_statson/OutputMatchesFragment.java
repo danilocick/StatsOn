@@ -116,12 +116,14 @@ public class OutputMatchesFragment extends DialogFragment {
         return rowHeader2Visitante;
     }
 
+    public int calculatePercentage(double obtained, double total) {
+        return (int) (obtained * 100 / total);
+    }
     private void llenarInforme(List<Jugador> jugadors, int contador) {
         for (Jugador j : jugadors) {
-
             TableRow row = new TableRow(requireActivity());
 
-            String dorsal = String.valueOf(j.dorsal)+" " ;
+            String dorsal = j.dorsal+" " ;
             String nombre = String.valueOf(j.nombre);
             String min = "";
             String puntos = String.valueOf(j.puntos);
@@ -133,19 +135,19 @@ public class OutputMatchesFragment extends DialogFragment {
             if (tli == 0) {
                 tlporcentaje = "";
             } else {
-                Long tlporcentajeL = (long) (j.t1mas / tli);
-                tlporcentaje = String.valueOf(tlporcentajeL);
+                int tlporcentajeL = calculatePercentage(j.t1mas, tli);
+                tlporcentaje = tlporcentajeL+"%";
             }
 
             String t2aJugador = String.valueOf(j.t2mas);
             int t2i = j.t2mas + j.t2menos;
             String t2iLocal = String.valueOf(t2i);
-            String t2porcentajeLocal;
+            String t2porcentaje;
             if (t2i == 0) {
-                t2porcentajeLocal = "";
+                t2porcentaje = "";
             } else {
-                Long t2porcentaje = (long) (j.t2mas / t2i);
-                t2porcentajeLocal = String.valueOf(t2porcentaje);
+                int t2porcentajej = calculatePercentage(j.t2mas, t2i);
+                t2porcentaje = t2porcentajej+"%";
             }
 
 
@@ -156,9 +158,20 @@ public class OutputMatchesFragment extends DialogFragment {
             if (t3i == 0) {
                 t3porcentaje = "";
             } else {
-                Long t3porcentajej = (long) (j.t3mas / t3i);
-                t3porcentaje = String.valueOf(t3porcentajej);
+                int t3porcentajej = calculatePercentage(j.t3mas, t3i);
+                t3porcentaje = t3porcentajej+"%";
             }
+
+            if (t2porcentaje.equals("")){
+                t2porcentaje = "0%";
+            }
+            if (tlporcentaje.equals("")){
+                tlporcentaje = "0%";
+            }
+            if (t3porcentaje.equals("")){
+                t3porcentaje = "0%";
+            }
+
 
 
             String rebotesTotal = String.valueOf(j.rebotes);
@@ -191,7 +204,7 @@ public class OutputMatchesFragment extends DialogFragment {
             TextView tv7 = setTextToView(tlporcentaje);
             TextView tv8 = setTextToView(t2aJugador);
             TextView tv9 = setTextToView(t2iLocal);
-            TextView tv10 = setTextToView(t2porcentajeLocal);
+            TextView tv10 = setTextToView(t2porcentaje);
             TextView tv11 = setTextToView(t3aJugador);
             TextView tv12 = setTextToView(t3iJugador);
             TextView tv13 = setTextToView(t3porcentaje);

@@ -47,7 +47,7 @@ public class LoadFragment extends BaseFragment {
                 shimmer.setDirection(Shimmer.ANIMATION_DIRECTION_LTR);
 
                 // simular la carga de recursos
-                Thread.sleep(3000);
+                Thread.sleep(30);
                 finishedLoading.postValue(true);
             } catch (InterruptedException e) {
                 e.printStackTrace();

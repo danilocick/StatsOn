@@ -56,9 +56,12 @@ public class LoginFragment extends BaseFragment {
             binding.progressBar.setVisibility(View.VISIBLE);
             String email = String.valueOf(binding.email.getText());
             String con = String.valueOf(binding.contrasenya.getText());
-            if ( email.isEmpty() || con.isEmpty() ){
-                Toast.makeText(requireActivity().getApplicationContext(), "Añade correo y contraseña", Toast.LENGTH_LONG).show();
-                binding.progressBar.setVisibility(View.INVISIBLE);
+            if (email.isEmpty() && con.isEmpty() ){
+                showToast("Ingrese correo y contraseña");
+            }else if(email.isEmpty()){
+                showToast("Ingrese correo");
+            }else if(con.isEmpty()){
+                showToast("Ingrese contraseña");
             }else singingWithPasswd();
         });
 
@@ -70,6 +73,11 @@ public class LoginFragment extends BaseFragment {
         binding.progressBar.setIndeterminateDrawable(new Circle());
     }
 
+    private void showToast(String s) {
+        Toast.makeText(requireActivity().getApplicationContext(), s, Toast.LENGTH_LONG).show();
+        binding.progressBar.setVisibility(View.INVISIBLE);
+    }
+
     private void singingWithPasswd() {
         auth.signInWithEmailAndPassword(binding.email.getText().toString(), binding.contrasenya.getText().toString()).addOnCompleteListener(task -> {
             binding.progressBar.setVisibility(View.INVISIBLE);
@@ -77,13 +85,13 @@ public class LoginFragment extends BaseFragment {
             if (task.isSuccessful()) {
                 acceder();
             } else {
-                Toast.makeText(requireActivity().getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                showToast(task.getException().getMessage());
             }
         });
     }
 
     void acceder() {
-        Toast.makeText(requireActivity().getApplicationContext(), "Access permitted", Toast.LENGTH_LONG).show();
+        showToast("Acceso permitido");
         db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).set(new Usuario(auth.getCurrentUser().getEmail()), SetOptions.merge());
         nav.navigate(R.id.action_loginFragment_to_menuFragment);
     }

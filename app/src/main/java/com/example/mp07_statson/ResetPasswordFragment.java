@@ -37,7 +37,7 @@ public class ResetPasswordFragment extends DialogFragment {
 
         binding.login.setOnClickListener(v->{
             if(String.valueOf(binding.email.getText()).equals("")){
-                Toast.makeText(requireActivity().getApplicationContext(), "Ingrese el correo", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Ingrese correo", Toast.LENGTH_LONG).show();
             }else {
                 auth.sendPasswordResetEmail(String.valueOf(binding.email.getText()));
                 dismiss();
