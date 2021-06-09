@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,21 +20,17 @@ import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 import com.example.mp07_statson.Model.Ppp;
 import com.example.mp07_statson.databinding.FragmentGameBinding;
-import com.google.firebase.firestore.SetOptions;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Objects;
 
 public class GameFragment extends BaseFragment {
@@ -85,6 +82,10 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.jugadoresEquipoVisitanteGeneral = new ArrayList<>();
         iniciarPartido();
 
+        Log.d("ABCD",""+viewmodel.minutosPE);
+        Log.d("ABCD","min"+viewmodel.minutos);
+        Log.d("ABCD","periodos"+viewmodel.periodos);
+
         binding.botonSP.setOnClickListener(view17 -> {
             if (partidoviewmodel.mTimerRunning) {
                 binding.botonSP.setImageResource(R.drawable.boton_pause);
@@ -122,6 +123,15 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.repintarEquipoVisitante.observe(getViewLifecycleOwner(), aBoolean -> {
             printarJugadoresEnNombreVisitante();
             printarJugadoresVisitante();
+        });
+
+        partidoviewmodel.anyadir_segundos.observe(getViewLifecycleOwner(), aBoolean -> {
+            for (Jugador j : partidoviewmodel.jugadoresEquipoLocal){
+                if (j.starter){
+                    j.segundos_jugados+=10;
+                }
+                Log.d("ABCD",j.toString());
+            }
         });
 
         int i = 0;
@@ -356,10 +366,9 @@ public class GameFragment extends BaseFragment {
             jugadorvisitante.setOnClickListener(v1 -> {
                 seleccionaJugador(jugadorvisitante);
 
-//                binding.imagenDeshacer.setOnClickListener(v -> {
-//                    desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
-//                });
-
+                binding.imagenDeshacer.setOnClickListener(vvv1 -> {
+                    desSeleccionarJugador(jugadorvisitante, R.drawable.recyclerv_round_greydark_black);
+                });
 
                 binding.imagenThreePointMore.setOnClickListener(view1 -> {
                     partidoviewmodel.partido.puntosVisitante += 3;
@@ -822,6 +831,9 @@ public class GameFragment extends BaseFragment {
         int seconds = (int) (partidoviewmodel.mTimeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         binding.chronometer.setText(timeLeftFormatted);
+        if(seconds%10==0){
+            partidoviewmodel.anyadir_segundos.setValue(true);
+        }
     }
 
     int buscarPosicionJugadorLocal(int posicion){

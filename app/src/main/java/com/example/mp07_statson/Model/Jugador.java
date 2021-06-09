@@ -10,6 +10,8 @@ public class Jugador {
     public String idJugador;
 
     public String nombre;
+    public int segundos_jugados;
+    public String minutos_jugados;
     public int dorsal;
     public String imagen;
     public int puntos, rebotes, asistencias, robos, perdidas, tapones,
@@ -259,6 +261,8 @@ public class Jugador {
         return "Jugador{" +
                 "idJugador='" + idJugador + '\'' +
                 ", nombre='" + nombre + '\'' +
+                ", segundos_jugados=" + segundos_jugados +
+                ", minutos_jugados='" + minutos_jugados + '\'' +
                 ", dorsal=" + dorsal +
                 ", imagen='" + imagen + '\'' +
                 ", puntos=" + puntos +

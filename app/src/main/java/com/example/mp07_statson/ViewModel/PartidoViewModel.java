@@ -20,6 +20,8 @@ public class PartidoViewModel extends ViewModel {
 
     public MutableLiveData<Boolean> repintarEquipoLocal = new MutableLiveData<>();
     public MutableLiveData<Boolean> repintarEquipoVisitante = new MutableLiveData<>();
+    public MutableLiveData<Boolean> anyadir_segundos = new MutableLiveData<>();
+
 
     //CRONOMETRO
     public CountDownTimer mCountDownTimer;
@@ -32,4 +34,5 @@ public class PartidoViewModel extends ViewModel {
 
     public Partido partido;
     public int cuarto = 1;
+
 }

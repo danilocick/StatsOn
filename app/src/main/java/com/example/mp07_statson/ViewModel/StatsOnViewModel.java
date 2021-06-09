@@ -30,7 +30,6 @@ public class StatsOnViewModel extends ViewModel {
     public int periodos;
     public int minutosPE;
 
-
     //Seleccion partido nuevo
     public String idEquipoLocal;
     public String idEquipoVisitante;
