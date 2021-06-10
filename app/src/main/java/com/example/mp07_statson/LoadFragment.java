@@ -64,9 +64,11 @@ public class LoadFragment extends BaseFragment {
                 viewmodel.minutosPE = minPE;
 
                 Log.d("ABCD",viewmodel.minutos+"HOLAAA");
+                Log.d("ABCD",viewmodel.periodos+"HOLAAA");
+                Log.d("ABCD",viewmodel.minutosPE+"HOLAAA");
 
                 // simular la carga de recursos
-                Thread.sleep(30);
+                Thread.sleep(3000);
                 finishedLoading.postValue(true);
             } catch (InterruptedException e) {
                 e.printStackTrace();

@@ -122,5 +122,8 @@ public class OptionsFragment extends BaseFragment {
         binding.minutosInt.setText(String.valueOf(viewmodel.minutos));
         binding.periodosInt.setText(String.valueOf(viewmodel.periodos));
         binding.minPEInt.setText(String.valueOf(viewmodel.minutosPE));
+        min = viewmodel.minutos;
+        minPE = viewmodel.minutosPE;
+        periodos = viewmodel.periodos;
     }
 }
