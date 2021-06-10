@@ -691,6 +691,12 @@ public class GameFragment extends BaseFragment {
 
         botonesAccionesAdmin(botonesAcciones,false);
         botonesJugadoresAdmin(true);
+
+        switch (viewmodel.minutos){
+            case 5: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_5_IN_MILLIS; break;
+            case 6: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_6_IN_MILLIS; break;
+            case 10: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_10_IN_MILLIS; break;
+        }
     }
 
     private void desSeleccionarJugador(LinearLayout p, int p2) {
@@ -827,11 +833,6 @@ public class GameFragment extends BaseFragment {
     }
 
     private void startTimer() {
-        switch (viewmodel.minutos){
-            case 5: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_5_IN_MILLIS; break;
-            case 6: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_6_IN_MILLIS; break;
-            case 10: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_10_IN_MILLIS; break;
-        }
         partidoviewmodel.mCountDownTimer = new CountDownTimer(partidoviewmodel.mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -855,8 +856,12 @@ public class GameFragment extends BaseFragment {
         int seconds = (int) (partidoviewmodel.mTimeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         binding.chronometer.setText(timeLeftFormatted);
+        Log.d("ABCD",minutes+":"+seconds);
         if(seconds%2==0){
-            partidoviewmodel.anyadir_segundos.setValue(true);
+            if (minutes == 10 && seconds == 0 || minutes == 6 && seconds == 0 || minutes == 5 && seconds == 0 || minutes == 0 && seconds == 0) {
+            }else {
+                partidoviewmodel.anyadir_segundos.setValue(true);
+            }
         }
 
     }
