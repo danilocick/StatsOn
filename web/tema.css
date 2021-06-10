@@ -11,13 +11,11 @@ div {
   font-size: 20px;
 }
 h1 {
-    color: #b48608;
-    font-family: 'Droid serif', serif;
-    font-size: 36px;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 44px;
-    margin: 0 0 12px;
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 275px; font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
     text-align: center;
 }
 section {
