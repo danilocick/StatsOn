@@ -12,7 +12,7 @@ div {
 }
 .photo{
   text-align: center;
-      border: 1px groove red;
+      border: 1px solid red;
       padding: 10px;
 }
 h1 {
