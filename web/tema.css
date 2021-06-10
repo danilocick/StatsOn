@@ -2,6 +2,9 @@ div {
   text-align: justify;
   text-justify: inter-word;
 }
+body{
+  background-color: #FFB6C1;
+}
 .btn {
   background-color: #B22222;
   border: none;
