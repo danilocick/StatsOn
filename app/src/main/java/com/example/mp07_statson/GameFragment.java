@@ -95,13 +95,12 @@ public class GameFragment extends BaseFragment {
             }
         });
         updateCountDownText();
-
         cargarPantalla();
 
         binding.botonVistaPrevia.setOnClickListener(view15 -> nav.navigate(R.id.action_gameFragment_to_outputMatchesFragment));
 
         binding.siguienteCuarto.setOnClickListener(v->{
-            if (partidoviewmodel.cuarto <4){
+            if (partidoviewmodel.cuarto < viewmodel.periodos){
                 partidoviewmodel.cuarto++;
                 pasarcuarto();
             }
@@ -125,21 +124,21 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.anyadir_segundos.observe(getViewLifecycleOwner(), aBoolean -> {
             for (Jugador j : partidoviewmodel.jugadoresEquipoLocal){
                 if (j.starter){
-                    if(j.segundos_jugados+10 == 60){
+                    if(j.segundos_jugados+2 == 60){
                         j.segundos_jugados = 0;
                         j.minutos_jugados++;
                     }else {
-                        j.segundos_jugados+=10;
+                        j.segundos_jugados+=2;
                     }
                 }
             }
             for (Jugador j : partidoviewmodel.jugadoresEquipoVisitante){
                 if (j.starter){
-                    if(j.segundos_jugados+10 == 60){
+                    if(j.segundos_jugados+2 == 60){
                         j.segundos_jugados = 0;
                         j.minutos_jugados++;
                     }else {
-                        j.segundos_jugados+=10;
+                        j.segundos_jugados+=2;
                     }
                 }
             }
@@ -623,6 +622,12 @@ public class GameFragment extends BaseFragment {
         partidoviewmodel.partido.imagenEquipoVisitante = viewmodel.imagenEquipoVisitante;
         partidoviewmodel.partido.idEquipoLocal = viewmodel.idEquipoLocal;
         partidoviewmodel.partido.idEquipoVisitante = viewmodel.idEquipoVisitante;
+
+        switch (viewmodel.minutos){
+            case 5: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_5_IN_MILLIS; break;
+            case 6: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_6_IN_MILLIS; break;
+            case 10: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_10_IN_MILLIS; break;
+        }
     }
 
     private void subirPartidoFirebase(Partido partido) {
@@ -663,7 +668,11 @@ public class GameFragment extends BaseFragment {
     }
 
     private void pasarcuarto() {
-        partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_10_IN_MILLIS;
+        switch (viewmodel.minutos){
+            case 5: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_5_IN_MILLIS; break;
+            case 6: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_6_IN_MILLIS; break;
+            case 10: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_10_IN_MILLIS; break;
+        }
         updateCountDownText();
 
         partidoviewmodel.partido.faltasCometidasLocal = 0;
@@ -818,6 +827,11 @@ public class GameFragment extends BaseFragment {
     }
 
     private void startTimer() {
+        switch (viewmodel.minutos){
+            case 5: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_5_IN_MILLIS; break;
+            case 6: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_6_IN_MILLIS; break;
+            case 10: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_10_IN_MILLIS; break;
+        }
         partidoviewmodel.mCountDownTimer = new CountDownTimer(partidoviewmodel.mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -841,11 +855,10 @@ public class GameFragment extends BaseFragment {
         int seconds = (int) (partidoviewmodel.mTimeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         binding.chronometer.setText(timeLeftFormatted);
-        if(minutes != 0 || seconds != 0 ){
-            if(seconds%10==0){
-                partidoviewmodel.anyadir_segundos.setValue(true);
-            }
+        if(seconds%2==0){
+            partidoviewmodel.anyadir_segundos.setValue(true);
         }
+
     }
 
     int buscarPosicionJugadorLocal(int posicion){

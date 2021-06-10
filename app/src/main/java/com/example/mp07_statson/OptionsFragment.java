@@ -97,6 +97,7 @@ public class OptionsFragment extends BaseFragment {
         });
 
         binding.botonGuardarOpc.setOnClickListener(v -> {
+            //https://developer.android.com/training/data-storage/shared-preferences
             SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putInt(getString(R.string.min_saved_player), min);

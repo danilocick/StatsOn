@@ -27,9 +27,9 @@ public class PartidoViewModel extends ViewModel {
     public CountDownTimer mCountDownTimer;
     public boolean mTimerRunning;
     public static final long START_TIME_10_IN_MILLIS = 600000;
-    public static final long START_TIME_5_IN_MILLIS = 600000;
-    public static final long START_TIME_6_IN_MILLIS = 600000;
-    public long mTimeLeftInMillis = START_TIME_10_IN_MILLIS;
+    public static final long START_TIME_5_IN_MILLIS = 300000;
+    public static final long START_TIME_6_IN_MILLIS = 360000;
+    public long mTimeLeftInMillis;
 
 
     public Partido partido;
