@@ -841,7 +841,7 @@ public class GameFragment extends BaseFragment {
         int seconds = (int) (partidoviewmodel.mTimeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         binding.chronometer.setText(timeLeftFormatted);
-        if(minutes != 0 && seconds != 0 ){
+        if(minutes != 0 || seconds != 0 ){
             if(seconds%10==0){
                 partidoviewmodel.anyadir_segundos.setValue(true);
             }

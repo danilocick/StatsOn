@@ -1,5 +1,7 @@
 package com.example.mp07_statson;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +33,7 @@ public class OptionsFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ExpansionLayoutCollection expansionLayoutCollection = new ExpansionLayoutCollection();
-        expansionLayoutCollection.add(binding.expansionMinutosLayout);
-        expansionLayoutCollection.add(binding.expansionPeriodosLayout);
-        expansionLayoutCollection.add(binding.expansionMinPELayout);
-        expansionLayoutCollection.openOnlyOne(true);
+        cargar_datos();
 
         binding.expansionMinutosLayout.addListener((expansionLayout, expanded) -> {
             binding.minutosCinco.setOnClickListener(v -> {
@@ -99,11 +97,30 @@ public class OptionsFragment extends BaseFragment {
         });
 
         binding.botonGuardarOpc.setOnClickListener(v -> {
+            SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putInt(getString(R.string.min_saved_player), min);
+            editor.putInt(getString(R.string.periodos_saved_player), periodos);
+            editor.putInt(getString(R.string.min_pe_saved_player), minPE);
+            editor.apply();
+
             viewmodel.minutos = min;
             viewmodel.periodos = periodos;
             viewmodel.minutosPE = minPE;
 
             nav.popBackStack();
         });
+    }
+
+    private void cargar_datos() {
+        ExpansionLayoutCollection expansionLayoutCollection = new ExpansionLayoutCollection();
+        expansionLayoutCollection.add(binding.expansionMinutosLayout);
+        expansionLayoutCollection.add(binding.expansionPeriodosLayout);
+        expansionLayoutCollection.add(binding.expansionMinPELayout);
+        expansionLayoutCollection.openOnlyOne(true);
+
+        binding.minutosInt.setText(String.valueOf(viewmodel.minutos));
+        binding.periodosInt.setText(String.valueOf(viewmodel.periodos));
+        binding.minPEInt.setText(String.valueOf(viewmodel.minutosPE));
     }
 }

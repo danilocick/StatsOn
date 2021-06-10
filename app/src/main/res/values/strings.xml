@@ -160,6 +160,10 @@
     <string name="recuperar_Contrasenya">Recuperar Contraseña</string>
     <string name="iniciar_sesi_n_con_google">Iniciar sesion con Google</string>
     <string name="enviar">Enviar</string>
+    <string name="minutosPE">minutosPE</string>
+    <string name="min_saved_player">min_saved_player</string>
+    <string name="min_pe_saved_player">min_pe_saved_player</string>
+    <string name="periodos_saved_player">periodos_saved_player</string>
 
     <!--table-->
     <string-array name="header_table">
