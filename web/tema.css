@@ -10,6 +10,10 @@ div {
   cursor: pointer;
   font-size: 20px;
 }
+.btn:hover {
+  background-color: #F08080;
+}
+
 .photo{
   text-align: center;
 }
