@@ -50,6 +50,9 @@ public class AddJugadorFragment extends BaseFragment {
                 imagen = viewmodel.imagenJugadorSeleccionada.toString();
                 viewmodel.imagenJugadorSeleccionada = null;
             }
+            if(nombre.equals("")){
+                nombre = "Jugador";
+            }
 
             Jugador jugador = new Jugador(nombre, dorsal ,imagen);
             db.collection(FirebaseVar.USUARIOS).document(auth.getUid()).collection(FirebaseVar.EQUIPOS).document(viewmodel.idEquipoSeleccionado).collection(FirebaseVar.JUGADORES).add(jugador).addOnSuccessListener(documentReference -> {
