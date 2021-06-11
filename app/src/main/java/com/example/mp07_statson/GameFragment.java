@@ -1,6 +1,7 @@
 package com.example.mp07_statson;
 
 import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -61,6 +62,7 @@ public class GameFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         botonesJugadoresLocales = Arrays.asList(binding.jugA1, binding.jugA2, binding.jugA3, binding.jugA4, binding.jugA5);
         dorsalesJugadoresLocales = Arrays.asList(binding.dorsalA1, binding.dorsalA2, binding.dorsalA3, binding.dorsalA4, binding.dorsalA5);
         puntosJugadoresLocales = Arrays.asList(binding.puntosA1, binding.puntosA2, binding.puntosA3, binding.puntosA4, binding.puntosA5);
@@ -858,9 +860,11 @@ public class GameFragment extends BaseFragment {
         binding.chronometer.setText(timeLeftFormatted);
         Log.d("ABCD",minutes+":"+seconds);
         if(seconds%2==0){
-            if (minutes == 10 && seconds == 0 || minutes == 6 && seconds == 0 || minutes == 5 && seconds == 0 || minutes == 0 && seconds == 0) {
-            }else {
-                partidoviewmodel.anyadir_segundos.setValue(true);
+            if ((minutes != 10 || seconds != 0) && (minutes != 6 || seconds != 0) && (minutes != 5 || seconds != 0) && (minutes != 0 || seconds != 0)) {
+                if(partidoviewmodel.segundo_sumado != seconds){
+                    partidoviewmodel.segundo_sumado = seconds;
+                    partidoviewmodel.anyadir_segundos.setValue(true);
+                }
             }
         }
 

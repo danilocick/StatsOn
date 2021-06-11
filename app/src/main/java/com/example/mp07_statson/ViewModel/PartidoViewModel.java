@@ -31,6 +31,7 @@ public class PartidoViewModel extends ViewModel {
     public static final long START_TIME_6_IN_MILLIS = 360000;
     public long mTimeLeftInMillis;
 
+    public int segundo_sumado;
 
     public Partido partido;
     public int cuarto = 1;
