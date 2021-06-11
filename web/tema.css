@@ -1,6 +1,7 @@
 div {
   text-align: justify;
   text-justify: inter-word;
+  background-color: #B22222;
 }
 .btn {
   background-color: #B22222;
@@ -20,6 +21,7 @@ div {
 section {
     margin: 2em auto;
     max-width: 50em;
+    background-color: #800080;
     padding: 1rem 1rem 1rem 1rem;
     box-shadow: 0px 1px 2px 0px rgba(60,64,67,0.3),0px 2px 6px 2px rgba(60,64,67,0.15);
     border-radius: 4px;
