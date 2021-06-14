@@ -5,9 +5,12 @@ import android.os.CountDownTimer;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mp07_statson.Model.Accion;
 import com.example.mp07_statson.Model.Jugador;
 import com.example.mp07_statson.Model.Partido;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class PartidoViewModel extends ViewModel {
@@ -35,5 +38,5 @@ public class PartidoViewModel extends ViewModel {
 
     public Partido partido;
     public int cuarto = 1;
-
+    public LinkedList<Accion> acciones;
 }

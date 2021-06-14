@@ -89,6 +89,11 @@ public class EquipoAyBFragment extends BaseFragment {
                 createDialog();
             }
 
+            switch (viewmodel.minutos){
+                case 5: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_5_IN_MILLIS; break;
+                case 6: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_6_IN_MILLIS; break;
+                case 10: partidoviewmodel.mTimeLeftInMillis = partidoviewmodel.START_TIME_10_IN_MILLIS; break;
+            }
         });
     }
 

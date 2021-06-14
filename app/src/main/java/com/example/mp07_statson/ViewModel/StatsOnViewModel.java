@@ -21,7 +21,6 @@ public class StatsOnViewModel extends ViewModel {
     //jugadores
     public Uri imagenJugadorSeleccionada;
     public Jugador jugadorSeleccionado;
-    public MutableLiveData<Boolean> actualizarStatsIndividuales = new MutableLiveData<>();
     public List<Ppp> pppJugador;
 
 
@@ -40,4 +39,8 @@ public class StatsOnViewModel extends ViewModel {
 
     public String imagenEquipoVisitante;
     public String imagenEquipoLocal;
+
+    //eliminar
+    public MutableLiveData<Boolean> actualizarEquipoLocal = new MutableLiveData<>();
+    public MutableLiveData<Boolean> actualizarEquipoVisitante = new MutableLiveData<>();
 }
