@@ -700,26 +700,381 @@ public class GameFragment extends BaseFragment {
                             partidoviewmodel.jugadoresEquipoLocal.get(i).t2mas -= 1;
 
                             switch (partidoviewmodel.cuarto) {
-                                case 1:
-                                    partidoviewmodel.partido.puntosLocalPrimerCuarto += 2;
-                                    break;
-                                case 2:
-                                    partidoviewmodel.partido.puntosLocalSegundoCuarto += 2;
-                                    break;
-                                case 3:
-                                    partidoviewmodel.partido.puntosLocalTercerCuarto += 2;
-                                    break;
-                                case 4:
-                                    partidoviewmodel.partido.puntosLocalQuartoCuarto += 2;
-                                    break;
+                                case 1: partidoviewmodel.partido.puntosLocalPrimerCuarto -= 2; break;
+                                case 2: partidoviewmodel.partido.puntosLocalSegundoCuarto -= 2; break;
+                                case 3: partidoviewmodel.partido.puntosLocalTercerCuarto -= 2; break;
+                                case 4: partidoviewmodel.partido.puntosLocalQuartoCuarto -= 2; break;
                             }
 
                             puntosJugadoresLocales.get(i).setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+                            break;
+                        }
+                    }
+                    break;
+                case "t2menos":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.t2menosLocal -= 1;
+
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).t2menos -= 1;
+
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).t2menos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "tirolibremas":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.puntosLocal -= 1;
+                            partidoviewmodel.partido.t1masLocal -= 1;
+
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).puntos -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).t1mas -= 1;
+
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).puntos -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).t1mas -= 1;
+
+                            switch (partidoviewmodel.cuarto){
+                                case 1: partidoviewmodel.partido.puntosLocalPrimerCuarto-=1; break;
+                                case 2: partidoviewmodel.partido.puntosLocalSegundoCuarto-=1; break;
+                                case 3: partidoviewmodel.partido.puntosLocalTercerCuarto-=1; break;
+                                case 4: partidoviewmodel.partido.puntosLocalQuartoCuarto-=1; break;
+                            }
+
+                            puntosJugadoresLocales.get(i).setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).puntos));
+
+                            break;
+                        }
+                    }
+                    break;
+                case "tirolibremenos":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.t1menosLocal -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).t1menos -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).t1menos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "asistencia":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.asistenciasLocal -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).asistencias -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).asistencias -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "taponcometido":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.taponesLocal -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).tapones -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).tapones -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "taponrecibido":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.taponesRecibidosLocal -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).taponesRecibidos -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).taponesRecibidos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "robo":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.robosLocal -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).robos -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).robos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "perdida":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.perdidasLocal -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).perdidas -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).perdidas -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "faltarecibida":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.faltasRecibidasLocal -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).faltasRecibidas -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).faltasRecibidas -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "faltacometida":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.faltasCometidasLocal -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).faltasCometidas -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas -= 1;
+
+                            binding.faltasEquipoLocal.setText(String.valueOf(partidoviewmodel.partido.faltasCometidasLocal));
+                            faltasJugadoresLocales.get(i).setText(String.valueOf(partidoviewmodel.jugadoresEquipoLocal.get(i).faltasCometidas));
+                            break;
+                        }
+                    }
+                    break;
+                case "reboteofensivo":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.rebotesOfLocal -= 1;
+                            partidoviewmodel.partido.rebotesLocal -= 1;
+
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).rebotes -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).rebotesOf -= 1;
+
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotes -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesOf -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "rebotedefensivo":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoLocalGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.rebotesDefLocal -= 1;
+                            partidoviewmodel.partido.rebotesLocal -= 1;
+
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).rebotes -= 1;
+                            partidoviewmodel.jugadoresEquipoLocalGeneral.get(i).rebotesDef -= 1;
+
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotes -= 1;
+                            partidoviewmodel.jugadoresEquipoLocal.get(i).rebotesDef -= 1;
+                            break;
                         }
                     }
                     break;
             }
-        }else {}
+
+        }else {
+            switch(accionATratar.jugada) {
+                case "t3mas":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+
+                            partidoviewmodel.partido.puntosVisitante -= 3;
+                            partidoviewmodel.partido.t3masVisitante -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).puntos -= 3;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).t3mas -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).puntos -= 3;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).t3mas -= 1;
+
+                            switch (partidoviewmodel.cuarto){
+                                case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto-=3; break;
+                                case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto-=3; break;
+                                case 3: partidoviewmodel.partido.puntosVisitanteTercerCuarto-=3; break;
+                                case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto-=3; break;
+                            }
+
+                            binding.marcadorVisitante.setText(String.valueOf(partidoviewmodel.partido.puntosVisitante));
+                            puntosJugadoresVisitantes.get(i).setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).puntos));
+                            break;
+                        }
+                    }
+                    break;
+                case "t3menos":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.t3menosVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).t3menos -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).t3menos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "t2mas":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.puntosVisitante -= 2;
+                            partidoviewmodel.partido.t2masVisitante -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).puntos -= 2;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).t2mas -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).puntos -= 2;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).t2mas -= 1;
+
+                            switch (partidoviewmodel.cuarto) {
+                                case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto -= 2; break;
+                                case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto -= 2; break;
+                                case 3: partidoviewmodel.partido.puntosVisitanteTercerCuarto -= 2; break;
+                                case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto -= 2; break;
+                            }
+
+                            puntosJugadoresVisitantes.get(i).setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).puntos));
+                            break;
+                        }
+                    }
+                    break;
+                case "t2menos":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.t2menosVisitante -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).t2menos -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).t2menos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "tirolibremas":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.puntosVisitante -= 1;
+                            partidoviewmodel.partido.t1masVisitante -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).puntos -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).t1mas -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).puntos -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).t1mas -= 1;
+
+                            switch (partidoviewmodel.cuarto){
+                                case 1: partidoviewmodel.partido.puntosVisitantePrimerCuarto-=1; break;
+                                case 2: partidoviewmodel.partido.puntosVisitanteSegundoCuarto-=1; break;
+                                case 3: partidoviewmodel.partido.puntosVisitanteTercerCuarto-=1; break;
+                                case 4: partidoviewmodel.partido.puntosVisitanteQuartoCuarto-=1; break;
+                            }
+                            puntosJugadoresVisitantes.get(i).setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).puntos));
+                            break;
+                        }
+                    }
+                    break;
+                case "tirolibremenos":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.t1menosVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).t1menos -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).t1menos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "asistencia":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.asistenciasVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).asistencias -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).asistencias -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "taponcometido":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.taponesVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).tapones -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).tapones -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "taponrecibido":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.taponesRecibidosVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).taponesRecibidos -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).taponesRecibidos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "robo":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.robosVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).robos -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).robos -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "perdida":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.perdidasVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).perdidas -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).perdidas -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "faltarecibida":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.faltasRecibidasVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).faltasRecibidas -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).faltasRecibidas -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "faltacometida":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.faltasCometidasVisitante -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).faltasCometidas -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).faltasCometidas -= 1;
+
+                            binding.faltasEquipoVisitante.setText(String.valueOf(partidoviewmodel.partido.faltasCometidasVisitante));
+                            faltasJugadoresVisitantes.get(i).setText(String.valueOf(partidoviewmodel.jugadoresEquipoVisitante.get(i).faltasCometidas));
+                            break;
+                        }
+                    }
+                    break;
+                case "reboteofensivo":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.rebotesOfVisitante -= 1;
+                            partidoviewmodel.partido.rebotesVisitante -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).rebotes -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).rebotesOf -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotes -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotesOf -= 1;
+                            break;
+                        }
+                    }
+                    break;
+                case "rebotedefensivo":
+                    for (int i = 0; i < partidoviewmodel.jugadoresEquipoVisitanteGeneral.size(); i++) {
+                        if (partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).dorsal == accionATratar.jugador.dorsal) {
+                            partidoviewmodel.partido.rebotesDefVisitante -= 1;
+                            partidoviewmodel.partido.rebotesVisitante -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).rebotes -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitanteGeneral.get(i).rebotesDef -= 1;
+
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotes -= 1;
+                            partidoviewmodel.jugadoresEquipoVisitante.get(i).rebotesDef -= 1;
+                            break;
+                        }
+                    }
+                    break;
+            }
+        }
 
         Log.d("ABCD", "ELiminar");
         for (Accion a:partidoviewmodel.acciones) {
