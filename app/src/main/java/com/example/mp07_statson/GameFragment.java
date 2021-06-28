@@ -646,7 +646,7 @@ public class GameFragment extends BaseFragment {
     }
 
     private void restarAccion() {
-        Accion accionATratar = new Accion();
+        Accion accionATratar;
         if(partidoviewmodel.acciones.size()==1){
             accionATratar = partidoviewmodel.acciones.get(0);
             DeshacerAccion(accionATratar);
