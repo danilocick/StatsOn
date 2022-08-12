@@ -118,7 +118,7 @@
     <string name="paswd">Contraseña</string>
     <string name="email">Correo</string>
 
-    <string name="login">Inicio de sesion</string>
+    <string name="login">Iniciar sesión</string>
     <string name="singin">Registrarse</string>
     <string name="crearCuenta">Crear Cuenta</string>
     <string name="noCuenta">¿Todavía no tienes cuenta?</string>
