@@ -304,11 +304,13 @@
             android:paddingStart="40sp"
             android:paddingEnd="40sp">
 
-            <Button android:id="@+id/cerrarSesion"
-                android:layout_width="wrap_content"
+            <Button android:id="@+id/cerrar_session"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/CerrarSesion"/>
+                android:text="@string/CerrarSesion"
+                android:background="@drawable/boton_acceso"
+                android:fontFamily="@font/postnobillsjaffna_bold"
+                android:textSize="15sp"/>
         </LinearLayout>
 
     </LinearLayout>

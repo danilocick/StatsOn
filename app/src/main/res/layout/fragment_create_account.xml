@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:text="@string/registrarse"
             android:layout_marginHorizontal="15dp"
-            android:background="@drawable/boton_blanco"
+            android:background="@drawable/boton_acceso"
             android:fontFamily="@font/postnobillsjaffna_bold"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"/>
@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/postnobillsjaffna_regular"
             android:text="@string/siCuenta"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:paddingEnd="2dp"
             tools:ignore="RtlSymmetry" />
@@ -164,7 +164,8 @@
             android:fontFamily="@font/postnobillsjaffna_bold"
             android:text="@string/login"
             android:textColor="@color/bluelink"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"/>
 
         <View
             android:layout_weight="1"

@@ -55,12 +55,13 @@
                 android:layout_gravity="center"
                 android:background="@drawable/recyclerv_round_white">
 
-                <ImageView android:id="@+id/imagen_jugador"
+                <ImageView
+                    android:id="@+id/imagen_jugador"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
-                    android:src="@drawable/add_jugador"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/add_jugador"
                     android:textAlignment="center" />
             </RelativeLayout>
 
@@ -69,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/jugadorNombre"
                 android:textCursorDrawable="@drawable/text_cursor_cyan"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 app:met_baseColor="@android:color/white"
                 app:met_floatingLabel="highlight"
                 app:met_maxCharacters="20"
@@ -81,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/jugadorDorsal"
                 android:textCursorDrawable="@drawable/text_cursor_cyan"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:inputType="number"
                 app:met_baseColor="@android:color/white"
                 app:met_floatingLabel="highlight"
@@ -89,15 +90,15 @@
                 app:met_primaryColor="@color/white"
                 app:met_singleLineEllipsis="true" />
 
-            <Button
-                android:id="@+id/boton_crear_add_jugador"
-                android:layout_width="wrap_content"
+            <Button android:id="@+id/boton_crear_add_jugador"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:textColor="@color/white"
-                android:background="@color/black"
                 android:text="@string/crear"
-                android:layout_gravity="center"/>
+                android:layout_marginHorizontal="15dp"
+                android:background="@drawable/boton_acceso"
+                android:textColor="@color/black"
+                android:fontFamily="@font/postnobillsjaffna_bold"
+                android:textSize="15sp"/>
         </LinearLayout>
     </ScrollView>
 

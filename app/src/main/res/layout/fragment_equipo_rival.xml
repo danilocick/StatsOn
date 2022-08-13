@@ -47,10 +47,10 @@
         android:text="@string/jugarasComoLocal"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textAlignment="textStart"
         android:textAllCaps="true"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <LinearLayout android:id="@+id/linearChange"
         android:layout_width="match_parent"
@@ -109,10 +109,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/postnobillsjaffna_extrabold"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textAlignment="textStart"
         android:textAllCaps="true"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
