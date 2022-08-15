@@ -65,9 +65,9 @@ public class LoginFragment extends BaseFragment {
             }else singingWithPasswd();
         });
 
-        binding.resetPassword.setOnClickListener(v->{
-            nav.navigate(R.id.action_loginFragment_to_resetPasswordFragment);
-        });
+//        binding.resetPassword.setOnClickListener(v->{
+//            nav.navigate(R.id.action_loginFragment_to_resetPasswordFragment);
+//        });
 
         binding.crearCuenta.setOnClickListener(v -> nav.navigate(R.id.action_loginFragment_to_createAccountFragment));
         binding.progressBar.setIndeterminateDrawable(new Circle());

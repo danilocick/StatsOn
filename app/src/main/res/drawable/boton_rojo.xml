@@ -8,7 +8,7 @@
                     <padding android:bottom="5dp"/>
                     <corners android:radius="8dp"/>
                     <gradient
-                        android:startColor="@color/reddark"
+                        android:startColor="@color/button"
                         android:endColor="@color/reddark"
                         android:angle="270" />
                     <stroke

@@ -36,7 +36,6 @@
     <string name="rosters">Rosters</string>
     <string name="crear">Create</string>
     <string name="rostro">Rostrer</string>
-    <string name="partidos" translatable="false">Matches</string>
     <string name="guardar">Save</string>
     <string name="iniciarPartido" >Start Match</string>
     <string name="puntos">PTS</string>
@@ -63,6 +62,7 @@
     <string name="crearcuernta">"Create Account "</string>
     <string name="registrarse">"Check in "</string>
     <string name="seleccinaRival">"Select rival team for the match: "</string>
-    <string name="partidoos">Matches</string>
+    <string name="partidos">Matches</string>
     <string name="jugarasComoLocal">Will you play as a local or a visitor?</string>
+    <string name="faltaR">R. Foul</string>
 </resources>

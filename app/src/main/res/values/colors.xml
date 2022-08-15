@@ -40,14 +40,16 @@
     <color name="redblood">#660708</color>
     <color name="redimperial">#E5383B</color>
 
-    <color name="white2">#F5F3F4</color>
+    <color name="white2">#D1D1D1</color>
 
 
 
     <color name="background">#0A0D14</color>
     <color name="border_background">#28364E</color>
     <color name="button">#556FF7</color>
+    <color name="darkButton">#5834E9</color>
     <color name="white">#FFFFFF</color>
+    <color name="dark_purple">#4b2751</color>
 
 
 

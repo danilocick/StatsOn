@@ -6,7 +6,9 @@
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/drawable-v24/boton_acceso.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/drawable-v24/boton_blanco.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/drawable/border.xml" value="0.3875" />
+        <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/drawable/boton_rojo.xml" value="0.21" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/drawable/button_change.xml" value="0.31" />
+        <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/drawable/recyclerv_round_grey_black.xml" value="0.363" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_add_equipo.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_add_jugador.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_create_account.xml" value="0.3875" />
@@ -14,6 +16,7 @@
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_equipo_a.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_equipo_ay_b.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_equipo_rival.xml" value="0.3875" />
+        <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_game.xml" value="0.33" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_lista_partidos.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_load.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_login.xml" value="0.3875" />
@@ -22,6 +25,10 @@
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_partido.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_reset_password.xml" value="0.3875" />
         <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/fragment_rivales.xml" value="0.3875" />
+        <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/viewholder_jugador_equipo_a.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/layout/viewholder_partido.xml" value="0.3875" />
+        <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/mipmap-anydpi-v26/ic_logo.xml" value="0.1" />
+        <entry key="..\:/Users/danie/Documents/DAM ll/ProgramacioMultimedia-MP08/StatsOn/app/src/main/res/mipmap-anydpi-v26/ic_logo_round.xml" value="0.237" />
       </map>
     </option>
   </component>

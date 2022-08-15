@@ -38,7 +38,7 @@
         <TextView android:id="@+id/tituloMiEquipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/partidoos"
+            android:text="@string/partidos"
             android:fontFamily="@font/postnobillsjaffna_extrabold"
             android:textSize="75sp"
             android:textAlignment="center"
@@ -50,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/viewholder_partido"/>
+            tools:listitem="@layout/viewholder_partido"
+            android:dividerHeight="8dp"/>
 
     </LinearLayout>
 

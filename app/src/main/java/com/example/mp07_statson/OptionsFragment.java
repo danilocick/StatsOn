@@ -86,7 +86,7 @@ public class OptionsFragment extends BaseFragment {
 
         binding.botonComeBackOpc.setOnClickListener(view1 -> {nav.popBackStack();});
 
-        binding.cerrarSesion.setOnClickListener(v->{
+        binding.cerrarSession.setOnClickListener(v->{
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .build();
             GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);

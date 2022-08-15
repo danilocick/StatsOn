@@ -21,7 +21,6 @@ public class ResetPasswordFragment extends DialogFragment {
 
     private FragmentResetPasswordBinding binding;
     private FirebaseAuth auth;
-    private NavController nav;
 
 
     @Override
@@ -35,7 +34,7 @@ public class ResetPasswordFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         auth = FirebaseAuth.getInstance();
 
-        binding.login.setOnClickListener(v->{
+        binding.send.setOnClickListener(v->{
             if(String.valueOf(binding.email.getText()).equals("")){
                 Toast.makeText(requireActivity().getApplicationContext(), "Ingrese correo", Toast.LENGTH_LONG).show();
             }else {

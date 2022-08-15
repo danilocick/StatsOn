@@ -7,11 +7,14 @@
     android:layout_margin="10dp"
     android:id="@+id/background"
     android:background="@drawable/boton_blanco">
+
     <LinearLayout
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="0">
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_weight="1">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imagen_jugador"
@@ -35,24 +38,16 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
-
     <TextView
         android:id="@+id/dorsalJugador"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_gravity="center"
         android:gravity="center"
         android:fontFamily="@font/postnobillsjaffna_bold"
         android:text="11"
-        android:textColor="@color/black2"
+        android:textColor="@color/white"
         android:textSize="50sp" />
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
 </LinearLayout>

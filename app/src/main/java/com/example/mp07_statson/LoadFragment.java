@@ -46,8 +46,8 @@ public class LoadFragment extends BaseFragment {
         executor.execute(() -> {
             try {
                 //shimmer
-                shimmer.start(binding.shimmer);
-                shimmer.setDirection(Shimmer.ANIMATION_DIRECTION_LTR);
+//                shimmer.start(binding.shimmer);
+//                shimmer.setDirection(Shimmer.ANIMATION_DIRECTION_LTR);
 
                 SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
                 int defaultValue = getResources().getInteger(R.integer.min_saved_default);

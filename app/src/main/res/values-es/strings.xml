@@ -32,7 +32,6 @@
     <string name="rivales">Equipos rivales</string>
     <string name="anyadirjugador">Añadir Jugador</string>
     <string name="mi_equipo">Mi Equipo</string>
-    <string name="partidos">Partidos</string>
     <string name="siguiente">Siguiente</string>
     <string name="rosters">Plantilla</string>
     <string name="crear">Crear</string>
@@ -63,6 +62,10 @@
     <string name="crearcuernta">Crear cuenta</string>
     <string name="registrarse">Registrarse</string>
     <string name="seleccinaRival">Selecciona equipo rival para el partido:</string>
-    <string name="partidoos">Partidos</string>
+    <string name="partidos">Partidos</string>
     <string name="jugarasComoLocal">Jugarás como local o visitante?</string>
+    <string name="faltaR">Falta recibida</string>
+    <string name="faltaC">Falta cometida</string>
+    <string name="taponC">Tapón cometido</string>
+    <string name="taponR">Tapón recibido</string>
 </resources>

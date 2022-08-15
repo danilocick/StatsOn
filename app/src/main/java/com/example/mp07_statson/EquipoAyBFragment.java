@@ -17,7 +17,6 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 public class EquipoAyBFragment extends BaseFragment {
     private FragmentEquipoAyBBinding binding;
-
     private int locales, visitantes;
 
     @Override
